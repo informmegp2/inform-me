@@ -155,7 +155,6 @@
 		0E3FCB991C59E1920044CE7A = {
 			isa = PBXGroup;
 			children = (
-				0EE76CCA1C5A037C007C9D1E /* ObjCBridge.h */,
 				0EE76CC81C5A02CB007C9D1E /* EstimoteSDK.framework */,
 				0EE76CAB1C59FEBF007C9D1E /* Alamofire.xcodeproj */,
 				0E3FCBA41C59E1930044CE7A /* InformME */,
@@ -178,6 +177,7 @@
 		0E3FCBA41C59E1930044CE7A /* InformME */ = {
 			isa = PBXGroup;
 			children = (
+				0EE76CCA1C5A037C007C9D1E /* ObjCBridge.h */,
 				0E3FCBA51C59E1930044CE7A /* AppDelegate.swift */,
 				0E3FCBA71C59E1930044CE7A /* ViewController.swift */,
 				0E3FCBA91C59E1930044CE7A /* Main.storyboard */,
