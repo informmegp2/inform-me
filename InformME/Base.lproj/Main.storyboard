@@ -105,21 +105,8 @@
                                             <constraint firstItem="fTu-wG-Jv7" firstAttribute="centerY" secondItem="MMo-HJ-uDs" secondAttribute="centerY" id="haQ-Cj-xdh"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUQ-fS-ZYT">
-                                        <rect key="frame" x="0.0" y="387" width="600" height="96"/>
-                                        <color key="backgroundColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="تسجيل جديد">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                            <rect key="frame" x="0.0" y="456" width="400" height="118"/>
-                                        </variation>
-                                        <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                            <rect key="frame" x="0.0" y="649" width="800" height="151"/>
-                                        </variation>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01q-xN-ePs">
-                                        <rect key="frame" x="0.0" y="483" width="600" height="97"/>
+                                        <rect key="frame" x="0.0" y="387" width="600" height="96"/>
                                         <color key="backgroundColor" red="0.32156862749999998" green="0.13725490200000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="أدخل">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -131,10 +118,23 @@
                                             <rect key="frame" x="0.0" y="502" width="800" height="145"/>
                                         </variation>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUQ-fS-ZYT">
+                                        <rect key="frame" x="0.0" y="483" width="600" height="97"/>
+                                        <color key="backgroundColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="تسجيل جديد">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="456" width="400" height="118"/>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="649" width="800" height="151"/>
+                                        </variation>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="g89-1q-eFd" firstAttribute="height" secondItem="RTG-o5-lFT" secondAttribute="height" multiplier="10:30" id="9gv-3u-gAb"/>
-                                    <constraint firstItem="WUQ-fS-ZYT" firstAttribute="height" secondItem="01q-xN-ePs" secondAttribute="height" id="DYr-ho-LUs"/>
+                                    <constraint firstItem="WUQ-fS-ZYT" firstAttribute="height" secondItem="01q-xN-ePs" secondAttribute="height" constant="1" id="DYr-ho-LUs"/>
                                     <constraint firstItem="MMo-HJ-uDs" firstAttribute="height" secondItem="vEs-rq-j1q" secondAttribute="height" id="Eer-0v-bwF"/>
                                     <constraint firstItem="fTu-wG-Jv7" firstAttribute="height" secondItem="WUQ-fS-ZYT" secondAttribute="height" id="b9o-xg-Fkt"/>
                                 </constraints>
@@ -152,6 +152,159 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="341"/>
+        </scene>
+        <!--Signup View Controller-->
+        <scene sceneID="hxe-9P-eIo">
+            <objects>
+                <viewController id="8yb-fg-OUT" customClass="SignupViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LSM-sW-XO1"/>
+                        <viewControllerLayoutGuide type="bottom" id="3S6-x4-LIF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Vo-jZ-2L3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kzU-ZN-Wfr">
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0k-uA-mFs">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="193"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="PxH-GG-sok">
+                                                <rect key="frame" x="-293" y="-147" width="1186" height="487"/>
+                                                <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="PxH-GG-sok" secondAttribute="height" multiplier="100:41" id="guK-sT-qfc"/>
+                                                </constraints>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="-1" y="20" width="401" height="261"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                                    <rect key="frame" x="0.0" y="28" width="800" height="419"/>
+                                                </variation>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="التسجيل" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LI-KU-vPJ">
+                                                <rect key="frame" x="275" y="86" width="51" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="156" y="162" width="87" height="21"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                                    <rect key="frame" x="351" y="216" width="167" height="21"/>
+                                                </variation>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="0LI-KU-vPJ" firstAttribute="centerY" secondItem="C0k-uA-mFs" secondAttribute="centerY" id="2mJ-2g-tAK"/>
+                                            <constraint firstItem="PxH-GG-sok" firstAttribute="centerX" secondItem="C0k-uA-mFs" secondAttribute="centerX" id="7I2-sZ-slf"/>
+                                            <constraint firstItem="0LI-KU-vPJ" firstAttribute="centerX" secondItem="C0k-uA-mFs" secondAttribute="centerX" id="WYY-fT-Zgu"/>
+                                            <constraint firstItem="PxH-GG-sok" firstAttribute="centerY" secondItem="C0k-uA-mFs" secondAttribute="centerY" id="o71-u9-Tw4"/>
+                                        </constraints>
+                                    </view>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5mN-ig-ajq">
+                                        <rect key="frame" x="0.0" y="193" width="600" height="78"/>
+                                        <segments>
+                                            <segment title="زائر"/>
+                                            <segment title="منظم"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </segmentedControl>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="اسم المستخدم" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fF6-xv-fLn">
+                                        <rect key="frame" x="0.0" y="270" width="600" height="78"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="310" width="400" height="28"/>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="474" width="800" height="30"/>
+                                        </variation>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="البريد الإلكتروني" textAlignment="right" minimumFontSize="17" background="كلمة المرور" translatesAutoresizingMaskIntoConstraints="NO" id="Tka-AX-qeL">
+                                        <rect key="frame" x="0.0" y="348" width="600" height="77"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="280" width="400" height="30"/>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="445" width="800" height="30"/>
+                                        </variation>
+                                    </textField>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JUf-tP-laL">
+                                        <rect key="frame" x="0.0" y="425" width="600" height="78"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="كلمة المرور" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5sv-CB-kUL">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="78"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="0.0" y="310" width="400" height="28"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                                    <rect key="frame" x="0.0" y="474" width="800" height="30"/>
+                                                </variation>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLq-6T-hWk">
+                                                <rect key="frame" x="10" y="24" width="92" height="30"/>
+                                                <state key="normal" title="نسيت كلمة المرور؟"/>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="8" y="309" width="92" height="30"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                                    <rect key="frame" x="12" y="473" width="248" height="30"/>
+                                                </variation>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="VLq-6T-hWk" firstAttribute="leading" secondItem="5sv-CB-kUL" secondAttribute="leading" constant="10" id="36J-62-RdZ"/>
+                                            <constraint firstItem="5sv-CB-kUL" firstAttribute="height" secondItem="JUf-tP-laL" secondAttribute="height" id="ERB-5W-u8L"/>
+                                            <constraint firstItem="VLq-6T-hWk" firstAttribute="centerY" secondItem="5sv-CB-kUL" secondAttribute="centerY" id="FvR-Ro-h6L"/>
+                                            <constraint firstItem="5sv-CB-kUL" firstAttribute="centerY" secondItem="JUf-tP-laL" secondAttribute="centerY" id="aze-Ym-8c2"/>
+                                            <constraint firstItem="5sv-CB-kUL" firstAttribute="width" secondItem="JUf-tP-laL" secondAttribute="width" id="sXx-eh-MAj"/>
+                                            <constraint firstItem="5sv-CB-kUL" firstAttribute="centerX" secondItem="JUf-tP-laL" secondAttribute="centerX" id="tYD-Ij-Xof"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0R-sG-TfI">
+                                        <rect key="frame" x="0.0" y="503" width="600" height="77"/>
+                                        <color key="backgroundColor" red="0.32156862749999998" green="0.13725490200000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="سجل">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="338" width="400" height="117"/>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                            <rect key="frame" x="0.0" y="502" width="800" height="145"/>
+                                        </variation>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5mN-ig-ajq" firstAttribute="height" secondItem="JUf-tP-laL" secondAttribute="height" id="2hN-8f-rbT"/>
+                                    <constraint firstItem="fF6-xv-fLn" firstAttribute="height" secondItem="JUf-tP-laL" secondAttribute="height" id="E34-Le-rm2"/>
+                                    <constraint firstItem="JUf-tP-laL" firstAttribute="height" secondItem="Tka-AX-qeL" secondAttribute="height" id="IA0-ch-TE0"/>
+                                    <constraint firstItem="C0k-uA-mFs" firstAttribute="height" secondItem="kzU-ZN-Wfr" secondAttribute="height" multiplier="10:30" id="Ln9-No-N77"/>
+                                    <constraint firstItem="JUf-tP-laL" firstAttribute="height" secondItem="M0R-sG-TfI" secondAttribute="height" id="lxK-H6-uUv"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kzU-ZN-Wfr" firstAttribute="width" secondItem="2Vo-jZ-2L3" secondAttribute="width" id="PRs-rV-R52"/>
+                            <constraint firstItem="kzU-ZN-Wfr" firstAttribute="centerX" secondItem="2Vo-jZ-2L3" secondAttribute="centerX" id="hJU-f0-rSa"/>
+                            <constraint firstItem="kzU-ZN-Wfr" firstAttribute="top" secondItem="LSM-sW-XO1" secondAttribute="bottom" id="hbb-NO-zQ1"/>
+                            <constraint firstItem="3S6-x4-LIF" firstAttribute="top" secondItem="kzU-ZN-Wfr" secondAttribute="bottom" id="mtV-kv-qD1"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3qR-As-uer" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="808" y="13"/>
         </scene>
     </scenes>
     <resources>

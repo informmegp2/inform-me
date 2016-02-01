@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E104DE31C600CF70079C1A9 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E104DE21C600CF70079C1A9 /* SignupViewController.swift */; };
 		0E3FCBA61C59E1930044CE7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCBA51C59E1930044CE7A /* AppDelegate.swift */; };
 		0E3FCBA81C59E1930044CE7A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCBA71C59E1930044CE7A /* LoginViewController.swift */; };
 		0E3FCBAB1C59E1930044CE7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3FCBA91C59E1930044CE7A /* Main.storyboard */; };
@@ -107,6 +108,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0E104DE21C600CF70079C1A9 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		0E3FCBA21C59E1930044CE7A /* InformME.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InformME.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E3FCBA51C59E1930044CE7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E3FCBA71C59E1930044CE7A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				0EE76CCA1C5A037C007C9D1E /* ObjCBridge.h */,
 				0E3FCBA51C59E1930044CE7A /* AppDelegate.swift */,
 				0E3FCBA71C59E1930044CE7A /* LoginViewController.swift */,
+				0E104DE21C600CF70079C1A9 /* SignupViewController.swift */,
 				0E3FCBA91C59E1930044CE7A /* Main.storyboard */,
 				0E3FCBAC1C59E1930044CE7A /* Assets.xcassets */,
 				0E3FCBAE1C59E1930044CE7A /* LaunchScreen.storyboard */,
@@ -414,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E104DE31C600CF70079C1A9 /* SignupViewController.swift in Sources */,
 				0E3FCBA81C59E1930044CE7A /* LoginViewController.swift in Sources */,
 				0E3FCBA61C59E1930044CE7A /* AppDelegate.swift in Sources */,
 			);
