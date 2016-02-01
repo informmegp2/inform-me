@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 /*Hello : ) */
     override func viewDidLoad() {
         super.viewDidLoad()
