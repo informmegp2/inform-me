@@ -12,6 +12,8 @@ class SignupViewController: UIViewController {
     /*Hello : ) */
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //setup tint color for tha back button.
         }
     
     override func didReceiveMemoryWarning() {
