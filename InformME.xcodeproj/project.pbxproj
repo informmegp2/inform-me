@@ -150,7 +150,11 @@
 		0ECC04191C63C44400458C86 /* Attendee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attendee.swift; sourceTree = "<group>"; };
 		0EE76CAB1C59FEBF007C9D1E /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		0EE76CC81C5A02CB007C9D1E /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EstimoteSDK.framework; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		0EE76CCA1C5A037C007C9D1E /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
+=======
+		0EE76CCA1C5A037C007C9D1E /*  */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ""; sourceTree = "<group>"; };
+>>>>>>> 74e3cdb6042368d1a829fa0cb6af55360cb96fad
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,9 +209,13 @@
 		0E3FCBA41C59E1930044CE7A /* InformME */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				0EAE38CC1C6279F30082DAD2 /* Interfaces */,
 				0EAE38D31C627A120082DAD2 /* Classes */,
 				0EE76CCA1C5A037C007C9D1E /* ObjCBridge.h */,
+=======
+				0EE76CCA1C5A037C007C9D1E /*  */,
+>>>>>>> 74e3cdb6042368d1a829fa0cb6af55360cb96fad
 				0E3FCBA51C59E1930044CE7A /* AppDelegate.swift */,
 				0E3FCBB11C59E1930044CE7A /* Info.plist */,
 			);
