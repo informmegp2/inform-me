@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -117,6 +118,9 @@
                                         <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                             <rect key="frame" x="0.0" y="502" width="800" height="145"/>
                                         </variation>
+                                        <connections>
+                                            <segue destination="1jX-Uo-1vq" kind="show" id="08A-xD-KEt"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUQ-fS-ZYT">
                                         <rect key="frame" x="0.0" y="483" width="600" height="97"/>
@@ -314,10 +318,10 @@
             </objects>
             <point key="canvasLocation" x="808" y="13"/>
         </scene>
-        <!--Manage Events View Controller-->
+        <!--إدارة الأحداث-->
         <scene sceneID="rvF-Os-02l">
             <objects>
-                <viewController id="Snf-7h-yo5" customClass="ManageEventsViewController" sceneMemberID="viewController">
+                <viewController id="Snf-7h-yo5" customClass="ManageEventsViewController" customModule="InformME" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="avt-56-Jbo"/>
                         <viewControllerLayoutGuide type="bottom" id="Efl-EM-gJQ"/>
@@ -325,15 +329,79 @@
                     <view key="view" contentMode="scaleToFill" id="Sge-eq-lmW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ycg-f0-8cH">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="6fg-ma-IAO"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="إدارة الأحداث" id="fX5-fX-DhE">
+                                        <barButtonItem key="leftBarButtonItem" image="logoff" id="Iaa-jk-Udm">
+                                            <inset key="imageInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="plus" id="4dY-ZK-Z4u">
+                                            <inset key="imageInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fmz-f9-q8l">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="AY5-CO-r8c" customClass="EventTableCellViewController" customModule="InformME" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AY5-CO-r8c" id="suh-jn-CHp">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTK-Xu-OQj">
+                                                    <rect key="frame" x="279" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rx3-og-h03">
+                                                    <rect key="frame" x="15" y="4" width="29" height="36"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="7e6-ij-F9K"/>
+                                                    </constraints>
+                                                    <state key="normal" image="leftArrow"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="rx3-og-h03" firstAttribute="leading" secondItem="suh-jn-CHp" secondAttribute="leadingMargin" constant="7" id="gjJ-GE-tik"/>
+                                                <constraint firstItem="cTK-Xu-OQj" firstAttribute="centerX" secondItem="suh-jn-CHp" secondAttribute="centerX" id="o2J-Al-vKO"/>
+                                                <constraint firstItem="rx3-og-h03" firstAttribute="centerY" secondItem="suh-jn-CHp" secondAttribute="centerY" id="ubX-bR-F5T"/>
+                                                <constraint firstItem="cTK-Xu-OQj" firstAttribute="centerY" secondItem="suh-jn-CHp" secondAttribute="centerY" id="xH1-TV-EZX"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fmz-f9-q8l" firstAttribute="leading" secondItem="Sge-eq-lmW" secondAttribute="leadingMargin" constant="-20" id="3Rg-uo-D0q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fmz-f9-q8l" secondAttribute="trailing" constant="-20" id="AF5-dJ-q9c"/>
+                            <constraint firstItem="Ycg-f0-8cH" firstAttribute="top" secondItem="avt-56-Jbo" secondAttribute="bottom" id="Ijc-uc-eQM"/>
+                            <constraint firstItem="Efl-EM-gJQ" firstAttribute="top" secondItem="Fmz-f9-q8l" secondAttribute="bottom" id="TG9-LH-T60"/>
+                            <constraint firstItem="Ycg-f0-8cH" firstAttribute="leading" secondItem="Sge-eq-lmW" secondAttribute="leadingMargin" constant="-20" id="WVx-bX-G1z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ycg-f0-8cH" secondAttribute="trailing" constant="-20" id="WbR-dr-6gV"/>
+                            <constraint firstItem="Fmz-f9-q8l" firstAttribute="top" secondItem="Ycg-f0-8cH" secondAttribute="bottom" id="oZ3-Fg-rm5"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="eventMng" id="cuy-wA-rAi"/>
+                    <tabBarItem key="tabBarItem" title="إدارة الأحداث" image="events" id="cuy-wA-rAi">
+                        <inset key="imageInsets" minX="6" minY="6" maxX="6" maxY="6"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpb-rA-hg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1615" y="1037"/>
         </scene>
-        <!--Item-->
+        <!--إدارة بيكون-->
         <scene sceneID="od8-Qb-b5N">
             <objects>
                 <viewController id="pO8-Kb-4jP" customClass="ManageBeaconsViewController" sceneMemberID="viewController">
@@ -346,13 +414,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="beaconMng" id="Efa-fg-7jc" userLabel="Item 3"/>
+                    <tabBarItem key="tabBarItem" title="إدارة بيكون" image="ibeacon" id="Efa-fg-7jc" userLabel="إدارة بيكون">
+                        <inset key="imageInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSE-9W-pE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1615" y="1705"/>
         </scene>
-        <!--Item-->
+        <!--الملف الشخصي-->
         <scene sceneID="okb-QF-mM8">
             <objects>
                 <viewController id="NLk-JE-KiM" customClass="ProfileViewController" sceneMemberID="viewController">
@@ -365,16 +435,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="2ZM-gg-Pze" userLabel="Item 4"/>
+                    <tabBarItem key="tabBarItem" title="الملف الشخصي" image="delete" id="2ZM-gg-Pze" userLabel="الملف الشخصي">
+                        <inset key="imageInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7JE-s2-q1u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1615" y="2365"/>
         </scene>
-        <!--Item 1-->
+        <!--الرئيسية-->
         <scene sceneID="aqu-hv-ewe">
             <objects>
-                <viewController id="PsN-qj-TL8" customClass="OrganizerHomeViewController" sceneMemberID="viewController">
+                <viewController id="PsN-qj-TL8" customClass="OrganizerHomeViewController" customModule="current" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="466-jc-oiZ"/>
                         <viewControllerLayoutGuide type="bottom" id="mMA-Ze-Ldy"/>
@@ -382,9 +454,60 @@
                     <view key="view" contentMode="scaleToFill" id="QDQ-pR-gYC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dVS-1p-Pbw">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="kaM-62-3WD"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="الصفحة الرئيسية" id="kRe-Xl-Xkg">
+                                        <barButtonItem key="leftBarButtonItem" image="logoff" id="PGM-Zx-350">
+                                            <inset key="imageInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OY0-Pd-Vrh">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IQm-ne-RrY">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="162"/>
+                                        <state key="normal" image="eventMng">
+                                            <color key="titleColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kXz-bg-EgZ">
+                                        <rect key="frame" x="0.0" y="162" width="600" height="163"/>
+                                        <state key="normal" image="beaconMng"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJS-IJ-4vQ">
+                                        <rect key="frame" x="0.0" y="325" width="600" height="162"/>
+                                        <state key="normal" image="Profile">
+                                            <color key="titleColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="RJS-IJ-4vQ" firstAttribute="height" secondItem="kXz-bg-EgZ" secondAttribute="height" id="7tD-84-AGa"/>
+                                    <constraint firstItem="kXz-bg-EgZ" firstAttribute="height" secondItem="IQm-ne-RrY" secondAttribute="height" id="Dcg-8H-v2i"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OY0-Pd-Vrh" firstAttribute="top" secondItem="dVS-1p-Pbw" secondAttribute="bottom" id="0Ni-Pd-XXJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OY0-Pd-Vrh" secondAttribute="trailing" constant="-20" id="4yi-jB-K2E"/>
+                            <constraint firstItem="OY0-Pd-Vrh" firstAttribute="leading" secondItem="QDQ-pR-gYC" secondAttribute="leadingMargin" constant="-20" id="73X-Ug-ejH"/>
+                            <constraint firstItem="mMA-Ze-Ldy" firstAttribute="top" secondItem="OY0-Pd-Vrh" secondAttribute="bottom" id="B1Y-xN-3YX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dVS-1p-Pbw" secondAttribute="trailing" constant="-20" id="FyM-ld-yb8"/>
+                            <constraint firstItem="dVS-1p-Pbw" firstAttribute="top" secondItem="466-jc-oiZ" secondAttribute="bottom" id="llo-Qh-rIE"/>
+                            <constraint firstItem="dVS-1p-Pbw" firstAttribute="leading" secondItem="QDQ-pR-gYC" secondAttribute="leadingMargin" constant="-20" id="vk6-6o-vcX"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" image="home" id="vCK-Ve-Beb"/>
+                    <tabBarItem key="tabBarItem" title="الرئيسية" image="home" id="vCK-Ve-Beb">
+                        <inset key="imageInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gvb-An-npQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -412,11 +535,17 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Profile" width="525" height="174"/>
         <image name="background" width="750" height="486"/>
         <image name="beaconMng" width="525" height="174"/>
+        <image name="delete" width="44" height="44"/>
         <image name="eventMng" width="525" height="174"/>
+        <image name="events" width="55" height="56"/>
         <image name="home" width="56" height="46"/>
+        <image name="ibeacon" width="55" height="55"/>
         <image name="leftArrow" width="29" height="55"/>
+        <image name="logoff" width="51" height="58"/>
+        <image name="plus" width="55" height="55"/>
         <image name="كلمة المرور" width="16" height="16"/>
     </resources>
 </document>

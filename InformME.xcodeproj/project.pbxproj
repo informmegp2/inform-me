@@ -35,6 +35,7 @@
 		0EF156B81C64C24C004BE735 /* OrganizerHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF156B71C64C24C004BE735 /* OrganizerHomeViewController.swift */; };
 		0EF156BA1C64C262004BE735 /* ManageEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF156B91C64C262004BE735 /* ManageEventsViewController.swift */; };
 		0EF156BC1C64C276004BE735 /* ManageBeaconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF156BB1C64C276004BE735 /* ManageBeaconsViewController.swift */; };
+		0EF156BE1C64FBF4004BE735 /* EventTableCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF156BD1C64FBF4004BE735 /* EventTableCellViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,7 @@
 		0EF156B71C64C24C004BE735 /* OrganizerHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizerHomeViewController.swift; sourceTree = "<group>"; };
 		0EF156B91C64C262004BE735 /* ManageEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageEventsViewController.swift; sourceTree = "<group>"; };
 		0EF156BB1C64C276004BE735 /* ManageBeaconsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageBeaconsViewController.swift; sourceTree = "<group>"; };
+		0EF156BD1C64FBF4004BE735 /* EventTableCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableCellViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,6 +254,7 @@
 				0EF156B71C64C24C004BE735 /* OrganizerHomeViewController.swift */,
 				0EF156B91C64C262004BE735 /* ManageEventsViewController.swift */,
 				0EF156BB1C64C276004BE735 /* ManageBeaconsViewController.swift */,
+				0EF156BD1C64FBF4004BE735 /* EventTableCellViewController.swift */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				0ECC04101C63BC0800458C86 /* Dislike.swift in Sources */,
 				0ECC04141C63C30400458C86 /* SocialMedia.swift in Sources */,
 				0ECC040C1C63B8F400458C86 /* Comment.swift in Sources */,
+				0EF156BE1C64FBF4004BE735 /* EventTableCellViewController.swift in Sources */,
 				0ECC04061C63B01A00458C86 /* Report.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
