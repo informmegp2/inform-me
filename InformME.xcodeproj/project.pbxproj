@@ -31,6 +31,10 @@
 		0EE76CC31C59FFA5007C9D1E /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE76CB61C59FEBF007C9D1E /* Alamofire.framework */; };
 		0EE76CC41C59FFA5007C9D1E /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE76CB61C59FEBF007C9D1E /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0EE76CC91C5A02CC007C9D1E /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE76CC81C5A02CB007C9D1E /* EstimoteSDK.framework */; };
+		0EF156B01C64C229004BE735 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF156AF1C64C229004BE735 /* ProfileViewController.swift */; };
+		0EF156B81C64C24C004BE735 /* OrganizerHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF156B71C64C24C004BE735 /* OrganizerHomeViewController.swift */; };
+		0EF156BA1C64C262004BE735 /* ManageEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF156B91C64C262004BE735 /* ManageEventsViewController.swift */; };
+		0EF156BC1C64C276004BE735 /* ManageBeaconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF156BB1C64C276004BE735 /* ManageBeaconsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,7 +155,10 @@
 		0EE76CAB1C59FEBF007C9D1E /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		0EE76CC81C5A02CB007C9D1E /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EstimoteSDK.framework; sourceTree = "<group>"; };
 		0EE76CCA1C5A037C007C9D1E /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
-
+		0EF156AF1C64C229004BE735 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		0EF156B71C64C24C004BE735 /* OrganizerHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizerHomeViewController.swift; sourceTree = "<group>"; };
+		0EF156B91C64C262004BE735 /* ManageEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageEventsViewController.swift; sourceTree = "<group>"; };
+		0EF156BB1C64C276004BE735 /* ManageBeaconsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageBeaconsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,7 +217,7 @@
 				0EAE38D31C627A120082DAD2 /* Classes */,
 				0EE76CCA1C5A037C007C9D1E /* ObjCBridge.h */,
 				0E3FCBA51C59E1930044CE7A /* AppDelegate.swift */,
-			 	0E3FCBB11C59E1930044CE7A /* Info.plist */,
+				0E3FCBB11C59E1930044CE7A /* Info.plist */,
 			);
 			path = InformME;
 			sourceTree = "<group>";
@@ -241,6 +248,10 @@
 				0E3FCBA71C59E1930044CE7A /* LoginViewController.swift */,
 				0E104DE21C600CF70079C1A9 /* SignupViewController.swift */,
 				0E3FCBA91C59E1930044CE7A /* Main.storyboard */,
+				0EF156AF1C64C229004BE735 /* ProfileViewController.swift */,
+				0EF156B71C64C24C004BE735 /* OrganizerHomeViewController.swift */,
+				0EF156B91C64C262004BE735 /* ManageEventsViewController.swift */,
+				0EF156BB1C64C276004BE735 /* ManageBeaconsViewController.swift */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -480,11 +491,15 @@
 				0ECC04161C63C36400458C86 /* Profile.swift in Sources */,
 				0ECC03FE1C63ACFE00458C86 /* Authentication.swift in Sources */,
 				0ECC04181C63C3FC00458C86 /* EventOrganizer.swift in Sources */,
+				0EF156B01C64C229004BE735 /* ProfileViewController.swift in Sources */,
 				0ECC040E1C63BAF300458C86 /* Like.swift in Sources */,
+				0EF156BA1C64C262004BE735 /* ManageEventsViewController.swift in Sources */,
 				0ECC04121C63BC3E00458C86 /* Favoritelist.swift in Sources */,
 				0ECC04081C63B06400458C86 /* Beacon.swift in Sources */,
 				0ECC040A1C63B76C00458C86 /* Content.swift in Sources */,
+				0EF156BC1C64C276004BE735 /* ManageBeaconsViewController.swift in Sources */,
 				0E3FCBA61C59E1930044CE7A /* AppDelegate.swift in Sources */,
+				0EF156B81C64C24C004BE735 /* OrganizerHomeViewController.swift in Sources */,
 				0ECC04101C63BC0800458C86 /* Dislike.swift in Sources */,
 				0ECC04141C63C30400458C86 /* SocialMedia.swift in Sources */,
 				0ECC040C1C63B8F400458C86 /* Comment.swift in Sources */,
