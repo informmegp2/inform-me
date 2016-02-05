@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+@objc protocol EventCellDelegate: class {
+    func showEventDetails()
+}
 class EventTableCellViewController: UITableViewCell {
-    
+    var delegate:EventCellDelegate?
+
 }
