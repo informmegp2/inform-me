@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E104DE31C600CF70079C1A9 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E104DE21C600CF70079C1A9 /* SignupViewController.swift */; };
+		0E1D8F121C66019A00D840D4 /* BeaconTableCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D8F111C66019A00D840D4 /* BeaconTableCellViewController.swift */; };
 		0E3FCBA61C59E1930044CE7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCBA51C59E1930044CE7A /* AppDelegate.swift */; };
 		0E3FCBA81C59E1930044CE7A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCBA71C59E1930044CE7A /* LoginViewController.swift */; };
 		0E3FCBAB1C59E1930044CE7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3FCBA91C59E1930044CE7A /* Main.storyboard */; };
@@ -128,6 +129,7 @@
 
 /* Begin PBXFileReference section */
 		0E104DE21C600CF70079C1A9 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		0E1D8F111C66019A00D840D4 /* BeaconTableCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTableCellViewController.swift; sourceTree = "<group>"; };
 		0E3FCBA21C59E1930044CE7A /* InformME.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InformME.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E3FCBA51C59E1930044CE7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E3FCBA71C59E1930044CE7A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				0EF156B91C64C262004BE735 /* ManageEventsViewController.swift */,
 				0EF156BB1C64C276004BE735 /* ManageBeaconsViewController.swift */,
 				0EF156BD1C64FBF4004BE735 /* EventTableCellViewController.swift */,
+				0E1D8F111C66019A00D840D4 /* BeaconTableCellViewController.swift */,
 				56EAA4671C66038300B8C249 /* AddBeaconViewController.swift */,
 			);
 			name = Interfaces;
@@ -506,6 +509,7 @@
 				0ECC040A1C63B76C00458C86 /* Content.swift in Sources */,
 				0EF156BC1C64C276004BE735 /* ManageBeaconsViewController.swift in Sources */,
 				0E3FCBA61C59E1930044CE7A /* AppDelegate.swift in Sources */,
+				0E1D8F121C66019A00D840D4 /* BeaconTableCellViewController.swift in Sources */,
 				0EF156B81C64C24C004BE735 /* OrganizerHomeViewController.swift in Sources */,
 				0ECC04101C63BC0800458C86 /* Dislike.swift in Sources */,
 				0ECC04141C63C30400458C86 /* SocialMedia.swift in Sources */,

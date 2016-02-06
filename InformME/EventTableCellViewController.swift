@@ -14,5 +14,6 @@ import UIKit
 }
 class EventTableCellViewController: UITableViewCell {
     var delegate:EventCellDelegate?
+    var event: Event = Event()
 
 }
