@@ -11,6 +11,7 @@ import Foundation
 import UIKit
 
 class ManageBeaconsViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, BeaconCellDelegate  {
+   
     /*Hello : ) */
     override func viewDidLoad() {
         super.viewDidLoad()

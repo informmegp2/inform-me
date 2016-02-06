@@ -13,11 +13,10 @@ class Beacon {
     var Minor: Int?
     
     func addBeacon(label: String,major: Int,minor: Int) {
-    
         let MYURL = NSURL(string:"http://bemyeyes.co/API/beacon/AddBeacon.php")
         let request = NSMutableURLRequest(URL:MYURL!)
-        
         request.HTTPMethod = "POST";
+        
         
         //Change UserID"
         

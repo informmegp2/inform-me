@@ -10,10 +10,11 @@ import UIKit
 
 class AddBeaconViewController: UIViewController, UITableViewDelegate {
     
+   
     @IBOutlet weak var Label: UITextField!
-    @IBOutlet weak var Major: UITextField!
-    @IBOutlet weak var Minor: UITextField!
     
+    @IBOutlet weak var Minor: UITextField!
+    @IBOutlet weak var Major: UITextField!
     @IBOutlet weak var beaconText: UILabel!
     
     //var llabel:String?
@@ -47,15 +48,9 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-   
-        
-            
-        }
+           }
     
  
-    
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
