@@ -12,11 +12,65 @@ import UIKit
 
 class ManageEventsViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, EventCellDelegate {
     /*Hello : ) */
+    
+    @IBOutlet var tableView: UITableView!
+   var values:NSMutableArray = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        get();
+       tableView.reloadData()
         
         //setup tint color for tha back button.
     }
+    func get(){
+        let uid=1
+        /*let url = NSURL(string: "http://bemyeyes.co/API/event/retrieveEvents.php")
+        let data = NSData(contentsOfURL: url!)
+        values = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+        print(String(data))
+        tableView.reloadData()*/
+        
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/event/retrieveEvents.php")!)
+        request.HTTPMethod = "POST"
+        let postString = "uid=\(uid)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if let urlContent = data {
+                
+                do {
+                    
+                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
+                    
+                    for var x=0; x<jsonResult.count;x++ {
+                        
+                        
+                        
+                        self.values.addObject(jsonResult[x]["EventName"] as! String)
+                        print(self.values[x])
+                    }
+                    self.tableView.reloadData()
+                    
+                } catch {
+                    
+                    print("JSON serialization failed")
+                    
+                }
+                
+                
+            }
+            
+            
+        }
+        task.resume()
+        print("hi");
+        
+        
+        tableView.reloadData()    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -26,21 +80,20 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
     // MARK: --- Table Functions ---
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as! EventTableCellViewController
-       
-            // if self.retrievedEvents != nil && self.retrievedEvents?.count >= indexPath.row
-        //{
-            //let event = self.events![indexPath.row]
-            cell.delegate = self
-            //cell.eventName.text = anEvent.Name
-       // }
+        
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as! EventTableCellViewController
+        let maindata = self.values[indexPath.row]
+        cell.name.text = maindata as? String
+        
         return cell
+
 
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // TODO: this number should be changed to the actual number of recieved events.
-        return 10;
+          return values.count;
     }
     
     // MARK: --- Go Event Page ---

@@ -16,4 +16,5 @@ class EventTableCellViewController: UITableViewCell {
     var delegate:EventCellDelegate?
     var event: Event = Event()
 
+    @IBOutlet var name: UILabel!
 }
