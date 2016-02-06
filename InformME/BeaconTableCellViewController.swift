@@ -13,7 +13,7 @@ import UIKit
     func updateBeacon()
 }
 class BeaconTableCellViewController: UITableViewCell {
-    var delegate:EventCellDelegate?
-    var event: Event = Event()
+    var delegate:BeaconCellDelegate?
+    var beacon: Beacon = Beacon()
     
 }

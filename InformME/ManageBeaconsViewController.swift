@@ -10,7 +10,7 @@ import Foundation
 
 import UIKit
 
-class ManageBeaconsViewController: UIViewController , UITableViewDataSource, UITableViewDelegate  {
+class ManageBeaconsViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, BeaconCellDelegate  {
     /*Hello : ) */
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class ManageBeaconsViewController: UIViewController , UITableViewDataSource, UIT
     // MARK: --- Table Functions ---
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("beaconCell", forIndexPath: indexPath) as! BeaconTableCellViewController
+        let cell = tableView.dequeueReusableCellWithIdentifier("beaconCell", forIndexPath: indexPath) as! BeaconTableCellViewController
         
         // if self.retrievedEvents != nil && self.retrievedEvents?.count >= indexPath.row
         //{
@@ -44,6 +44,14 @@ class ManageBeaconsViewController: UIViewController , UITableViewDataSource, UIT
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TODO: this number should be changed to the actual number of recieved events.
         return 10;
+    }
+    
+    func deleteBeacon() {
+    //   code
+    }
+    
+    func updateBeacon() {
+     //   code
     }
 
 }

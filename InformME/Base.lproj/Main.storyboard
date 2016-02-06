@@ -388,14 +388,12 @@
                             <constraint firstAttribute="trailingMargin" secondItem="Fmz-f9-q8l" secondAttribute="trailing" constant="-20" id="AF5-dJ-q9c"/>
                             <constraint firstItem="Ycg-f0-8cH" firstAttribute="top" secondItem="avt-56-Jbo" secondAttribute="bottom" id="Ijc-uc-eQM"/>
                             <constraint firstItem="Efl-EM-gJQ" firstAttribute="top" secondItem="Fmz-f9-q8l" secondAttribute="bottom" id="TG9-LH-T60"/>
-                            <constraint firstItem="Ycg-f0-8cH" firstAttribute="leading" secondItem="Sge-eq-lmW" secondAttribute="leadingMargin" constant="-20" id="WVx-bX-G1z"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ycg-f0-8cH" secondAttribute="trailing" constant="-20" id="WbR-dr-6gV"/>
+                            <constraint firstItem="Ycg-f0-8cH" firstAttribute="leading" secondItem="Sge-eq-lmW" secondAttribute="leading" id="WVx-bX-G1z"/>
+                            <constraint firstAttribute="trailing" secondItem="Ycg-f0-8cH" secondAttribute="trailing" id="WbR-dr-6gV"/>
                             <constraint firstItem="Fmz-f9-q8l" firstAttribute="top" secondItem="Ycg-f0-8cH" secondAttribute="bottom" id="oZ3-Fg-rm5"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="إدارة الأحداث" image="events" id="cuy-wA-rAi">
-                        <inset key="imageInsets" minX="6" minY="6" maxX="6" maxY="6"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="إدارة الأحداث" image="events" id="cuy-wA-rAi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpb-rA-hg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -414,9 +412,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="إدارة بيكون" image="ibeacon" id="Efa-fg-7jc" userLabel="إدارة بيكون">
-                        <inset key="imageInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="إدارة بيكون" image="ibeacon" id="Efa-fg-7jc" userLabel="إدارة بيكون"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSE-9W-pE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -435,9 +431,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="الملف الشخصي" image="delete" id="2ZM-gg-Pze" userLabel="الملف الشخصي">
-                        <inset key="imageInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="الملف الشخصي" image="delete" id="2ZM-gg-Pze" userLabel="الملف الشخصي"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7JE-s2-q1u" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -505,9 +499,7 @@
                             <constraint firstItem="dVS-1p-Pbw" firstAttribute="leading" secondItem="QDQ-pR-gYC" secondAttribute="leadingMargin" constant="-20" id="vk6-6o-vcX"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="الرئيسية" image="home" id="vCK-Ve-Beb">
-                        <inset key="imageInsets" minX="4" minY="4" maxX="4" maxY="4"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="الرئيسية" image="home" id="vCK-Ve-Beb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gvb-An-npQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -521,6 +513,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        <color key="selectedImageTintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="PsN-qj-TL8" kind="relationship" relationship="viewControllers" id="va7-3e-q5s"/>
@@ -548,4 +543,5 @@
         <image name="plus" width="55" height="55"/>
         <image name="كلمة المرور" width="16" height="16"/>
     </resources>
+    <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>
