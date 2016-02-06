@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Alamofire
+
 
 class LoginViewController: UIViewController {
 /*Hello : ) */
@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         print("Hi")
         // Do any additional setup after loading the view, typically from a nib.
-        Alamofire.request(.GET, "http://bemyeyes.co/Service.php")
+      /*  Alamofire.request(.GET, "http://bemyeyes.co/Service.php")
             .responseJSON { response in
                 print(response.request)  // original URL request
                 print(response.response) // URL response
@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
                 if let JSON = response.result.value {
                     print("JSON: \(JSON)")
                 }
-        }
+        }*/
     }
 
     override func didReceiveMemoryWarning() {
