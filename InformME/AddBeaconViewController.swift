@@ -16,16 +16,18 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var beaconText: UILabel!
     
-    var llabel:String?
-    var major:Int?
-    var minor:Int?
+    //var llabel:String?
+    //var major:Int?
+    //var minor:Int?
     var cellContent = [String]()
     var numRow:Int?
 
-    @IBAction func submit(sender: AnyObject) {
-       minor = Int(Minor.text!)
-       llabel = Label.text!
-       major = Int(Major.text!)
+   
+    @IBAction func Submit(sender: AnyObject) {
+    
+       var minor = Int(Minor.text!)
+       var llabel = Label.text!
+      var  major = Int(Major.text!)
        
         if (Minor.text == "" || Major.text == "" || llabel == "") {
             let alert = UIAlertController(title: "", message: " يرجى إكمال كافة الحقول", preferredStyle: UIAlertControllerStyle.Alert)
@@ -39,7 +41,8 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate {
             self.presentViewController(alert, animated: true, completion: nil)
         }
         else {
-            AddBeacon (llabel!, Major :major!, Minor:minor!)}
+            var b : Beacon = Beacon()
+            b.addBeacon (llabel, major: major!, minor:minor!)}
       
     }
     override func viewDidLoad() {
@@ -49,38 +52,7 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate {
             
         }
     
-    
-    
-    func AddBeacon(Label:String , Major:Int , Minor:Int){
-
-        let MYURL = NSURL(string:"http://bemyeyes.co/API/beacon/AddBeacon.php")
-        let request = NSMutableURLRequest(URL:MYURL!)
-     
-        request.HTTPMethod = "POST";
-        
-        //Change UserID"
-        
-        let postString = "Label="+llabel!+"&Major=+ \(Major)&Minor=+ \(Minor)&UserID=1"
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            
-            if error != nil
-            {
-                print("error=\(error)")
-                return
-            }
-            
-            // You can print out response object
-            print("response = \(response)")
-            
-            
-            
-        }
-        
-        task.resume()
-    }
+ 
     
 
 
