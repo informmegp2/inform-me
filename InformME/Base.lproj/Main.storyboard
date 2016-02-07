@@ -60,8 +60,17 @@
                                             <constraint firstItem="izX-00-3nl" firstAttribute="centerY" secondItem="g89-1q-eFd" secondAttribute="centerY" id="qH7-Qg-6Lv"/>
                                         </constraints>
                                     </view>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yrq-I2-325">
+                                        <rect key="frame" x="0.0" y="193" width="600" height="79"/>
+                                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <segments>
+                                            <segment title="زائر"/>
+                                            <segment title="منظم"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </segmentedControl>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="البريد الإلكتروني" textAlignment="right" minimumFontSize="17" background="كلمة المرور" translatesAutoresizingMaskIntoConstraints="NO" id="vEs-rq-j1q">
-                                        <rect key="frame" x="0.0" y="193" width="600" height="97"/>
+                                        <rect key="frame" x="0.0" y="271" width="600" height="77"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -72,10 +81,10 @@
                                         </variation>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMo-HJ-uDs">
-                                        <rect key="frame" x="0.0" y="290" width="600" height="97"/>
+                                        <rect key="frame" x="0.0" y="348" width="600" height="78"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="كلمة المرور" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTu-wG-Jv7">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="97"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="78"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -86,7 +95,7 @@
                                                 </variation>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeJ-TD-KNT">
-                                                <rect key="frame" x="10" y="33" width="92" height="30"/>
+                                                <rect key="frame" x="10" y="24" width="92" height="30"/>
                                                 <state key="normal" title="نسيت كلمة المرور؟"/>
                                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                                     <rect key="frame" x="8" y="309" width="92" height="30"/>
@@ -107,7 +116,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01q-xN-ePs">
-                                        <rect key="frame" x="0.0" y="387" width="600" height="96"/>
+                                        <rect key="frame" x="0.0" y="426" width="600" height="76"/>
                                         <color key="backgroundColor" red="0.32156862749999998" green="0.13725490200000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="أدخل">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -123,7 +132,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUQ-fS-ZYT">
-                                        <rect key="frame" x="0.0" y="483" width="600" height="97"/>
+                                        <rect key="frame" x="0.0" y="502" width="600" height="78"/>
                                         <color key="backgroundColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="تسجيل جديد">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -137,6 +146,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="yrq-I2-325" firstAttribute="height" secondItem="vEs-rq-j1q" secondAttribute="height" id="2na-jD-3wa"/>
                                     <constraint firstItem="g89-1q-eFd" firstAttribute="height" secondItem="RTG-o5-lFT" secondAttribute="height" multiplier="10:30" id="9gv-3u-gAb"/>
                                     <constraint firstItem="WUQ-fS-ZYT" firstAttribute="height" secondItem="01q-xN-ePs" secondAttribute="height" constant="1" id="DYr-ho-LUs"/>
                                     <constraint firstItem="MMo-HJ-uDs" firstAttribute="height" secondItem="vEs-rq-j1q" secondAttribute="height" id="Eer-0v-bwF"/>
@@ -219,6 +229,7 @@
                                     </view>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5mN-ig-ajq">
                                         <rect key="frame" x="0.0" y="200" width="600" height="81"/>
+                                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <segments>
                                             <segment title="زائر"/>
                                             <segment title="منظم"/>
@@ -374,16 +385,9 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyc-JD-40M">
                                                     <rect key="frame" x="538" y="11" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rx3-og-h03">
-                                                    <rect key="frame" x="15" y="9" width="19" height="23"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="36" id="7e6-ij-F9K"/>
-                                                    </constraints>
-                                                    <state key="normal" image="leftArrow"/>
-                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -438,30 +442,99 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="اسم الحدث" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tTt-8w-Uhd">
-                                <rect key="frame" x="66" y="193" width="290" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="الموقع الالكتروني" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uyv-sC-Y1u">
-                                <rect key="frame" x="66" y="249" width="290" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="URL"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="تاريخ الحدث" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yT2-TO-TDo">
-                                <rect key="frame" x="66" y="299" width="290" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5io-Su-CDa">
-                                <rect key="frame" x="188" y="399" width="46" height="30"/>
-                                <state key="normal" title="حفظ"/>
-                                <connections>
-                                    <action selector="save:" destination="T0p-rt-bTp" eventType="touchUpInside" id="66j-sB-Vqq"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RgK-n5-UrE">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mrs-Cm-Xg0">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="ykL-Ap-HIE">
+                                                <rect key="frame" x="-292" y="-143" width="1184" height="486"/>
+                                                <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="ykL-Ap-HIE" secondAttribute="height" multiplier="100:41" constant="-1.8048780487804379" id="ZXb-em-QTJ"/>
+                                                </constraints>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="-1" y="20" width="401" height="261"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                                    <rect key="frame" x="0.0" y="28" width="800" height="419"/>
+                                                </variation>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="إضافة حدث" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7S-ew-lOE">
+                                                <rect key="frame" x="265" y="172" width="70" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="156" y="162" width="87" height="21"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                                    <rect key="frame" x="351" y="216" width="167" height="21"/>
+                                                </variation>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_image" translatesAutoresizingMaskIntoConstraints="NO" id="9Vo-g1-mER">
+                                                <rect key="frame" x="190" y="33" width="220" height="134"/>
+                                            </imageView>
+                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UE9-65-NUl">
+                                                <rect key="frame" x="20" y="20" width="29" height="55"/>
+                                                <state key="normal" image="leftArrow"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="9Vo-g1-mER" firstAttribute="centerX" secondItem="Mrs-Cm-Xg0" secondAttribute="centerX" id="3s8-mE-7Vf"/>
+                                            <constraint firstItem="9Vo-g1-mER" firstAttribute="height" secondItem="Mrs-Cm-Xg0" secondAttribute="height" multiplier="20:30" id="9Ah-2a-qe7"/>
+                                            <constraint firstItem="ykL-Ap-HIE" firstAttribute="centerX" secondItem="Mrs-Cm-Xg0" secondAttribute="centerX" id="AT4-yK-MCa"/>
+                                            <constraint firstItem="UE9-65-NUl" firstAttribute="top" secondItem="Mrs-Cm-Xg0" secondAttribute="top" constant="20" id="B12-vs-JsY"/>
+                                            <constraint firstItem="Q7S-ew-lOE" firstAttribute="centerX" secondItem="Mrs-Cm-Xg0" secondAttribute="centerX" id="FtF-hd-9zv"/>
+                                            <constraint firstItem="UE9-65-NUl" firstAttribute="leading" secondItem="Mrs-Cm-Xg0" secondAttribute="leading" constant="20" id="Gxe-RL-9Ev"/>
+                                            <constraint firstItem="Q7S-ew-lOE" firstAttribute="top" secondItem="9Vo-g1-mER" secondAttribute="bottom" constant="5" id="MV1-vG-Wbh"/>
+                                            <constraint firstItem="ykL-Ap-HIE" firstAttribute="centerY" secondItem="Mrs-Cm-Xg0" secondAttribute="centerY" id="a1v-iA-r5j"/>
+                                            <constraint firstItem="9Vo-g1-mER" firstAttribute="centerY" secondItem="Mrs-Cm-Xg0" secondAttribute="centerY" id="kIb-Yl-voM"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="اسم الحدث" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tTt-8w-Uhd">
+                                        <rect key="frame" x="0.0" y="200" width="600" height="100"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="الموقع الالكتروني" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uyv-sC-Y1u">
+                                        <rect key="frame" x="0.0" y="300" width="600" height="100"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="تاريخ الحدث" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yT2-TO-TDo">
+                                        <rect key="frame" x="0.0" y="400" width="600" height="100"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5io-Su-CDa">
+                                        <rect key="frame" x="0.0" y="500" width="600" height="100"/>
+                                        <color key="backgroundColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="حفظ">
+                                            <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="save:" destination="T0p-rt-bTp" eventType="touchUpInside" id="66j-sB-Vqq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Uyv-sC-Y1u" firstAttribute="height" secondItem="yT2-TO-TDo" secondAttribute="height" id="D8c-D0-5pp"/>
+                                    <constraint firstItem="Mrs-Cm-Xg0" firstAttribute="height" secondItem="RgK-n5-UrE" secondAttribute="height" multiplier="10:30" id="INc-VA-7ln"/>
+                                    <constraint firstItem="tTt-8w-Uhd" firstAttribute="height" secondItem="Uyv-sC-Y1u" secondAttribute="height" id="rJL-GB-aTz"/>
+                                    <constraint firstItem="yT2-TO-TDo" firstAttribute="height" secondItem="5io-Su-CDa" secondAttribute="height" id="ze1-0N-F9Q"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RgK-n5-UrE" firstAttribute="height" secondItem="cyn-DE-LMX" secondAttribute="height" id="5kb-JD-z7p"/>
+                            <constraint firstItem="RgK-n5-UrE" firstAttribute="width" secondItem="cyn-DE-LMX" secondAttribute="width" id="j4G-am-dml"/>
+                            <constraint firstItem="RgK-n5-UrE" firstAttribute="centerY" secondItem="cyn-DE-LMX" secondAttribute="centerY" id="rsH-gw-fJw"/>
+                            <constraint firstItem="RgK-n5-UrE" firstAttribute="centerX" secondItem="cyn-DE-LMX" secondAttribute="centerX" id="vap-vp-fPW"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="EventDate" destination="yT2-TO-TDo" id="SO4-ML-zC3"/>
@@ -471,7 +544,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWU-XX-SJ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2337" y="734"/>
+            <point key="canvasLocation" x="2290" y="1037"/>
         </scene>
         <!--إدارة بيكون-->
         <scene sceneID="od8-Qb-b5N">
@@ -498,6 +571,9 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="plus" id="4dY-ZK-Z4u">
                                             <inset key="imageInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                                            <connections>
+                                                <segue destination="CFc-gN-5Iw" kind="show" id="Y41-wr-VPn"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -712,6 +788,113 @@
             </objects>
             <point key="canvasLocation" x="795" y="699"/>
         </scene>
+        <!-- إضافة بيكون-->
+        <scene sceneID="Rnq-OT-7cx">
+            <objects>
+                <viewController title=" إضافة بيكون" id="CFc-gN-5Iw" customClass="AddBeaconViewController" customModule="InformME" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TMn-UD-hho"/>
+                        <viewControllerLayoutGuide type="bottom" id="RQg-Wf-qde"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z5c-Vh-ayJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fh4-vQ-6gJ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9i-4k-J0i">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="z4Q-GJ-5VX">
+                                                <rect key="frame" x="-292" y="-143" width="1184" height="486"/>
+                                                <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="z4Q-GJ-5VX" secondAttribute="height" multiplier="100:41" constant="-1.8048780487804379" id="nOl-9o-kaF"/>
+                                                </constraints>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="-1" y="20" width="401" height="261"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                                    <rect key="frame" x="0.0" y="28" width="800" height="419"/>
+                                                </variation>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="إضافة بيكون" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihA-m2-Fy0">
+                                                <rect key="frame" x="262" y="90" width="76" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="156" y="162" width="87" height="21"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                                    <rect key="frame" x="351" y="216" width="167" height="21"/>
+                                                </variation>
+                                            </label>
+                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMI-ub-7Ad">
+                                                <rect key="frame" x="20" y="20" width="29" height="55"/>
+                                                <state key="normal" image="leftArrow"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="z4Q-GJ-5VX" firstAttribute="centerY" secondItem="h9i-4k-J0i" secondAttribute="centerY" id="9x4-xO-tRg"/>
+                                            <constraint firstItem="BMI-ub-7Ad" firstAttribute="top" secondItem="h9i-4k-J0i" secondAttribute="top" constant="20" id="J4Z-hW-5nP"/>
+                                            <constraint firstItem="ihA-m2-Fy0" firstAttribute="centerY" secondItem="h9i-4k-J0i" secondAttribute="centerY" id="Ww5-Wi-QjM"/>
+                                            <constraint firstItem="BMI-ub-7Ad" firstAttribute="leading" secondItem="h9i-4k-J0i" secondAttribute="leading" constant="20" id="jBJ-mY-OW7"/>
+                                            <constraint firstItem="z4Q-GJ-5VX" firstAttribute="centerX" secondItem="h9i-4k-J0i" secondAttribute="centerX" id="oqL-QD-k6q"/>
+                                            <constraint firstItem="ihA-m2-Fy0" firstAttribute="centerX" secondItem="h9i-4k-J0i" secondAttribute="centerX" id="pVr-16-Inu"/>
+                                        </constraints>
+                                    </view>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ملصق البيكون" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTr-jn-qFR">
+                                        <rect key="frame" x="0.0" y="200" width="600" height="100"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="القيمة الأساسية" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xc8-KD-gAz">
+                                        <rect key="frame" x="0.0" y="300" width="600" height="100"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="القيمة الثانوية" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lGo-KM-GlL">
+                                        <rect key="frame" x="0.0" y="400" width="600" height="100"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fwz-BU-tgi">
+                                        <rect key="frame" x="0.0" y="500" width="600" height="100"/>
+                                        <color key="backgroundColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="حفظ">
+                                            <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="h9i-4k-J0i" firstAttribute="height" secondItem="Fh4-vQ-6gJ" secondAttribute="height" multiplier="10:30" id="4h7-O7-eWo"/>
+                                    <constraint firstItem="lTr-jn-qFR" firstAttribute="height" secondItem="Xc8-KD-gAz" secondAttribute="height" id="rCb-hO-FyH"/>
+                                    <constraint firstItem="lGo-KM-GlL" firstAttribute="height" secondItem="fwz-BU-tgi" secondAttribute="height" id="sFV-4Z-RQO"/>
+                                    <constraint firstItem="Xc8-KD-gAz" firstAttribute="height" secondItem="lGo-KM-GlL" secondAttribute="height" id="uJr-dQ-mb3"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fh4-vQ-6gJ" firstAttribute="width" secondItem="Z5c-Vh-ayJ" secondAttribute="width" id="FKn-tP-GzJ"/>
+                            <constraint firstItem="Fh4-vQ-6gJ" firstAttribute="centerY" secondItem="Z5c-Vh-ayJ" secondAttribute="centerY" id="Zyh-yI-hMg"/>
+                            <constraint firstItem="Fh4-vQ-6gJ" firstAttribute="centerX" secondItem="Z5c-Vh-ayJ" secondAttribute="centerX" id="vn7-dR-EOG"/>
+                            <constraint firstItem="Fh4-vQ-6gJ" firstAttribute="height" secondItem="Z5c-Vh-ayJ" secondAttribute="height" id="yGs-pi-bX6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="Label" destination="lTr-jn-qFR" id="bGS-0j-fZl"/>
+                        <outlet property="Major" destination="Xc8-KD-gAz" id="eaL-gn-c6L"/>
+                        <outlet property="Minor" destination="lGo-KM-GlL" id="K8Q-qU-EBG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mBS-YZ-2x7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2290" y="1711"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Profile" width="525" height="174"/>
@@ -725,6 +908,7 @@
         <image name="leftArrow" width="29" height="55"/>
         <image name="logoff" width="51" height="58"/>
         <image name="plus" width="55" height="55"/>
+        <image name="profile_image" width="220" height="220"/>
         <image name="كلمة المرور" width="16" height="16"/>
     </resources>
     <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
