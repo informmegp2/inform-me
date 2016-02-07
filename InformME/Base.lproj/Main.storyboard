@@ -342,6 +342,9 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="plus" id="4dY-ZK-Z4u">
                                             <inset key="imageInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                                            <connections>
+                                                <segue destination="T0p-rt-bTp" kind="show" id="Zvi-zc-J2B"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -367,7 +370,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTK-Xu-OQj">
                                                     <rect key="frame" x="249" y="7" width="124" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -408,6 +411,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpb-rA-hg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1615" y="1037"/>
+        </scene>
+        <!-- إضافة حدث-->
+        <scene sceneID="GCI-Rb-ytb">
+            <objects>
+                <viewController title=" إضافة حدث" id="T0p-rt-bTp" customClass="AddEventViewController" customModule="InformME" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dIT-cy-8Qn"/>
+                        <viewControllerLayoutGuide type="bottom" id="375-Ev-dRk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cyn-DE-LMX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="اسم الحدث" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tTt-8w-Uhd">
+                                <rect key="frame" x="66" y="193" width="290" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="الموقع الالكتروني" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uyv-sC-Y1u">
+                                <rect key="frame" x="66" y="249" width="290" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="تاريخ الحدث" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yT2-TO-TDo">
+                                <rect key="frame" x="66" y="299" width="290" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5io-Su-CDa">
+                                <rect key="frame" x="188" y="399" width="46" height="30"/>
+                                <state key="normal" title="حفظ"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WWU-XX-SJ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2337" y="734"/>
         </scene>
         <!--إدارة بيكون-->
         <scene sceneID="od8-Qb-b5N">
