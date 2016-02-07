@@ -52,7 +52,11 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
                         self.values.addObject(jsonResult[x]["EventName"] as! String)
                         print(self.values[x])
                     }
-                    self.tableView.reloadData()
+                    dispatch_async(dispatch_get_main_queue())
+                        {
+                            
+                            self.tableView.reloadData()
+                    }
                     
                 } catch {
                     

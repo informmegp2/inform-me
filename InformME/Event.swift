@@ -76,7 +76,43 @@ class Event {
     func ViewContent(ContentID: Int){}
     func RequestContent(label: String){}
     func requestToAddEvent(){}
-    func AddEvent(event: Event){}
+    
+    
+    func AddEvent(name: String,web: String,date: String){
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/event/addEvent.php")
+        let request = NSMutableURLRequest(URL:MYURL!)
+        request.HTTPMethod = "POST";
+        
+        
+        //Change UserID"
+        
+        let postString = "evName="+name+"&evWebsite="+web+"&evDate="+date+"&uid=1"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+            // You can print out response object
+            print("response = \(response)")
+            
+            
+            
+        }
+        
+        task.resume()
+    
+    
+    }
+    
+    
+    
+    
     func requestTodeleteEvent(){}
     func DeleteEvent(){}
     func requestToUpdateEvent(){}

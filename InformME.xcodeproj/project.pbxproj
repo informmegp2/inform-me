@@ -37,6 +37,7 @@
 		0EF156BC1C64C276004BE735 /* ManageBeaconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF156BB1C64C276004BE735 /* ManageBeaconsViewController.swift */; };
 		0EF156BE1C64FBF4004BE735 /* EventTableCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF156BD1C64FBF4004BE735 /* EventTableCellViewController.swift */; };
 		56EAA4681C66038300B8C249 /* AddBeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EAA4671C66038300B8C249 /* AddBeaconViewController.swift */; };
+		9594124D1C677E28000D23E3 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594124C1C677E28000D23E3 /* AddEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		0EF156BB1C64C276004BE735 /* ManageBeaconsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageBeaconsViewController.swift; sourceTree = "<group>"; };
 		0EF156BD1C64FBF4004BE735 /* EventTableCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableCellViewController.swift; sourceTree = "<group>"; };
 		56EAA4671C66038300B8C249 /* AddBeaconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeaconViewController.swift; sourceTree = "<group>"; };
+		9594124C1C677E28000D23E3 /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddEventViewController.swift; path = ../AddEventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				0E3FCBAC1C59E1930044CE7A /* Assets.xcassets */,
+				9594124C1C677E28000D23E3 /* AddEventViewController.swift */,
 				0E3FCBAE1C59E1930044CE7A /* LaunchScreen.storyboard */,
 				0E3FCBA71C59E1930044CE7A /* LoginViewController.swift */,
 				0E104DE21C600CF70079C1A9 /* SignupViewController.swift */,
@@ -365,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EAE38D51C62A2B00082DAD2 /* Event.swift in Sources */,
+				9594124D1C677E28000D23E3 /* AddEventViewController.swift in Sources */,
 				0E104DE31C600CF70079C1A9 /* SignupViewController.swift in Sources */,
 				0E3FCBA81C59E1930044CE7A /* LoginViewController.swift in Sources */,
 				0ECC041A1C63C44400458C86 /* Attendee.swift in Sources */,
