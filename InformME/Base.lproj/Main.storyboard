@@ -442,10 +442,18 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5io-Su-CDa">
                                 <rect key="frame" x="188" y="399" width="46" height="30"/>
                                 <state key="normal" title="حفظ"/>
+                                <connections>
+                                    <action selector="save:" destination="T0p-rt-bTp" eventType="touchUpInside" id="66j-sB-Vqq"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="EventDate" destination="yT2-TO-TDo" id="SO4-ML-zC3"/>
+                        <outlet property="EventName" destination="tTt-8w-Uhd" id="X9A-JT-9Gw"/>
+                        <outlet property="EventWebsite" destination="Uyv-sC-Y1u" id="Q5P-w0-sxT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWU-XX-SJ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

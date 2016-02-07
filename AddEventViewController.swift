@@ -10,6 +10,9 @@ import UIKit
 
 class AddEventViewController: UIViewController {
 
+    @IBOutlet var EventDate: UITextField!
+    @IBOutlet var EventWebsite: UITextField!
+    @IBOutlet var EventName: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +25,28 @@ class AddEventViewController: UIViewController {
     }
     
 
+   
+    @IBAction func save(sender: AnyObject) {
+        var name = EventName.text!
+        var website = EventWebsite.text!
+        var  date = EventDate.text!
+        
+        if (EventName.text == "" || EventDate.text == "") {
+            let alert = UIAlertController(title: "", message: " يرجى إكمال كافة الحقول", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+                
+                self.dismissViewControllerAnimated(true, completion: nil)
+                
+            }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        else {
+            var e : Event = Event()
+            e.AddEvent (name, web: website, date: date)}
+        
+    }
     /*
     // MARK: - Navigation
 
