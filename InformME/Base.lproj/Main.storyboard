@@ -360,19 +360,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rx3-og-h03">
-                                                    <rect key="frame" x="15" y="4" width="29" height="36"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="36" id="7e6-ij-F9K"/>
-                                                    </constraints>
-                                                    <state key="normal" image="leftArrow"/>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTK-Xu-OQj">
                                                     <rect key="frame" x="249" y="7" width="124" height="27.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rx3-og-h03">
+                                                    <rect key="frame" x="15" y="9" width="19" height="23"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="7e6-ij-F9K"/>
+                                                    </constraints>
+                                                    <state key="normal" image="leftArrow"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="rx3-og-h03" firstAttribute="leading" secondItem="suh-jn-CHp" secondAttribute="leadingMargin" constant="7" id="gjJ-GE-tik"/>
