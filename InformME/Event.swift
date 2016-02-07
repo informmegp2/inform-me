@@ -86,7 +86,7 @@ class Event {
         
         //Change UserID"
         
-        let postString = "evName="+name+"&evWebsite="+web+"&evDate="+date+"&UserID=1"
+        let postString = "evName="+name+"&evWebsite="+web+"&evDate="+date+"&uid=1"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
