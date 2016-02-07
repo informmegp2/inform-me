@@ -8,12 +8,21 @@
 
 import UIKit
 
+extension UILabel {
+    
+    var substituteFontName : String {
+        get { return self.font.fontName }
+        set { self.font = UIFont(name: newValue, size: self.font.pointSize) }
+    }
+    
+}
 // 1. Add the ESTBeaconManagerDelegate protocol
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate  {
     
     var window: UIWindow?
-    
+    var barPurple = UIColor(red: (96/255.0), green: (17/255.0), blue: (143/255.0), alpha: 1.0)
+
     // 2. Add a property to hold the beacon manager and instantiate it
     let beaconManager = ESTBeaconManager()
     
@@ -23,9 +32,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         // add this below:
         self.beaconManager.requestAlwaysAuthorization()
         
+        //Coloring navigationbar 
+        UILabel.appearance().substituteFontName = "JFFlat-Regular"
+        UINavigationBar.appearance().barTintColor = barPurple
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().setTitleVerticalPositionAdjustment(0.0, forBarMetrics: UIBarMetrics.Default)
+        UINavigationBar.appearance().translucent = false
+        let titleDict: NSDictionary = [NSFontAttributeName: UIFont(name: "JFFlat-Regular", size: 19)! , NSForegroundColorAttributeName: UIColor.whiteColor()]
+        UINavigationBar.appearance().titleTextAttributes = titleDict as? [String : AnyObject]
         return true
     }
-    
+
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

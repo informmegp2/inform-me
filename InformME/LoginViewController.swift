@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Hi")
+        
         // Do any additional setup after loading the view, typically from a nib.
       /*  Alamofire.request(.GET, "http://bemyeyes.co/Service.php")
             .responseJSON { response in

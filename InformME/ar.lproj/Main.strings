@@ -1,0 +1,63 @@
+
+/* Class = "UIButton"; normalTitle = "أدخل"; ObjectID = "01q-xN-ePs"; */
+"01q-xN-ePs.normalTitle" = "أدخل";
+
+/* Class = "UILabel"; text = "التسجيل"; ObjectID = "0LI-KU-vPJ"; */
+"0LI-KU-vPJ.text" = "التسجيل";
+
+/* Class = "UITabBarItem"; title = "الملف الشخصي"; ObjectID = "2ZM-gg-Pze"; */
+"2ZM-gg-Pze.title" = "الملف الشخصي";
+
+/* Class = "UISegmentedControl"; 5mN-ig-ajq.segmentTitles[0] = "زائر"; ObjectID = "5mN-ig-ajq"; */
+"5mN-ig-ajq.segmentTitles[0]" = "زائر";
+
+/* Class = "UISegmentedControl"; 5mN-ig-ajq.segmentTitles[1] = "منظم"; ObjectID = "5mN-ig-ajq"; */
+"5mN-ig-ajq.segmentTitles[1]" = "منظم";
+
+/* Class = "UITextField"; placeholder = "كلمة المرور"; ObjectID = "5sv-CB-kUL"; */
+"5sv-CB-kUL.placeholder" = "كلمة المرور";
+
+/* Class = "UIButton"; normalTitle = "نسيت كلمة المرور؟"; ObjectID = "BeJ-TD-KNT"; */
+"BeJ-TD-KNT.normalTitle" = "نسيت كلمة المرور؟";
+
+/* Class = "UITabBarItem"; title = "إدارة بيكون"; ObjectID = "Efa-fg-7jc"; */
+"Efa-fg-7jc.title" = "إدارة بيكون";
+
+/* Class = "UIButton"; normalTitle = "سجل"; ObjectID = "M0R-sG-TfI"; */
+"M0R-sG-TfI.normalTitle" = "سجل";
+
+/* Class = "UITextField"; placeholder = "البريد الإلكتروني"; ObjectID = "Tka-AX-qeL"; */
+"Tka-AX-qeL.placeholder" = "البريد الإلكتروني";
+
+/* Class = "UIButton"; normalTitle = "نسيت كلمة المرور؟"; ObjectID = "VLq-6T-hWk"; */
+"VLq-6T-hWk.normalTitle" = "نسيت كلمة المرور؟";
+
+/* Class = "UIButton"; normalTitle = "تسجيل جديد"; ObjectID = "WUQ-fS-ZYT"; */
+"WUQ-fS-ZYT.normalTitle" = "تسجيل جديد";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cTK-Xu-OQj"; */
+"cTK-Xu-OQj.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "إدارة الأحداث"; ObjectID = "cuy-wA-rAi"; */
+"cuy-wA-rAi.title" = "إدارة الأحداث";
+
+/* Class = "UITextField"; placeholder = "اسم المستخدم"; ObjectID = "fF6-xv-fLn"; */
+"fF6-xv-fLn.placeholder" = "اسم المستخدم";
+
+/* Class = "UITextField"; placeholder = "كلمة المرور"; ObjectID = "fTu-wG-Jv7"; */
+"fTu-wG-Jv7.placeholder" = "كلمة المرور";
+
+/* Class = "UINavigationItem"; title = "إدارة الأحداث"; ObjectID = "fX5-fX-DhE"; */
+"fX5-fX-DhE.title" = "إدارة الأحداث";
+
+/* Class = "UILabel"; text = "تسجيل الدخول"; ObjectID = "izX-00-3nl"; */
+"izX-00-3nl.text" = "تسجيل الدخول";
+
+/* Class = "UINavigationItem"; title = "الصفحة الرئيسية"; ObjectID = "kRe-Xl-Xkg"; */
+"kRe-Xl-Xkg.title" = "الصفحة الرئيسية";
+
+/* Class = "UITabBarItem"; title = "الرئيسية"; ObjectID = "vCK-Ve-Beb"; */
+"vCK-Ve-Beb.title" = "الرئيسية";
+
+/* Class = "UITextField"; placeholder = "البريد الإلكتروني"; ObjectID = "vEs-rq-j1q"; */
+"vEs-rq-j1q.placeholder" = "البريد الإلكتروني";

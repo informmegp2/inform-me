@@ -16,6 +16,7 @@
 		0E3FCBB01C59E1930044CE7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3FCBAE1C59E1930044CE7A /* LaunchScreen.storyboard */; };
 		0E3FCBBB1C59E1930044CE7A /* InformMETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCBBA1C59E1930044CE7A /* InformMETests.swift */; };
 		0E3FCBC61C59E1930044CE7A /* InformMEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCBC51C59E1930044CE7A /* InformMEUITests.swift */; };
+		0E91C6AD1C67BFA900BD736B /* JF_Flat_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E91C6AC1C67BFA900BD736B /* JF_Flat_regular.ttf */; };
 		0EAE38D51C62A2B00082DAD2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAE38D41C62A2B00082DAD2 /* Event.swift */; };
 		0ECC03FE1C63ACFE00458C86 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECC03FD1C63ACFE00458C86 /* Authentication.swift */; };
 		0ECC04061C63B01A00458C86 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECC04051C63B01A00458C86 /* Report.swift */; };
@@ -71,6 +72,8 @@
 /* Begin PBXFileReference section */
 		0E104DE21C600CF70079C1A9 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		0E1D8F111C66019A00D840D4 /* BeaconTableCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTableCellViewController.swift; sourceTree = "<group>"; };
+		0E30A57A1C67A2CB0033AFCE /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		0E30A57B1C67A2CB0033AFCE /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
 		0E3FCBA21C59E1930044CE7A /* InformME.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InformME.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E3FCBA51C59E1930044CE7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E3FCBA71C59E1930044CE7A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +87,7 @@
 		0E3FCBC11C59E1930044CE7A /* InformMEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InformMEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E3FCBC51C59E1930044CE7A /* InformMEUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformMEUITests.swift; sourceTree = "<group>"; };
 		0E3FCBC71C59E1930044CE7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E91C6AC1C67BFA900BD736B /* JF_Flat_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JF_Flat_regular.ttf; sourceTree = "<group>"; };
 		0EAE38D41C62A2B00082DAD2 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0ECC03FD1C63ACFE00458C86 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		0ECC04051C63B01A00458C86 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
@@ -136,6 +140,7 @@
 		0E3FCB991C59E1920044CE7A = {
 			isa = PBXGroup;
 			children = (
+				0E91C6AC1C67BFA900BD736B /* JF_Flat_regular.ttf */,
 				0EE76CC81C5A02CB007C9D1E /* EstimoteSDK.framework */,
 				0E3FCBA41C59E1930044CE7A /* InformME */,
 				0E3FCBB91C59E1930044CE7A /* InformMETests */,
@@ -331,6 +336,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E91C6AD1C67BFA900BD736B /* JF_Flat_regular.ttf in Resources */,
 				0E3FCBB01C59E1930044CE7A /* LaunchScreen.storyboard in Resources */,
 				0E3FCBAD1C59E1930044CE7A /* Assets.xcassets in Resources */,
 				0E3FCBAB1C59E1930044CE7A /* Main.storyboard in Resources */,
@@ -420,6 +426,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0E3FCBAA1C59E1930044CE7A /* Base */,
+				0E30A57B1C67A2CB0033AFCE /* ar */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -428,6 +435,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0E3FCBAF1C59E1930044CE7A /* Base */,
+				0E30A57A1C67A2CB0033AFCE /* ar */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

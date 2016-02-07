@@ -43,5 +43,11 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>JF_Flat_regular.ttf</string>
+	</array>
 </dict>
 </plist>
