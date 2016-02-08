@@ -26,7 +26,6 @@ class Beacon {
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
         
-        
         //Change UserID"
         
         let postString = "Label="+label+"&Major="+major+"&Minor="+minor+"&UserID=1"

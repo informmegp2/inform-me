@@ -10,7 +10,7 @@ import Foundation
 
 import UIKit
 
-class ManageBeaconsViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, BeaconCellDelegate  {
+class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, BeaconCellDelegate  {
     
     
     var values:NSMutableArray = []
@@ -42,10 +42,9 @@ class ManageBeaconsViewController: UIViewController , UITableViewDataSource, UIT
                     
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
                     
-                   
                     
                     for var x=0; x<jsonResult.count;x++ {
-                         var beacon: Beacon = Beacon()
+                        var beacon: Beacon = Beacon()
                         var l : AnyObject = jsonResult[x]["Label"]as! String
                         var m : AnyObject = jsonResult[x]["Major"]as! String
                         var mi : AnyObject = jsonResult[x]["Minor"]as! String
@@ -109,10 +108,10 @@ class ManageBeaconsViewController: UIViewController , UITableViewDataSource, UIT
         //var maindata = values[indexPath.row].minor
         var b: Beacon = Beacon()
         b = self.values[indexPath.row] as! Beacon
-       
+        
         cell.name.text = b.Label+" \n القيمة الأساسية:"+b.Major+" ،القيمة الثانوية: "+b.Minor as? String
         
-       
+        
         
         return cell
         
@@ -136,15 +135,15 @@ class ManageBeaconsViewController: UIViewController , UITableViewDataSource, UIT
         return values.count;
     }
     
-
     
     
-     func deleteBeacon(label: String) {
+    
+    func deleteBeacon(label: String) {
         var b: Beacon = Beacon()
         b.deleteBeacon(label)
     }
     
-  /*  func updateBeacon() {
+    /*  func updateBeacon() {
     //   code
     }*/
     
