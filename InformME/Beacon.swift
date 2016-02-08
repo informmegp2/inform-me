@@ -9,9 +9,18 @@
 import Foundation
 class Beacon {
     var Label:  String = ""
-    var Major: Int?
-    var Minor: Int?
+    var Major: String = ""
+    var Minor: String = ""
     
+    var eventsName: Array<String> = []
+    func requesteventlist() {
+        
+        let parameters = [ "uid":1]
+        
+        
+        print(self.eventsName.count)
+    }
+
     func addBeacon(label: String,major: Int,minor: Int) {
         let MYURL = NSURL(string:"http://bemyeyes.co/API/beacon/AddBeacon.php")
         let request = NSMutableURLRequest(URL:MYURL!)
