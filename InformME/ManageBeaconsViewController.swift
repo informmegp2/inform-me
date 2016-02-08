@@ -10,7 +10,7 @@ import Foundation
 
 import UIKit
 
-class ManageBeaconsViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, BeaconCellDelegate  {
+class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, BeaconCellDelegate  {
     
     
     var values:NSMutableArray = []
@@ -42,10 +42,9 @@ class ManageBeaconsViewController: UIViewController , UITableViewDataSource, UIT
                     
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
                     
-                    var beacon: Beacon = Beacon()
                     
                     for var x=0; x<jsonResult.count;x++ {
-                        
+                        var beacon: Beacon = Beacon()
                         var l : AnyObject = jsonResult[x]["Label"]as! String
                         var m : AnyObject = jsonResult[x]["Major"]as! String
                         var mi : AnyObject = jsonResult[x]["Minor"]as! String
@@ -53,6 +52,7 @@ class ManageBeaconsViewController: UIViewController , UITableViewDataSource, UIT
                         beacon.Label=l as! String
                         beacon.Major=m as! String
                         beacon.Minor=mi as! String
+                        print (beacon.Label)
                         self.values.addObject(beacon)
                         
                         
@@ -108,12 +108,26 @@ class ManageBeaconsViewController: UIViewController , UITableViewDataSource, UIT
         //var maindata = values[indexPath.row].minor
         var b: Beacon = Beacon()
         b = self.values[indexPath.row] as! Beacon
-        print(b.Label)
-        cell.name.text = b.Label+"\n القيمة الأساسية:"+b.Major+" ،القيمة الثانوية: "+b.Minor as? String
+        
+        cell.name.text = b.Label+" \n القيمة الأساسية:"+b.Major+" ،القيمة الثانوية: "+b.Minor as? String
+        
+        
         
         return cell
         
         
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            var b: Beacon = Beacon()
+            b = self.values[indexPath.row] as! Beacon
+            values.removeObjectAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            deleteBeacon(b.Label)
+            
+            
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -121,17 +135,15 @@ class ManageBeaconsViewController: UIViewController , UITableViewDataSource, UIT
         return values.count;
     }
     
-    // MARK: --- Go Event Page ---
-    func showBeaconDetails() {
-        performSegueWithIdentifier("showBeaconDetails", sender: self)
+    
+    
+    
+    func deleteBeacon(label: String) {
+        var b: Beacon = Beacon()
+        b.deleteBeacon(label)
     }
     
-    
-    /* func deleteBeacon() {
-    //   code
-    }
-    
-    func updateBeacon() {
+    /*  func updateBeacon() {
     //   code
     }*/
     
