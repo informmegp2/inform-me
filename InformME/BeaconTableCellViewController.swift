@@ -9,11 +9,13 @@
 import Foundation
 import UIKit
 @objc protocol BeaconCellDelegate: class {
-    func deleteBeacon()
-    func updateBeacon()
+   // func deleteBeacon()
+    //func updateBeacon()
+    func showBeaconDetails()
 }
 class BeaconTableCellViewController: UITableViewCell {
     var delegate:BeaconCellDelegate?
     var beacon: Beacon = Beacon()
     
+    @IBOutlet var name: UILabel!
 }
