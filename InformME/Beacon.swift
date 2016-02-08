@@ -21,7 +21,7 @@ class Beacon {
         print(self.eventsName.count)
     }
 
-    func addBeacon(label: String,major: Int,minor: Int) {
+    func addBeacon(label: String,major: String,minor: String) {
         let MYURL = NSURL(string:"http://bemyeyes.co/API/beacon/AddBeacon.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
@@ -29,7 +29,7 @@ class Beacon {
         
         //Change UserID"
         
-        let postString = "Label="+Label+"&Major=+ \(Major)&Minor=+ \(Minor)&UserID=1"
+        let postString = "Label="+label+"&Major="+major+"&Minor="+minor+"&UserID=1"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {

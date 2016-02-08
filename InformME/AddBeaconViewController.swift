@@ -15,7 +15,6 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var Minor: UITextField!
     @IBOutlet weak var Major: UITextField!
-    @IBOutlet weak var beaconText: UILabel!
     
     //var llabel:String?
     //var major:Int?
@@ -26,9 +25,9 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate {
    
     @IBAction func Submit(sender: AnyObject) {
     
-       var minor = Int(Minor.text!)
+       var minor = Minor.text!
        var llabel = Label.text!
-      var  major = Int(Major.text!)
+      var  major = Major.text!
        
         if (Minor.text == "" || Major.text == "" || llabel == "") {
             let alert = UIAlertController(title: "", message: " يرجى إكمال كافة الحقول", preferredStyle: UIAlertControllerStyle.Alert)
@@ -43,7 +42,7 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate {
         }
         else {
             var b : Beacon = Beacon()
-            b.addBeacon (llabel, major: major!, minor:minor!)}
+            b.addBeacon (llabel, major: major, minor:minor)}
       
     }
     override func viewDidLoad() {
