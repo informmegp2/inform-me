@@ -8,14 +8,16 @@
 
 import UIKit
 
-class AddEventViewController: UIViewController {
+class AddEventViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var EventDate: UITextField!
     @IBOutlet var EventWebsite: UITextField!
     @IBOutlet var EventName: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        EventDate.delegate = self
+        EventWebsite.delegate = self
+        EventName.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -24,7 +26,10 @@ class AddEventViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
    
     @IBAction func save(sender: AnyObject) {
         var name = EventName.text!

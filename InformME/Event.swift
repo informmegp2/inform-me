@@ -20,47 +20,8 @@ class Event {
   var eventsName: Array<String> = []
     func requesteventlist() {
         
-        let parameters = [
-            
-            "uid":1]
-        
-       /* Alamofire.request(.POST, "http://bemyeyes.co/API/event/retrieveEvents.php", parameters: parameters)
-            
-            .responseJSON { response in
-                
-                
-                
-                
-                
-                print(response.request)  // original URL request
-                
-                print(response.response) // URL response
-                
-                print(response.data)     // server data
-                
-                print(response.result)   // result of response serialization
-                
-                
-                
-                if let JSON = response.result.value {
-                    
-                    print("JSON: \(JSON)")
-                    print(JSON.count)
-                    for var x=0; x<JSON.count;x++ {
-                        
-                        print(JSON[x]["EventName"] as! String)
-                        
-                        self.eventsName.append(JSON[x]["EventName"] as! String)
-                        print(self.eventsName.count)
-                    }
-                    
-                }
-                
-                
-                print("lLLllll")
-                
-        }*/
-        
+        let parameters = [ "uid":1]
+
         
         print(self.eventsName.count)
     }
