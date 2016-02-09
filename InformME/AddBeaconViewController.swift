@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddBeaconViewController: UIViewController, UITableViewDelegate {
+class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate {
     
     
     @IBOutlet weak var Label: UITextField!
@@ -46,8 +46,15 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        Minor.delegate = self
+        Major.delegate = self
+        Label.delegate = self
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
