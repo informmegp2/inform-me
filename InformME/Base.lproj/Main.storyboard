@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -381,6 +381,9 @@
                                                         <constraint firstAttribute="width" secondItem="aSE-9p-q61" secondAttribute="height" multiplier="11:20" id="qwd-8D-kcV"/>
                                                     </constraints>
                                                     <state key="normal" image="leftArrow"/>
+                                                    <connections>
+                                                        <segue destination="94A-EK-zqU" kind="show" id="nqB-fl-sns"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyc-JD-40M">
                                                     <rect key="frame" x="538" y="11" width="42" height="21"/>
@@ -547,10 +550,10 @@
             </objects>
             <point key="canvasLocation" x="2290" y="1037"/>
         </scene>
-        <!--View Controller-->
+        <!--Event Details View Controller-->
         <scene sceneID="dAJ-yH-7JM">
             <objects>
-                <viewController id="94A-EK-zqU" sceneMemberID="viewController">
+                <viewController id="94A-EK-zqU" customClass="EventDetailsViewController" customModule="InformME" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XqG-YM-Lg2"/>
                         <viewControllerLayoutGuide type="bottom" id="6Xd-ae-t7d"/>
@@ -598,8 +601,8 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBJ-nc-8RT">
-                                                <rect key="frame" x="279" y="31" width="42" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBJ-nc-8RT">
+                                                <rect key="frame" x="279" y="29" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -740,6 +743,11 @@
                             <constraint firstItem="1f2-ho-H8u" firstAttribute="centerY" secondItem="qm8-tD-s2U" secondAttribute="centerY" id="u29-VB-feY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="date" destination="h5R-qV-oGK" id="IA3-kR-1F7"/>
+                        <outlet property="name" destination="OWZ-sv-1EF" id="jwc-XU-h8M"/>
+                        <outlet property="website" destination="VBJ-nc-8RT" id="YZN-s7-Srb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F4L-BF-zKr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -777,7 +785,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fmz-f9-q8l">
+                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fmz-f9-q8l">
                                 <rect key="frame" x="0.0" y="80" width="600" height="520"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -1150,8 +1158,8 @@
         <image name="كلمة المرور" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="517-Dz-TZo"/>
         <segue reference="xGV-1e-XI2"/>
-        <segue reference="KVE-N5-Gkc"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

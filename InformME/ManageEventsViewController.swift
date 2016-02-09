@@ -15,6 +15,21 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
     
     @IBOutlet var tableView: UITableView!
    var values:NSMutableArray = []
+     var eventsID:NSMutableArray = []
+    var eID:Int = 1;
+   /* @IBAction func getEventDetails(sender: AnyObject) {
+        let pointInTable: CGPoint = sender.convertPoint(sender.bounds.origin, toView: self.tableView)
+        let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
+        print(cellIndexPath?.row)
+        print(values[(cellIndexPath?.row)!])
+        eID=(cellIndexPath?.row)!
+        let secondViewController:EventDetailsViewController = EventDetailsViewController()
+        secondViewController.viewDidLoad()
+    
+        
+        
+    }*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         get();
@@ -50,7 +65,9 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
                         
                         
                         self.values.addObject(jsonResult[x]["EventName"] as! String)
+                         self.eventsID.addObject(jsonResult[x]["EventID"] as! String)
                         print(self.values[x])
+                         print(self.eventsID[x])
                     }
                     dispatch_async(dispatch_get_main_queue())
                         {
@@ -103,5 +120,19 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
     // MARK: --- Go Event Page ---
     func showEventDetails() {
         performSegueWithIdentifier("showEventDetails", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        let pointInTable: CGPoint = sender.convertPoint(sender.bounds.origin, toView: self.tableView)
+        let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
+        print(cellIndexPath?.row)
+        print(values[(cellIndexPath?.row)!])
+        eID=Int(eventsID[(cellIndexPath?.row)!] as! String)!
+
+            //Checking identifier is crucial as there might be multiple
+            // segues attached to same view
+            var detailVC = segue!.destinationViewController as! EventDetailsViewController;
+            detailVC.evid = self.eID
+        
     }
 }
