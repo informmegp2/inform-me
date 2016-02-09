@@ -46,6 +46,10 @@
 		56EAA4681C66038300B8C249 /* AddBeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EAA4671C66038300B8C249 /* AddBeaconViewController.swift */; };
 		9566C8641C6A3F6B0067F1D7 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9566C8631C6A3F6B0067F1D7 /* EventDetailsViewController.swift */; };
 		9594124D1C677E28000D23E3 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594124C1C677E28000D23E3 /* AddEventViewController.swift */; };
+		F47D3EAB1C6A675400B9C4FC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47D3EAA1C6A675400B9C4FC /* CoreLocation.framework */; };
+		F47D3EAD1C6A676000B9C4FC /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47D3EAC1C6A676000B9C4FC /* CoreBluetooth.framework */; };
+		F47D3EAF1C6A676A00B9C4FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47D3EAE1C6A676A00B9C4FC /* Foundation.framework */; };
+		F47D3EB11C6A677500B9C4FC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47D3EB01C6A677500B9C4FC /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +131,10 @@
 		56EAA4671C66038300B8C249 /* AddBeaconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeaconViewController.swift; sourceTree = "<group>"; };
 		9566C8631C6A3F6B0067F1D7 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		9594124C1C677E28000D23E3 /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddEventViewController.swift; path = ../AddEventViewController.swift; sourceTree = "<group>"; };
+		F47D3EAA1C6A675400B9C4FC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F47D3EAC1C6A676000B9C4FC /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		F47D3EAE1C6A676A00B9C4FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F47D3EB01C6A677500B9C4FC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +142,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F47D3EB11C6A677500B9C4FC /* SystemConfiguration.framework in Frameworks */,
+				F47D3EAF1C6A676A00B9C4FC /* Foundation.framework in Frameworks */,
+				F47D3EAD1C6A676000B9C4FC /* CoreBluetooth.framework in Frameworks */,
+				F47D3EAB1C6A675400B9C4FC /* CoreLocation.framework in Frameworks */,
 				0EE76CC91C5A02CC007C9D1E /* EstimoteSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,6 +170,10 @@
 		0E3FCB991C59E1920044CE7A = {
 			isa = PBXGroup;
 			children = (
+				F47D3EB01C6A677500B9C4FC /* SystemConfiguration.framework */,
+				F47D3EAE1C6A676A00B9C4FC /* Foundation.framework */,
+				F47D3EAC1C6A676000B9C4FC /* CoreBluetooth.framework */,
+				F47D3EAA1C6A675400B9C4FC /* CoreLocation.framework */,
 				0E91C6AC1C67BFA900BD736B /* JF_Flat_regular.ttf */,
 				0EE76CC81C5A02CB007C9D1E /* EstimoteSDK.framework */,
 				0E3FCBA41C59E1930044CE7A /* InformME */,

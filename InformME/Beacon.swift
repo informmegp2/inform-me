@@ -79,7 +79,15 @@ class Beacon {
         
         task.resume()
 }
-    func MonitorBeacon() {}
+    func MonitorBeacon() {
+        //When the app starts the application will begin scanning for beacons
+        
+    }
+    
+   
+    
+    
     func BeaconNotification() {}
+    
 }
 
