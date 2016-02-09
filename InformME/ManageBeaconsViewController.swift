@@ -117,14 +117,36 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         
         
     }
-    
+    // Delete beacon
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
-            var b: Beacon = Beacon()
-            b = self.values[indexPath.row] as! Beacon
-            values.removeObjectAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-            deleteBeacon(b.Label)
+           /* var alertToDelete: UIAlertView = UIAlertView(title: "", message:  " هل أنت متأكد من الحذف " , delegate: <#T##UIAlertViewDelegate?#>, cancelButtonTitle: "نعم", otherButtonTitles: "لا")
+            alertToDelete.show()*/
+            
+            var alertController = UIAlertController(title: "", message: "هل أنت متأكد من الحذف", preferredStyle: .Alert)
+            
+            // Create the actions
+            var okAction = UIAlertAction(title: "نعم", style: UIAlertActionStyle.Default) {
+                UIAlertAction in
+                NSLog("OK Pressed")
+                var b: Beacon = Beacon()
+                b = self.values[indexPath.row] as! Beacon
+                self.values.removeObjectAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                self.deleteBeacon(b.Label)
+            }
+            var cancelAction = UIAlertAction(title: "لا", style: UIAlertActionStyle.Cancel) {
+                UIAlertAction in
+                NSLog("Cancel Pressed")
+            }
+            
+            // Add the actions
+            alertController.addAction(okAction)
+            alertController.addAction(cancelAction)
+            
+            // Present the controller
+            self.presentViewController(alertController, animated: true, completion: nil)
+           
             
             
         }
