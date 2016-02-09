@@ -120,8 +120,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     // Delete beacon
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
-           /* var alertToDelete: UIAlertView = UIAlertView(title: "", message:  " هل أنت متأكد من الحذف " , delegate: <#T##UIAlertViewDelegate?#>, cancelButtonTitle: "نعم", otherButtonTitles: "لا")
-            alertToDelete.show()*/
+
             
             var alertController = UIAlertController(title: "", message: "هل أنت متأكد من الحذف", preferredStyle: .Alert)
             
