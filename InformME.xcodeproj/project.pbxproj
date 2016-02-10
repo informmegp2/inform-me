@@ -46,6 +46,7 @@
 		56EAA4681C66038300B8C249 /* AddBeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EAA4671C66038300B8C249 /* AddBeaconViewController.swift */; };
 		9566C8641C6A3F6B0067F1D7 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9566C8631C6A3F6B0067F1D7 /* EventDetailsViewController.swift */; };
 		9594124D1C677E28000D23E3 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594124C1C677E28000D23E3 /* AddEventViewController.swift */; };
+		95DC64241C6AF71000D8EDB6 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC64231C6AF71000D8EDB6 /* EventDetailsViewController.swift */; };
 		F47D3EAB1C6A675400B9C4FC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47D3EAA1C6A675400B9C4FC /* CoreLocation.framework */; };
 		F47D3EAD1C6A676000B9C4FC /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47D3EAC1C6A676000B9C4FC /* CoreBluetooth.framework */; };
 		F47D3EAF1C6A676A00B9C4FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47D3EAE1C6A676A00B9C4FC /* Foundation.framework */; };
@@ -131,6 +132,7 @@
 		56EAA4671C66038300B8C249 /* AddBeaconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeaconViewController.swift; sourceTree = "<group>"; };
 		9566C8631C6A3F6B0067F1D7 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		9594124C1C677E28000D23E3 /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddEventViewController.swift; path = ../AddEventViewController.swift; sourceTree = "<group>"; };
+		95DC64231C6AF71000D8EDB6 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		F47D3EAA1C6A675400B9C4FC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F47D3EAC1C6A676000B9C4FC /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		F47D3EAE1C6A676A00B9C4FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -232,6 +234,7 @@
 				0E3FCBA71C59E1930044CE7A /* LoginViewController.swift */,
 				0E104DE21C600CF70079C1A9 /* SignupViewController.swift */,
 				0E3FCBA91C59E1930044CE7A /* Main.storyboard */,
+				95DC64231C6AF71000D8EDB6 /* EventDetailsViewController.swift */,
 				0EF156AF1C64C229004BE735 /* ProfileViewController.swift */,
 				0EF156B71C64C24C004BE735 /* OrganizerHomeViewController.swift */,
 				0EF156B91C64C262004BE735 /* ManageEventsViewController.swift */,
@@ -415,6 +418,7 @@
 				0ECC04161C63C36400458C86 /* Profile.swift in Sources */,
 				0E8BDFB61C6A41D3003364A5 /* UpdateEventViewController.swift in Sources */,
 				0E8BDFC01C6A5C16003364A5 /* FavoritelistViewController.swift in Sources */,
+				95DC64241C6AF71000D8EDB6 /* EventDetailsViewController.swift in Sources */,
 				0ECC03FE1C63ACFE00458C86 /* Authentication.swift in Sources */,
 				0ECC04181C63C3FC00458C86 /* EventOrganizer.swift in Sources */,
 				0EF156B01C64C229004BE735 /* ProfileViewController.swift in Sources */,
