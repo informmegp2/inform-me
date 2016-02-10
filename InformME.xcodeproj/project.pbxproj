@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E104DE31C600CF70079C1A9 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E104DE21C600CF70079C1A9 /* SignupViewController.swift */; };
 		0E1D8F121C66019A00D840D4 /* BeaconTableCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D8F111C66019A00D840D4 /* BeaconTableCellViewController.swift */; };
+		0E2D5E341C6B5679000B1F95 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC64231C6AF71000D8EDB6 /* EventDetailsViewController.swift */; };
 		0E3FCBA61C59E1930044CE7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCBA51C59E1930044CE7A /* AppDelegate.swift */; };
 		0E3FCBA81C59E1930044CE7A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCBA71C59E1930044CE7A /* LoginViewController.swift */; };
 		0E3FCBAB1C59E1930044CE7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3FCBA91C59E1930044CE7A /* Main.storyboard */; };
@@ -45,7 +46,6 @@
 		0EF156BE1C64FBF4004BE735 /* EventTableCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF156BD1C64FBF4004BE735 /* EventTableCellViewController.swift */; };
 		56EAA4681C66038300B8C249 /* AddBeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EAA4671C66038300B8C249 /* AddBeaconViewController.swift */; };
 		9594124D1C677E28000D23E3 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594124C1C677E28000D23E3 /* AddEventViewController.swift */; };
-		95DC64241C6AF71000D8EDB6 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC64231C6AF71000D8EDB6 /* EventDetailsViewController.swift */; };
 		F47D3EAB1C6A675400B9C4FC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47D3EAA1C6A675400B9C4FC /* CoreLocation.framework */; };
 		F47D3EAD1C6A676000B9C4FC /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47D3EAC1C6A676000B9C4FC /* CoreBluetooth.framework */; };
 		F47D3EAF1C6A676A00B9C4FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F47D3EAE1C6A676A00B9C4FC /* Foundation.framework */; };
@@ -411,6 +411,7 @@
 				9594124D1C677E28000D23E3 /* AddEventViewController.swift in Sources */,
 				0E8BDFBC1C6A5B99003364A5 /* AttendeeHomeViewController.swift in Sources */,
 				0E104DE31C600CF70079C1A9 /* SignupViewController.swift in Sources */,
+				0E2D5E341C6B5679000B1F95 /* EventDetailsViewController.swift in Sources */,
 				0E3FCBA81C59E1930044CE7A /* LoginViewController.swift in Sources */,
 				0ECC041A1C63C44400458C86 /* Attendee.swift in Sources */,
 				0ECC04161C63C36400458C86 /* Profile.swift in Sources */,
@@ -421,7 +422,6 @@
 				0EF156B01C64C229004BE735 /* ProfileViewController.swift in Sources */,
 				0ECC040E1C63BAF300458C86 /* Like.swift in Sources */,
 				0EF156BA1C64C262004BE735 /* ManageEventsViewController.swift in Sources */,
-				9566C8641C6A3F6B0067F1D7 /* EventDetailsViewController.swift in Sources */,
 				56EAA4681C66038300B8C249 /* AddBeaconViewController.swift in Sources */,
 				0ECC04121C63BC3E00458C86 /* Favoritelist.swift in Sources */,
 				0E8BDFC21C6A5C65003364A5 /* ContentTableCellViewController.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-class UpdateBeaconViewController: UIViewController {
+class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
     
     @IBOutlet weak var Label: UITextField!
     @IBOutlet weak var Minor: UITextField!
