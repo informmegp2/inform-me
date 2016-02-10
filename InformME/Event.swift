@@ -14,8 +14,9 @@ class Event {
     var name: String = ""
     var logo: UIImage?
     var website: String = ""
-    var date: NSDate?
+    var date: String=""
     var venue: String = ""
+    var id: Int=0
     var organizer: EventOrganizer = EventOrganizer()
   var eventsName: Array<String> = []
     func requesteventlist() {

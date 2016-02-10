@@ -16,19 +16,9 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
     @IBOutlet var tableView: UITableView!
    var values:NSMutableArray = []
      var eventsID:NSMutableArray = []
+    var eventsInfo:NSMutableArray=[]
     var eID:Int = 1;
-   /* @IBAction func getEventDetails(sender: AnyObject) {
-        let pointInTable: CGPoint = sender.convertPoint(sender.bounds.origin, toView: self.tableView)
-        let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
-        print(cellIndexPath?.row)
-        print(values[(cellIndexPath?.row)!])
-        eID=(cellIndexPath?.row)!
-        let secondViewController:EventDetailsViewController = EventDetailsViewController()
-        secondViewController.viewDidLoad()
-    
-        
-        
-    }*/
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,12 +29,6 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
     }
     func get(){
         let uid=1
-        /*let url = NSURL(string: "http://bemyeyes.co/API/event/retrieveEvents.php")
-        let data = NSData(contentsOfURL: url!)
-        values = try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
-        print(String(data))
-        tableView.reloadData()*/
-        
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/event/retrieveEvents.php")!)
         request.HTTPMethod = "POST"
@@ -62,6 +46,13 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
                     
                     for var x=0; x<jsonResult.count;x++ {
                         
+                        
+                        var e : Event = Event()
+                        e.date=jsonResult[x]["Date"] as! String
+                        e.name=jsonResult[x]["EventName"] as! String
+                        e.website=jsonResult[x]["Website"] as! String
+                       // e.id=jsonResult[x]["EventID"] as! String
+                      self.eventsInfo.addObject(e)
                         
                         
                         self.values.addObject(jsonResult[x]["EventName"] as! String)
@@ -122,17 +113,22 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
         performSegueWithIdentifier("showEventDetails", sender: self)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+   override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         let pointInTable: CGPoint = sender.convertPoint(sender.bounds.origin, toView: self.tableView)
         let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
         print(cellIndexPath?.row)
         print(values[(cellIndexPath?.row)!])
-        eID=Int(eventsID[(cellIndexPath?.row)!] as! String)!
-
+        var e : Event = Event()
+        e=eventsInfo[(cellIndexPath?.row)!] as! Event
+print(e.name)
             //Checking identifier is crucial as there might be multiple
             // segues attached to same view
             var detailVC = segue!.destinationViewController as! EventDetailsViewController;
-            detailVC.evid = self.eID
+           //detailVC.evid = e.id
+        detailVC.evname=e.name
+detailVC.evwebsite=e.website
+detailVC.evdate=e.date
+        
         
     }
 }
