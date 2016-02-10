@@ -33,12 +33,12 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
             
             alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
                 
-                self.dismissViewControllerAnimated(true, completion: nil)
+               // self.dismissViewControllerAnimated(true, completion: nil)
                 
             }))
             
             self.presentViewController(alert, animated: true, completion: nil)
-        }
+                   }
         else {
             var b : Beacon = Beacon()
             b.addBeacon (llabel, major: major,minor:minor)}

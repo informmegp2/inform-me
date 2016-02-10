@@ -16,6 +16,7 @@ extension UILabel {
     }
     
 }
+
 // 1. Add the ESTBeaconManagerDelegate protocol
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate  {
@@ -31,8 +32,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         self.beaconManager.delegate = self
         // add this below:
         self.beaconManager.requestAlwaysAuthorization()
+
+        //To show notifications
+        UIApplication.sharedApplication().registerUserNotificationSettings(
+            UIUserNotificationSettings(forTypes: .Alert, categories: nil))
         
-        //Coloring navigationbar 
+        //Coloring navigationbar
         UILabel.appearance().substituteFontName = "JFFlat-Regular"
         UINavigationBar.appearance().barTintColor = barPurple
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
