@@ -52,7 +52,6 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
                         beacon.Label=l as! String
                         beacon.Major=m as! String
                         beacon.Minor=mi as! String
-                        print (beacon.Label)
                         self.values.addObject(beacon)
                         
                         
@@ -72,9 +71,6 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
             
         }
         task.resume()
-        print("hi");
-        
-        
         tableView.reloadData()
     }
     
@@ -120,7 +116,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     // Delete beacon
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
-
+            
             
             var alertController = UIAlertController(title: "", message: "هل أنت متأكد من الحذف", preferredStyle: .Alert)
             
@@ -145,7 +141,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
             
             // Present the controller
             self.presentViewController(alertController, animated: true, completion: nil)
-           
+            
             
             
         }
