@@ -48,6 +48,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
             self.presentViewController(alert, animated: true, completion: nil)
         }
         else {
+            print(EventName.text)
             var e : Event = Event()
             e.AddEvent (name, web: website, date: date)}
         

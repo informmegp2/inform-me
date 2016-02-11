@@ -108,12 +108,15 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
           return values.count;
     }
     
+    
+   
     // MARK: --- Go Event Page ---
     func showEventDetails() {
         performSegueWithIdentifier("showEventDetails", sender: self)
     }
     
    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    if (segue.identifier == "showEventDetails") {
         let pointInTable: CGPoint = sender.convertPoint(sender.bounds.origin, toView: self.tableView)
         let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
         print(cellIndexPath?.row)
@@ -128,7 +131,7 @@ print(e.name)
         detailVC.evname=e.name
 detailVC.evwebsite=e.website
 detailVC.evdate=e.date
-        
-        
+    }
+    
     }
 }
