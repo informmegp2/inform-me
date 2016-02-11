@@ -55,6 +55,7 @@ class Beacon {
     func updateBeacon() {}
     func updateform(label: String, major: String, minor: String) {}
     func displayBeacon() {}
+    
     func deleteBeacon(label: String) {
         let MYURL = NSURL(string:"http://bemyeyes.co/API/beacon/DeleteBeacon.php")
         let request = NSMutableURLRequest(URL:MYURL!)
