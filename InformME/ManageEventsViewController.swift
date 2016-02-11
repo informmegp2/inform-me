@@ -28,6 +28,7 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
         //setup tint color for tha back button.
     }
     func get(){
+        print("in event managment")
         let uid=1
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/event/retrieveEvents.php")!)

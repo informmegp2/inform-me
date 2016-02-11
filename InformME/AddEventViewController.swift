@@ -50,9 +50,13 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
         else {
             print(EventName.text)
             var e : Event = Event()
-            e.AddEvent (name, web: website, date: date)}
+            e.AddEvent (name, web: website, date: date)
+                    }
+     
         
     }
+    
+   
     /*
     // MARK: - Navigation
 
