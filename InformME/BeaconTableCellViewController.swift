@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 @objc protocol BeaconCellDelegate: class {
     func deleteBeacon(label: String)
-    //func updateBeacon()
+    func updateBeacon()
 }
 class BeaconTableCellViewController: UITableViewCell {
     var delegate:BeaconCellDelegate?

@@ -14,6 +14,9 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     
     
     var values:NSMutableArray = []
+    var label:NSMutableArray = []
+    var beaconsInfo:NSMutableArray=[]
+    var bID:Int = 1;
     
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
@@ -53,6 +56,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
                         beacon.Major=m as! String
                         beacon.Minor=mi as! String
                         self.values.addObject(beacon)
+                        self.beaconsInfo.addObject(beacon)
                         
                         
                     }
@@ -153,7 +157,31 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     }
     
     
+    func updateBeacon(){
+        performSegueWithIdentifier("updateBeacon", sender: self)
+    }
     
+    
+   override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+
+        if (segue.identifier == "updateBeacon") {
+            let pointInTable: CGPoint = sender.convertPoint(sender.bounds.origin, toView: self.tableView)
+            let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
+            print(cellIndexPath?.row)
+            var b : Beacon = Beacon()
+            b=beaconsInfo[(cellIndexPath?.row)!] as! Beacon
+            print(b.Label)
+            //Checking identifier is crucial as there might be multiple
+            // segues attached to same view
+            var detailVC = segue!.destinationViewController as! UpdateBeaconViewController;
+            //detailVC.evid = e.id
+            detailVC.llabel=b.Label
+            detailVC.mmajor=b.Major
+            detailVC.mminor=b.Minor
+        
+    }
+    
+    }
     
     func deleteBeacon(label: String) {
         var b: Beacon = Beacon()

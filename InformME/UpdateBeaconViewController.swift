@@ -10,13 +10,15 @@ import Foundation
 import UIKit
 class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
     
-    @IBOutlet weak var Label: UITextField!
-    @IBOutlet weak var Minor: UITextField!
-    @IBOutlet weak var Major: UITextField!
+    @IBOutlet  var Label: UITextField!
+    @IBOutlet  var Major: UITextField!
+    @IBOutlet  var Minor: UITextField!
     
-    //var llabel:String?
-    //var major:Int?
-    //var minor:Int?
+    var mmajor:String=""
+    var mminor:String=""
+    var llabel:String=""
+    var temp:String=""
+    
     var cellContent = [String]()
     var numRow:Int?
     
@@ -26,29 +28,18 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
         var minor = Minor.text!
         var llabel = Label.text!
         var  major = Major.text!
-        
-        if (Minor.text == "" || Major.text == "" || llabel == "") {
-            let alert = UIAlertController(title: "", message: " يرجى إكمال كافة الحقول", preferredStyle: UIAlertControllerStyle.Alert)
-            
-            alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
-                
-                self.dismissViewControllerAnimated(true, completion: nil)
-                
-            }))
-            
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-        else {
+
             var b : Beacon = Beacon()
             //TODO: ساره عدلي هذا لحق الابديت بدال الاد
-            b.addBeacon (llabel, major: major,minor:minor)}
+            b.updateBeacon (llabel, major: major,minor:minor , Temp: temp)
         
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        Minor.delegate = self
-        Major.delegate = self
-        Label.delegate = self
+        self.Label.text = llabel
+        self.Major.text = mmajor
+        self.Minor.text = mminor
+        temp = llabel
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

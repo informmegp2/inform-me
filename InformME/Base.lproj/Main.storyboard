@@ -362,7 +362,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gjG-PP-rCB">
+                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gjG-PP-rCB">
                                 <rect key="frame" x="0.0" y="80" width="600" height="471"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -722,7 +722,7 @@
                                     <constraint firstItem="4Ic-9b-4Of" firstAttribute="height" secondItem="fmA-Sn-Q1K" secondAttribute="height" multiplier="2:1" id="yBh-5Q-LSq"/>
                                 </constraints>
                             </stackView>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gta-u4-TaK">
+                            <tabBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gta-u4-TaK">
                                 <rect key="frame" x="0.0" y="551" width="600" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -792,7 +792,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fmz-f9-q8l">
+                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fmz-f9-q8l">
                                 <rect key="frame" x="0.0" y="80" width="600" height="471"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -811,6 +811,9 @@
                                                         <constraint firstAttribute="width" secondItem="rx3-og-h03" secondAttribute="height" multiplier="11:20" id="RlR-de-rTv"/>
                                                     </constraints>
                                                     <state key="normal" image="pencil"/>
+                                                    <connections>
+                                                        <segue destination="vOV-aj-79F" kind="show" identifier="updateBeacon" id="HpD-BD-FLg"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTK-Xu-OQj">
                                                     <rect key="frame" x="538" y="11" width="42" height="21"/>
@@ -1309,19 +1312,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZcU-1y-UaR">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="vse-VF-bsA">
-                                                <rect key="frame" x="-292" y="-143" width="1184" height="486"/>
-                                                <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="vse-VF-bsA" secondAttribute="height" multiplier="100:41" constant="-1.8048780487804379" id="LvK-lu-pdU"/>
-                                                </constraints>
-                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                    <rect key="frame" x="-1" y="20" width="401" height="261"/>
-                                                </variation>
-                                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                                    <rect key="frame" x="0.0" y="28" width="800" height="419"/>
-                                                </variation>
-                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="بيكون" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RIT-i7-6bR">
                                                 <rect key="frame" x="283" y="90" width="34" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1338,6 +1328,19 @@
                                                 <rect key="frame" x="20" y="20" width="29" height="55"/>
                                                 <state key="normal" image="leftArrow"/>
                                             </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="vse-VF-bsA">
+                                                <rect key="frame" x="-292" y="-143" width="1184" height="486"/>
+                                                <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="vse-VF-bsA" secondAttribute="height" multiplier="100:41" constant="-1.8048780487804379" id="LvK-lu-pdU"/>
+                                                </constraints>
+                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                    <rect key="frame" x="-1" y="20" width="401" height="261"/>
+                                                </variation>
+                                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
+                                                    <rect key="frame" x="0.0" y="28" width="800" height="419"/>
+                                                </variation>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -1371,7 +1374,8 @@
                                             <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
-                                            <action selector="save:" destination="vOV-aj-79F" eventType="touchUpInside" id="Xnb-f8-Rjh"/>
+                                            <action selector="Submit:" destination="vOV-aj-79F" eventType="touchUpInside" id="OCi-sB-69h"/>
+                                            <segue destination="pO8-Kb-4jP" kind="show" id="Cye-X0-R3A"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1392,14 +1396,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="EventDate" destination="axG-0G-bht" id="XB3-Lb-12k"/>
-                        <outlet property="EventName" destination="xcY-gi-dfO" id="BF5-lT-bGp"/>
-                        <outlet property="EventWebsite" destination="c43-bn-hpi" id="Tbc-sQ-epv"/>
+                        <outlet property="Label" destination="xcY-gi-dfO" id="fbb-Xe-Lyo"/>
+                        <outlet property="Major" destination="c43-bn-hpi" id="1eW-5z-cI3"/>
+                        <outlet property="Minor" destination="axG-0G-bht" id="uVE-BB-1nc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXn-rO-u1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2949" y="1711"/>
+            <point key="canvasLocation" x="2949" y="1720"/>
         </scene>
         <!--Recover Password-->
         <scene sceneID="CDg-1K-GB7">
@@ -1905,7 +1909,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="eft-mR-a5M"/>
-        <segue reference="KVE-N5-Gkc"/>
+        <segue reference="Cye-X0-R3A"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>
