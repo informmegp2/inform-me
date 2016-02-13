@@ -476,12 +476,19 @@
                                                     <rect key="frame" x="351" y="216" width="167" height="21"/>
                                                 </variation>
                                             </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_image" translatesAutoresizingMaskIntoConstraints="NO" id="9Vo-g1-mER">
+                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_image" translatesAutoresizingMaskIntoConstraints="NO" id="9Vo-g1-mER">
                                                 <rect key="frame" x="190" y="33" width="220" height="134"/>
                                             </imageView>
                                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UE9-65-NUl">
                                                 <rect key="frame" x="20" y="20" width="29" height="55"/>
                                                 <state key="normal" image="leftArrow"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1P-qo-GBg">
+                                                <rect key="frame" x="233" y="33" width="134" height="134"/>
+                                                <state key="normal" backgroundImage="profile_image"/>
+                                                <connections>
+                                                    <action selector="uploadImage:" destination="T0p-rt-bTp" eventType="touchUpInside" id="hWb-oj-JGN"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -542,6 +549,8 @@
                     </view>
                     <connections>
                         <outlet property="EventDate" destination="yT2-TO-TDo" id="SO4-ML-zC3"/>
+                        <outlet property="EventLogo" destination="9Vo-g1-mER" id="Q2i-yd-oDn"/>
+                        <outlet property="EventLogoo" destination="L1P-qo-GBg" id="YIh-oU-rBP"/>
                         <outlet property="EventName" destination="tTt-8w-Uhd" id="X9A-JT-9Gw"/>
                         <outlet property="EventWebsite" destination="Uyv-sC-Y1u" id="Q5P-w0-sxT"/>
                     </connections>
@@ -722,7 +731,7 @@
                                     <constraint firstItem="4Ic-9b-4Of" firstAttribute="height" secondItem="fmA-Sn-Q1K" secondAttribute="height" multiplier="2:1" id="yBh-5Q-LSq"/>
                                 </constraints>
                             </stackView>
-                            <tabBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gta-u4-TaK">
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gta-u4-TaK">
                                 <rect key="frame" x="0.0" y="551" width="600" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1909,8 +1918,8 @@
         <image name="كلمة المرور" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eft-mR-a5M"/>
         <segue reference="Cye-X0-R3A"/>
+        <segue reference="xGV-1e-XI2"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -170,9 +170,9 @@
 		0E3FCB991C59E1920044CE7A = {
 			isa = PBXGroup;
 			children = (
+				F47D3EAC1C6A676000B9C4FC /* CoreBluetooth.framework */,
 				F47D3EB01C6A677500B9C4FC /* SystemConfiguration.framework */,
 				F47D3EAE1C6A676A00B9C4FC /* Foundation.framework */,
-				F47D3EAC1C6A676000B9C4FC /* CoreBluetooth.framework */,
 				F47D3EAA1C6A675400B9C4FC /* CoreLocation.framework */,
 				0E91C6AC1C67BFA900BD736B /* JF_Flat_regular.ttf */,
 				0EE76CC81C5A02CB007C9D1E /* EstimoteSDK.framework */,

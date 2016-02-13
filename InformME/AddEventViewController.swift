@@ -8,8 +8,10 @@
 
 import UIKit
 
-class AddEventViewController: UIViewController, UITextFieldDelegate {
+class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet var EventLogoo: UIButton!
+    @IBOutlet var EventLogo: UIImageView!
     @IBOutlet var EventDate: UITextField!
     @IBOutlet var EventWebsite: UITextField!
     @IBOutlet var EventName: UITextField!
@@ -21,10 +23,39 @@ class AddEventViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func uploadImage(sender: AnyObject) {
+        print("button pressed")
+        var myPickerController = UIImagePickerController()
+        myPickerController.delegate = self;
+        myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        
+        self.presentViewController(myPickerController, animated: true, completion: nil)
+        
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func  myImageUploadRequest(){
+        
+    }
+    
+    
+   
+    
+    
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+        
+    {
+        EventLogoo.setBackgroundImage(info[UIImagePickerControllerOriginalImage] as? UIImage, forState: .Normal)
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+    
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
