@@ -17,6 +17,7 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
    var values:NSMutableArray = []
      var eventsID:NSMutableArray = []
     var eventsInfo:NSMutableArray=[]
+   var eventslogo: [UIImage] = []
     var eID:Int = 1;
   
     
@@ -24,8 +25,56 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
         super.viewDidLoad()
         get();
        tableView.reloadData()
+        getlogo();
         
         //setup tint color for tha back button.
+    }
+    
+    func getlogo(){
+        print("in get logo")
+        let uid=1
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/event/retrieveLogos.php")!)
+        request.HTTPMethod = "POST"
+        let postString = "uid=\(uid)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if let urlContent = data {
+                
+                do {
+                    
+                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
+                    
+                    for var x=0; x<jsonResult.count;x++ {
+                     print("logo")
+                        let decodedData = NSData(base64EncodedString: jsonResult[x] as! String, options: NSDataBase64DecodingOptions(rawValue: 0))
+                         var e : Event = Event()
+                        e.logo = UIImage(data: decodedData!)
+                        self.eventslogo.append(e.logo!)
+                                        }
+                  
+                    
+                } catch {
+                    
+                    print("JSON serialization failed")
+                    
+                }
+                
+                
+            }
+            
+            
+        }
+        task.resume()
+        print("hi logo");
+
+        
+        
+        
+        
     }
     func get(){
         print("in event managment")
@@ -132,6 +181,7 @@ print(e.name)
         detailVC.evname=e.name
 detailVC.evwebsite=e.website
 detailVC.evdate=e.date
+        detailVC.evlogo=self.eventslogo[(cellIndexPath?.row)!]
     }
     
     }

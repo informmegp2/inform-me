@@ -14,16 +14,19 @@ class EventDetailsViewController: UIViewController {
     var evname: String=""
     var evwebsite: String=""
     var evdate: String=""
+    var evlogo: UIImage?
     @IBOutlet var ddate: UILabel!
     @IBOutlet var wwebsite: UILabel!
     @IBOutlet var nnamd: UINavigationItem!
     
+    @IBOutlet var logo: UIImageView!
     override func viewDidLoad() {
         
         super.viewDidLoad()
         self.wwebsite.text = evwebsite
         self.ddate.text = evdate
         self.nnamd.title = evname
+        self.logo.image=evlogo
         print("here \(evid)")
       
         // Do any additional setup after loading the view.
