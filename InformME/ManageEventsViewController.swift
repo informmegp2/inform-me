@@ -181,6 +181,8 @@ print(e.name)
         detailVC.evname=e.name
 detailVC.evwebsite=e.website
 detailVC.evdate=e.date
+        while self.eventslogo.count != self.eventsInfo.count{
+            }
         detailVC.evlogo=self.eventslogo[(cellIndexPath?.row)!]
     }
     
