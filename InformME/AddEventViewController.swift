@@ -81,7 +81,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         else {
             print(EventName.text)
             var e : Event = Event()
-            e.AddEvent (name, web: website, date: date)
+            e.AddEvent (name, web: website, date: date, logo: EventLogoo.backgroundImageForState(.Normal)!)
                     }
      
         

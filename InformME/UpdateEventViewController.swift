@@ -61,5 +61,6 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate {
         else {
             var e : Event = Event()
             //TODO: نوف عدلي هذا لحق الابديت بدال الاد
-            e.AddEvent (name, web: website, date: date)}
+            //e.AddEvent (name, web: website, date: date, logo:)
+        }
     }}
