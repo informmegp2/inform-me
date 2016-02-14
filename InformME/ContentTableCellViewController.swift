@@ -8,6 +8,14 @@
 
 import Foundation
 import UIKit
+
+@objc protocol ContentCellDelegate: class {
+
+}
 class ContentTableCellViewController: UITableViewCell {
+    var delegate:ContentCellDelegate?
+    var content: Content = Content()
+    
+    @IBOutlet var title: UILabel!
     
 }

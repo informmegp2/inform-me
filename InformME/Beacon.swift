@@ -14,16 +14,7 @@ class Beacon {
     var Major: String = ""
     var Minor: String = ""
     
-    var eventsName: Array<String> = []
-    func requesteventlist() {
-        
-        let parameters = [ "uid":1]
-        
-        
-        print(self.eventsName.count)
-    }
-
-    func addBeacon(label: String,major: String,minor: String) {
+      func addBeacon(label: String,major: String,minor: String) {
         let MYURL = NSURL(string:"http://bemyeyes.co/API/beacon/AddBeacon.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";

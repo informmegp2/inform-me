@@ -34,6 +34,8 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         
         request.HTTPMethod = "POST"
         let postString = "uid=\(uid)"
+        
+      
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -122,10 +124,10 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         if editingStyle == UITableViewCellEditingStyle.Delete {
             
             
-            var alertController = UIAlertController(title: "", message: "هل أنت متأكد من الحذف", preferredStyle: .Alert)
+            var alertController = UIAlertController(title: "", message: "هل أنت متأكد من رغبتك بالحذف", preferredStyle: .Alert)
             
             // Create the actions
-            var okAction = UIAlertAction(title: "نعم", style: UIAlertActionStyle.Default) {
+            var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
                 UIAlertAction in
                 NSLog("OK Pressed")
                 var b: Beacon = Beacon()
@@ -134,7 +136,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
                 self.deleteBeacon(b.Label)
             }
-            var cancelAction = UIAlertAction(title: "لا", style: UIAlertActionStyle.Cancel) {
+            var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
                 UIAlertAction in
                 NSLog("Cancel Pressed")
             }
@@ -157,10 +159,10 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     }
     
     
+    // Update Beacon
     func updateBeacon(){
         performSegueWithIdentifier("updateBeacon", sender: self)
     }
-    
     
    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
 
