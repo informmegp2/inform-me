@@ -25,15 +25,54 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
     
     @IBAction func Submit(sender: AnyObject) {
         
+        
         var minor = Minor.text!
         var llabel = Label.text!
         var  major = Major.text!
-
-            var b : Beacon = Beacon()
-            //TODO: ساره عدلي هذا لحق الابديت بدال الاد
-            b.updateBeacon (llabel, major: major,minor:minor , Temp: temp)
+        var flag : Bool = false
         
+        if (self.Label.text == "self." || self.Major.text == "" || self.Minor.text == "") {
+            let alert = UIAlertController(title: "", message: " يرجى إكمال كافة الحقول", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+                
+                // self.dismissViewControllerAnimated(true, completion: nil)
+                
+            }))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
+        var alertController = UIAlertController(title: "", message: " هل أنت متأكد من رغبتك بحفظ التغييرات؟", preferredStyle: .Alert)
+        
+        // Create the actions
+        var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            NSLog("OK Pressed")
+            
+            var b : Beacon = Beacon()
+            b.updateBeacon (llabel, major: major,minor:minor , Temp: self.temp)
+         
+
+//            let destinationController = storyboard!.instantiateViewControllerWithIdentifier("alertPressedOK")
+  //          presentViewController(destinationController, animated: true, completion: nil)
+            self.performSegueWithIdentifier("alertPressedOK", sender:sender)
+
+            
+        }
+    
+        var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
+            UIAlertAction in
+            NSLog("Cancel Pressed")
+        }
+          // Add the actions
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        // Present the controller
+        self.presentViewController(alertController, animated: true, completion: nil)
+    
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.Label.text = llabel
