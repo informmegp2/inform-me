@@ -46,13 +46,18 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
                 
                 do {
                     
-                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
+                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)as! NSMutableArray
                     
                     for var x=0; x<jsonResult.count;x++ {
                      print("logo")
-                        let decodedData = NSData(base64EncodedString: jsonResult[x] as! String, options: NSDataBase64DecodingOptions(rawValue: 0))
-                         var e : Event = Event()
-                        e.logo = UIImage(data: decodedData!)
+                      
+                        let encodedImageData = jsonResult[x] as! String
+                        print(encodedImageData)
+                        let imageData = NSData(base64EncodedString: encodedImageData, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+                        print(imageData)
+                        let decodedimage = UIImage(data: imageData!)
+                         let e : Event = Event()
+                        e.logo = decodedimage
                         self.eventslogo.append(e.logo!)
                                         }
                   
@@ -98,6 +103,7 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
                         
                         
                         var e : Event = Event()
+                        
                         e.date=jsonResult[x]["Date"] as! String
                         e.name=jsonResult[x]["EventName"] as! String
                         e.website=jsonResult[x]["Website"] as! String
