@@ -6,7 +6,7 @@
 //  Copyright © 1437 King Saud University. All rights reserved.
 //
 
-import Cocoa
+//import Cocoa
 
 class ManageContentViewController: NSObject {
 

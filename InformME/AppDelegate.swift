@@ -21,21 +21,27 @@ extension UILabel {
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate  {
     
+    
     var window: UIWindow?
     var barPurple = UIColor(red: (96/255.0), green: (17/255.0), blue: (143/255.0), alpha: 1.0)
 
     // 2. Add a property to hold the beacon manager and instantiate it
     let beaconManager = ESTBeaconManager()
+    let beacons = Beacon()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // 3. Set the beacon manager's delegate
         self.beaconManager.delegate = self
         // add this below:
         self.beaconManager.requestAlwaysAuthorization()
-
+        
+        beaconManager.startMonitoringForRegion(beacons.MonitorBeacon())
+      
+        
         //To show notifications
         UIApplication.sharedApplication().registerUserNotificationSettings(
             UIUserNotificationSettings(forTypes: .Alert, categories: nil))
+        
         
         //Coloring navigationbar
         UILabel.appearance().substituteFontName = "JFFlat-Regular"
@@ -48,6 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         return true
     }
 
+    func beaconManager(manager: AnyObject, didEnterRegion region: CLBeaconRegion) {
+        beacons.BeaconNotification()
+    }
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
