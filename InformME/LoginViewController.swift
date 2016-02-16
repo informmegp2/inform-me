@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 
 class LoginViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
@@ -46,17 +47,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UINavigationCo
         
         
         if (email.isEmpty || password.isEmpty || type == -1 ) {
-            
-            let alert = UIAlertController(title: "", message: " يرجى إكمال كافة الحقول", preferredStyle: UIAlertControllerStyle.Alert)
-            
-            alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
-                
-                self.dismissViewControllerAnimated(true, completion: nil)
-                
-            }))
-            
-            self.presentViewController(alert, animated: true, completion: nil)
+              displayAlert("", message: "يرجى إدخال كافة الحقول")
         }
+            
         else {
             var current: Authentication = Authentication();
             
@@ -75,6 +68,28 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UINavigationCo
    
     }//end fun didReciveMemory warining
 
+    
+    
+    //for alert massge
+
+    func displayAlert(title: String, message: String) {
+        
+        var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        })))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }//end fun display alert
+    
+    
+    
+    
+    
     
 // *** for keyboard
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

@@ -311,6 +311,9 @@
                                         <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                             <rect key="frame" x="0.0" y="502" width="800" height="145"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="register:" destination="8yb-fg-OUT" eventType="touchUpInside" id="ddy-Yr-m1F"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -330,6 +333,11 @@
                             <constraint firstItem="3S6-x4-LIF" firstAttribute="top" secondItem="kzU-ZN-Wfr" secondAttribute="bottom" id="mtV-kv-qD1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="regEmail" destination="Tka-AX-qeL" id="BXB-Po-eAU"/>
+                        <outlet property="regType" destination="5mN-ig-ajq" id="x0P-Kq-4MI"/>
+                        <outlet property="regUsername" destination="fF6-xv-fLn" id="ycK-HO-kNe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qR-As-uer" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1721,6 +1729,9 @@
                                         <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                             <rect key="frame" x="0.0" y="502" width="800" height="145"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="recover:" destination="chT-Hv-JVj" eventType="touchUpInside" id="4wL-mi-5AJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1739,6 +1750,9 @@
                             <constraint firstItem="BnM-Gp-FrJ" firstAttribute="width" secondItem="bFS-wh-VsS" secondAttribute="width" id="b25-bd-A1f"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="recEmail" destination="bHK-tQ-5oF" id="lSw-c6-POS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJI-nC-ICD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
