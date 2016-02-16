@@ -17,8 +17,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UINavigationCo
     
     @IBOutlet var emailfiled: UITextField!
     @IBOutlet var passwordfiled: UITextField!
-    @IBOutlet var typefiled: UISegmentedControl!
     
+    
+    @IBOutlet  var typefiled: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
