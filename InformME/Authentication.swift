@@ -8,7 +8,7 @@
 
 import Foundation
 class Authentication {
-    func login(email: String, Passoword: String){}
+    func login(email: String, Passoword: String, Type: Int){}
     func logout(){}
     
     func forgetPassword(){}

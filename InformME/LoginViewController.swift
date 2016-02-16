@@ -11,6 +11,59 @@ import UIKit
 
 class LoginViewController: UIViewController {
 /*Hello : ) */
+    
+    
+    
+    
+    @IBOutlet weak var emailfiled: UITextField!
+    @IBOutlet weak var passwordfiled: UITextField!
+    
+    @IBOutlet weak var typefiled: UISegmentedControl!
+    
+    @IBAction func login(sender: AnyObject) {
+        
+        var email = emailfiled.text!
+        var password = passwordfiled.text!
+        var type: Int
+        type = -1;
+        switch typefiled.selectedSegmentIndex
+        {
+        case 0:
+            type = 0;
+        case 1:
+            type = 1;
+        
+        default:
+            break;
+        }// end switch
+        
+        
+        if (email.isEmpty || password.isEmpty || type == -1 ) {
+            
+            let alert = UIAlertController(title: "", message: " يرجى إكمال كافة الحقول", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+                
+                self.dismissViewControllerAnimated(true, completion: nil)
+                
+            }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        else {
+            var current: Authentication = Authentication();
+            
+    
+            current.login( email, Passoword: password, Type: type)
+
+                    }
+
+        
+        
+    
+        
+    }// end fun login
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Hi")
