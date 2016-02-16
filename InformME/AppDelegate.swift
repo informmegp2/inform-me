@@ -32,10 +32,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         self.beaconManager.delegate = self
         // add this below:
         self.beaconManager.requestAlwaysAuthorization()
+        
+        beaconManager.startMonitoringForRegion(CLBeaconRegion(
+            proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!,
+            major:7645,minor: 4136, identifier: "Region"))
+        
+      
 
+        /*let beacons = Beacon()
+            beacons.MonitorBeacon(beaconManager)
+        beacons.BeaconNotification(beaconManager)*/
+        
         //To show notifications
         UIApplication.sharedApplication().registerUserNotificationSettings(
             UIUserNotificationSettings(forTypes: .Alert, categories: nil))
+        
         
         //Coloring navigationbar
         UILabel.appearance().substituteFontName = "JFFlat-Regular"
@@ -48,6 +59,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         return true
     }
 
+    func beaconManager(manager: AnyObject, didEnterRegion region: CLBeaconRegion) {
+        let notification = UILocalNotification()
+        notification.alertBody =
+            "Hello!"
+        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+    }
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
