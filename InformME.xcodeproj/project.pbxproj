@@ -17,6 +17,11 @@
 		0E3FCBB01C59E1930044CE7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3FCBAE1C59E1930044CE7A /* LaunchScreen.storyboard */; };
 		0E3FCBBB1C59E1930044CE7A /* InformMETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCBBA1C59E1930044CE7A /* InformMETests.swift */; };
 		0E3FCBC61C59E1930044CE7A /* InformMEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCBC51C59E1930044CE7A /* InformMEUITests.swift */; };
+		0E5D5D941C73AC5200D60753 /* AddContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D5D931C73AC5200D60753 /* AddContentViewController.swift */; };
+		0E5D5D961C73ACE200D60753 /* UpdateContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D5D951C73ACE200D60753 /* UpdateContentViewController.swift */; };
+		0E5D5D991C73ADFA00D60753 /* ManageContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D5D971C73ADFA00D60753 /* ManageContentsViewController.swift */; };
+		0E5D5D9A1C73ADFA00D60753 /* ManageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D5D981C73ADFA00D60753 /* ManageContentViewController.swift */; };
+		0E5D5D9C1C73B34E00D60753 /* ContentForOrganizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D5D9B1C73B34E00D60753 /* ContentForOrganizerViewController.swift */; };
 		0E8BDFB61C6A41D3003364A5 /* UpdateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8BDFB51C6A41D3003364A5 /* UpdateEventViewController.swift */; };
 		0E8BDFB81C6A4607003364A5 /* UpdateBeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8BDFB71C6A4607003364A5 /* UpdateBeaconViewController.swift */; };
 		0E8BDFBA1C6A4D5A003364A5 /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8BDFB91C6A4D5A003364A5 /* RecoverPasswordViewController.swift */; };
@@ -100,6 +105,11 @@
 		0E3FCBC11C59E1930044CE7A /* InformMEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InformMEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E3FCBC51C59E1930044CE7A /* InformMEUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformMEUITests.swift; sourceTree = "<group>"; };
 		0E3FCBC71C59E1930044CE7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0E5D5D931C73AC5200D60753 /* AddContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContentViewController.swift; sourceTree = "<group>"; };
+		0E5D5D951C73ACE200D60753 /* UpdateContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateContentViewController.swift; sourceTree = "<group>"; };
+		0E5D5D971C73ADFA00D60753 /* ManageContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageContentsViewController.swift; sourceTree = "<group>"; };
+		0E5D5D981C73ADFA00D60753 /* ManageContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageContentViewController.swift; sourceTree = "<group>"; };
+		0E5D5D9B1C73B34E00D60753 /* ContentForOrganizerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentForOrganizerViewController.swift; sourceTree = "<group>"; };
 		0E8BDFB51C6A41D3003364A5 /* UpdateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateEventViewController.swift; sourceTree = "<group>"; };
 		0E8BDFB71C6A4607003364A5 /* UpdateBeaconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateBeaconViewController.swift; sourceTree = "<group>"; };
 		0E8BDFB91C6A4D5A003364A5 /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
@@ -244,9 +254,14 @@
 				0E8BDFB71C6A4607003364A5 /* UpdateBeaconViewController.swift */,
 				0E8BDFB91C6A4D5A003364A5 /* RecoverPasswordViewController.swift */,
 				0E8BDFBB1C6A5B99003364A5 /* AttendeeHomeViewController.swift */,
+				0E5D5D971C73ADFA00D60753 /* ManageContentsViewController.swift */,
+				0E5D5D981C73ADFA00D60753 /* ManageContentViewController.swift */,
 				0E8BDFBD1C6A5BDD003364A5 /* NearbyContentViewController.swift */,
 				0E8BDFBF1C6A5C16003364A5 /* FavoritelistViewController.swift */,
 				0E8BDFC11C6A5C65003364A5 /* ContentTableCellViewController.swift */,
+				0E5D5D931C73AC5200D60753 /* AddContentViewController.swift */,
+				0E5D5D951C73ACE200D60753 /* UpdateContentViewController.swift */,
+				0E5D5D9B1C73B34E00D60753 /* ContentForOrganizerViewController.swift */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -410,14 +425,17 @@
 				0EAE38D51C62A2B00082DAD2 /* Event.swift in Sources */,
 				9594124D1C677E28000D23E3 /* AddEventViewController.swift in Sources */,
 				0E8BDFBC1C6A5B99003364A5 /* AttendeeHomeViewController.swift in Sources */,
+				0E5D5D941C73AC5200D60753 /* AddContentViewController.swift in Sources */,
 				0E104DE31C600CF70079C1A9 /* SignupViewController.swift in Sources */,
 				0E2D5E341C6B5679000B1F95 /* EventDetailsViewController.swift in Sources */,
+				0E5D5D9C1C73B34E00D60753 /* ContentForOrganizerViewController.swift in Sources */,
 				0E3FCBA81C59E1930044CE7A /* LoginViewController.swift in Sources */,
 				0ECC041A1C63C44400458C86 /* Attendee.swift in Sources */,
 				0ECC04161C63C36400458C86 /* Profile.swift in Sources */,
 				0E8BDFB61C6A41D3003364A5 /* UpdateEventViewController.swift in Sources */,
 				0E8BDFC01C6A5C16003364A5 /* FavoritelistViewController.swift in Sources */,
 				0ECC03FE1C63ACFE00458C86 /* Authentication.swift in Sources */,
+				0E5D5D961C73ACE200D60753 /* UpdateContentViewController.swift in Sources */,
 				0ECC04181C63C3FC00458C86 /* EventOrganizer.swift in Sources */,
 				0EF156B01C64C229004BE735 /* ProfileViewController.swift in Sources */,
 				0ECC040E1C63BAF300458C86 /* Like.swift in Sources */,
@@ -427,8 +445,10 @@
 				0E8BDFC21C6A5C65003364A5 /* ContentTableCellViewController.swift in Sources */,
 				0ECC04081C63B06400458C86 /* Beacon.swift in Sources */,
 				0ECC040A1C63B76C00458C86 /* Content.swift in Sources */,
+				0E5D5D991C73ADFA00D60753 /* ManageContentsViewController.swift in Sources */,
 				0EF156BC1C64C276004BE735 /* ManageBeaconsViewController.swift in Sources */,
 				0E8BDFBA1C6A4D5A003364A5 /* RecoverPasswordViewController.swift in Sources */,
+				0E5D5D9A1C73ADFA00D60753 /* ManageContentViewController.swift in Sources */,
 				0E3FCBA61C59E1930044CE7A /* AppDelegate.swift in Sources */,
 				0E1D8F121C66019A00D840D4 /* BeaconTableCellViewController.swift in Sources */,
 				0EF156B81C64C24C004BE735 /* OrganizerHomeViewController.swift in Sources */,
