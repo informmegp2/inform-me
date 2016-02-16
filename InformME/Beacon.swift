@@ -105,14 +105,15 @@ class Beacon {
         task.resume()
 }
    
-    /*func MonitorBeacon(beaconManager:ESTBeaconManager) {
+    func MonitorBeacon() -> CLBeaconRegion {
         //When the app starts the application will begin scanning for beacons
-        //This ID is temporary, I will change it later to include all beacons
+        //This ID is temporary, I will create a UUID for all of our beacons
         
-       beaconManager.startMonitoringForRegion(CLBeaconRegion(
-            proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!,
-            major:7645,minor: 4136, identifier: "Region"))
+        let uuid = NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!
+        let beaconRegion = CLBeaconRegion(proximityUUID: uuid, identifier: "MyBeacon")
         
+return beaconRegion
+
         //To be notified upon entering and exiting region
         //beaconRegion.notifyOnEntry = true
         //beaconRegion.notifyOnExit = true
@@ -123,20 +124,17 @@ class Beacon {
     
     }
     
-    //For testing .. Delete before publishing
+
    
     
     
-    func BeaconNotification(beaconManager:ESTBeaconManager){
+    func BeaconNotification(){
         
-        func beaconManager(manager: AnyObject, didEnterRegion region: CLBeaconRegion)
-        {
-        let notification = UILocalNotification()
-        notification.alertBody =
-            "There are beacons nearbly!"// Will change to Arabic whenever I can think of something decent to say
-        print("You are in the region")
-        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
-        }}*/
+    let notification = UILocalNotification()
+    notification.alertBody =
+    "Hello!"
+    UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+    }
     
 }
 

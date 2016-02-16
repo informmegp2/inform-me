@@ -21,11 +21,13 @@ extension UILabel {
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate  {
     
+    
     var window: UIWindow?
     var barPurple = UIColor(red: (96/255.0), green: (17/255.0), blue: (143/255.0), alpha: 1.0)
 
     // 2. Add a property to hold the beacon manager and instantiate it
     let beaconManager = ESTBeaconManager()
+    let beacons = Beacon()
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // 3. Set the beacon manager's delegate
@@ -33,15 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         // add this below:
         self.beaconManager.requestAlwaysAuthorization()
         
-        beaconManager.startMonitoringForRegion(CLBeaconRegion(
-            proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!,
-            major:7645,minor: 4136, identifier: "Region"))
-        
+        beaconManager.startMonitoringForRegion(beacons.MonitorBeacon())
       
-
-        /*let beacons = Beacon()
-            beacons.MonitorBeacon(beaconManager)
-        beacons.BeaconNotification(beaconManager)*/
         
         //To show notifications
         UIApplication.sharedApplication().registerUserNotificationSettings(
@@ -60,10 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
     }
 
     func beaconManager(manager: AnyObject, didEnterRegion region: CLBeaconRegion) {
-        let notification = UILocalNotification()
-        notification.alertBody =
-            "Hello!"
-        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+        beacons.BeaconNotification()
     }
     
     func applicationWillResignActive(application: UIApplication) {
