@@ -90,8 +90,6 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
         
         cell.title.text = c.Title
         
-        
-        
         return cell
         
         
