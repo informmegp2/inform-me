@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -166,6 +166,7 @@
                     <connections>
                         <outlet property="emailfiled" destination="vEs-rq-j1q" id="HIO-mp-ImN"/>
                         <outlet property="passwordfiled" destination="fTu-wG-Jv7" id="8ab-mw-0vt"/>
+                        <outlet property="typefiled" destination="yrq-I2-325" id="gTR-rY-phO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -310,6 +311,9 @@
                                         <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                             <rect key="frame" x="0.0" y="502" width="800" height="145"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="register:" destination="8yb-fg-OUT" eventType="touchUpInside" id="ddy-Yr-m1F"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -329,6 +333,11 @@
                             <constraint firstItem="3S6-x4-LIF" firstAttribute="top" secondItem="kzU-ZN-Wfr" secondAttribute="bottom" id="mtV-kv-qD1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="regEmail" destination="Tka-AX-qeL" id="BXB-Po-eAU"/>
+                        <outlet property="regType" destination="5mN-ig-ajq" id="x0P-Kq-4MI"/>
+                        <outlet property="regUsername" destination="fF6-xv-fLn" id="ycK-HO-kNe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qR-As-uer" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1720,6 +1729,9 @@
                                         <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
                                             <rect key="frame" x="0.0" y="502" width="800" height="145"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="recover:" destination="chT-Hv-JVj" eventType="touchUpInside" id="4wL-mi-5AJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1738,6 +1750,9 @@
                             <constraint firstItem="BnM-Gp-FrJ" firstAttribute="width" secondItem="bFS-wh-VsS" secondAttribute="width" id="b25-bd-A1f"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="recEmail" destination="bHK-tQ-5oF" id="lSw-c6-POS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJI-nC-ICD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
