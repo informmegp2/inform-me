@@ -17,9 +17,7 @@
 		0E3FCBB01C59E1930044CE7A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3FCBAE1C59E1930044CE7A /* LaunchScreen.storyboard */; };
 		0E3FCBBB1C59E1930044CE7A /* InformMETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCBBA1C59E1930044CE7A /* InformMETests.swift */; };
 		0E3FCBC61C59E1930044CE7A /* InformMEUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3FCBC51C59E1930044CE7A /* InformMEUITests.swift */; };
-		0E5D5D941C73AC5200D60753 /* AddContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D5D931C73AC5200D60753 /* AddContentViewController.swift */; };
 		0E5D5D961C73ACE200D60753 /* UpdateContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D5D951C73ACE200D60753 /* UpdateContentViewController.swift */; };
-		0E5D5D991C73ADFA00D60753 /* ManageContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D5D971C73ADFA00D60753 /* ManageContentsViewController.swift */; };
 		0E5D5D9A1C73ADFA00D60753 /* ManageContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D5D981C73ADFA00D60753 /* ManageContentViewController.swift */; };
 		0E5D5D9C1C73B34E00D60753 /* ContentForOrganizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D5D9B1C73B34E00D60753 /* ContentForOrganizerViewController.swift */; };
 		0E8BDFB61C6A41D3003364A5 /* UpdateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8BDFB51C6A41D3003364A5 /* UpdateEventViewController.swift */; };
@@ -43,6 +41,7 @@
 		0ECC04161C63C36400458C86 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECC04151C63C36400458C86 /* Profile.swift */; };
 		0ECC04181C63C3FC00458C86 /* EventOrganizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECC04171C63C3FC00458C86 /* EventOrganizer.swift */; };
 		0ECC041A1C63C44400458C86 /* Attendee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECC04191C63C44400458C86 /* Attendee.swift */; };
+		0EDBDCC21C7505660038188C /* ContentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDBDCC11C7505660038188C /* ContentDetailsViewController.swift */; };
 		0EE76CC91C5A02CC007C9D1E /* EstimoteSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EE76CC81C5A02CB007C9D1E /* EstimoteSDK.framework */; };
 		0EF156B01C64C229004BE735 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF156AF1C64C229004BE735 /* ProfileViewController.swift */; };
 		0EF156B81C64C24C004BE735 /* OrganizerHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF156B71C64C24C004BE735 /* OrganizerHomeViewController.swift */; };
@@ -50,7 +49,6 @@
 		0EF156BC1C64C276004BE735 /* ManageBeaconsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF156BB1C64C276004BE735 /* ManageBeaconsViewController.swift */; };
 		0EF156BE1C64FBF4004BE735 /* EventTableCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF156BD1C64FBF4004BE735 /* EventTableCellViewController.swift */; };
 		567A50E51C73B22F002CF228 /* AddContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567A50E41C73B22F002CF228 /* AddContentViewController.swift */; };
-		567A50E71C73B28B002CF228 /* ContentDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567A50E61C73B28B002CF228 /* ContentDetailsViewController.swift */; };
 		567A50E91C73B2E3002CF228 /* ManageContentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 567A50E81C73B2E3002CF228 /* ManageContentsViewController.swift */; };
 		56EAA4681C66038300B8C249 /* AddBeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EAA4671C66038300B8C249 /* AddBeaconViewController.swift */; };
 		9594124D1C677E28000D23E3 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9594124C1C677E28000D23E3 /* AddEventViewController.swift */; };
@@ -134,6 +132,7 @@
 		0ECC04151C63C36400458C86 /* Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		0ECC04171C63C3FC00458C86 /* EventOrganizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventOrganizer.swift; sourceTree = "<group>"; };
 		0ECC04191C63C44400458C86 /* Attendee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attendee.swift; sourceTree = "<group>"; };
+		0EDBDCC11C7505660038188C /* ContentDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentDetailsViewController.swift; sourceTree = "<group>"; };
 		0EE76CC81C5A02CB007C9D1E /* EstimoteSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EstimoteSDK.framework; sourceTree = "<group>"; };
 		0EE76CCA1C5A037C007C9D1E /* ObjCBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjCBridge.h; sourceTree = "<group>"; };
 		0EF156AF1C64C229004BE735 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -141,9 +140,8 @@
 		0EF156B91C64C262004BE735 /* ManageEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageEventsViewController.swift; sourceTree = "<group>"; };
 		0EF156BB1C64C276004BE735 /* ManageBeaconsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageBeaconsViewController.swift; sourceTree = "<group>"; };
 		0EF156BD1C64FBF4004BE735 /* EventTableCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableCellViewController.swift; sourceTree = "<group>"; };
-		567A50E41C73B22F002CF228 /* AddContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddContentViewController.swift; path = "../../informme copy/InformME/AddContentViewController.swift"; sourceTree = "<group>"; };
-		567A50E61C73B28B002CF228 /* ContentDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentDetailsViewController.swift; path = "../../informme copy/InformME/ContentDetailsViewController.swift"; sourceTree = "<group>"; };
-		567A50E81C73B2E3002CF228 /* ManageContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ManageContentsViewController.swift; path = "../../informme copy/InformME/ManageContentsViewController.swift"; sourceTree = "<group>"; };
+		567A50E41C73B22F002CF228 /* AddContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddContentViewController.swift; sourceTree = "<group>"; };
+		567A50E81C73B2E3002CF228 /* ManageContentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageContentsViewController.swift; sourceTree = "<group>"; };
 		56EAA4671C66038300B8C249 /* AddBeaconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeaconViewController.swift; sourceTree = "<group>"; };
 		9594124C1C677E28000D23E3 /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		95DC64231C6AF71000D8EDB6 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
@@ -243,7 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				567A50E81C73B2E3002CF228 /* ManageContentsViewController.swift */,
-				567A50E61C73B28B002CF228 /* ContentDetailsViewController.swift */,
 				567A50E41C73B22F002CF228 /* AddContentViewController.swift */,
 				0E3FCBAC1C59E1930044CE7A /* Assets.xcassets */,
 				9594124C1C677E28000D23E3 /* AddEventViewController.swift */,
@@ -271,6 +268,7 @@
 				0E5D5D931C73AC5200D60753 /* AddContentViewController.swift */,
 				0E5D5D951C73ACE200D60753 /* UpdateContentViewController.swift */,
 				0E5D5D9B1C73B34E00D60753 /* ContentForOrganizerViewController.swift */,
+				0EDBDCC11C7505660038188C /* ContentDetailsViewController.swift */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -434,6 +432,7 @@
 				0EAE38D51C62A2B00082DAD2 /* Event.swift in Sources */,
 				9594124D1C677E28000D23E3 /* AddEventViewController.swift in Sources */,
 				0E8BDFBC1C6A5B99003364A5 /* AttendeeHomeViewController.swift in Sources */,
+				0EDBDCC21C7505660038188C /* ContentDetailsViewController.swift in Sources */,
 				567A50E51C73B22F002CF228 /* AddContentViewController.swift in Sources */,
 				0E104DE31C600CF70079C1A9 /* SignupViewController.swift in Sources */,
 				0E2D5E341C6B5679000B1F95 /* EventDetailsViewController.swift in Sources */,
@@ -452,7 +451,6 @@
 				56EAA4681C66038300B8C249 /* AddBeaconViewController.swift in Sources */,
 				0ECC04121C63BC3E00458C86 /* Favoritelist.swift in Sources */,
 				0E8BDFC21C6A5C65003364A5 /* ContentTableCellViewController.swift in Sources */,
-				567A50E71C73B28B002CF228 /* ContentDetailsViewController.swift in Sources */,
 				0ECC04081C63B06400458C86 /* Beacon.swift in Sources */,
 				0ECC040A1C63B76C00458C86 /* Content.swift in Sources */,
 				567A50E91C73B2E3002CF228 /* ManageContentsViewController.swift in Sources */,
