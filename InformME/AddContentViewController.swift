@@ -21,8 +21,16 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
     var numRow:Int?
     
     
-    @IBAction func Submit(sender: AnyObject) {
-        print ("HERE ")
+    @IBAction func addPDF(sender: AnyObject) {
+        
+        var textFiled = UITextField(frame: CGRectMake(0.0, 400, 600.0, 40.0))
+        textFiled.backgroundColor = UIColor.redColor()
+        textFiled.borderStyle = UITextBorderStyle.Line
+        self.view.addSubview(textFiled)
+
+    }
+    
+      @IBAction func Submit(sender: AnyObject) {
         var title = TTitle.text!
         var abstract = Abstract.text!
         var video = Video.text!

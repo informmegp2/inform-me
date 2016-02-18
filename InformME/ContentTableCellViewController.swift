@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 @objc protocol ContentCellDelegate: class {
-  //  func showContentDetails()
+   func showContentDetails()
+    func editContent()
     
 }
 class ContentTableCellViewController: UITableViewCell {

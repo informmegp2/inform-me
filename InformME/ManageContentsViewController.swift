@@ -12,7 +12,6 @@ import UIKit
 class ManageContentsViewController: UIViewController,UITableViewDataSource, UITableViewDelegate ,ContentCellDelegate  {
     
     var values:NSMutableArray = []
-    var label:NSMutableArray = []
     var contentsInfo:NSMutableArray=[]
     //var bID:Int = 1;
     
@@ -26,6 +25,7 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
         //setup tint color for tha back button.
     }
     func get(){
+        var TitleA : [String] = []
         let eid=1
         let cid=1
         
@@ -57,11 +57,17 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
                         content.Abstract=a as! String
                         content.Pdf=p as! String
                         content.Video=v as! String
+                        if TitleA.contains(t as! String) {
+                            
+                        }
+                        else
+                        {
+                            TitleA.append(t as! String)
+                            self.values.addObject(content)
+                            self.contentsInfo.addObject(content)
+                        }
                         
-                        self.values.addObject(content)
-                        self.contentsInfo.addObject(content)
-                        
-                        
+                       
                     }
                     dispatch_async(dispatch_get_main_queue()){
                         self.tableView.reloadData()}
@@ -98,10 +104,12 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
     }
     
     
-  /*  func showContentDetails(){
-        performSegueWithIdentifier("showContentDetails", sender: self)
+    func showContentDetails(){
+    //    performSegueWithIdentifier("showContentDetails", sender: self)
     }
-    
+    func editContent(){
+        performSegueWithIdentifier("editContent", sender: self)
+    }
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         
         if (segue.identifier == "showContentDetails") {
@@ -112,16 +120,16 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
             c=contentsInfo[(cellIndexPath?.row)!] as! Content
             //Checking identifier is crucial as there might be multiple
             // segues attached to same view
-            var detailVC = segue!.destinationViewController as! conten
-            //detailVC.evid = e.id
+            var detailVC = segue!.destinationViewController as! ContentForOrganizerViewController
+            
             detailVC.ttitle=c.Title
+            print ("MA"+c.Title)
             detailVC.abstract=c.Abstract
             detailVC.pdf=c.Pdf
             detailVC.video=c.Video
-            
-        }
         
-    }*/
+        }
+    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TODO: this number should be changed to the actual number of recieved events.
