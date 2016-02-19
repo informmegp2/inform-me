@@ -10,6 +10,7 @@ import Foundation
 
 import UIKit
 
+
 class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, BeaconCellDelegate  {
     
     
@@ -164,7 +165,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         performSegueWithIdentifier("updateBeacon", sender: self)
     }
     
-   override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 
         if (segue.identifier == "updateBeacon") {
             let pointInTable: CGPoint = sender.convertPoint(sender.bounds.origin, toView: self.tableView)
@@ -174,7 +175,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
             b=beaconsInfo[(cellIndexPath?.row)!] as! Beacon
             //Checking identifier is crucial as there might be multiple
             // segues attached to same view
-            var detailVC = segue!.destinationViewController as! UpdateBeaconViewController;
+            var detailVC = segue.destinationViewController as! UpdateBeaconViewController;
             //detailVC.evid = e.id
             detailVC.llabel=b.Label
             detailVC.mmajor=b.Major

@@ -51,11 +51,10 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
             
             var b : Beacon = Beacon()
             b.updateBeacon (llabel, major: major,minor:minor , Temp: self.temp)
-         
-
-//            let destinationController = storyboard!.instantiateViewControllerWithIdentifier("alertPressedOK")
-  //          presentViewController(destinationController, animated: true, completion: nil)
-            self.performSegueWithIdentifier("alertPressedOK", sender:sender)
+            flag = true
+            if flag{
+                self.performSegueWithIdentifier("alertPressedOK", sender:sender)}
+         //   self.dismissViewControllerAnimated(true, completion: nil)
 
             
         }
@@ -72,7 +71,6 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
         self.presentViewController(alertController, animated: true, completion: nil)
     
     }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.Label.text = llabel
@@ -89,6 +87,7 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     
     /*
