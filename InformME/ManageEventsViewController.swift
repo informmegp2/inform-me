@@ -104,10 +104,14 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
                         
                         var e : Event = Event()
                         
+                       var evID = jsonResult[x]["EventID"] as! String
                         e.date=jsonResult[x]["Date"] as! String
                         e.name=jsonResult[x]["EventName"] as! String
                         e.website=jsonResult[x]["Website"] as! String
-                        e.id=jsonResult[x]["EventID"] as! String
+                        
+                         e.id = Int(evID)!
+                   
+                        
                       self.eventsInfo.addObject(e)
                         
                         
@@ -183,7 +187,7 @@ print(e.name)
             //Checking identifier is crucial as there might be multiple
             // segues attached to same view
             var detailVC = segue!.destinationViewController as! EventDetailsViewController;
-           //detailVC.evid = e.id
+           detailVC.evid = e.id
         detailVC.evname=e.name
 detailVC.evwebsite=e.website
 detailVC.evdate=e.date
