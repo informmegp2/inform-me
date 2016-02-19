@@ -34,6 +34,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate{
         var abstract = EAbstract.text!
         var pdf = EPDF.text!
         var video = EVideo.text!
+        var flag : Bool = false
         
         var alertController = UIAlertController(title: "", message: " هل أنت متأكد من رغبتك بحفظ التغييرات؟", preferredStyle: .Alert)
         
@@ -44,12 +45,14 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate{
             
             var c : Content = Content()
             c.updateContent (title, abstract: abstract,video: pdf , Pdf: video , TempV: self.tempV , TempP: self.tempP)
-            
+            flag = true 
 
             //            let destinationController = storyboard!.instantiateViewControllerWithIdentifier("alertPressedOK")
             //          presentViewController(destinationController, animated: true, completion: nil)
+            if flag{
+
         self.performSegueWithIdentifier("alertPressedOK", sender:sender)
-            
+            }
             
         }
         
