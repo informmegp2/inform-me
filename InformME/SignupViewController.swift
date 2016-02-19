@@ -15,8 +15,8 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBOutlet  var regType: UISegmentedControl!
     @IBOutlet  var regUsername: UITextField!
     @IBOutlet  var regEmail: UITextField!
-    @IBOutlet  var regPassword: UITextField!
     
+    @IBOutlet var regPassword: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,7 +51,23 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
          }// end if chack
         
          else {
-            // call to create register
+            
+            if (type == 0){
+            var current1: Attendee = Attendee();
+            
+            
+                current1.createAccount (username, email: email,  password: password)
+            }
+            
+            else if (type == 1)
+            {
+                var current2: EventOrganizer = EventOrganizer();
+                
+                
+                current2.createAccount (username, email: email,  password: password)
+                
+            }
+            
         
         } //end else
         
