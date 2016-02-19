@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Foundation
 class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet var EventLogoo: UIButton!
@@ -25,7 +25,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
 
     @IBAction func uploadImage(sender: AnyObject) {
         print("button pressed")
-        var myPickerController = UIImagePickerController()
+        let myPickerController = UIImagePickerController()
         myPickerController.delegate = self;
         myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
@@ -38,9 +38,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         // Dispose of any resources that can be recreated.
     }
     
-    func  myImageUploadRequest(){
-        
-    }
+   
     
     
    
@@ -57,36 +55,69 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
     }
     
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+    
+    func checkDate (ddate: String) -> Bool {
+      if  (ddate.rangeOfString("[0-9]{4}-[0-9]{2}-[0-9]{2}", options: .RegularExpressionSearch) != nil){
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let todaysDate:NSDate = NSDate()
+        let dayWothFormat = dateFormatter.stringFromDate(todaysDate)
+        print(dayWothFormat)
+        let date = dateFormatter.dateFromString(dayWothFormat)
+        
+        let date1 = dateFormatter.dateFromString(ddate)
+
+        if date1!.compare(date!) == NSComparisonResult.OrderedDescending
+        {
+            print("date1 after date2");
+            return true
+        } else if date1!.compare(date!) == NSComparisonResult.OrderedAscending
+        {
+           return false
+        } else
+        {
+          return true
+            }}
+
         return false
+        
     }
    
     @IBAction func save(sender: AnyObject) {
-        var name = EventName.text!
-        var website = EventWebsite.text!
-        var  date = EventDate.text!
-        
+        let name = EventName.text!
+        let website = EventWebsite.text!
+        let  date = EventDate.text!
+       let dateVlidation = checkDate(date)
         if (EventName.text == "" || EventDate.text == "") {
-            let alert = UIAlertController(title: "", message: " يرجى إكمال كافة الحقول", preferredStyle: UIAlertControllerStyle.Alert)
-            
-            alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
-                
-                self.dismissViewControllerAnimated(true, completion: nil)
-                
-            }))
-            
-            self.presentViewController(alert, animated: true, completion: nil)
+            displayMessage("", message: "يرجى إدخال كافة الحقول")
         }
+       else if(!dateVlidation){
+            
+            displayMessage("", message: "يرجى إدخال تاريخ الحدث بشكل الصحيح")
+            }
         else {
             print(EventName.text)
-            var e : Event = Event()
+            let e : Event = Event()
             e.AddEvent (name, web: website, date: date, logo: EventLogoo.backgroundImageForState(.Normal)!)
                     }
      
         
     }
     
+    
+    func displayMessage(title: String, message: String){
+        
+        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+            
+            // self.dismissViewControllerAnimated(true, completion: nil)
+            
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+ 
+    }
    
     /*
     // MARK: - Navigation
@@ -97,5 +128,17 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         // Pass the selected object to the new view controller.
     }
     */
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
+        self.view.endEditing(true)
+        
+    }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+   
+    
+    
 
 }

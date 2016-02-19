@@ -107,7 +107,7 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
                         e.date=jsonResult[x]["Date"] as! String
                         e.name=jsonResult[x]["EventName"] as! String
                         e.website=jsonResult[x]["Website"] as! String
-                       // e.id=jsonResult[x]["EventID"] as! String
+                        e.id=jsonResult[x]["EventID"] as! String
                       self.eventsInfo.addObject(e)
                         
                         

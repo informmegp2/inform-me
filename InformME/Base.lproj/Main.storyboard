@@ -519,17 +519,17 @@
                                             <constraint firstItem="ykL-Ap-HIE" firstAttribute="centerY" secondItem="Mrs-Cm-Xg0" secondAttribute="centerY" id="a1v-iA-r5j"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="اسم الحدث" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tTt-8w-Uhd">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="اسم الحدث" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tTt-8w-Uhd">
                                         <rect key="frame" x="0.0" y="200" width="600" height="100"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="الموقع الالكتروني" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uyv-sC-Y1u">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="الموقع الالكتروني" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uyv-sC-Y1u">
                                         <rect key="frame" x="0.0" y="300" width="600" height="100"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="URL"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="تاريخ الحدث" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yT2-TO-TDo">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="تاريخ الحدث yyyy-mm-dd" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yT2-TO-TDo">
                                         <rect key="frame" x="0.0" y="400" width="600" height="100"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -571,7 +571,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWU-XX-SJ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2290" y="1037"/>
+            <point key="canvasLocation" x="2089" y="1095"/>
         </scene>
         <!--Add Content View Controller-->
         <scene sceneID="gw0-C1-DkY">
@@ -801,6 +801,9 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" image="pencil" id="QE5-7i-Zqq">
                                             <inset key="imageInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                            <connections>
+                                                <segue destination="t1Z-2Z-YO9" kind="show" identifier="updateEvent" id="X04-wh-G3q"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -1000,7 +1003,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fmz-f9-q8l">
+                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fmz-f9-q8l">
                                 <rect key="frame" x="0.0" y="80" width="600" height="520"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -1461,6 +1464,7 @@
                                                 </constraints>
                                                 <state key="normal" backgroundImage="profile_image"/>
                                                 <connections>
+                                                    <action selector="uploadImage:" destination="t1Z-2Z-YO9" eventType="touchUpInside" id="HYf-DR-K2g"/>
                                                     <action selector="uploadImage:" destination="T0p-rt-bTp" eventType="touchUpInside" id="oyc-ye-eD2"/>
                                                 </connections>
                                             </button>
@@ -1534,6 +1538,7 @@
                     </view>
                     <connections>
                         <outlet property="EventDate" destination="7qT-bw-9GY" id="zjK-7T-VeF"/>
+                        <outlet property="EventLogo" destination="lsv-Lm-akT" id="ZN4-xu-Juf"/>
                         <outlet property="EventName" destination="brf-DA-4AX" id="3FP-eA-XRJ"/>
                         <outlet property="EventWebsite" destination="pgm-g1-IH1" id="YLX-K1-awk"/>
                     </connections>
@@ -2172,7 +2177,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IpO-0e-Kef">
+                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IpO-0e-Kef">
                                 <rect key="frame" x="0.0" y="80" width="600" height="520"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -2247,7 +2252,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pI7-II-bSY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AED765ED-8A2B-4B0F-B398-418874688F72" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="C960F01F-ECD9-4B15-9CF6-CE13E722F565" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
                                             <rect key="frame" x="-292" y="-143" width="1184" height="486"/>
                                             <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
@@ -2274,7 +2279,7 @@
                                         </label>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aY-Ke-P4A">
                                             <rect key="frame" x="20" y="20" width="29" height="55"/>
-                                            <state key="normal" image="822CD440-FEE6-4DEA-9C8E-50E600157FCB"/>
+                                            <state key="normal" image="98A04DC1-A384-443B-8E59-4E29B5F3DA64"/>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2756,10 +2761,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="822CD440-FEE6-4DEA-9C8E-50E600157FCB" width="29" height="55">
+        <image name="98A04DC1-A384-443B-8E59-4E29B5F3DA64" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
-GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
+YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
+GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
 DBIAwAAAgAKACtISCRMVWk5TLm9iamVjdHOhFIADgAnSEgkXGqIYGYAEgAWACBAA0h0JHh9fEBROU1RJ
 RkZSZXByZXNlbnRhdGlvboAGgAdPESX6TU0AKgAAGPQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -2924,18 +2929,18 @@ ybnKOMq3yzbLtsw1zLXNNc21zjbOts83z7jQOdC60TzRvtI/0sHTRNPG1EnUy9VO1dHWVdbY11zX4Nhk
 2OjZbNnx2nba+9uA3AXcit0Q3ZbeHN6i3ynfr+A24L3hROHM4lPi2+Nj4+vkc+T85YTmDeaW5x/nqegy
 6LzpRunQ6lvq5etw6/vshu0R7ZzuKO6070DvzPBY8OXxcvH/8ozzGfOn9DT0wvVQ9d72bfb794r4Gfio
 +Tj5x/pX+uf7d/wH/Jj9Kf26/kv+3P9t///SIiMkJVokY2xhc3NuYW1lWCRjbGFzc2VzXxAQTlNCaXRt
-YXBJbWFnZVJlcKMkJidaTlNJbWFnZVJlcFhOU09iamVjdNIiIykqV05TQXJyYXmiKSfSIiMsLV5OU011
-dGFibGVBcnJheaMsKSfTLzAJMTIzV05TV2hpdGVcTlNDb2xvclNwYWNlRDAgMAAQA4AL0iIjNTZXTlND
-b2xvcqI1J9IiIzg5V05TSW1hZ2WiOCdfEA9OU0tleWVkQXJjaGl2ZXLRPD1Ucm9vdIABAAgAEQAaACMA
-LQAyADcARQBLAFQAWwBoAG8AdwB5AH4AgACCAIcAkgCUAJYAmACdAKAAogCkAKYAqACtAMQAxgDIJsYm
-yybWJt8m8ib2JwEnCicPJxcnGicfJy4nMic5J0EnTidTJ1UnVydcJ2QnZydsJ3QndyeJJ4wnkQAAAAAA
-AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
+YXBJbWFnZVJlcKMmJyhfEBBOU0JpdG1hcEltYWdlUmVwWk5TSW1hZ2VSZXBYTlNPYmplY3TSIiMqK1dO
+U0FycmF5oioo0iIjLS5eTlNNdXRhYmxlQXJyYXmjLSoo0zAxCTIzNFdOU1doaXRlXE5TQ29sb3JTcGFj
+ZUQwIDAAEAOAC9IiIzY3V05TQ29sb3KiNijSIiM5OldOU0ltYWdlojkoXxAPTlNLZXllZEFyY2hpdmVy
+0T0+VHJvb3SAAQAIABEAGgAjAC0AMgA3AEUASwBUAFsAaABvAHcAeQB+AIAAggCHAJIAlACWAJgAnQCg
+AKIApACmAKgArQDEAMYAyCbGJssm1ibfJvIm9icJJxQnHSciJyonLScyJ0EnRSdMJ1QnYSdmJ2gnaidv
+J3cneid/J4cniiecJ58npAAAAAAAAAIBAAAAAAAAAD8AAAAAAAAAAAAAAAAAACemA
 </mutableData>
         </image>
-        <image name="AED765ED-8A2B-4B0F-B398-418874688F72" width="750" height="486">
+        <image name="C960F01F-ECD9-4B15-9CF6-CE13E722F565" width="750" height="486">
             <mutableData key="keyedArchiveRepresentation">
-YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
-GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
+YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
+GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
 DBIAwAAAgAKACtISCRMVWk5TLm9iamVjdHOhFIADgAnSEgkXGqIYGYAEgAWACBAA0h0JHh9fEBROU1RJ
 RkZSZXByZXNlbnRhdGlvboAGgAdPEgAWTL5NTQAqABY/WDs8V/89Pln/Pj9a/z9AW/9AQVz/QEFc/z9A
 W/8+P1r/PT5Z/zw9WP86O1b/ODlU/zc4U/82N1L/NTZR/zQ1UP8zNE//MjNO/zIzTv8xMk3/MTJN/zAx
@@ -27295,14 +27300,15 @@ xUvFyMZGxsPHQce/yD3IvMk6ybnKOMq3yzbLtsw1zLXNNc21zjbOts83z7jQOdC60TzRvtI/0sHTRNPG
 1EnUy9VO1dHWVdbY11zX4Nhk2OjZbNnx2nba+9uA3AXcit0Q3ZbeHN6i3ynfr+A24L3hROHM4lPi2+Nj
 4+vkc+T85YTmDeaW5x/nqegy6LzpRunQ6lvq5etw6/vshu0R7ZzuKO6070DvzPBY8OXxcvH/8ozzGfOn
 9DT0wvVQ9d72bfb794r4Gfio+Tj5x/pX+uf7d/wH/Jj9Kf26/kv+3P9t///SIiMkJVokY2xhc3NuYW1l
-WCRjbGFzc2VzXxAQTlNCaXRtYXBJbWFnZVJlcKMkJidaTlNJbWFnZVJlcFhOU09iamVjdNIiIykqV05T
-QXJyYXmiKSfSIiMsLV5OU011dGFibGVBcnJheaMsKSfTLzAJMTIzV05TV2hpdGVcTlNDb2xvclNwYWNl
-RDAgMAAQA4AL0iIjNTZXTlNDb2xvcqI1J9IiIzg5V05TSW1hZ2WiOCdfEA9OU0tleWVkQXJjaGl2ZXLR
-PD1Ucm9vdIABAAAACAAAABEAAAAaAAAAIwAAAC0AAAAyAAAANwAAAEUAAABLAAAAVAAAAFsAAABoAAAA
-bwAAAHcAAAB5AAAAfgAAAIAAAACCAAAAhwAAAJIAAACUAAAAlgAAAJgAAACdAAAAoAAAAKIAAACkAAAA
-pgAAAKgAAACtAAAAxAAAAMYAAADIABZNjAAWTZEAFk2cABZNpQAWTbgAFk28ABZNxwAWTdAAFk3VABZN
-3QAWTeAAFk3lABZN9AAWTfgAFk3/ABZOBwAWThQAFk4ZABZOGwAWTh0AFk4iABZOKgAWTi0AFk4yABZO
-OgAWTj0AFk5PABZOUgAWTlcAAAAAAAAEAQAAAAAAAAA+AAAAAAAAAAAAAAAAABZOWQ
+WCRjbGFzc2VzXxAQTlNCaXRtYXBJbWFnZVJlcKMmJyhfEBBOU0JpdG1hcEltYWdlUmVwWk5TSW1hZ2VS
+ZXBYTlNPYmplY3TSIiMqK1dOU0FycmF5oioo0iIjLS5eTlNNdXRhYmxlQXJyYXmjLSoo0zAxCTIzNFdO
+U1doaXRlXE5TQ29sb3JTcGFjZUQwIDAAEAOAC9IiIzY3V05TQ29sb3KiNijSIiM5OldOU0ltYWdlojko
+XxAPTlNLZXllZEFyY2hpdmVy0T0+VHJvb3SAAQAAAAgAAAARAAAAGgAAACMAAAAtAAAAMgAAADcAAABF
+AAAASwAAAFQAAABbAAAAaAAAAG8AAAB3AAAAeQAAAH4AAACAAAAAggAAAIcAAACSAAAAlAAAAJYAAACY
+AAAAnQAAAKAAAACiAAAApAAAAKYAAACoAAAArQAAAMQAAADGAAAAyAAWTYwAFk2RABZNnAAWTaUAFk24
+ABZNvAAWTc8AFk3aABZN4wAWTegAFk3wABZN8wAWTfgAFk4HABZOCwAWThIAFk4aABZOJwAWTiwAFk4u
+ABZOMAAWTjUAFk49ABZOQAAWTkUAFk5NABZOUAAWTmIAFk5lABZOagAAAAAAAAQBAAAAAAAAAD8AAAAA
+AAAAAAAAAAAAFk5sA
 </mutableData>
         </image>
         <image name="Profile" width="525" height="174"/>
@@ -27326,8 +27332,8 @@ OgAWTj0AFk5PABZOUgAWTlcAAAAAAAAEAQAAAAAAAAA+AAAAAAAAAAAAAAAAABZOWQ
         <image name="كلمة المرور" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KVE-N5-Gkc"/>
         <segue reference="xGV-1e-XI2"/>
+        <segue reference="Co7-Qq-mQW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>
