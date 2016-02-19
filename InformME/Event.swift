@@ -92,7 +92,54 @@ let base64String = image!.base64EncodedStringWithOptions(NSDataBase64EncodingOpt
     func requestTodeleteEvent(){}
     func DeleteEvent(){}
     func requestToUpdateEvent(){}
-    func updateEvent(){}
+    func updateEvent(id: Int,name: String,web: String,date: String,logo: UIImage){
+        print(id)
+        
+        
+        
+        var eid = String(id)
+        
+        
+        
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/event/EditEvent.php")
+        let request = NSMutableURLRequest(URL:MYURL!)
+        request.HTTPMethod = "POST";
+        
+        
+        //Change UserID"
+        
+        let image=UIImageJPEGRepresentation(logo,0.1)
+        
+        let base64 = image!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        
+        
+        let postString = "evName="+name+"&evWebsite="+web
+        let post=postString+"&evDate="+date
+        let posts=post+"&uid="+eid+"&logo="+base64
+        request.HTTPBody = posts.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+            // You can print out response object
+            print("response = \(response)")
+            
+            
+            
+            
+        }
+        
+        task.resume()
+    
+    
+    
+    }
     
     
 
