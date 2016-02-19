@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
     var barPurple = UIColor(red: (96/255.0), green: (17/255.0), blue: (143/255.0), alpha: 1.0)
 
     // 2. Add a property to hold the beacon manager and instantiate it
+    //This manager is for monitoring
     let beaconManager = ESTBeaconManager()
     let beacons = Beacon()
     
