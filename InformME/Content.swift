@@ -88,7 +88,38 @@ class Content {
         
     }
     
-    func updateContent(title: String,abstract: String ,images: [UIImage],video: String,Pdf: NSData) {}
+   // func updateContent(title: String,abstract: String ,images: [UIImage],video: String,Pdf: String) {
+    func updateContent(title: String,abstract: String ,video: String,Pdf: String , TempV: String , TempP: String) {
+        let cid = 1
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/content/EditContent.php")
+        let request = NSMutableURLRequest(URL:MYURL!)
+        request.HTTPMethod = "POST";
+        
+        //Change UserID"
+        
+        let postString = "Title=\(title)&Abstract=\(abstract)&PDF=\(Pdf)&Video=\(video)&CID=\(cid)&pPDF=\(TempP)&pVideo=\(TempV)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+            // You can print out response object
+            print("response = \(response)")
+            
+            
+            
+        }
+        
+        task.resume()
+
+    
+    }
     func shareContent() {}
     func createContent(title: String,abstract: String ,images: [UIImage],video: String,Pdf: NSData) {}
     func requestToDeleteComment() {}

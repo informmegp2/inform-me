@@ -172,7 +172,6 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
             print(cellIndexPath?.row)
             var b : Beacon = Beacon()
             b=beaconsInfo[(cellIndexPath?.row)!] as! Beacon
-            print(b.Label)
             //Checking identifier is crucial as there might be multiple
             // segues attached to same view
             var detailVC = segue!.destinationViewController as! UpdateBeaconViewController;

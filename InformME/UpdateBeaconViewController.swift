@@ -31,7 +31,7 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
         var  major = Major.text!
         var flag : Bool = false
         
-        if (self.Label.text == "self." || self.Major.text == "" || self.Minor.text == "") {
+        if (self.Label.text == "" || self.Major.text == "" || self.Minor.text == "") {
             let alert = UIAlertController(title: "", message: " يرجى إكمال كافة الحقول", preferredStyle: UIAlertControllerStyle.Alert)
             
             alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
