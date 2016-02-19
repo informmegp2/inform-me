@@ -90,6 +90,42 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func deleteEvent(sender: AnyObject) {
+        var alertController = UIAlertController(title: "", message: "هل أنت متأكد من رغبتك بالحذف", preferredStyle: .Alert)
+        
+        // Create the actions
+        var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            NSLog("OK Pressed")
+            let e:Event = Event()
+            e.DeleteEvent(self.evid)
+            self.performSegueWithIdentifier("showEvents", sender:sender)
+
+            //self.deleteBeacon(b.Label)
+        }
+        var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
+            UIAlertAction in
+            NSLog("Cancel Pressed")
+        }
+        
+        // Add the actions
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        // Present the controller
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+        
+        
+    
+  
+    
+    
+    
+    
+    
+    
+    }
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
