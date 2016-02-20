@@ -89,11 +89,11 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         let  date = EventDate.text!
        let dateVlidation = checkDate(date)
         if (EventName.text == "" || EventDate.text == "") {
-            displayMessage("", message: "يرجى إدخال كافة الحقول")
+            displayAlert("", message: "يرجى إدخال كافة الحقول")
         }
        else if(!dateVlidation){
             
-            displayMessage("", message: "يرجى إدخال تاريخ الحدث بشكل الصحيح")
+            displayAlert("", message: "يرجى إدخال تاريخ الحدث بشكل الصحيح")
             }
         else {
             print(EventName.text)
@@ -104,21 +104,18 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         
     }
     
-    
-    func displayMessage(title: String, message: String){
+    func displayAlert(title: String, message: String) {
         
-        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        
-        alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+        var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
             
-            // self.dismissViewControllerAnimated(true, completion: nil)
-            
-        }))
+            self.dismissViewControllerAnimated(true, completion: nil)
+                       
+        })))
         
-        self.presentViewController(alert, animated: true, completion: nil)
- 
-    }
-   
+         self.presentViewController(alert, animated: true, completion: nil)
+        
+    }//end fun display alert
     /*
     // MARK: - Navigation
 
