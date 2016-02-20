@@ -84,6 +84,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     //Retrieving data below
     func placesNearBeacon(beacon: CLBeacon) -> [String] {
         let beaconKey = "\(beacon.major):\(beacon.minor)"
+        print("\(beacon.major):\(beacon.minor)")
         if let places = self.placesByBeacons[beaconKey] {
             let sortedPlaces = Array(places).sort { $0.1 < $1.1 }.map { $0.0 }
             return sortedPlaces
@@ -97,7 +98,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
             if let nearestBeacon = beacons.first {
                 let places = placesNearBeacon(nearestBeacon)
                 // TODO: update the UI here
-                print(places) // TODO: remove after implementing the UI
+                //print(places) // TODO: remove after implementing the UI
             }
             
     }
