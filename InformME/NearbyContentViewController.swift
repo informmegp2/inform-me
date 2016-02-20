@@ -9,7 +9,12 @@
 import Foundation
 import UIKit
 
-class NearbyContentViewController: UIViewController, ESTBeaconManagerDelegate {
+class NearbyContentViewController: UIViewController,UITableViewDelegate, UITableViewDataSource , ESTBeaconManagerDelegate {
+    @IBOutlet
+    var tableView: UITableView!
+
+    var items: [String] = ["We", "Heart", "Swift"]
+
     
     //This manager is for ranging
     let beaconManager = ESTBeaconManager()
@@ -18,6 +23,9 @@ class NearbyContentViewController: UIViewController, ESTBeaconManagerDelegate {
     //Here we will search for content nearby
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "contentCell")
+        
         // 3. Set the beacon manager's delegate
         self.beaconManager.delegate = self
         // 4. We need to request this authorization for every beacon manager
@@ -35,6 +43,20 @@ class NearbyContentViewController: UIViewController, ESTBeaconManagerDelegate {
         super.viewDidDisappear(animated)
         self.beaconManager.stopRangingBeaconsInRegion(self.beaconRegion)
     }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.items.count;
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("contentCell")! as UITableViewCell
+        
+        cell.textLabel?.text = self.items[indexPath.row]
+        
+        return cell
+    }
+
     
     // Add the property holding the data.
     // TODO: replace "<major>:<minor>" strings to match your own beacons
@@ -79,4 +101,19 @@ class NearbyContentViewController: UIViewController, ESTBeaconManagerDelegate {
             }
             
     }
+    
+    
+    
+ /*   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    */
 }
