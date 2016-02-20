@@ -3333,6 +3333,9 @@
                                                                             <variation key="widthClass=compact" misplaced="YES">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="400" height="50"/>
                                                                             </variation>
+                                                                            <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="400" height="50"/>
+                                                                            </variation>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="481-vA-GXY">
                                                                             <rect key="frame" x="400" y="0.0" width="200" height="42"/>
@@ -3355,9 +3358,6 @@
                                                                                 <constraint firstItem="JAw-Tp-DVM" firstAttribute="trailing" secondItem="481-vA-GXY" secondAttribute="trailing" constant="-10" id="zxZ-M0-Mfv"/>
                                                                             </constraints>
                                                                             <variation key="widthClass=compact" misplaced="YES">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="400" height="50"/>
-                                                                            </variation>
-                                                                            <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="400" height="50"/>
                                                                             </variation>
                                                                         </view>
@@ -3886,6 +3886,7 @@ AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
     <inferredMetricsTieBreakers>
         <segue reference="eft-mR-a5M"/>
         <segue reference="517-Dz-TZo"/>
+        <segue reference="eft-mR-a5M"/>
         <segue reference="fVn-jx-ZJd"/>
         <segue reference="nqB-fl-sns"/>
         <segue reference="m6w-zl-QBt"/>

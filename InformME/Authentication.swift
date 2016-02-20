@@ -54,8 +54,8 @@ class Authentication {
                     defaults.setObject(type, forKey: "type")
                     defaults.setObject(session, forKey: "session")
 
-                   /* for jawaher just to check print(id, email, type, session)
-                    print("lol") */
+                   print(id, email, type, session)
+                    print("lol")
                     
                   //  self.performSegueWithIdentifier("showSigninScreen", sender: self)
 
