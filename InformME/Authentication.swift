@@ -41,7 +41,24 @@ class Authentication {
                     
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
                     
-                    print(jsonResult)
+                    let id = jsonResult["account"]!!["ID"]
+                    let email = jsonResult["account"]!!["email"]
+                    let type = jsonResult["account"]!!["type"]
+                    let session = jsonResult["account"]!!["session"]
+
+                    
+                    let defaults = NSUserDefaults.standardUserDefaults()
+                    
+                    defaults.setObject(id, forKey: "id")
+                    defaults.setObject(email, forKey: "email")
+                    defaults.setObject(type, forKey: "type")
+                    defaults.setObject(session, forKey: "session")
+
+                   /* for jawaher just to check print(id, email, type, session)
+                    print("lol") */
+                    
+                  //  self.performSegueWithIdentifier("showSigninScreen", sender: self)
+
                     
                 } catch {
                     
@@ -55,7 +72,7 @@ class Authentication {
             
             
             // You can print out response object
-           print("response = \(response)")
+         //  print("response = \(response)")
             
             
             
@@ -64,8 +81,14 @@ class Authentication {
         
         task.resume()
 
-    
-    
+       /* for jawaher to check its save the in defaults  let defaults = NSUserDefaults.standardUserDefaults()
+        if let name = defaults.stringForKey("id")
+        {
+            print("reading")
+            print(name)
+        }
+    */
+        
     } // end fun login
     
     
