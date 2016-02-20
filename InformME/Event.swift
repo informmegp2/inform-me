@@ -90,9 +90,94 @@ let base64String = image!.base64EncodedStringWithOptions(NSDataBase64EncodingOpt
     
     
     func requestTodeleteEvent(){}
-    func DeleteEvent(){}
+    func DeleteEvent(id: Int){
+        var eid = String(id)
+        
+        
+        
+        
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/event/deleteEvent.php")
+        let request = NSMutableURLRequest(URL:MYURL!)
+        request.HTTPMethod = "POST";
+        
+        
+        //Change UserID"
+        
+       
+        
+        
+        let postString = "&evid="+eid
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+            // You can print out response object
+            print("response = \(response)")
+            
+            
+            
+            
+        }
+        
+        task.resume()
+     
+    
+    }
     func requestToUpdateEvent(){}
-    func updateEvent(){}
+    func updateEvent(id: Int,name: String,web: String,date: String,logo: UIImage){
+        
+        
+        
+        var eid = String(id)
+        
+        
+        
+        
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/event/EditEvent.php")
+        let request = NSMutableURLRequest(URL:MYURL!)
+        request.HTTPMethod = "POST";
+        
+        
+        //Change UserID"
+        
+        let image=UIImageJPEGRepresentation(logo,0.1)
+        
+        let base64String = image!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        
+        
+        let postString = "evName="+name+"&evWebsite="+web+"&evDate="+date+"&uid="+eid+"&logo="+base64String
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+            // You can print out response object
+            print("response = \(response)")
+            
+            
+            
+            
+        }
+        
+        task.resume()
+        
+        
+        
+    }
+
     
     
 
