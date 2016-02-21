@@ -171,13 +171,13 @@
                         <outlet property="emailfiled" destination="vEs-rq-j1q" id="HIO-mp-ImN"/>
                         <outlet property="passwordfiled" destination="fTu-wG-Jv7" id="8ab-mw-0vt"/>
                         <outlet property="typefiled" destination="yrq-I2-325" id="gTR-rY-phO"/>
-                        <segue destination="PsN-qj-TL8" kind="show" identifier="homepage" id="J8y-RJ-IgW"/>
-                        <segue destination="TTq-BC-hS7" kind="show" identifier="homepage2" id="iW3-eK-C12"/>
+                        <segue destination="1jX-Uo-1vq" kind="show" identifier="homepage" id="kcv-Zm-l8l"/>
+                        <segue destination="la5-xR-MwB" kind="show" identifier="homepage2" id="csK-Om-bzQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-217" y="699"/>
+            <point key="canvasLocation" x="-838" y="963"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="hxe-9P-eIo">
@@ -357,7 +357,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qR-As-uer" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="456" y="-67"/>
+            <point key="canvasLocation" x="-96" y="-43"/>
         </scene>
         <!--إدارة الأحداث-->
         <scene sceneID="rvF-Os-02l">
@@ -1296,13 +1296,13 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OY0-Pd-Vrh">
-                                <rect key="frame" x="0.0" y="80" width="600" height="520"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OY0-Pd-Vrh">
+                                <rect key="frame" x="0.0" y="80" width="600" height="471"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4D8-v7-wwC">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="173"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4D8-v7-wwC">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="157"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIk-U0-f2p">
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIk-U0-f2p">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="157"/>
                                                 <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="10"/>
                                                 <state key="normal" title="Button" image="eventMng"/>
@@ -1316,10 +1316,10 @@
                                             <constraint firstItem="zIk-U0-f2p" firstAttribute="centerX" secondItem="4D8-v7-wwC" secondAttribute="centerX" id="mHt-qA-wOC"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FK0-gc-qaI">
-                                        <rect key="frame" x="0.0" y="173" width="600" height="174"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FK0-gc-qaI">
+                                        <rect key="frame" x="0.0" y="157" width="600" height="157"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NC-gY-c2v">
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9NC-gY-c2v">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="157"/>
                                                 <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
                                                 <state key="normal" title="Button" image="beaconMng"/>
@@ -1333,10 +1333,10 @@
                                             <constraint firstItem="9NC-gY-c2v" firstAttribute="centerX" secondItem="FK0-gc-qaI" secondAttribute="centerX" id="xK1-6X-efJ"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRg-sO-lPI">
-                                        <rect key="frame" x="0.0" y="347" width="600" height="173"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FRg-sO-lPI">
+                                        <rect key="frame" x="0.0" y="314" width="600" height="157"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usA-Oh-TsP">
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usA-Oh-TsP">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="157"/>
                                                 <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="20"/>
                                                 <state key="normal" title="Button" image="Profile"/>
@@ -1400,7 +1400,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X56-Ke-fT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="795" y="699"/>
+            <point key="canvasLocation" x="920" y="631"/>
         </scene>
         <!-- إضافة بيكون-->
         <scene sceneID="Rnq-OT-7cx">
@@ -1887,7 +1887,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJI-nC-ICD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-209" y="-67"/>
+            <point key="canvasLocation" x="-1097" y="-55"/>
         </scene>
         <!--المحتويات القريبة-->
         <scene sceneID="6aS-xN-cqD">
@@ -2061,13 +2061,13 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oKD-lU-ClB">
-                                <rect key="frame" x="0.0" y="80" width="600" height="520"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oKD-lU-ClB">
+                                <rect key="frame" x="0.0" y="80" width="600" height="471"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYd-4h-SNc">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="173"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gYd-4h-SNc">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="157"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQZ-iH-1Lv">
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQZ-iH-1Lv">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="157"/>
                                                 <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="10"/>
                                                 <state key="normal" title="Button" image="eventMng"/>
@@ -2081,10 +2081,10 @@
                                             <constraint firstItem="qQZ-iH-1Lv" firstAttribute="centerX" secondItem="gYd-4h-SNc" secondAttribute="centerX" id="ndW-Yf-VdY"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxU-Xy-1eh">
-                                        <rect key="frame" x="0.0" y="173" width="600" height="174"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yxU-Xy-1eh">
+                                        <rect key="frame" x="0.0" y="157" width="600" height="157"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0U-wc-2Gt">
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0U-wc-2Gt">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="157"/>
                                                 <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
                                                 <state key="normal" title="Button" image="favoriteList"/>
@@ -2098,10 +2098,10 @@
                                             <constraint firstItem="Y0U-wc-2Gt" firstAttribute="centerY" secondItem="yxU-Xy-1eh" secondAttribute="centerY" id="kxc-63-aLf"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gf-73-jxq">
-                                        <rect key="frame" x="0.0" y="347" width="600" height="173"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6gf-73-jxq">
+                                        <rect key="frame" x="0.0" y="314" width="600" height="157"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAC-5L-5GZ">
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAC-5L-5GZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="157"/>
                                                 <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="20"/>
                                                 <state key="normal" title="Button" image="Profile"/>
@@ -2361,7 +2361,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pI7-II-bSY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="98F19CA0-68DC-4BA6-8FBF-858FEADA2E4F" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="A02289EC-A277-4F14-93A1-BCCDDA7E4511" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
                                             <rect key="frame" x="-292" y="-143" width="1184" height="486"/>
                                             <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
@@ -2388,7 +2388,7 @@
                                         </label>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aY-Ke-P4A">
                                             <rect key="frame" x="20" y="20" width="29" height="55"/>
-                                            <state key="normal" image="26246FD9-7D9B-4D76-ABD0-5349E15BBBF8"/>
+                                            <state key="normal" image="DC9B3D8E-0657-45CF-967D-1FC1D952A178"/>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3529,7 +3529,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="26246FD9-7D9B-4D76-ABD0-5349E15BBBF8" width="29" height="55">
+        <image name="A02289EC-A277-4F14-93A1-BCCDDA7E4511" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -3705,7 +3705,7 @@ yybWJt8m8ib2JwEnCicPJxcnGicfJy4nMic5J0EnTidTJ1UnVydcJ2QnZydsJ3QndyeJJ4wnkQAAAAAA
 AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
 </mutableData>
         </image>
-        <image name="98F19CA0-68DC-4BA6-8FBF-858FEADA2E4F" width="29" height="55">
+        <image name="DC9B3D8E-0657-45CF-967D-1FC1D952A178" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -3906,13 +3906,11 @@ AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
         <image name="كلمة المرور" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qb5-il-Y2H"/>
-        <segue reference="m6w-zl-QBt"/>
         <segue reference="517-Dz-TZo"/>
         <segue reference="eft-mR-a5M"/>
         <segue reference="fVn-jx-ZJd"/>
-        <segue reference="J8y-RJ-IgW"/>
-        <segue reference="iW3-eK-C12"/>
+        <segue reference="qb5-il-Y2H"/>
+        <segue reference="m6w-zl-QBt"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

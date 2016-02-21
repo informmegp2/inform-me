@@ -10,7 +10,7 @@
 import UIKit
 import Foundation
 class Authentication {
-    func login(email: String, Passoword: String, Type: Int) -> Bool{
+    func login(email: String, Passoword: String, Type: Int, completionHandler: (login:Bool) -> ()){
     
         struct f { static var flag = false }
 
@@ -48,8 +48,8 @@ class Authentication {
                     let l = jsonResult["account"]!!["status"]
                     let s = String (l)
                     
-                    print (s)
-                   if( s == "true") {
+                    print (s+"Hi")
+                   if( s == "Optional(true)") {
                     let id = jsonResult["account"]!!["ID"]
                     let email = jsonResult["account"]!!["email"]
                     let type = jsonResult["account"]!!["type"]
@@ -69,13 +69,11 @@ class Authentication {
                     print("lol")  
 */
                     f.flag = true
-                    
                 }//end if
                     
-                    else if( s == "false") {
+                    else if( s == "Optional(false)") {
                         f.flag = false
                     print (s)
-
                         
                     } //end else
                     
@@ -88,16 +86,17 @@ class Authentication {
                 }
                 
                 
-                } }
+                }
+                }
 
             
             
             // You can print out response object
          //  print("response = \(response)")
             
-            
-            
-            
+            //completion handler values.
+            completionHandler(login: f.flag)
+  
         }
         
         task.resume()
@@ -132,9 +131,7 @@ class Authentication {
             print("reading")
             print(name)
         }
-    */
-        
-    return f.flag } // end fun login
+    */ } // end fun login
     
     
     func logout(){}
