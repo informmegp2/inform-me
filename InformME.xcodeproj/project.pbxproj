@@ -23,6 +23,8 @@
 		0E601FC51C77234A003E9B50 /* UpdatePlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E601FC41C77234A003E9B50 /* UpdatePlaceViewController.swift */; };
 		0E601FC71C77235F003E9B50 /* AddPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E601FC61C77235F003E9B50 /* AddPlaceViewController.swift */; };
 		0E601FC91C77236D003E9B50 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E601FC81C77236D003E9B50 /* ReportViewController.swift */; };
+		0E601FCB1C786D29003E9B50 /* ContentReportTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E601FCA1C786D29003E9B50 /* ContentReportTableViewCellController.swift */; };
+		0E601FCD1C78CBAC003E9B50 /* CommentTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E601FCC1C78CBAC003E9B50 /* CommentTableViewCellController.swift */; };
 		0E8BDFB61C6A41D3003364A5 /* UpdateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8BDFB51C6A41D3003364A5 /* UpdateEventViewController.swift */; };
 		0E8BDFB81C6A4607003364A5 /* UpdateBeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8BDFB71C6A4607003364A5 /* UpdateBeaconViewController.swift */; };
 		0E8BDFBA1C6A4D5A003364A5 /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8BDFB91C6A4D5A003364A5 /* RecoverPasswordViewController.swift */; };
@@ -114,6 +116,8 @@
 		0E601FC41C77234A003E9B50 /* UpdatePlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePlaceViewController.swift; sourceTree = "<group>"; };
 		0E601FC61C77235F003E9B50 /* AddPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPlaceViewController.swift; sourceTree = "<group>"; };
 		0E601FC81C77236D003E9B50 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
+		0E601FCA1C786D29003E9B50 /* ContentReportTableViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentReportTableViewCellController.swift; sourceTree = "<group>"; };
+		0E601FCC1C78CBAC003E9B50 /* CommentTableViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCellController.swift; sourceTree = "<group>"; };
 		0E8BDFB51C6A41D3003364A5 /* UpdateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateEventViewController.swift; sourceTree = "<group>"; };
 		0E8BDFB71C6A4607003364A5 /* UpdateBeaconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateBeaconViewController.swift; sourceTree = "<group>"; };
 		0E8BDFB91C6A4D5A003364A5 /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +275,8 @@
 				0E601FC41C77234A003E9B50 /* UpdatePlaceViewController.swift */,
 				0E601FC61C77235F003E9B50 /* AddPlaceViewController.swift */,
 				0E601FC81C77236D003E9B50 /* ReportViewController.swift */,
+				0E601FCA1C786D29003E9B50 /* ContentReportTableViewCellController.swift */,
+				0E601FCC1C78CBAC003E9B50 /* CommentTableViewCellController.swift */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -364,7 +370,7 @@
 				TargetAttributes = {
 					0E3FCBA11C59E1920044CE7A = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = G27DB98SYT;
+						DevelopmentTeam = 8ULH6N43JQ;
 					};
 					0E3FCBB51C59E1930044CE7A = {
 						CreatedOnToolsVersion = 7.2;
@@ -443,6 +449,7 @@
 				0ECC041A1C63C44400458C86 /* Attendee.swift in Sources */,
 				0ECC04161C63C36400458C86 /* Profile.swift in Sources */,
 				0E8BDFB61C6A41D3003364A5 /* UpdateEventViewController.swift in Sources */,
+				0E601FCB1C786D29003E9B50 /* ContentReportTableViewCellController.swift in Sources */,
 				0E8BDFC01C6A5C16003364A5 /* FavoritelistViewController.swift in Sources */,
 				0ECC03FE1C63ACFE00458C86 /* Authentication.swift in Sources */,
 				0E5D5D961C73ACE200D60753 /* UpdateContentViewController.swift in Sources */,
@@ -461,6 +468,7 @@
 				0E601FC71C77235F003E9B50 /* AddPlaceViewController.swift in Sources */,
 				0E3FCBA61C59E1930044CE7A /* AppDelegate.swift in Sources */,
 				0E1D8F121C66019A00D840D4 /* BeaconTableCellViewController.swift in Sources */,
+				0E601FCD1C78CBAC003E9B50 /* CommentTableViewCellController.swift in Sources */,
 				0EF156B81C64C24C004BE735 /* OrganizerHomeViewController.swift in Sources */,
 				0E8BDFB81C6A4607003364A5 /* UpdateBeaconViewController.swift in Sources */,
 				0ECC04101C63BC0800458C86 /* Dislike.swift in Sources */,
@@ -615,7 +623,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -625,7 +632,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = informMeTeam.InformME;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/ObjCBridge.h";
 			};
 			name = Debug;
@@ -635,7 +641,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -645,7 +650,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = informMeTeam.InformME;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "${PROJECT_NAME}/ObjCBridge.h";
 			};
 			name = Release;

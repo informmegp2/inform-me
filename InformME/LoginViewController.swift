@@ -51,17 +51,49 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UINavigationCo
         }
             
         else {
+            
+            var flag: Bool
+            flag = false
             var current: Authentication = Authentication();
             
-    
-            current.login( email, Passoword: password, Type: type)
-
-                    }
+            //Wher use a completion handler here in order to make sure we got the latest value of flag.
+            current.login( email, Passoword: password, Type: type) {
+                (login:Bool) in
+                //we should perform all segues in the main thread
+                dispatch_async(dispatch_get_main_queue()) {
+                    flag = login
+                    self.performSegue(flag,type: type)}
+                print("I am happy",login,flag)
+                        }
+                print("I am Here")
+        
+        }
 
     }// end fun login
     
   
+    func performSegue(flag: Bool, type: Int) {
+        print("Is it")
+        if ( flag  && type == 1) {
+            print("here1")
 
+            self.performSegueWithIdentifier("homepage", sender: self)
+            
+        }
+            
+        else if ( flag && type == 0) {
+            print("here2")
+            self.performSegueWithIdentifier("homepage2", sender: self)
+            
+        }
+            
+        else if ( !flag ) {
+            print("here3")
+
+            self.displayAlert("", message: " البريد الإلكتروني أو كلمة المرور غير صحيحة")
+            
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
