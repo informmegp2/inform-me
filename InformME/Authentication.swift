@@ -49,6 +49,7 @@ class Authentication {
                     let s = String (l)
                     
                     print (s+"Hi")
+                    
                    if( s == "Optional(true)") {
                     let id = jsonResult["account"]!!["ID"]
                     let email = jsonResult["account"]!!["email"]
