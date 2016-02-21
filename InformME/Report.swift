@@ -9,7 +9,7 @@
 import Foundation
 class Report {
     
-    func viewReport(event: Event) -> [Content]{
+    func viewReport(event: Event,completionHandler: (contents:[Content]) -> ()){
         var contents: [Content] = []
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/viwereport.php")!)
@@ -47,11 +47,6 @@ class Report {
                         contents.append(c)
                         print("DONE")
                     }
-                    dispatch_async(dispatch_get_main_queue())
-                        {
-                        //    return comments;
-                         //    self.tableView.reload;
-                     }
                 } catch {
                     
                     print("JSON serialization failed")
@@ -61,9 +56,8 @@ class Report {
                 
             }
             
-            
+            completionHandler(contents: contents)
         }
         task.resume()
-        return contents;
-        }
+    }
 }
