@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -171,6 +171,8 @@
                         <outlet property="emailfiled" destination="vEs-rq-j1q" id="HIO-mp-ImN"/>
                         <outlet property="passwordfiled" destination="fTu-wG-Jv7" id="8ab-mw-0vt"/>
                         <outlet property="typefiled" destination="yrq-I2-325" id="gTR-rY-phO"/>
+                        <segue destination="PsN-qj-TL8" kind="show" identifier="homepage" id="J8y-RJ-IgW"/>
+                        <segue destination="TTq-BC-hS7" kind="show" identifier="homepage2" id="iW3-eK-C12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -245,11 +247,17 @@
                                             <segment title="منظم"/>
                                         </segments>
                                         <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="133" width="400" height="54"/>
+                                        </variation>
                                     </segmentedControl>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="اسم المستخدم" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fF6-xv-fLn">
                                         <rect key="frame" x="0.0" y="280" width="600" height="80"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                        <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="186" width="400" height="54"/>
+                                        </variation>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                             <rect key="frame" x="0.0" y="310" width="400" height="28"/>
                                         </variation>
@@ -2135,7 +2143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nGI-FU-0TS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749" y="1993"/>
+            <point key="canvasLocation" x="421.5" y="1357.5"/>
         </scene>
         <!--قائمة المفضلة-->
         <scene sceneID="060-pz-aj9">
@@ -3054,6 +3062,9 @@
                                         <rect key="frame" x="0.0" y="378" width="600" height="89"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
+                                            <rect key="frame" x="0.0" y="251" width="400" height="60"/>
+                                        </variation>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ia0-cE-bZT">
                                         <rect key="frame" x="0.0" y="467" width="600" height="89"/>
@@ -3276,7 +3287,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="400" height="50"/>
                                                                     </variation>
                                                                     <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="400" height="25"/>
                                                                     </variation>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCn-gN-6Ub">
@@ -3334,7 +3345,7 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="400" height="50"/>
                                                                             </variation>
                                                                             <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="400" height="50"/>
+                                                                                <rect key="frame" x="133" y="0.0" width="134" height="50"/>
                                                                             </variation>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="481-vA-GXY">
@@ -3370,7 +3381,7 @@
                                                                         <rect key="frame" x="0.0" y="50" width="400" height="50"/>
                                                                     </variation>
                                                                     <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
-                                                                        <rect key="frame" x="0.0" y="50" width="400" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="25" width="400" height="50"/>
                                                                     </variation>
                                                                 </stackView>
                                                             </subviews>
@@ -3381,7 +3392,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
                                                             </variation>
                                                             <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
-                                                                <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="400" height="75"/>
                                                             </variation>
                                                         </stackView>
                                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="20" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uwI-aR-f0e">

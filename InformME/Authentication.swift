@@ -10,8 +10,10 @@
 import UIKit
 import Foundation
 class Authentication {
-    func login(email: String, Passoword: String, Type: Int){
+    func login(email: String, Passoword: String, Type: Int) -> Bool{
     
+        struct f { static var flag = false }
+
     
         let MYURL = NSURL(string:"http://bemyeyes.co/API/login.php")
         let request = NSMutableURLRequest(URL:MYURL!)
@@ -25,40 +27,59 @@ class Authentication {
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             
+            
             if error != nil
             {
                 print("error=\(error)")
-                return
+                return 
             }
             
             
          //   var err: NSError?
          //   var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: &err) as NSDictionary
-            
+            else {
+                
             if let urlContent = data {
                 
                 do {
                     
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
                     
+                    let l = jsonResult["account"]!!["status"]
+                    let s = String (l)
+                    
+                    print (s)
+                   if( s == "true") {
                     let id = jsonResult["account"]!!["ID"]
                     let email = jsonResult["account"]!!["email"]
                     let type = jsonResult["account"]!!["type"]
                     let session = jsonResult["account"]!!["session"]
 
-                    
-                    let defaults = NSUserDefaults.standardUserDefaults()
-                    
-                    defaults.setObject(id, forKey: "id")
-                    defaults.setObject(email, forKey: "email")
-                    defaults.setObject(type, forKey: "type")
-                    defaults.setObject(session, forKey: "session")
+                    print(id, email, type, session)
 
-                   print(id, email, type, session)
-                    print("lol")
                     
-                  //  self.performSegueWithIdentifier("showSigninScreen", sender: self)
+        NSUserDefaults.standardUserDefaults().setObject(id, forKey: "id")
+        NSUserDefaults.standardUserDefaults().setObject(email, forKey: "email")
+        NSUserDefaults.standardUserDefaults().setObject(type, forKey: "type")
+     NSUserDefaults.standardUserDefaults().setObject(session, forKey: "session")
+                 NSUserDefaults.standardUserDefaults().synchronize()
 
+                  /* for jawaher to check
+                    print(id, email, type, session)
+                    print("lol")  
+*/
+                    f.flag = true
+                    
+                }//end if
+                    
+                    else if( s == "false") {
+                        f.flag = false
+                    print (s)
+
+                        
+                    } //end else
+                    
+                    
                     
                 } catch {
                     
@@ -67,7 +88,7 @@ class Authentication {
                 }
                 
                 
-            }
+                } }
 
             
             
@@ -80,6 +101,30 @@ class Authentication {
         }
         
         task.resume()
+        
+     /*
+        
+        
+        var cID = ""
+        var cemail = ""
+        var ctype = ""
+        var csession = ""
+        
+        let current = NSUserDefaults.standardUserDefaults()
+         cID = current.stringForKey("id")!
+         cemail = current.stringForKey("email")!
+         ctype = current.stringForKey("type")!
+         csession = current.stringForKey("session")!
+        
+         print(cID)
+        print(cemail)
+        print(ctype)
+        print(ctype)
+
+        if (!cID.isEmpty && !cemail.isEmpty && !ctype.isEmpty && !csession.isEmpty) {
+        
+            flag.self = true } */
+        
 
        /* for jawaher to check its save the in defaults  let defaults = NSUserDefaults.standardUserDefaults()
         if let name = defaults.stringForKey("id")
@@ -89,7 +134,7 @@ class Authentication {
         }
     */
         
-    } // end fun login
+    return f.flag } // end fun login
     
     
     func logout(){}

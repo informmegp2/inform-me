@@ -51,12 +51,33 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UINavigationCo
         }
             
         else {
+            
+            var flag: Bool
+            flag = false
             var current: Authentication = Authentication();
             
     
-            current.login( email, Passoword: password, Type: type)
+          flag =  current.login( email, Passoword: password, Type: type)
 
-                    }
+            if ( flag  && type == 1) {
+                self.performSegueWithIdentifier("homepage", sender: self)
+            
+            
+            }
+            
+            else if ( flag && type == 0) {
+                self.performSegueWithIdentifier("homepage2", sender: self)
+                
+                
+            }
+                
+            else if ( !flag ) {
+            
+            displayAlert("", message: " البريد الإلكتروني أو كلمة المرور غير صحيحة")
+            
+            }
+        
+        }
 
     }// end fun login
     
