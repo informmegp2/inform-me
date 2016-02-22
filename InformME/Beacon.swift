@@ -111,10 +111,10 @@ class Beacon {
         
         let uuid = NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!
         let beaconRegion = CLBeaconRegion(proximityUUID: uuid, identifier: "MyBeacon")
-        beaconRegion.notifyOnEntry = true
+     /*   beaconRegion.notifyOnEntry = true
         beaconRegion.notifyOnExit = true
         beaconRegion.notifyEntryStateOnDisplay = true
-        
+        */
         
 return beaconRegion
 

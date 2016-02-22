@@ -11,10 +11,10 @@ import Foundation
 class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet var EventLogoo: UIButton!
-    @IBOutlet var EventLogo: UIImageView!
     @IBOutlet var EventDate: UITextField!
     @IBOutlet var EventWebsite: UITextField!
     @IBOutlet var EventName: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         EventDate.delegate = self
@@ -23,6 +23,11 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         // Do any additional setup after loading the view.
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     @IBAction func uploadImage(sender: AnyObject) {
         print("button pressed")
         let myPickerController = UIImagePickerController()
@@ -33,18 +38,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         
         
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-   
-    
-    
-   
-    
-    
-    
+
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
         
     {
@@ -99,7 +93,9 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
             print(EventName.text)
             let e : Event = Event()
             e.AddEvent (name, web: website, date: date, logo: EventLogoo.backgroundImageForState(.Normal)!)
-                    }
+            self.performSegueWithIdentifier("addEvent", sender:sender)
+
+        }
      
         
     }
@@ -109,11 +105,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         
         let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         
-        alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
-            
-            // self.dismissViewControllerAnimated(true, completion: nil)
-            
-        }))
+        alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: nil ))
         
         self.presentViewController(alert, animated: true, completion: nil)
  

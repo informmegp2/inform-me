@@ -15,8 +15,8 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBOutlet  var regType: UISegmentedControl!
     @IBOutlet  var regUsername: UITextField!
     @IBOutlet  var regEmail: UITextField!
-    @IBOutlet  var regPassword: UITextField!
     
+    @IBOutlet var regPassword: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +38,8 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
         var password = regPassword.text!
         var type: Int
         type = -1;
+        var count: Int
+        count = password.characters.count
         
         if (regType.selectedSegmentIndex == 0 ){
             type = 0; }
@@ -49,18 +51,107 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
           displayAlert("", message: "يرجى إدخال كافة الحقول")
 
          }// end if chack
-        
+            
+         else if ( count < 8)
+         {
+            displayAlert("", message: "يرجى إدخال كلمة مرور لا تقل عن ثمانية أحرف")
+
+            
+         }//end else if
+            
+            
+            
          else {
-            // call to create register
+            
+            var flag: Bool
+            flag = false
+            
+            if (type == 0){
+            var current1: Attendee = Attendee();
+            
+            
+                current1.createAccount (username, email: email,  password: password){
+                    (login:Bool) in
+                    //we should perform all segues in the main thread
+                    dispatch_async(dispatch_get_main_queue()) {
+                        flag = login
+                        if (flag == true){
+                            
+                            print(flag)
+                            
+                            print("i am in true")
+                            
+                           self.displayAlert("", message: "لقد تم تسجيلك")
+                          self.performSegue(flag)
+                            
+                        }//end if
+                        else if (flag == false){
+                            print(flag)
+
+                             self.displayAlert("", message: "البريد الإلكتروني مسجل لدينا سابقاً")
+                        }//end else
+                        
+                        
+                }// end  dipatch
+                
+                
+                
+            }//end call 
+            }//end if type 0
+            
+            else if (type == 1)
+            {
+                var current2: EventOrganizer = EventOrganizer();
+                
+                
+                current2.createAccount (username, email: email,  password: password){
+                    (login:Bool) in
+                    //we should perform all segues in the main thread
+                    dispatch_async(dispatch_get_main_queue()) {
+                        flag = login
+                        if (flag == true){
+                            
+                            print(flag)
+                            
+                            print("i am in true")
+                            
+                            self.displayAlert("", message: "لقد تم تسجيلك")
+                            self.performSegue(flag)
+                            
+                        }//end if
+                        else if (flag == false){
+                            print(flag)
+                            
+                            self.displayAlert("", message: "البريد الإلكتروني مسجل لدينا سابقاً")
+                        }//end else
+                        
+                        
+                    }// end  dipatch
+                    
+               
+                
+            }//end call
+            
         
-        } //end else
+        } //end else type 1
         
+        } // end big else 
         
     }// end fun register
     
     
     
-    
+    func performSegue(flag: Bool) {
+        
+        
+        print("Is it in performSegue")
+        if ( flag ) {
+          
+        
+            self.performSegueWithIdentifier("loginpage", sender: self)
+       
+            
+        } }//end fun performSegue
     
     
     
@@ -77,7 +168,9 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
         var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
             
-            self.dismissViewControllerAnimated(true, completion: nil)
+            if( message == "لقد تم تسجيلك") {
+                self.dismissViewControllerAnimated(true, completion: nil) }
+
             
         })))
         
