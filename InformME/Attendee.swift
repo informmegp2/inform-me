@@ -12,7 +12,9 @@ class Attendee {
     var password:String = ""
     var email:String = ""
     
-    func createAccount(username: String, email: String,password: String) {
+    func createAccount(username: String, email: String,password: String, completionHandler: (login:Bool) -> ()) {
+        
+         struct f { static var flag = false }
         
         var Type: Int
         Type = 0
@@ -36,9 +38,7 @@ class Attendee {
                 return
             }
             
-            
-            //   var err: NSError?
-            //   var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: &err) as NSDictionary
+            else{
             
             if let urlContent = data {
                 
@@ -46,7 +46,23 @@ class Attendee {
                     
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
                     
-                    print(jsonResult)
+                    let l = jsonResult["status"]!!
+                    
+                    let s = String (l)
+                    print (s+"hi")
+
+                  if( s == "success") {
+                        f.flag = true
+                    print (s+"hi 1111")
+                    
+                    } //end if
+                  else if( s == "unsuccess") {
+                    f.flag = false
+                    print (s+"hi 222")
+                    
+                    } //end else
+                    
+                    
                     
                 } catch {
                     
@@ -56,13 +72,15 @@ class Attendee {
                 
                 
             }
-            
+            }//end else
             
             
             // You can print out response object
-            print("response = \(response)")
+           // print("response = \(response)")
             
             
+            //completion handler values.
+            completionHandler(login: f.flag)
             
             
         }

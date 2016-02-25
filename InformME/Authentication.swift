@@ -49,6 +49,7 @@ class Authentication {
                     let s = String (l)
                     
                     print (s+"Hi")
+                    
                    if( s == "Optional(true)") {
                     let id = jsonResult["account"]!!["ID"]
                     let email = jsonResult["account"]!!["email"]
@@ -134,7 +135,102 @@ class Authentication {
     */ } // end fun login
     
     
-    func logout(){}
+    func logout(completionHandler: (login:Bool) -> ()) {
+        
+       /* struct f { static var flag = false }
+    
+        let session = NSUserDefaults.standardUserDefaults().stringForKey("session")!
+       
+        print(session)
+        
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/logot.php")
+        let request = NSMutableURLRequest(URL:MYURL!)
+        request.HTTPMethod = "POST";
+        
+        
+        //Change UserID"
+        
+        
+        
+        
+        let postString = "&sessionID="+session
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+            
+            else{
+                
+                if let urlContent = data {
+                    
+                    do {
+                        
+                        let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
+                        
+                        let l = jsonResult["status"]!!
+                        
+                        let s = String (l)
+                        print (s+"hi")
+                        
+                        if( s == "success") {
+                            
+                            NSUserDefaults.standardUserDefaults().removeObjectForKey("id")
+                            
+                            NSUserDefaults.standardUserDefaults().removeObjectForKey("email")
+                            
+                            NSUserDefaults.standardUserDefaults().removeObjectForKey("type")
+                            
+                            NSUserDefaults.standardUserDefaults().removeObjectForKey("session")
+                            
+                            NSUserDefaults.standardUserDefaults().synchronize()
+                            
+                            f.flag = true
+                            print (s+"hi 1111")
+                            
+                        } //end if
+                        else if( s == "unsuccess") {
+                            f.flag = false
+                            print (s+"hi 222")
+                            
+                        } //end else
+                        
+                        
+                        
+                    } catch {
+                        
+                        print("JSON serialization failed")
+                        
+                    }
+                    
+                    
+                }
+            }//end els
+            
+            
+            
+            // You can print out response object
+          //  print("response = \(response)")
+            
+            completionHandler(login: f.flag)
+
+            
+            
+        }
+        
+        task.resume()
+    
+    
+    
+    */
+    
+    } // end log out
     
     func forgetPassword(){}
     func requestPassword(email: String){}

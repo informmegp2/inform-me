@@ -52,13 +52,13 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
                      print("logo")
                       
                         let encodedImageData = jsonResult[x] as! String
-                        print(encodedImageData)
+                        //print(encodedImageData)
                         let imageData = NSData(base64EncodedString: encodedImageData, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-                        print(imageData)
-                        let decodedimage = UIImage(data: imageData!)
+                        //print(imageData)
+                        //let decodedimage = UIImage(data: imageData!)
                          let e : Event = Event()
-                        e.logo = decodedimage
-                        self.eventslogo.append(e.logo!)
+                        //e.logo = decodedimage
+                        //self.eventslogo.append(e.logo!)
                                         }
                   
                     

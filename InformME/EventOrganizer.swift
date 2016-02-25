@@ -12,7 +12,9 @@ class EventOrganizer {
     var password:String = ""
     var email:String = ""
     
-    func createAccount(username: String, email: String,password: String) {
+    func createAccount(username: String, email: String,password: String, completionHandler: (login:Bool) -> ()) {
+        
+        struct f { static var flag = false }
         
         var Type: Int
         Type = 1
@@ -35,34 +37,50 @@ class EventOrganizer {
                 print("error=\(error)")
                 return
             }
-            
-            
-            //   var err: NSError?
-            //   var json = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: &err) as NSDictionary
-            
-            if let urlContent = data {
                 
-                do {
+            else{
+                
+                if let urlContent = data {
                     
-                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
+                    do {
+                        
+                        let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
+                        
+                        let l = jsonResult["status"]!!
+                        
+                        let s = String (l)
+                        print (s+"hi")
+                        
+                        if( s == "success") {
+                            f.flag = true
+                            print (s+"hi 1111")
+                            
+                        } //end if
+                        else if( s == "unsuccess") {
+                            f.flag = false
+                            print (s+"hi 222")
+                            
+                        } //end else
+                        
+                        
+                        
+                    } catch {
+                        
+                        print("JSON serialization failed")
+                        
+                    }
                     
-                    print(jsonResult)
-                    
-                } catch {
-                    
-                    print("JSON serialization failed")
                     
                 }
-                
-                
-            }
-            
+            }//end else
             
             
             // You can print out response object
-            print("response = \(response)")
+            // print("response = \(response)")
             
             
+            //completion handler values.
+            completionHandler(login: f.flag)
             
             
         }
