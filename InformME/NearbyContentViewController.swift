@@ -82,7 +82,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
 
     func PHPget (major: Int, minor: Int)
     {
-        let myUrl = NSURL(string: "http://bemyeyes.co/API/content/getContent.php");
+       /* let myUrl = NSURL(string: "http://bemyeyes.co/API/content/getContent.php");
         let request = NSMutableURLRequest(URL:myUrl!);
         request.HTTPMethod = "POST";
         // Compose a query string
@@ -120,7 +120,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         }
         
         task.resume()
-        
+        */
         
        /* let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/event/retrieveLogos.php")!)
         request.HTTPMethod = "POST"
@@ -142,7 +142,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     
     //Retrieving data below
     func placesNearBeacon(beacon: CLBeacon) -> [String] {
-        let beaconKey = "\(beacon.major):\(beacon.minor)"
+      /*  let beaconKey = "\(beacon.major):\(beacon.minor)"
         print("\(beacon.major):\(beacon.minor)")
        
         PHPget (beacon.major,beacon.minor)
@@ -150,8 +150,9 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         // if let places = self.placesByBeacons[beaconKey] {
             let sortedPlaces = Array(places).sort { $0.1 < $1.1 }.map { $0.0 }
             return sortedPlaces
-        }
+        }*/
         return []
+
     }
     
     
