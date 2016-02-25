@@ -1148,7 +1148,7 @@
         <!--الملف الشخصي-->
         <scene sceneID="okb-QF-mM8">
             <objects>
-                <viewController id="NLk-JE-KiM" customClass="ProfileViewController" sceneMemberID="viewController">
+                <viewController id="NLk-JE-KiM" customClass="ProfileViewController" customModule="InformME" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="wnj-vr-F9V"/>
                         <viewControllerLayoutGuide type="bottom" id="Hdg-th-d5Y"/>
@@ -1269,7 +1269,7 @@
         <!--الرئيسية-->
         <scene sceneID="aqu-hv-ewe">
             <objects>
-                <viewController id="PsN-qj-TL8" customClass="OrganizerHomeViewController" customModule="current" sceneMemberID="viewController">
+                <viewController id="PsN-qj-TL8" customClass="OrganizerHomeViewController" customModule="InformME" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="466-jc-oiZ"/>
                         <viewControllerLayoutGuide type="bottom" id="mMA-Ze-Ldy"/>
@@ -2553,7 +2553,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pI7-II-bSY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="E90BD1F6-D3D7-4FCA-B76C-EBDD9150ED74" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="C9A74F75-40FC-442C-B1F0-C3257B7A945E" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
                                             <rect key="frame" x="-292" y="-143" width="1184" height="486"/>
                                             <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
@@ -2580,7 +2580,7 @@
                                         </label>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aY-Ke-P4A">
                                             <rect key="frame" x="20" y="20" width="29" height="55"/>
-                                            <state key="normal" image="9178F0F8-0050-4FA4-8D5B-153CBF7531DB"/>
+                                            <state key="normal" image="A3C5891B-5B71-4680-9D4D-65FAFE326FAD"/>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3714,7 +3714,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="9178F0F8-0050-4FA4-8D5B-153CBF7531DB" width="29" height="55">
+        <image name="A3C5891B-5B71-4680-9D4D-65FAFE326FAD" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -3890,7 +3890,7 @@ yybWJt8m8ib2JwEnCicPJxcnGicfJy4nMic5J0EnTidTJ1UnVydcJ2QnZydsJ3QndyeJJ4wnkQAAAAAA
 AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
 </mutableData>
         </image>
-        <image name="E90BD1F6-D3D7-4FCA-B76C-EBDD9150ED74" width="29" height="55">
+        <image name="C9A74F75-40FC-442C-B1F0-C3257B7A945E" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
