@@ -135,7 +135,36 @@ class Authentication {
     */ } // end fun login
     
     
-    func logout(completionHandler: (login:Bool) -> ()) {
+    func logout(  s : String) {
+        
+        
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/logot.php")
+        let request = NSMutableURLRequest(URL:MYURL!)
+        request.HTTPMethod = "POST";
+        
+        let postString = "&sessionID="+s
+        
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+            // You can print out response object
+            print("response = \(response)")
+            
+            
+            
+        }
+        
+        task.resume()
+        
+        
         
        /* struct f { static var flag = false }
     

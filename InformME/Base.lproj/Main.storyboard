@@ -1288,7 +1288,7 @@
                                         <barButtonItem key="leftBarButtonItem" image="logoff" id="PGM-Zx-350">
                                             <inset key="imageInsets" minX="12" minY="12" maxX="12" maxY="12"/>
                                             <connections>
-                                                <action selector="outact:" destination="PsN-qj-TL8" id="DBJ-rS-jeg"/>
+                                                <action selector="outButton:" destination="PsN-qj-TL8" id="dfz-Jf-Wk7"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -3466,11 +3466,11 @@
                                                 <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ti-AJ-4SJ">
                                                     <rect key="frame" x="0.0" y="0.0" width="560" height="139"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OJU-om-B1d">
-                                                            <rect key="frame" x="0.0" y="0.0" width="560" height="63"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="OJU-om-B1d">
+                                                            <rect key="frame" x="0.0" y="0.0" width="560" height="75"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="اسم المشروع" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTJ-eb-Ehz">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="اسم المشروع" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xTJ-eb-Ehz">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="25"/>
                                                                     <color key="backgroundColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -3482,11 +3482,11 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="400" height="25"/>
                                                                     </variation>
                                                                 </label>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tCn-gN-6Ub">
-                                                                    <rect key="frame" x="0.0" y="21" width="560" height="42"/>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tCn-gN-6Ub">
+                                                                    <rect key="frame" x="0.0" y="25" width="560" height="50"/>
                                                                     <subviews>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0lA-rg-iWh">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="187" height="42"/>
+                                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0lA-rg-iWh">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="187" height="50"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJv-xd-5Zs">
                                                                                     <rect key="frame" x="12" y="11" width="42" height="21"/>
@@ -3513,8 +3513,8 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="400" height="50"/>
                                                                             </variation>
                                                                         </view>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JQE-nE-Ggx">
-                                                                            <rect key="frame" x="187" y="0.0" width="186" height="42"/>
+                                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JQE-nE-Ggx">
+                                                                            <rect key="frame" x="187" y="0.0" width="186" height="50"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfU-tf-zym">
                                                                                     <rect key="frame" x="35" y="11" width="42" height="21"/>
@@ -3540,8 +3540,8 @@
                                                                                 <rect key="frame" x="133" y="0.0" width="134" height="50"/>
                                                                             </variation>
                                                                         </view>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="481-vA-GXY">
-                                                                            <rect key="frame" x="373" y="0.0" width="187" height="42"/>
+                                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="481-vA-GXY">
+                                                                            <rect key="frame" x="373" y="0.0" width="187" height="50"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7B-28-g2r">
                                                                                     <rect key="frame" x="106" y="11" width="42" height="21"/>

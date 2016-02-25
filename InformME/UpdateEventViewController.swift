@@ -118,6 +118,7 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
                 //NSLog("OK Pressed")
                 
                 let e : Event = Event()
+          
                 e.updateEvent (self.evid,name: name, web: website, date: date, logo: self.EventLogo.backgroundImageForState(.Normal)!)
                
                   //  self.performSegueWithIdentifier("alertPressedOK", sender:sender)
@@ -179,6 +180,22 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         self.presentViewController(alert, animated: true, completion: nil)
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if (segue.identifier == "alertPressedOK") {
+        var detailVC = segue!.destinationViewController as! EventDetailsViewController;
+            detailVC.evid = evid
+            detailVC.evname=EventName.text!
+            detailVC.evwebsite=EventWebsite.text!
+            detailVC.evdate=EventDate.text!
+           
+            detailVC.evlogo=self.EventLogo.backgroundImageForState(.Normal)
+        }
+        
+    }
+
+    
+    
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         self.view.endEditing(true)
