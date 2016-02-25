@@ -110,9 +110,10 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
                         e.website=jsonResult[x]["Website"] as! String
                         
                          e.id = Int(evID)!
-                   
-                        
-                      self.eventsInfo.addObject(e)
+                        let url:NSURL = NSURL(string : jsonResult[x]["Logo"] as! String)!
+                        let data = NSData(contentsOfURL: url)
+                        e.logo=UIImage(data: data!)
+                        self.eventsInfo.addObject(e)
                         
                         
                         self.values.addObject(jsonResult[x]["EventName"] as! String)
@@ -191,10 +192,8 @@ print(e.name)
         detailVC.evname=e.name
 detailVC.evwebsite=e.website
 detailVC.evdate=e.date
-        while self.eventslogo.count != self.eventsInfo.count{
-            }
-        detailVC.evlogo=self.eventslogo[(cellIndexPath?.row)!]
-    }
+        
+        detailVC.evlogo=e.logo    }
     
     }
 }

@@ -102,14 +102,11 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
     
     func displayAlert(title: String, message: String) {
         
-        var alerts = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        alerts.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
-            
-            self.dismissViewControllerAnimated(true, completion: nil)
-                       
-        })))
+        let alert = UIAlertController(title:title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         
-         self.presentViewController(alerts, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: nil ))
+        
+         self.presentViewController(alert, animated: true, completion: nil)
         
     }//end fun display alert
     /*
