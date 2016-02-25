@@ -135,54 +135,26 @@ class Authentication {
     */ } // end fun login
     
     
-    func logout(  s : String) {
+    func logout(  completionHandler: (login:Bool) -> ()){
         
+      
         
-        let MYURL = NSURL(string:"http://bemyeyes.co/API/logot.php")
-        let request = NSMutableURLRequest(URL:MYURL!)
-        request.HTTPMethod = "POST";
-        
-        let postString = "&sessionID="+s
-        
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            
-            if error != nil
-            {
-                print("error=\(error)")
-                return
-            }
-            
-            // You can print out response object
-            print("response = \(response)")
-            
-            
-            
-        }
-        
-        task.resume()
-        
-        
-        
-       /* struct f { static var flag = false }
+       struct f { static var flag = false }
     
         let session = NSUserDefaults.standardUserDefaults().stringForKey("session")!
        
-        print(session)
+        print("from defult= "+session)
         
-        let MYURL = NSURL(string:"http://bemyeyes.co/API/logot.php")
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/logout.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
         
         
-        //Change UserID"
         
         
         
         
-        let postString = "&sessionID="+session
+        let postString = "&sessionID=\(session)";
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -206,7 +178,7 @@ class Authentication {
                         let l = jsonResult["status"]!!
                         
                         let s = String (l)
-                        print (s+"hi")
+                        print (s+"hi this status")
                         
                         if( s == "success") {
                             
@@ -256,8 +228,6 @@ class Authentication {
         task.resume()
     
     
-    
-    */
     
     } // end log out
     
