@@ -14,23 +14,21 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
     /*Hello : ) */
     
     @IBOutlet var tableView: UITableView!
-   var values:NSMutableArray = []
-     var eventsID:NSMutableArray = []
+
     var eventsInfo:NSMutableArray=[]
-   var eventslogo: [UIImage] = []
-    var eID:Int = 1;
+  
   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         get();
        tableView.reloadData()
-        getlogo();
+       // getlogo();
         
         //setup tint color for tha back button.
     }
     
-    func getlogo(){
+   /* func getlogo(){
         print("in get logo")
         let uid=1
         
@@ -80,7 +78,7 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
         
         
         
-    }
+    }*/
     func get(){
         print("in event managment")
         let uid=1
@@ -116,11 +114,7 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
                         self.eventsInfo.addObject(e)
                         
                         
-                        self.values.addObject(jsonResult[x]["EventName"] as! String)
-                         self.eventsID.addObject(jsonResult[x]["EventID"] as! String)
-                        print(self.values[x])
-                         print(self.eventsID[x])
-                    }
+                                            }
                     dispatch_async(dispatch_get_main_queue())
                         {
                             
@@ -156,7 +150,7 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
         
         
         let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as! EventTableCellViewController
-        let maindata = self.values[indexPath.row]
+        let maindata = self.eventsInfo[indexPath.row].name
         cell.name.text = maindata as? String
         
         return cell
@@ -166,7 +160,7 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     // TODO: this number should be changed to the actual number of recieved events.
-          return values.count;
+          return eventsInfo.count;
     }
     
     
@@ -180,8 +174,7 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
     if (segue.identifier == "showEventDetails") {
         let pointInTable: CGPoint = sender.convertPoint(sender.bounds.origin, toView: self.tableView)
         let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
-        print(cellIndexPath?.row)
-        print(values[(cellIndexPath?.row)!])
+        
         var e : Event = Event()
         e=eventsInfo[(cellIndexPath?.row)!] as! Event
 print(e.name)
