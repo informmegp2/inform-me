@@ -80,12 +80,74 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         ]
     ]
 
+    func PHPget (major: Int, minor: Int)
+    {
+        let myUrl = NSURL(string: "http://bemyeyes.co/API/content/getContent.php");
+        let request = NSMutableURLRequest(URL:myUrl!);
+        request.HTTPMethod = "POST";
+        // Compose a query string
+        let postString = "major=\(major)&minor=\(minor)";
+        
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+            // You can print out response object
+            print("response =  (response)")
+            
+            // Print out response body
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            print("responseString = \(responseString)")
+            
+            //Let’s convert response sent from a server side script to a NSDictionary object:
+            
+            var err: NSError?
+            var myJSON = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error:&err) as? NSDictionary
+            
+            if let parseJSON =myJSON {
+                // Now we can access value of First Name by its key
+                var MajorValue = parseJSON["major"] as? String
+                println("firstNameValue:\(MajorValue)")
+            }
+            
+        }
+        
+        task.resume()
+        
+        
+       /* let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/event/retrieveLogos.php")!)
+        request.HTTPMethod = "POST"
+        let postString = "uid=\(uid)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if let urlContent = data {
+                
+                do {
+                    
+                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)as! NSMutableArray
+                }
+            }}*/
+    }
+    
     
     //Retrieving data below
     func placesNearBeacon(beacon: CLBeacon) -> [String] {
         let beaconKey = "\(beacon.major):\(beacon.minor)"
         print("\(beacon.major):\(beacon.minor)")
-        if let places = self.placesByBeacons[beaconKey] {
+       
+        PHPget (beacon.major,beacon.minor)
+        
+        // if let places = self.placesByBeacons[beaconKey] {
             let sortedPlaces = Array(places).sort { $0.1 < $1.1 }.map { $0.0 }
             return sortedPlaces
         }
