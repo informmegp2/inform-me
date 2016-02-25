@@ -19,12 +19,67 @@ class Event {
     var id: Int=0
     var organizer: EventOrganizer = EventOrganizer()
     var eventsName: Array<String> = []
-    func requesteventlist() {
+    
+    
+    func requesteventlist(id: Int,completionHandler: (eventsInfo:[Event]) -> ()){
+        var eventsInfo: [Event] = []
+        print("in event managment")
+        let uid=id
         
-        let parameters = [ "uid":1]
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/event/retrieveEvents.php")!)
+        request.HTTPMethod = "POST"
+        let postString = "uid=\(uid)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if let urlContent = data {
+                
+                do {
+                    
+                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
+                    
+                    for var x=0; x<jsonResult.count;x++ {
+                        
+                        
+                        var e : Event = Event()
+                        
+                        var evID = jsonResult[x]["EventID"] as! String
+                        e.date=jsonResult[x]["Date"] as! String
+                        e.name=jsonResult[x]["EventName"] as! String
+                        e.website=jsonResult[x]["Website"] as! String
+                        
+                        e.id = Int(evID)!
+                        let url:NSURL = NSURL(string : jsonResult[x]["Logo"] as! String)!
+                        let data = NSData(contentsOfURL: url)
+                        e.logo=UIImage(data: data!)
+                        eventsInfo.append(e)
+                        
+                        
+                        
+                    }
+                   
+                    
+                } catch {
+                    
+                    print("JSON serialization failed")
+                    
+                }
+                
+                
+            }
+            
+              completionHandler(eventsInfo: eventsInfo)
+        }
+        task.resume()
+        print("hi");
         
         
-        print(self.eventsName.count)
+       
+ 
+        
+       
     }
     func viewevent() {}
     func requesttoaddcontent() {}

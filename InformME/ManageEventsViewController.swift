@@ -14,129 +14,31 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
     /*Hello : ) */
     
     @IBOutlet var tableView: UITableView!
-
-    var eventsInfo:NSMutableArray=[]
   
-  
+     var eventsInfo: [Event] = []
+    var event:Event = Event()
+    var UserID: Int = 1
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        get();
-       tableView.reloadData()
-       // getlogo();
+       
+        event.requesteventlist(UserID){
+            (eventsInfo:[Event]) in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.eventsInfo = eventsInfo
+                self.tableView.reloadData()
+            }
+            
+        }
+        print("I am Back")
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
+        self.tableView.reloadData();
         
         //setup tint color for tha back button.
     }
     
-   /* func getlogo(){
-        print("in get logo")
-        let uid=1
-        
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/event/retrieveLogos.php")!)
-        request.HTTPMethod = "POST"
-        let postString = "uid=\(uid)"
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            
-            if let urlContent = data {
-                
-                do {
-                    
-                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)as! NSMutableArray
-                    
-                    for var x=0; x<jsonResult.count;x++ {
-                     print("logo")
-                      
-                        let encodedImageData = jsonResult[x] as! String
-                        //print(encodedImageData)
-                        let imageData = NSData(base64EncodedString: encodedImageData, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-                        //print(imageData)
-                        //let decodedimage = UIImage(data: imageData!)
-                         let e : Event = Event()
-                        //e.logo = decodedimage
-                        //self.eventslogo.append(e.logo!)
-                                        }
-                  
-                    
-                } catch {
-                    
-                    print("JSON serialization failed")
-                    
-                }
-                
-                
-            }
-            
-            
-        }
-        task.resume()
-        print("hi logo");
-
-        
-        
-        
-        
-    }*/
-    func get(){
-        print("in event managment")
-        let uid=1
-        
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/event/retrieveEvents.php")!)
-        request.HTTPMethod = "POST"
-        let postString = "uid=\(uid)"
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            
-            if let urlContent = data {
-                
-                do {
-                    
-                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
-                    
-                    for var x=0; x<jsonResult.count;x++ {
-                        
-                        
-                        var e : Event = Event()
-                        
-                       var evID = jsonResult[x]["EventID"] as! String
-                        e.date=jsonResult[x]["Date"] as! String
-                        e.name=jsonResult[x]["EventName"] as! String
-                        e.website=jsonResult[x]["Website"] as! String
-                        
-                         e.id = Int(evID)!
-                        let url:NSURL = NSURL(string : jsonResult[x]["Logo"] as! String)!
-                        let data = NSData(contentsOfURL: url)
-                        e.logo=UIImage(data: data!)
-                        self.eventsInfo.addObject(e)
-                        
-                        
-                                            }
-                    dispatch_async(dispatch_get_main_queue())
-                        {
-                            
-                            self.tableView.reloadData()
-                    }
-                    
-                } catch {
-                    
-                    print("JSON serialization failed")
-                    
-                }
-                
-                
-            }
-            
-            
-        }
-        task.resume()
-        print("hi");
-        
-        
-        tableView.reloadData()    }
+   
+  
     
     
     override func didReceiveMemoryWarning() {
@@ -150,8 +52,11 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
         
         
         let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as! EventTableCellViewController
-        let maindata = self.eventsInfo[indexPath.row].name
-        cell.name.text = maindata as? String
+        var e : Event = Event()
+        e=eventsInfo[(indexPath.row)] as! Event
+        print(e.name)
+       
+        cell.name.text = e.name
         
         return cell
 
@@ -174,10 +79,10 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
     if (segue.identifier == "showEventDetails") {
         let pointInTable: CGPoint = sender.convertPoint(sender.bounds.origin, toView: self.tableView)
         let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
-        
+     
         var e : Event = Event()
         e=eventsInfo[(cellIndexPath?.row)!] as! Event
-print(e.name)
+
             //Checking identifier is crucial as there might be multiple
             // segues attached to same view
             var detailVC = segue!.destinationViewController as! EventDetailsViewController;
