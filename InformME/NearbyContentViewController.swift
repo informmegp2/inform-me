@@ -14,7 +14,8 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     var tableView: UITableView!
 
     var items: [String] = ["We", "Heart", "Swift"]
-
+    
+    var Requested: [String] = [""]
     
     //This manager is for ranging
     let beaconManager = ESTBeaconManager()
@@ -56,43 +57,60 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         
         return cell
     }
+ 
 
-    
-    // Add the property holding the data.
-    // TODO: replace "<major>:<minor>" strings to match your own beacons
-    let placesByBeacons = [
-        "11553:40394": [
-            "Heavenly Sandwiches": 50, // read as: it's 50 meters from
-            // "Heavenly Sandwiches" to the beacon with
-            // major 6574 and minor 54631
-            "Green & Green Salads": 150,
-            "Mini Panini": 325
-        ],
-        "7645:4136": [
-            "Heavenly Sandwiches": 250,
-            "Green & Green Salads": 100,
-            "Mini Panini": 20
-        ],
-        "59149:53427": [
-            "Heavenly Sandwiches": 350,
-            "Green & Green Salads": 500,
-            "Mini Panini": 170
-        ]
-    ]
-
-    func PHPget (major: Int, minor: Int)
+    func PHPget (major: NSNumber, minor: NSNumber)
     {
-       /* let myUrl = NSURL(string: "http://bemyeyes.co/API/content/getContent.php");
-        let request = NSMutableURLRequest(URL:myUrl!);
+       
+        //Col::(ContentID, Title, Abstract, Sharecounter, Label, EventID)
+        print("HERE IN PHPget \(major):\(minor)")
+        
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/getContent.php")!)
         request.HTTPMethod = "POST";
-        // Compose a query string
         let postString = "major=\(major)&minor=\(minor)";
-        
+
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
-        
+     
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
+            print("HERE in task");
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            else {
+                do {
+                   let jsonResults = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
+                  print(jsonResults)
+                } catch {
+                    // failure
+                    print("Fetch failed: \((error as NSError).localizedDescription)")
+                }
+
+            }
             
+        }
+        task.resume()
+        
+    }
+    
+        
+        
+       /* let task = NSURLSession.sharedSession().dataTaskWithRequest(request){
+            data, response, error in
+            
+            if let urlContent = data {
+                
+                do {
+                    
+                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)as! NSMutableArray
+                }
+            }
+        }*/
+        
+        /*  let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
             if error != nil
             {
                 print("error=\(error)")
@@ -115,69 +133,45 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
                 // Now we can access value of First Name by its key
                 var MajorValue = parseJSON["major"] as? String
                 println("firstNameValue:\(MajorValue)")
-            }
+            }*/
             
-        }
-        
-        task.resume()
-        */
-        
-       /* let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/event/retrieveLogos.php")!)
-        request.HTTPMethod = "POST"
-        let postString = "uid=\(uid)"
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            
-            if let urlContent = data {
-                
-                do {
-                    
-                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)as! NSMutableArray
-                }
-            }}*/
-    }
     
     
     //Retrieving data below
     func placesNearBeacon(beacon: CLBeacon) -> [String] {
-      /*  let beaconKey = "\(beacon.major):\(beacon.minor)"
+   //  let beaconKey = "\(beacon.major):\(beacon.minor)"
         print("\(beacon.major):\(beacon.minor)")
-       
-        PHPget (beacon.major,beacon.minor)
-        
+        PHPget(beacon.major, minor: beacon.minor)
+        print("HERE After PHPget")
         // if let places = self.placesByBeacons[beaconKey] {
-            let sortedPlaces = Array(places).sort { $0.1 < $1.1 }.map { $0.0 }
+           /* let sortedPlaces = Array(places).sort { $0.1 < $1.1 }.map { $0.0 }
             return sortedPlaces
         }*/
         return []
-
     }
     
     
     func beaconManager(manager: AnyObject, didRangeBeacons beacons: [CLBeacon],
         inRegion region: CLBeaconRegion) {
-            if let nearestBeacon = beacons.first {
-                let places = placesNearBeacon(nearestBeacon)
-                // TODO: update the UI here
-                //print(places) // TODO: remove after implementing the UI
+            
+            if let beacons = beacons as? [CLBeacon] {
+                
+                for beacon in beacons {
+                    if (!Requested.contains("\(beacon.major):\(beacon.minor)"))
+                    {PHPget(beacon.major, minor: beacon.minor)
+                        Requested.append("\(beacon.major):\(beacon.minor)")
+                    }
+
+                }
             }
             
+            
+            /*if let nearestBeacon = beacons.first {
+              let places = placesNearBeacon(nearestBeacon)*/
+                // TODO: update the UI here
+                //print(places) // TODO: remove after implementing the UI
     }
     
     
     
- /*   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
-    */
 }
