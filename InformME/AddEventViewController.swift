@@ -92,8 +92,14 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         else {
             print(EventName.text)
             let e : Event = Event()
-            e.AddEvent (name, web: website, date: date, logo: EventLogoo.backgroundImageForState(.Normal)!)
-            self.performSegueWithIdentifier("addEvent", sender:sender)
+            e.AddEvent (name, web: website, date: date, logo: EventLogoo.backgroundImageForState(.Normal)!){
+                (flag:Bool) in
+                //we should perform all segues in the main thread
+                dispatch_async(dispatch_get_main_queue()) {
+                  self.performSegueWithIdentifier("addEvent", sender:sender)
+                }}
+
+          
 
         }
      

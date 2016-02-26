@@ -131,10 +131,10 @@ class Event {
     
     
     
-    func AddEvent(name: String,web: String,date: String,logo: UIImage){
+    func AddEvent(name: String,web: String,date: String,logo: UIImage, completionHandler: (flag:Bool) -> ()){
         
         
-        
+        var f=false
         
         
         
@@ -178,13 +178,12 @@ class Event {
                 print("error=\(error)")
                 return
             }
-            dispatch_async(dispatch_get_main_queue())
-                {
+           f=true
                     // You can print out response object
-                    print("response = \(response)")}
+                    print("response = \(response)")
             
             
-            
+          completionHandler(flag: f)
             
         }
         
@@ -239,12 +238,12 @@ class Event {
         
     }
     func requestToUpdateEvent(){}
-    func updateEvent(id: Int,name: String,web: String,date: String,logo: UIImage){
+    func updateEvent(id: Int,name: String,web: String,date: String,logo: UIImage, completionHandler: (flag:Bool) -> ()){
         
         
+        var f=false
         
-        var eid = String(id)
-        
+        let eid = String(id)
         
         
         
@@ -252,16 +251,31 @@ class Event {
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
         
+        let param = [
+            "evName"  : name,
+            "evWebsite"    : web,
+            "evDate"    : date,
+            "uid" : eid
+        ]
         
         //Change UserID"
         
-        let image=UIImageJPEGRepresentation(logo,0.1)
+        let boundary = generateBoundaryString()
         
-        let base64String = image!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         
         
-        let postString = "evName="+name+"&evWebsite="+web+"&evDate="+date+"&uid="+eid+"&logo="+base64String
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        let imageData = UIImageJPEGRepresentation(logo, -1)
+        if imageData==nil{
+            print("it is nil")}
+        
+        request.HTTPBody = createBodyWithParameters(param, filePathKey: "file", imageDataKey: imageData!, boundary: boundary)
+        
+        /*let base64String = image!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        
+        
+        let postString = "evName="+name+"&evWebsite="+web+"&evDate="+date+"&uid=1"+"&logo="+base64String
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);*/
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
@@ -271,26 +285,18 @@ class Event {
                 print("error=\(error)")
                 return
             }
-            
+            f=true
             // You can print out response object
             print("response = \(response)")
             
             
-            
+            completionHandler(flag: f)
             
         }
         
-        task.resume()
-        
-        
-        
-    }
-    
-    
-    
+        task.resume()}
     
 }
-
 extension NSMutableData {
     
     func appendString(string: String) {

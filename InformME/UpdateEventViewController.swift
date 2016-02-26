@@ -110,33 +110,40 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
             displayMessage("", message: "يرجى إدخال تاريخ الحدث بشكل الصحيح")
         }
         else {
-          //  var alertController = UIAlertController(title: "", message: " هل أنت متأكد من رغبتك بحفظ التغييرات؟", preferredStyle: .Alert)
+            var alertController = UIAlertController(title: "", message: " هل أنت متأكد من رغبتك بحفظ التغييرات؟", preferredStyle: .Alert)
             
             // Create the actions
-            //var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
-              //  UIAlertAction in
-                //NSLog("OK Pressed")
+            var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
+                UIAlertAction in
+                NSLog("OK Pressed")
                 
                 let e : Event = Event()
-          
-                e.updateEvent (self.evid,name: name, web: website, date: date, logo: self.EventLogo.backgroundImageForState(.Normal)!)
+            e.updateEvent (self.evid,name: name, web: website, date: date, logo: self.EventLogo.backgroundImageForState(.Normal)!){
+                (flag:Bool) in
+                //we should perform all segues in the main thread
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.performSegueWithIdentifier("alertPressedOK", sender:sender)
+                }}
+
+               // e.updateEvent (self.evid,name: name, web: website, date: date, logo: self.EventLogo.backgroundImageForState(.Normal)!)
                
                   //  self.performSegueWithIdentifier("alertPressedOK", sender:sender)
             
                 
                 
-          //  }
+            }
             
-            //var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
-              //  UIAlertAction in
-                //NSLog("Cancel Pressed")
-            //}
-            // Add the actions
-            //alertController.addAction(okAction)
-            //alertController.addAction(cancelAction)
+            var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel)
+                {
+               UIAlertAction in
+                NSLog("Cancel Pressed")
+            }
+             //Add the actions
+            alertController.addAction(okAction)
+            alertController.addAction(cancelAction)
             
             // Present the controller
-            //self.presentViewController(alertController, animated: true, completion: nil)
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
     
