@@ -28,7 +28,7 @@ class ContentForAttendeeViewController: UIViewController {
         let tweetAction = UIAlertAction(title: "تويتر", style: UIAlertActionStyle.Default) { (action) -> Void in
             if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
          let twitterComposeVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-                twitterComposeVC.setInitialText("test code")
+                twitterComposeVC.setInitialText("test post content from our app")
                 self.presentViewController(twitterComposeVC, animated: true, completion: nil)
 
                 
