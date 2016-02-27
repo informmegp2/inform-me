@@ -122,6 +122,7 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
                 (flag:Bool) in
                 //we should perform all segues in the main thread
                 dispatch_async(dispatch_get_main_queue()) {
+                    print("Heeeeello")
                     self.performSegueWithIdentifier("alertPressedOK", sender:sender)
                 }}
 
@@ -190,6 +191,7 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue.identifier == "alertPressedOK") {
+            print("segue")
         var detailVC = segue!.destinationViewController as! EventDetailsViewController;
             detailVC.evid = evid
             detailVC.evname=EventName.text!
