@@ -1031,7 +1031,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fmz-f9-q8l">
+                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fmz-f9-q8l">
                                 <rect key="frame" x="0.0" y="80" width="600" height="520"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -2633,7 +2633,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IpO-0e-Kef">
+                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IpO-0e-Kef">
                                 <rect key="frame" x="0.0" y="80" width="600" height="520"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -2712,7 +2712,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pI7-II-bSY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="76F30E28-22D2-4B13-BC18-0F2BBBB05DCD" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="7D19F529-CB4A-4188-BD18-230FFD91FEE3" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
                                             <rect key="frame" x="-292" y="-143" width="1184" height="486"/>
                                             <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
@@ -2739,7 +2739,7 @@
                                         </label>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aY-Ke-P4A">
                                             <rect key="frame" x="20" y="20" width="29" height="55"/>
-                                            <state key="normal" image="4D7965D9-B586-4187-8661-2525FDC9DFCE"/>
+                                            <state key="normal" image="1026E903-E98D-426B-9DB9-CCC9C32B2AF8"/>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3195,7 +3195,7 @@
                                     <constraint firstAttribute="bottom" secondItem="msu-0O-YqX" secondAttribute="bottom" id="uZ1-0e-frw"/>
                                 </constraints>
                             </stackView>
-                            <tabBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yvZ-Jb-Gbs">
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yvZ-Jb-Gbs">
                                 <rect key="frame" x="0.0" y="551" width="600" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -3887,7 +3887,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="4D7965D9-B586-4187-8661-2525FDC9DFCE" width="29" height="55">
+        <image name="1026E903-E98D-426B-9DB9-CCC9C32B2AF8" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -4063,7 +4063,7 @@ AKIApACmAKgArQDEAMYAyCbGJssm1ibfJvIm9icJJxQnHSciJyonLScyJ0EnRSdMJ1QnYSdmJ2gnaidv
 J3cneid/J4cniiecJ58npAAAAAAAAAIBAAAAAAAAAD8AAAAAAAAAAAAAAAAAACemA
 </mutableData>
         </image>
-        <image name="76F30E28-22D2-4B13-BC18-0F2BBBB05DCD" width="29" height="55">
+        <image name="7D19F529-CB4A-4188-BD18-230FFD91FEE3" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

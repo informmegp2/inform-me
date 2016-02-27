@@ -37,6 +37,13 @@ class ContentForAttendeeViewController: UIViewController {
                self.showAlertMessage("يجب عليك أولًا تسجيل الدخول بتويتر")
             }
         }
+        let moreAction = UIAlertAction(title: "غير ذلك", style: UIAlertActionStyle.Default) { (action) -> Void in
+            let activityViewController = UIActivityViewController(activityItems: ["test code"], applicationActivities: nil)
+            
+            activityViewController.excludedActivityTypes = [UIActivityTypeMail]
+            
+            self.presentViewController(activityViewController, animated: true, completion: nil)
+        }
     
         
         let dismissAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel) { (action) -> Void in
@@ -45,7 +52,7 @@ class ContentForAttendeeViewController: UIViewController {
         
         
         actionSheet.addAction(tweetAction)
-       
+        actionSheet.addAction(moreAction)
         actionSheet.addAction(dismissAction)
         
         presentViewController(actionSheet, animated: true, completion: nil)
