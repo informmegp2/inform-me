@@ -135,25 +135,26 @@ class Authentication {
     */ } // end fun login
     
     
-    func logout(completionHandler: (login:Bool) -> ()) {
+    func logout(  completionHandler: (login:Bool) -> ()){
         
-       /* struct f { static var flag = false }
+      
+        
+       struct f { static var flag = false }
     
         let session = NSUserDefaults.standardUserDefaults().stringForKey("session")!
        
-        print(session)
+        print("from defult= "+session)
         
-        let MYURL = NSURL(string:"http://bemyeyes.co/API/logot.php")
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/logout.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
         
         
-        //Change UserID"
         
         
         
         
-        let postString = "&sessionID="+session
+        let postString = "&sessionID=\(session)";
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -177,7 +178,7 @@ class Authentication {
                         let l = jsonResult["status"]!!
                         
                         let s = String (l)
-                        print (s+"hi")
+                        print (s+"hi this status")
                         
                         if( s == "success") {
                             
@@ -227,8 +228,6 @@ class Authentication {
         task.resume()
     
     
-    
-    */
     
     } // end log out
     

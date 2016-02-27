@@ -1,24 +1,29 @@
 //
-//  AttendeeHomeViewController.swift
+//  ProfileOrganizerViewController.swift
 //  InformME
 //
-//  Created by Amal Ibrahim on 2/9/16.
+//  Created by Amal Ibrahim on 2/26/16.
 //  Copyright © 2016 King Saud University. All rights reserved.
 //
 
-import UIKit
 import Foundation
-
-class AttendeeHomeViewController: UIViewController {
+import UIKit
+class ProfileOrganizerViewController : UIViewController {
+    /*Hello : ) */
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        //setup tint color for tha back button.
+    }
     
-    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     
     
     @IBAction func out(sender: AnyObject) {
-        
-        
-        
         print(" iam in 1")
         
         var flag: Bool
@@ -48,7 +53,12 @@ class AttendeeHomeViewController: UIViewController {
         
         
         
-    }
+        
+    } //end out */ backtologin
+    
+    
+    
+    
     
     
 }

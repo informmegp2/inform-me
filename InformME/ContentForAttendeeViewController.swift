@@ -1,24 +1,20 @@
 //
-//  AttendeeHomeViewController.swift
+//  ContentForAttendeeViewController.swift
 //  InformME
 //
-//  Created by Amal Ibrahim on 2/9/16.
+//  Created by Amal Ibrahim on 2/22/16.
 //  Copyright © 2016 King Saud University. All rights reserved.
 //
 
-import UIKit
 import Foundation
+import UIKit
 
-class AttendeeHomeViewController: UIViewController {
-    
+class ContentForAttendeeViewController: UIViewController {
     
     
     
     
     @IBAction func out(sender: AnyObject) {
-        
-        
-        
         print(" iam in 1")
         
         var flag: Bool
@@ -48,7 +44,7 @@ class AttendeeHomeViewController: UIViewController {
         
         
         
-    }
-    
+        
+    } //end out */ backtologin
     
 }

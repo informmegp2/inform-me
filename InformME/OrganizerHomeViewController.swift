@@ -10,7 +10,7 @@ import Foundation
 
 import UIKit
 
-class OrganizerHomeViewController: UIViewController {
+class OrganizerHomeViewController: UIViewController  {
     /*Hello : ) */
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,28 +19,38 @@ class OrganizerHomeViewController: UIViewController {
     }
     
   
-    /*@IBAction func out(sender: AnyObject) {
+    
+    @IBAction func outButton(sender: AnyObject) {
+       
+        print(" iam in 1")
+        
         var flag: Bool
         flag = false
         
-       /* var current: Authentication = Authentication();
+        
+        
+         var current: Authentication = Authentication();
         
         current.logout(){
-            (login:Bool) in
-            //we should perform all segues in the main thread
-            dispatch_async(dispatch_get_main_queue()) {
-                flag = login
-             //   self.performSegue(flag,type: type)}
-                if(flag) {
-                    self.performSegueWithIdentifier("backlogon", sender: self)
-                    print("I am happy",login,flag) }
-        } */
-        print("I am Here")
+        (login:Bool) in
+      
+        dispatch_async(dispatch_get_main_queue()) {
+            
+        flag = login
+        if(flag) {
+            
+              self.performSegueWithIdentifier("backtologin", sender: self)
         
-   // }
-
-    
-    
+            
+        print("I am happy",login,flag) }
+            
+        }
+            print("I am Here")  }
+        
+       
+        
+        
+        
     
     } //end out */
 
