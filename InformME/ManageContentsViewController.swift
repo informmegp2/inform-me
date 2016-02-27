@@ -52,11 +52,14 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
                         var a : AnyObject = jsonResult[x]["Abstract"]as! String
                         var p : AnyObject = jsonResult[x]["PDFFiles"]as! String
                         var v : AnyObject = jsonResult[x]["Videos"]as! String
-                        
+                        var id : String = jsonResult[x]["ContentID"]as! String
+
+
                         content.Title=t as! String
                         content.Abstract=a as! String
                         content.Pdf=p as! String
                         content.Video=v as! String
+                        content.CID=Int (id)
                         if TitleA.contains(t as! String) {
                             
                         }
@@ -105,11 +108,9 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
     
     
     func showContentDetails(){
-    //    performSegueWithIdentifier("showContentDetails", sender: self)
+        performSegueWithIdentifier("showContentDetails", sender: self)
     }
-    func editContent(){
-        performSegueWithIdentifier("editContent", sender: self)
-    }
+   
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         
         if (segue.identifier == "showContentDetails") {
@@ -123,10 +124,12 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
             var detailVC = segue!.destinationViewController as! ContentForOrganizerViewController
             
             detailVC.ttitle=c.Title
-            print ("MA"+c.Title)
             detailVC.abstract=c.Abstract
             detailVC.pdf=c.Pdf
             detailVC.video=c.Video
+            detailVC.contentid=c.CID!
+            
+
         
         }
     }

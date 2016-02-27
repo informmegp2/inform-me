@@ -23,7 +23,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate{
     var vvideo:String=""
     var tempV:String=""
     var tempP:String=""
-
+    var cid : Int?
     
     var cellContent = [String]()
     var numRow:Int?
@@ -68,10 +68,37 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate{
         self.presentViewController(alertController, animated: true, completion: nil)
         
     }
-    
+  
+    @IBAction func deleteContent(sender: AnyObject) {
+        var alertController = UIAlertController(title: "", message: "هل أنت متأكد من رغبتك بالحذف", preferredStyle: .Alert)
+        
+        // Create the actions
+        var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            NSLog("OK Pressed")
+            var c: Content = Content()
+            print ("-----------------------2")
+            print(self.cid)
+            c.DeleteContent(self.cid!)
+            self.performSegueWithIdentifier("deleteok", sender:sender)
+        }
+        var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
+            UIAlertAction in
+            NSLog("Cancel Pressed")
+        }
+        
+        // Add the actions
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        // Present the controller
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("UP"+ttitel)
         self.ETitle.text = ttitel
         self.EAbstract.text = aabstract
         self.EPDF.text = ppdf

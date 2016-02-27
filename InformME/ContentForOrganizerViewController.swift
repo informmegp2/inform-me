@@ -16,7 +16,7 @@ class ContentForOrganizerViewController: UIViewController {
     var video: String=""
     var pdf: String=""
     //  var evlogo: UIImage?
-    
+   // var cid : Int?
     
     @IBOutlet var TTitle: UINavigationItem!
 
@@ -49,7 +49,8 @@ class ContentForOrganizerViewController: UIViewController {
             detailVC.aabstract=AAbstract.text!
             detailVC.ppdf=PDF.text!
             detailVC.vvideo=VVideo.text!
-            
+            detailVC.cid=contentid
+          
         }
     }
 

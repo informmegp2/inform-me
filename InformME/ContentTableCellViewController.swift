@@ -11,7 +11,6 @@ import UIKit
 
 @objc protocol ContentCellDelegate: class {
    func showContentDetails()
-    func editContent()
     
 }
 class ContentTableCellViewController: UITableViewCell {

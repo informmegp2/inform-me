@@ -19,16 +19,16 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
     
     var cellContent = [String]()
     var numRow:Int?
+    var flag:Bool = false
     
-    
-    @IBAction func addPDF(sender: AnyObject) {
+   /* @IBAction func addPDF(sender: AnyObject) {
         
         var textFiled = UITextField(frame: CGRectMake(0.0, 400, 600.0, 40.0))
         textFiled.backgroundColor = UIColor.redColor()
         textFiled.borderStyle = UITextBorderStyle.Line
         self.view.addSubview(textFiled)
 
-    }
+    }*/
     
       @IBAction func Submit(sender: AnyObject) {
         var title = TTitle.text!
@@ -37,7 +37,13 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         var pdf = PDF.text!
         
         var c : Content = Content()
-        c.saveContent(title,abstract: abstract,video: video,Pdf: pdf)}
+        
+            c.saveContent(title,abstract: abstract,video: video,Pdf: pdf)
+        self.flag = true
+    
+            self.performSegueWithIdentifier("addContent", sender:sender)
+
+        }
     
     
     override func viewDidLoad() {
