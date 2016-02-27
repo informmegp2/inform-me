@@ -231,7 +231,10 @@ class Authentication {
     
     } // end log out
     
-    func forgetPassword(){}
+    func forgetPassword(){
+    
+    
+    }
     func requestPassword(email: String){}
-    func recoverPassword(password: String){}
+    func recoverPassword(email: String , Type: Int){}
     }
