@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -553,6 +553,10 @@
                                         <rect key="frame" x="0.0" y="400" width="600" height="100"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="dp:" destination="T0p-rt-bTp" eventType="touchUpInside" id="5eV-kH-sDU"/>
+                                            <action selector="dp:" destination="T0p-rt-bTp" eventType="editingDidBegin" id="ssH-TD-VXF"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5io-Su-CDa">
                                         <rect key="frame" x="0.0" y="500" width="600" height="100"/>
@@ -1618,6 +1622,10 @@
                                         <rect key="frame" x="0.0" y="360" width="600" height="80"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="dp:" destination="t1Z-2Z-YO9" eventType="editingDidBegin" id="2Qi-iC-9jv"/>
+                                            <action selector="dp:" destination="t1Z-2Z-YO9" eventType="touchUpInside" id="ddu-CT-wwA"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMJ-2V-Uz2">
                                         <rect key="frame" x="0.0" y="440" width="600" height="80"/>
@@ -2712,7 +2720,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pI7-II-bSY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="4269DE3D-D7B3-4D9A-9C90-CDF8AB228546" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="455298C9-D866-41BD-9670-F50B1B243DED" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
                                             <rect key="frame" x="-292" y="-143" width="1184" height="486"/>
                                             <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
@@ -2739,7 +2747,7 @@
                                         </label>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aY-Ke-P4A">
                                             <rect key="frame" x="20" y="20" width="29" height="55"/>
-                                            <state key="normal" image="E9F80642-CB73-4DC4-9D77-BE0C10017902"/>
+                                            <state key="normal" image="DAD3BDCA-5AB6-4A64-AA13-56D413B022D8"/>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3887,7 +3895,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="4269DE3D-D7B3-4D9A-9C90-CDF8AB228546" width="29" height="55">
+        <image name="455298C9-D866-41BD-9670-F50B1B243DED" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -4063,7 +4071,7 @@ AKIApACmAKgArQDEAMYAyCbGJssm1ibfJvIm9icJJxQnHSciJyonLScyJ0EnRSdMJ1QnYSdmJ2gnaidv
 J3cneid/J4cniiecJ58npAAAAAAAAAIBAAAAAAAAAD8AAAAAAAAAAAAAAAAAACemA
 </mutableData>
         </image>
-        <image name="E9F80642-CB73-4DC4-9D77-BE0C10017902" width="29" height="55">
+        <image name="DAD3BDCA-5AB6-4A64-AA13-56D413B022D8" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -4266,9 +4274,9 @@ J3cneid/J4cniiecJ58npAAAAAAAAAIBAAAAAAAAAD8AAAAAAAAAAAAAAAAAACemA
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Co7-Qq-mQW"/>
-        <segue reference="fVn-jx-ZJd"/>
+        <segue reference="ftC-aB-NCc"/>
+        <segue reference="Qgb-AC-CeO"/>
         <segue reference="ZTI-2B-VFQ"/>
-        <segue reference="ZDi-NZ-fAN"/>
         <segue reference="bFI-E1-VSS"/>
         <segue reference="geg-LT-dMU"/>
     </inferredMetricsTieBreakers>
