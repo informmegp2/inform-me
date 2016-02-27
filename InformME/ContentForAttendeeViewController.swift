@@ -46,7 +46,7 @@ class ContentForAttendeeViewController: UIViewController {
         }
     
         
-        let dismissAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel) { (action) -> Void in
+        let dismissAction = UIAlertAction(title: "إلغاء", style: UIAlertActionStyle.Cancel) { (action) -> Void in
             
         }
         
