@@ -74,7 +74,7 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         sender.minimumDate = NSDate()
-        sender.date = dateFormatter.dateFromString(evdate)!
+      
 
         
         EventDate.text = dateFormatter.stringFromDate(sender.date)
