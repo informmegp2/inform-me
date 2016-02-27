@@ -42,12 +42,13 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
                    }
         else {
             var b : Beacon = Beacon()
-            b.addBeacon (llabel, major: major,minor:minor)
-            flag = true
-            if flag {
+            b.addBeacon (llabel, major: major,minor:minor){
+                (flag:Bool) in
+                //we should perform all segues in the main thread
+                dispatch_async(dispatch_get_main_queue()) {
             self.performSegueWithIdentifier("addBeacon", sender:sender)
             }
-        }
+            }}
         
     }
     override func viewDidLoad() {

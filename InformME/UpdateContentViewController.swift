@@ -42,19 +42,16 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate{
         var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
             UIAlertAction in
             NSLog("OK Pressed")
-            
+
             var c : Content = Content()
-            c.updateContent (title, abstract: abstract,video: pdf , Pdf: video , TempV: self.tempV , TempP: self.tempP)
-            flag = true 
-
-            //            let destinationController = storyboard!.instantiateViewControllerWithIdentifier("alertPressedOK")
-            //          presentViewController(destinationController, animated: true, completion: nil)
-            if flag{
-
+            c.updateContent (title, abstract: abstract,video: pdf , Pdf: video , TempV: self.tempV , TempP: self.tempP , cID: self.cid!){
+                (flag:Bool) in
+                //we should perform all segues in the main thread
+                dispatch_async(dispatch_get_main_queue()) {
         self.performSegueWithIdentifier("alertPressedOK", sender:sender)
             }
             
-        }
+            }}
         
         var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
@@ -69,6 +66,20 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate{
         
     }
   
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if (segue.identifier == "alertPressedOK") {
+            var detailVC = segue!.destinationViewController as! ContentForOrganizerViewController;
+            detailVC.ttitle=ETitle.text!
+            detailVC.abstract=EAbstract.text!
+            detailVC.pdf=EPDF.text!
+            detailVC.video=EVideo.text!
+            detailVC.contentid=cid!
+
+            
+        }
+        
+    }
+
     @IBAction func deleteContent(sender: AnyObject) {
         var alertController = UIAlertController(title: "", message: "هل أنت متأكد من رغبتك بالحذف", preferredStyle: .Alert)
         
@@ -77,11 +88,13 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate{
             UIAlertAction in
             NSLog("OK Pressed")
             var c: Content = Content()
-            print ("-----------------------2")
-            print(self.cid)
-            c.DeleteContent(self.cid!)
+
+            c.DeleteContent(self.cid!){
+                (flag:Bool) in
+                //we should perform all segues in the main thread
+                dispatch_async(dispatch_get_main_queue()) {
             self.performSegueWithIdentifier("deleteok", sender:sender)
-        }
+                }} }
         var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
             NSLog("Cancel Pressed")

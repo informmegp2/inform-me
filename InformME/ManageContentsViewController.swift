@@ -11,25 +11,32 @@ import UIKit
 
 class ManageContentsViewController: UIViewController,UITableViewDataSource, UITableViewDelegate ,ContentCellDelegate  {
     
-    var values:NSMutableArray = []
-    var contentsInfo:NSMutableArray=[]
+   // var values:NSMutableArray = []
+  /// var contentsInfo:NSMutableArray=[]
     //var bID:Int = 1;
     
     @IBOutlet var tableView: UITableView!
     
+    var contentInfo: [Content] = []
+    var content: Content = Content()
+    var UserID: Int = 1
+    
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        get();
-        tableView.reloadData()
+        content.requestcontentlist(UserID){
+            (contentInfo:[Content]) in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.contentInfo = contentInfo
+                self.tableView.reloadData()
+            }
+            
+        }
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
+        self.tableView.reloadData();
         //setup tint color for tha back button.
     }
-    
-    
-    
-    
-    
-    
+
     
     @IBAction func out(sender: AnyObject) {
         
@@ -65,83 +72,13 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
         
         
     }//end out
-    
-        
-    
-    
-    
-    func get(){
-        var TitleA : [String] = []
-        let eid=1
-        let cid=1
-        
-        
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/SelectContent.php")!)
-        
-        request.HTTPMethod = "POST"
-        let postString = "eid=\(eid)&cid=\(cid)"
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            
-            if let urlContent = data {
-                
-                do {
-                    
-                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
-                    
-                    
-                    for var x=0; x<jsonResult.count;x++ {
-                        var content: Content = Content()
-                        var t : AnyObject = jsonResult[x]["Title"]as! String
-                        var a : AnyObject = jsonResult[x]["Abstract"]as! String
-                        var p : AnyObject = jsonResult[x]["PDFFiles"]as! String
-                        var v : AnyObject = jsonResult[x]["Videos"]as! String
-                        var id : String = jsonResult[x]["ContentID"]as! String
 
-
-                        content.Title=t as! String
-                        content.Abstract=a as! String
-                        content.Pdf=p as! String
-                        content.Video=v as! String
-                        content.CID=Int (id)
-                        if TitleA.contains(t as! String) {
-                            
-                        }
-                        else
-                        {
-                            TitleA.append(t as! String)
-                            self.values.addObject(content)
-                            self.contentsInfo.addObject(content)
-                        }
-                        
-                       
-                    }
-                    dispatch_async(dispatch_get_main_queue()){
-                        self.tableView.reloadData()}
-                    
-                } catch {
-                    
-                    print("JSON serialization failed")
-                    
-                }
-                
-                
-            }
-            
-            
-        }
-        task.resume()
-        tableView.reloadData()
-    }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("contentCell", forIndexPath: indexPath) as! ContentTableCellViewController
         //var maindata = values[indexPath.row].minor
         var c: Content = Content()
-        c = self.values[indexPath.row] as! Content
+        c = self.contentInfo[indexPath.row] as! Content
         
         cell.title.text = c.Title
         
@@ -164,7 +101,7 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
             let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
             print(cellIndexPath?.row)
             var c : Content = Content()
-            c=contentsInfo[(cellIndexPath?.row)!] as! Content
+            c=contentInfo[(cellIndexPath?.row)!] as! Content
             //Checking identifier is crucial as there might be multiple
             // segues attached to same view
             var detailVC = segue!.destinationViewController as! ContentForOrganizerViewController
@@ -182,7 +119,7 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TODO: this number should be changed to the actual number of recieved events.
-        return values.count;
+        return contentInfo.count;
     }
     
     

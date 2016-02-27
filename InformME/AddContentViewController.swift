@@ -16,19 +16,8 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
     @IBOutlet weak var Video: UITextField!
     @IBOutlet weak var PDF: UITextField!
     
-    
     var cellContent = [String]()
     var numRow:Int?
-    var flag:Bool = false
-    
-   /* @IBAction func addPDF(sender: AnyObject) {
-        
-        var textFiled = UITextField(frame: CGRectMake(0.0, 400, 600.0, 40.0))
-        textFiled.backgroundColor = UIColor.redColor()
-        textFiled.borderStyle = UITextBorderStyle.Line
-        self.view.addSubview(textFiled)
-
-    }*/
     
       @IBAction func Submit(sender: AnyObject) {
         var title = TTitle.text!
@@ -38,11 +27,12 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         
         var c : Content = Content()
         
-            c.saveContent(title,abstract: abstract,video: video,Pdf: pdf)
-        self.flag = true
-    
+        c.saveContent(title,abstract: abstract,video: video,Pdf: pdf){
+            (flag:Bool) in
+            //we should perform all segues in the main thread
+            dispatch_async(dispatch_get_main_queue()) {
             self.performSegueWithIdentifier("addContent", sender:sender)
-
+            }}
         }
     
     
@@ -63,6 +53,5 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
 }

@@ -14,7 +14,10 @@ class Beacon {
     var Major: String = ""
     var Minor: String = ""
     
-      func addBeacon(label: String,major: String,minor: String) {
+      func addBeacon(label: String,major: String,minor: String,completionHandler: (flag:Bool) -> ()) {
+        
+        var f=false
+
         let MYURL = NSURL(string:"http://bemyeyes.co/API/beacon/AddBeacon.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
@@ -32,11 +35,13 @@ class Beacon {
                 print("error=\(error)")
                 return
             }
-            
+            f=true
+
             // You can print out response object
             print("response = \(response)")
             
-            
+            completionHandler(flag: f)
+
             
         }
         
@@ -44,7 +49,10 @@ class Beacon {
 }
     func fillForm(label: String,major: String,minor: String) {}
     
-    func updateBeacon(label: String,major: String,minor: String , Temp: String) {
+    func updateBeacon(label: String,major: String,minor: String , Temp: String ,completionHandler: (flag:Bool) -> ()) {
+        
+        var f=false
+
         let MYURL = NSURL(string:"http://bemyeyes.co/API/beacon/EditBeacon.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
@@ -62,11 +70,13 @@ class Beacon {
                 print("error=\(error)")
                 return
             }
-            
+            f=true
+
             // You can print out response object
             print("response = \(response)")
             
-            
+            completionHandler(flag: f)
+
             
         }
         
