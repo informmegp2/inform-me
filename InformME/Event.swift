@@ -90,7 +90,6 @@ class Event {
     func requesttodeletecontent(content: Content){}
     func deletecontent(content: Content){}
     func RequestContentList(){}
-    func ViewContent(ContentID: Int){}
     func RequestContent(label: String){}
     func requestToAddEvent(){}
     

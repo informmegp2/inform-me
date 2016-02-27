@@ -11,7 +11,7 @@ class Attendee {
     var username:String = ""
     var password:String = ""
     var email:String = ""
-    
+    var userID:Int = 0
     func createAccount(username: String, email: String,password: String, completionHandler: (login:Bool) -> ()) {
         
          struct f { static var flag = false }

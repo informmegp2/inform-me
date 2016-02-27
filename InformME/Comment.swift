@@ -10,6 +10,6 @@ import Foundation
 class Comment {
     var comment: String = ""
     var user: Attendee = Attendee()
-
+    var contentID: Int = 0
     func createComment() {}
 }
