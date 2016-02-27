@@ -40,7 +40,7 @@ class Report {
                         for var i=0; i<itemC.count;i++ {
                             let comment: Comment = Comment()
                             comment.comment = itemC[i]["CommentText"] as! String
-                            comment.user.username = itemC[i]["UserID"] as! String
+                            comment.user.username = itemC[i]["UserName"] as! String
                             comments.append(comment)
                         }
                         c.comments = comments
