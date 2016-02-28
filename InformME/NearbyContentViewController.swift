@@ -12,10 +12,10 @@ import UIKit
 class NearbyContentViewController: UIViewController,UITableViewDelegate, UITableViewDataSource , ESTBeaconManagerDelegate {
     @IBOutlet
     var tableView: UITableView!
-
-    var items: [String] = ["We", "Heart", "Swift"]
     
     var Requested: [String] = [""]
+    var contentList = [Content]()
+
     
     //This manager is for ranging
     let beaconManager = ESTBeaconManager()
@@ -33,7 +33,15 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         self.beaconManager.requestAlwaysAuthorization()
     }
    
+     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
     
+     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+
+
     //To start/stop ranging as the view controller appears/disappears
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -47,18 +55,18 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count;
+       return contentList.count;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("contentCell")! as UITableViewCell
         
-        cell.textLabel?.text = self.items[indexPath.row]
+   cell.textLabel?.text = contentList[indexPath.row].Title
         
         return cell
     }
  
-
+   
     func PHPget (major: NSNumber, minor: NSNumber)
     {
        
@@ -81,13 +89,32 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
             }
             else {
                 do {
-                   let jsonResults = try NSJSONSerialization.JSONObjectWithData(data!, options: [])
-                  print(jsonResults)
-                } catch {
+                   if let jsonResults = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? [AnyObject]{
+                    for item in jsonResults {
+                        
+                        print("item \(item)")
+                        
+                    
+                        self.contentList.append(Content(json: item as! [String : AnyObject]))
+                        
+                       
+                    }
+                    }
+               /*     for item in data
+                        {self.contentList.append(Content(json: item))
+                            print(Content(json: item).Title)
+                            print("After json")}*/
+                
+                    for element in self.contentList {
+                        print("ID: \(element.Title)")
+                    }
+
+                }
+                catch {
                     // failure
                     print("Fetch failed: \((error as NSError).localizedDescription)")
                 }
-
+                
             }
             
         }
@@ -95,81 +122,28 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         
     }
     
-        
-        
-       /* let task = NSURLSession.sharedSession().dataTaskWithRequest(request){
-            data, response, error in
-            
-            if let urlContent = data {
-                
-                do {
-                    
-                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)as! NSMutableArray
-                }
-            }
-        }*/
-        
-        /*  let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            if error != nil
-            {
-                print("error=\(error)")
-                return
-            }
-            
-            // You can print out response object
-            print("response =  (response)")
-            
-            // Print out response body
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("responseString = \(responseString)")
-            
-            //Let’s convert response sent from a server side script to a NSDictionary object:
-            
-            var err: NSError?
-            var myJSON = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error:&err) as? NSDictionary
-            
-            if let parseJSON =myJSON {
-                // Now we can access value of First Name by its key
-                var MajorValue = parseJSON["major"] as? String
-                println("firstNameValue:\(MajorValue)")
-            }*/
-            
+
+
     
     
-    //Retrieving data below
-    func placesNearBeacon(beacon: CLBeacon) -> [String] {
-   //  let beaconKey = "\(beacon.major):\(beacon.minor)"
-        print("\(beacon.major):\(beacon.minor)")
-        PHPget(beacon.major, minor: beacon.minor)
-        print("HERE After PHPget")
-        // if let places = self.placesByBeacons[beaconKey] {
-           /* let sortedPlaces = Array(places).sort { $0.1 < $1.1 }.map { $0.0 }
-            return sortedPlaces
-        }*/
-        return []
-    }
-    
-    
+    //This method will be called everytime we are in the range of beacons
     func beaconManager(manager: AnyObject, didRangeBeacons beacons: [CLBeacon],
         inRegion region: CLBeaconRegion) {
-            
+            //Get the array of beacons in range
             if let beacons = beacons as? [CLBeacon] {
-                
+                //For each beacon in array
                 for beacon in beacons {
+                    //Check if the content was requested
                     if (!Requested.contains("\(beacon.major):\(beacon.minor)"))
-                    {PHPget(beacon.major, minor: beacon.minor)
+                    {//If not request content then add to requested array
+                        PHPget(beacon.major, minor: beacon.minor)
                         Requested.append("\(beacon.major):\(beacon.minor)")
                     }
 
                 }
             }
+             self.tableView.reloadData()
             
-            
-            /*if let nearestBeacon = beacons.first {
-              let places = placesNearBeacon(nearestBeacon)*/
-                // TODO: update the UI here
-                //print(places) // TODO: remove after implementing the UI
     }
     
     
