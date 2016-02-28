@@ -8,14 +8,16 @@
 
 import UIKit
 
-class AddContentViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate {
+class AddContentViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     
     @IBOutlet weak var TTitle: UITextField!
     @IBOutlet weak var Abstract: UITextField!
     @IBOutlet weak var Video: UITextField!
     @IBOutlet weak var PDF: UITextField!
-    
+    @IBOutlet var FImage: UIButton!
+    @IBOutlet var SImage: UIButton!
+    @IBOutlet var TImage: UIButton!
     var cellContent = [String]()
     var numRow:Int?
     
@@ -27,7 +29,7 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         
         var c : Content = Content()
         
-        c.saveContent(title,abstract: abstract,video: video,Pdf: pdf){
+        c.saveContent(title,abstract: abstract,video: video,Pdf: pdf ,image: FImage.backgroundImageForState(.Normal)!){
             (flag:Bool) in
             //we should perform all segues in the main thread
             dispatch_async(dispatch_get_main_queue()) {
@@ -45,9 +47,62 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    //------ for images
+    var pickerOne : UIImagePickerController?
+    var pickerTwo : UIImagePickerController?
+    var pickerThree : UIImagePickerController?
+
+    
+    @IBAction func uploadFImage(sender: AnyObject) {
+        pickerOne = UIImagePickerController()
+        pickerOne!.delegate = self;
+        pickerOne!.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(pickerOne!, animated: true, completion: nil)
+    }
+    @IBAction func uploadSImage(sender: AnyObject) {
+        
+        pickerTwo = UIImagePickerController()
+        pickerTwo!.delegate = self;
+        pickerTwo!.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(pickerTwo!, animated: true, completion: nil)
+    }
+    
+  
+    
+    @IBAction func uploadTImage(sender: AnyObject) {
+         pickerThree = UIImagePickerController()
+        pickerThree!.delegate = self;
+        pickerThree!.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(pickerThree!, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+        
+    {
+        
+         if picker == pickerOne {
+        FImage.setBackgroundImage(info[UIImagePickerControllerOriginalImage] as? UIImage, forState: .Normal)
+        }
+        
+          else if picker == pickerTwo {
+            SImage.setBackgroundImage(info[UIImagePickerControllerOriginalImage] as? UIImage, forState: .Normal)
+        }
+         else if picker == pickerThree {
+            TImage.setBackgroundImage(info[UIImagePickerControllerOriginalImage] as? UIImage, forState: .Normal)
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+
+    
+    // *** for keyboard
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
-        return false
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

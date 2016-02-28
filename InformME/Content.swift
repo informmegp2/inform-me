@@ -23,7 +23,37 @@ class Content {
     var label: String = ""
     var contentId: Int = 0
     
-    func saveContent(title: String,abstract: String ,video: String,Pdf: String,completionHandler: (flag:Bool) -> ()) {
+    
+    func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
+        var body = NSMutableData();
+        
+        if parameters != nil {
+            for (key, value) in parameters! {
+                body.appendString("--\(boundary)\r\n")
+                body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+                body.appendString("\(value)\r\n")
+            }
+        }
+        
+        let filename = "ContentImage.jpg"
+        
+        let mimetype = "image/jpg"
+        
+        body.appendString("--\(boundary)\r\n")
+        body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
+        body.appendString("Content-Type: \(mimetype)\r\n\r\n")
+        body.appendData(imageDataKey)
+        body.appendString("\r\n")
+        
+        
+        
+        body.appendString("--\(boundary)--\r\n")
+        
+        return body
+    }
+
+
+    func saveContent(title: String,abstract: String ,video: String,Pdf: String,image: UIImage,completionHandler: (flag:Bool) -> ()) {
         
         var f=false
 
@@ -36,9 +66,8 @@ class Content {
         let request = NSMutableURLRequest(URL:MYURL!)
 
         request.HTTPMethod = "POST";
-
         let postString = "Title="+title+"&Abstract="+abstract+"&ShareCounter=\(SC)&Label=\(l)&EventID=\(eid)&PDF=\(Pdf)&Video=\(video)"
-
+        
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
 
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -49,19 +78,69 @@ class Content {
                 print("error=\(error)")
                 return
             }
-            f=true
+            
 
             print("response = \(response)")
-            completionHandler(flag: f)
-
+            
         }
 
         task.resume()
-
+        addImage(title,abstract: abstract,image: image)
+        f=true
+        completionHandler(flag: f)
+}
+    
+    func addImage(title: String,abstract: String ,image: UIImage){
+        let eid=1
+        let l = "be"
+        let SC = 1
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/content/AddImage.php")
+        
+        let request = NSMutableURLRequest(URL:MYURL!)
+        
+        request.HTTPMethod = "POST";
+        
+        let param : [String: String] = [
+            "Title"     : title,
+            "Abstract"  :abstract,
+            "EventID"  :String(eid),
+            "ShareCounter" :String(SC),
+            "Label" : l
+            
+        ]
+        
+        let boundary = generateBoundaryString()
+        
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+        
+        let imageData = UIImageJPEGRepresentation(image, -1)
+        if imageData==nil{
+            print("it is nil")}
+        
+        request.HTTPBody = createBodyWithParameters(param, filePathKey: "file", imageDataKey: imageData!, boundary: boundary)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            // You can print out response object
+            print("response = \(response)")
+            
+        }
+        
+        task.resume()
         
     }
+
+    func generateBoundaryString() -> String {
+        return "Boundary-\(NSUUID().UUIDString)"
+    }
     
-   // func updateContent(title: String,abstract: String ,images: [UIImage],video: String,Pdf: String) {
     func updateContent(title: String,abstract: String ,video: String,Pdf: String , TempV: String , TempP: String , cID:Int ,completionHandler: (flag:Bool) -> ()) {
         
         var f=false
@@ -330,3 +409,10 @@ class Content {
         task.resume()
     }
 }
+/*extension NSMutableData {
+    
+    func appendString(string: String) {
+        let data = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
+        appendData(data!)
+    }
+}*/
