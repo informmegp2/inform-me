@@ -57,6 +57,14 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
          let twitterComposeVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
                 twitterComposeVC.setInitialText("test post content from our app")
                 self.presentViewController(twitterComposeVC, animated: true, completion: nil)
+                self.content.shareContent(self.cid){
+                    (done:Bool) in
+                    dispatch_async(dispatch_get_main_queue()) {
+                        print("I am cool")
+                      
+                       
+                    }
+                }
 
                 
             }
