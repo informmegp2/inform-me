@@ -12,8 +12,9 @@ import UIKit
 class NearbyContentViewController: UIViewController,UITableViewDelegate, UITableViewDataSource , ESTBeaconManagerDelegate {
     @IBOutlet
     var tableView: UITableView!
-
-    var items: [String] = ["We", "Heart", "Swift"]
+    
+    var Requested: [String] = [""]
+    var contentList = [Content]()
 
     
     //This manager is for ranging
@@ -32,7 +33,15 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         self.beaconManager.requestAlwaysAuthorization()
     }
    
+     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
     
+     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+
+
     //To start/stop ranging as the view controller appears/disappears
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -46,179 +55,96 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items.count;
+       return contentList.count;
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("contentCell")! as UITableViewCell
         
-        cell.textLabel?.text = self.items[indexPath.row]
+   cell.textLabel?.text = contentList[indexPath.row].Title
         
         return cell
     }
-
-    
-    // Add the property holding the data.
-    // TODO: replace "<major>:<minor>" strings to match your own beacons
-    let placesByBeacons = [
-        "11553:40394": [
-            "Heavenly Sandwiches": 50, // read as: it's 50 meters from
-            // "Heavenly Sandwiches" to the beacon with
-            // major 6574 and minor 54631
-            "Green & Green Salads": 150,
-            "Mini Panini": 325
-        ],
-        "7645:4136": [
-            "Heavenly Sandwiches": 250,
-            "Green & Green Salads": 100,
-            "Mini Panini": 20
-        ],
-        "59149:53427": [
-            "Heavenly Sandwiches": 350,
-            "Green & Green Salads": 500,
-            "Mini Panini": 170
-        ]
-    ]
-
-    func PHPget (major: Int, minor: Int)
+ 
+   
+    func PHPget (major: NSNumber, minor: NSNumber)
     {
-       /* let myUrl = NSURL(string: "http://bemyeyes.co/API/content/getContent.php");
-        let request = NSMutableURLRequest(URL:myUrl!);
+       
+        //Col::(ContentID, Title, Abstract, Sharecounter, Label, EventID)
+        print("HERE IN PHPget \(major):\(minor)")
+        
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/getContent.php")!)
         request.HTTPMethod = "POST";
-        // Compose a query string
         let postString = "major=\(major)&minor=\(minor)";
-        
+
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
-        
+     
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
-            
-            if error != nil
-            {
+            print("HERE in task");
+            if error != nil {
                 print("error=\(error)")
                 return
             }
-            
-            // You can print out response object
-            print("response =  (response)")
-            
-            // Print out response body
-            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-            print("responseString = \(responseString)")
-            
-            //Let’s convert response sent from a server side script to a NSDictionary object:
-            
-            var err: NSError?
-            var myJSON = NSJSONSerialization.JSONObjectWithData(data, options: .MutableLeaves, error:&err) as? NSDictionary
-            
-            if let parseJSON =myJSON {
-                // Now we can access value of First Name by its key
-                var MajorValue = parseJSON["major"] as? String
-                println("firstNameValue:\(MajorValue)")
+            else {
+                do {
+                   if let jsonResults = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? [AnyObject]{
+                    for item in jsonResults {
+                        
+                        print("item \(item)")
+                        
+                    
+                        self.contentList.append(Content(json: item as! [String : AnyObject]))
+                        
+                       
+                    }
+                    }
+               /*     for item in data
+                        {self.contentList.append(Content(json: item))
+                            print(Content(json: item).Title)
+                            print("After json")}*/
+                
+                    for element in self.contentList {
+                        print("ID: \(element.Title)")
+                    }
+
+                }
+                catch {
+                    // failure
+                    print("Fetch failed: \((error as NSError).localizedDescription)")
+                }
+                
             }
             
         }
-        
         task.resume()
-        */
         
-       /* let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/event/retrieveLogos.php")!)
-        request.HTTPMethod = "POST"
-        let postString = "uid=\(uid)"
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            
-            if let urlContent = data {
-                
-                do {
-                    
-                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)as! NSMutableArray
-                }
-            }}*/
     }
     
-    
-    //Retrieving data below
-    func placesNearBeacon(beacon: CLBeacon) -> [String] {
-      /*  let beaconKey = "\(beacon.major):\(beacon.minor)"
-        print("\(beacon.major):\(beacon.minor)")
-       
-        PHPget (beacon.major,beacon.minor)
-        
-        // if let places = self.placesByBeacons[beaconKey] {
-            let sortedPlaces = Array(places).sort { $0.1 < $1.1 }.map { $0.0 }
-            return sortedPlaces
-        }*/
-        return []
 
-    }
+
     
     
+    //This method will be called everytime we are in the range of beacons
     func beaconManager(manager: AnyObject, didRangeBeacons beacons: [CLBeacon],
         inRegion region: CLBeaconRegion) {
-            if let nearestBeacon = beacons.first {
-                let places = placesNearBeacon(nearestBeacon)
-                // TODO: update the UI here
-                //print(places) // TODO: remove after implementing the UI
+            //Get the array of beacons in range
+            if let beacons = beacons as? [CLBeacon] {
+                //For each beacon in array
+                for beacon in beacons {
+                    //Check if the content was requested
+                    if (!Requested.contains("\(beacon.major):\(beacon.minor)"))
+                    {//If not request content then add to requested array
+                        PHPget(beacon.major, minor: beacon.minor)
+                        Requested.append("\(beacon.major):\(beacon.minor)")
+                    }
+
+                }
             }
+             self.tableView.reloadData()
             
     }
-    
-    
-    
- /*   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
-    */
-    
-    
-    
-    
-    
-    @IBAction func out(sender: AnyObject) {
-        print(" iam in 1")
-        
-        var flag: Bool
-        flag = false
-        
-        
-        
-        var current: Authentication = Authentication();
-        
-        current.logout(){
-            (login:Bool) in
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                
-                flag = login
-                if(flag) {
-                    
-                    self.performSegueWithIdentifier("backtologin", sender: self)
-                    
-                    
-                    print("I am happy",login,flag) }
-                
-            }
-            print("I am Here")  }
-        
-        
-        
-        
-        
-        
-    } //end out */ backtologin
-    
-    
     
     
     
