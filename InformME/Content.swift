@@ -28,7 +28,6 @@ class Content {
         let l = "be"
         let SC = 1
         
-        
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/AddContent.php")
 
         let request = NSMutableURLRequest(URL:MYURL!)
