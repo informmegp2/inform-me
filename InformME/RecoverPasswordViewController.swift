@@ -13,8 +13,8 @@ class RecoverPasswordViewController: UIViewController, UITextFieldDelegate, UINa
     
     
     
-    
     @IBOutlet var recType: UISegmentedControl!
+    
     @IBOutlet var recEmail: UITextField!
     
     override func viewDidLoad() {
@@ -49,13 +49,37 @@ class RecoverPasswordViewController: UIViewController, UITextFieldDelegate, UINa
             
         else {
             // call to recover
+            var flag: Bool
+            flag = false
             
              var current: Authentication = Authentication();
             
-            current.recoverPassword(email , Type: type)
+            current.recoverPassword(email , Type: type){
+                (login:Bool) in
+                //we should perform all segues in the main thread
+                dispatch_async(dispatch_get_main_queue()) {
+                    flag = login
+                    if(flag) {
+                        self.displayAlert("", message: " تم إرسال البريد الإلكتروني")
+                        
+                      self.performSegueWithIdentifier("backtologin", sender: self)
+                    print("I am happy",login,flag)
+                    }//end if
+                    
+                    
+                    
+          
+             
+                    else if(!flag){
+            print("I am Here")
+            self.displayAlert("", message: "  البريد الإلكتروني المدخل غير مسجل لدينا")
+                    }//en else if
+                    
+         }// dispatch
+        
+            }//end call
             
-            
-            
+    
             
         } //end else
         
