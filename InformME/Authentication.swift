@@ -236,5 +236,106 @@ class Authentication {
     
     }
     func requestPassword(email: String){}
-    func recoverPassword(email: String , Type: Int){}
-    }
+    
+    func recoverPassword(email: String , Type: Int, completionHandler: (login:Bool) -> ()){
+    
+    
+    
+        
+        
+        struct f { static var flag = false }
+        
+      
+        
+        
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/rest.php")
+        let request = NSMutableURLRequest(URL:MYURL!)
+        request.HTTPMethod = "POST";
+        
+        
+        
+        
+        
+        
+        let postString = "&email=\(email)&type=\(Type)";
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+                
+                
+            else{
+                
+                if let urlContent = data {
+                    
+                    do {
+                        
+                        let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
+                        
+                        let l = jsonResult["status"]!!
+                        
+                        let s = String (l)
+                        print (s+"hi this status")
+                        
+                        if( s == "success") {
+                            
+                         
+    
+                            f.flag = true
+                            print (s+"hi 1111")
+                            
+                        } //end if
+                        else if( s == "unsuccess") {
+                            f.flag = false
+                            print (s+"hi 222")
+                            
+                        } //end else
+                        
+                        
+                        
+                    } catch {
+                        
+                        print("JSON serialization failed")
+                        
+                    }
+                    
+                    
+                }
+            }//end els
+            
+            
+            
+            // You can print out response object
+            //  print("response = \(response)")
+            
+            completionHandler(login: f.flag)
+            
+            
+            
+        }
+        
+        task.resume()
+        
+        
+        
+    } // end recover password fun
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    }//end class
