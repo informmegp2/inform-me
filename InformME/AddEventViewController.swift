@@ -48,10 +48,25 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         
     }
     
+    @IBAction func dp(sender: UITextField) {
+        
+        var datePickerView  : UIDatePicker = UIDatePicker()
+        datePickerView.datePickerMode = UIDatePickerMode.Date
+        sender.inputView = datePickerView
+        datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+        
+    }
+    
+    func handleDatePicker(sender: UIDatePicker) {
+          sender.minimumDate = NSDate()
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        EventDate.text = dateFormatter.stringFromDate(sender.date)
+    }
     
     
     func checkDate (ddate: String) -> Bool {
-      if  (ddate.rangeOfString("[0-9]{4}-[0-9]{2}-[0-9]{2}", options: .RegularExpressionSearch) != nil){
+      
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let todaysDate:NSDate = NSDate()
@@ -71,7 +86,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         } else
         {
           return true
-            }}
+            }
 
         return false
         

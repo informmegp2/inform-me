@@ -23,7 +23,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate{
     var vvideo:String=""
     var tempV:String=""
     var tempP:String=""
-
+    var cid : Int?
     
     var cellContent = [String]()
     var numRow:Int?
@@ -42,19 +42,16 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate{
         var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
             UIAlertAction in
             NSLog("OK Pressed")
-            
+
             var c : Content = Content()
-            c.updateContent (title, abstract: abstract,video: pdf , Pdf: video , TempV: self.tempV , TempP: self.tempP)
-            flag = true 
-
-            //            let destinationController = storyboard!.instantiateViewControllerWithIdentifier("alertPressedOK")
-            //          presentViewController(destinationController, animated: true, completion: nil)
-            if flag{
-
+            c.updateContent (title, abstract: abstract,video: pdf , Pdf: video , TempV: self.tempV , TempP: self.tempP , cID: self.cid!){
+                (flag:Bool) in
+                //we should perform all segues in the main thread
+                dispatch_async(dispatch_get_main_queue()) {
         self.performSegueWithIdentifier("alertPressedOK", sender:sender)
             }
             
-        }
+            }}
         
         var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
@@ -68,10 +65,53 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate{
         self.presentViewController(alertController, animated: true, completion: nil)
         
     }
-    
+  
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if (segue.identifier == "alertPressedOK") {
+            var detailVC = segue!.destinationViewController as! ContentForOrganizerViewController;
+            detailVC.ttitle=ETitle.text!
+            detailVC.abstract=EAbstract.text!
+            detailVC.pdf=EPDF.text!
+            detailVC.video=EVideo.text!
+            detailVC.contentid=cid!
+
+            
+        }
+        
+    }
+
+    @IBAction func deleteContent(sender: AnyObject) {
+        var alertController = UIAlertController(title: "", message: "هل أنت متأكد من رغبتك بالحذف", preferredStyle: .Alert)
+        
+        // Create the actions
+        var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            NSLog("OK Pressed")
+            var c: Content = Content()
+
+            c.DeleteContent(self.cid!){
+                (flag:Bool) in
+                //we should perform all segues in the main thread
+                dispatch_async(dispatch_get_main_queue()) {
+            self.performSegueWithIdentifier("deleteok", sender:sender)
+                }} }
+        var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
+            UIAlertAction in
+            NSLog("Cancel Pressed")
+        }
+        
+        // Add the actions
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        // Present the controller
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("UP"+ttitel)
         self.ETitle.text = ttitel
         self.EAbstract.text = aabstract
         self.EPDF.text = ppdf

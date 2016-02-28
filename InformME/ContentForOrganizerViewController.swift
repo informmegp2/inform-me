@@ -16,7 +16,7 @@ class ContentForOrganizerViewController: UIViewController {
     var video: String=""
     var pdf: String=""
     //  var evlogo: UIImage?
-    
+   // var cid : Int?
     
     @IBOutlet var TTitle: UINavigationItem!
 
@@ -37,6 +37,44 @@ class ContentForOrganizerViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func out(sender: AnyObject) {
+  
+        
+        
+        print(" iam in 1")
+        
+        var flag: Bool
+        flag = false
+        
+        
+        
+        var current: Authentication = Authentication();
+        
+        current.logout(){
+            (login:Bool) in
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                flag = login
+                if(flag) {
+                    
+                    self.performSegueWithIdentifier("backtologin", sender: self)
+                    
+                    
+                    print("I am happy",login,flag) }
+                
+            }
+            print("I am Here")  }
+        
+        
+        
+        
+        
+        
+    } //end out */
+        
+        
+    
     func editContent(){
         performSegueWithIdentifier("editContent", sender: self)
     }
@@ -49,7 +87,8 @@ class ContentForOrganizerViewController: UIViewController {
             detailVC.aabstract=AAbstract.text!
             detailVC.ppdf=PDF.text!
             detailVC.vvideo=VVideo.text!
-            
+            detailVC.cid=contentid
+          
         }
     }
 

@@ -50,11 +50,11 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
             NSLog("OK Pressed")
             
             var b : Beacon = Beacon()
-            b.updateBeacon (llabel, major: major,minor:minor , Temp: self.temp)
-            flag = true
-            if flag{
-                self.performSegueWithIdentifier("alertPressedOK", sender:sender)}
-         //   self.dismissViewControllerAnimated(true, completion: nil)
+            b.updateBeacon (llabel, major: major,minor:minor , Temp: self.temp){
+                (flag:Bool) in
+                //we should perform all segues in the main thread
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.performSegueWithIdentifier("alertPressedOK", sender:sender)} }
 
             
         }

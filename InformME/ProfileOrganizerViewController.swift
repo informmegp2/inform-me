@@ -1,15 +1,14 @@
 //
-//  ProfileViewController.swift
+//  ProfileOrganizerViewController.swift
 //  InformME
 //
-//  Created by Amal Ibrahim on 2/5/16.
+//  Created by Amal Ibrahim on 2/26/16.
 //  Copyright © 2016 King Saud University. All rights reserved.
 //
 
 import Foundation
 import UIKit
-
-class ProfileViewController: UIViewController {
+class ProfileOrganizerViewController : UIViewController {
     /*Hello : ) */
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +19,7 @@ class ProfileViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-}
+    }
     
     
     
@@ -61,5 +60,5 @@ class ProfileViewController: UIViewController {
     
     
     
-
+    
 }
