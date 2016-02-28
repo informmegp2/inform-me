@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g89-1q-eFd">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="193"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="194"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="MAF-zP-7xc">
                                                 <rect key="frame" x="-291" y="-147" width="1182" height="487"/>
@@ -63,7 +63,7 @@
                                         </constraints>
                                     </view>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yrq-I2-325">
-                                        <rect key="frame" x="0.0" y="193" width="600" height="79"/>
+                                        <rect key="frame" x="0.0" y="194" width="600" height="79"/>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <segments>
                                             <segment title="زائر"/>
@@ -72,7 +72,7 @@
                                         <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </segmentedControl>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="البريد الإلكتروني" textAlignment="right" minimumFontSize="17" background="كلمة المرور" translatesAutoresizingMaskIntoConstraints="NO" id="vEs-rq-j1q">
-                                        <rect key="frame" x="0.0" y="271" width="600" height="78"/>
+                                        <rect key="frame" x="0.0" y="272" width="600" height="78"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -82,10 +82,10 @@
                                             <rect key="frame" x="0.0" y="445" width="800" height="30"/>
                                         </variation>
                                     </textField>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMo-HJ-uDs">
-                                        <rect key="frame" x="0.0" y="348" width="600" height="78"/>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MMo-HJ-uDs">
+                                        <rect key="frame" x="0.0" y="349" width="600" height="77"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="كلمة المرور" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTu-wG-Jv7">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="كلمة المرور" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTu-wG-Jv7">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="78"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
@@ -177,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-675" y="1529"/>
+            <point key="canvasLocation" x="-463" y="-19"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="hxe-9P-eIo">
@@ -1035,8 +1035,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fmz-f9-q8l">
-                                <rect key="frame" x="0.0" y="80" width="600" height="520"/>
+                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Fmz-f9-q8l">
+                                <rect key="frame" x="0.0" y="80" width="600" height="471"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -1326,6 +1326,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="157"/>
                                                 <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="10"/>
                                                 <state key="normal" title="Button" image="eventMng"/>
+                                                <connections>
+                                                    <segue destination="Snf-7h-yo5" kind="show" id="4ML-xU-euD"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1343,6 +1346,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="157"/>
                                                 <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
                                                 <state key="normal" title="Button" image="beaconMng"/>
+                                                <connections>
+                                                    <segue destination="pO8-Kb-4jP" kind="show" id="EV8-if-h6O"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1360,6 +1366,9 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="157"/>
                                                 <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="20"/>
                                                 <state key="normal" title="Button" image="Profile"/>
+                                                <connections>
+                                                    <segue destination="NLk-JE-KiM" kind="show" id="oQM-Ab-5Yy"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1838,6 +1847,9 @@
                                                 <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <state key="normal" image="leftArrow"/>
+                                                <connections>
+                                                    <action selector="out:" destination="chT-Hv-JVj" eventType="touchUpInside" id="twW-Hz-UMV"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1909,11 +1921,12 @@
                     </view>
                     <connections>
                         <outlet property="recEmail" destination="bHK-tQ-5oF" id="lSw-c6-POS"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="backtologin" id="Uvq-s7-T63"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJI-nC-ICD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1097" y="-55"/>
+            <point key="canvasLocation" x="-1287" y="-27"/>
         </scene>
         <!--المحتويات القريبة-->
         <scene sceneID="6aS-xN-cqD">
@@ -2140,8 +2153,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c7Z-b2-eoM">
                                         <rect key="frame" x="0.0" y="50" width="600" height="40"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBi-ZA-CIX">
-                                                <rect key="frame" x="279" y="0.0" width="42" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PDF" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBi-ZA-CIX">
+                                                <rect key="frame" x="284" y="0.0" width="32" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -2163,8 +2176,8 @@
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyg-dg-oFE">
-                                                <rect key="frame" x="279" y="21" width="42" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyg-dg-oFE">
+                                                <rect key="frame" x="278" y="21" width="44" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -2300,6 +2313,9 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcM-C8-0f5">
                                                                 <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
                                                                 <state key="normal" title="Button"/>
+                                                                <connections>
+                                                                    <action selector="comment" destination="pwt-sH-Oa5" eventType="touchUpInside" id="WFi-gV-gIY"/>
+                                                                </connections>
                                                             </button>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="754" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c97-MU-h7i">
                                                                 <rect key="frame" x="46" y="0.0" width="554" height="30"/>
@@ -2374,6 +2390,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="abstract" destination="mvf-az-SYh" id="fGR-9F-xEC"/>
+                        <outlet property="commentField" destination="c97-MU-h7i" id="L2a-E9-fs5"/>
+                        <outlet property="commentsTable" destination="PhA-AK-KUK" id="W8D-Vu-uEM"/>
+                        <outlet property="navbar" destination="1IB-6J-AxQ" id="4uy-lW-Lal"/>
+                        <outlet property="pdf" destination="HBi-ZA-CIX" id="v4i-Hw-oq8"/>
+                        <outlet property="video" destination="lyg-dg-oFE" id="fv2-bN-Xl7"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backtologin" id="ZDi-NZ-fAN"/>
                     </connections>
                 </viewController>
@@ -3353,7 +3375,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="avo-SL-FZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2961" y="2435"/>
+            <point key="canvasLocation" x="5413" y="4075"/>
         </scene>
         <!-- تعديل المكان-->
         <scene sceneID="qod-p9-Pzs">
@@ -3477,7 +3499,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lr5-gV-nCC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3607" y="2427"/>
+            <point key="canvasLocation" x="5423" y="3387"/>
         </scene>
         <!--إدارة المكان-->
         <scene sceneID="CBx-au-J6F">
@@ -3616,7 +3638,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0nP-pd-wsI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2317" y="2435"/>
+            <point key="canvasLocation" x="5413" y="2675"/>
         </scene>
         <!--ٍReport-->
         <scene sceneID="jmw-UF-tyS">
@@ -4013,7 +4035,7 @@ AAEAHQAAAQEAAwAAAAEANwAAAQIAAwAAAAQAABmiAQMAAwAAAAEAAQAAAQYAAwAAAAEAAgAAAREABAAA
 AAEAAAAIARIAAwAAAAEAAQAAARUAAwAAAAEABAAAARYAAwAAAAEANwAAARcABAAAAAEAABjsARwAAwAA
 AAEAAQAAAVIAAwAAAAEAAgAAAVMAAwAAAAQAABmqh3MABwAADEgAABmyAAAAAAAIAAgACAAIAAEAAQAB
 AAEAAAxITGlubwIQAABtbnRyUkdCIFhZWiAHzgACAAkABgAxAABhY3NwTVNGVAAAAABJRUMgc1JHQgAA
-AAAAAAAAAAAAAAAA9tYAAQAAAADTLUhQICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAQAA9tYAAQAAAADTLUhQICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAABFjcHJ0AAABUAAAADNkZXNjAAABhAAAAGx3dHB0AAAB8AAAABRia3B0AAACBAAA
 ABRyWFlaAAACGAAAABRnWFlaAAACLAAAABRiWFlaAAACQAAAABRkbW5kAAACVAAAAHBkbWRkAAACxAAA
 AIh2dWVkAAADTAAAAIZ2aWV3AAAD1AAAACRsdW1pAAAD+AAAABRtZWFzAAAEDAAAACR0ZWNoAAAEMAAA
@@ -4189,7 +4211,7 @@ AAEAHQAAAQEAAwAAAAEANwAAAQIAAwAAAAQAABmiAQMAAwAAAAEAAQAAAQYAAwAAAAEAAgAAAREABAAA
 AAEAAAAIARIAAwAAAAEAAQAAARUAAwAAAAEABAAAARYAAwAAAAEANwAAARcABAAAAAEAABjsARwAAwAA
 AAEAAQAAAVIAAwAAAAEAAgAAAVMAAwAAAAQAABmqh3MABwAADEgAABmyAAAAAAAIAAgACAAIAAEAAQAB
 AAEAAAxITGlubwIQAABtbnRyUkdCIFhZWiAHzgACAAkABgAxAABhY3NwTVNGVAAAAABJRUMgc1JHQgAA
-AAAAAAAAAAAAAAAA9tYAAQAAAADTLUhQICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAQAA9tYAAQAAAADTLUhQICAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAABFjcHJ0AAABUAAAADNkZXNjAAABhAAAAGx3dHB0AAAB8AAAABRia3B0AAACBAAA
 ABRyWFlaAAACGAAAABRnWFlaAAACLAAAABRiWFlaAAACQAAAABRkbW5kAAACVAAAAHBkbWRkAAACxAAA
 AIh2dWVkAAADTAAAAIZ2aWV3AAAD1AAAACRsdW1pAAAD+AAAABRtZWFzAAAEDAAAACR0ZWNoAAAEMAAA
@@ -4275,12 +4297,13 @@ AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
         <image name="كلمة المرور" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Co7-Qq-mQW"/>
-        <segue reference="ftC-aB-NCc"/>
+        <segue reference="ZDi-NZ-fAN"/>
+        <segue reference="zio-Qz-4lL"/>
         <segue reference="Qgb-AC-CeO"/>
         <segue reference="ZTI-2B-VFQ"/>
-        <segue reference="bFI-E1-VSS"/>
         <segue reference="geg-LT-dMU"/>
+        <segue reference="bFI-E1-VSS"/>
+        <segue reference="Co7-Qq-mQW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

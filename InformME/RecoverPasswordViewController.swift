@@ -50,11 +50,61 @@ class RecoverPasswordViewController: UIViewController, UITextFieldDelegate, UINa
         else {
             // call to recover
             
+             var current: Authentication = Authentication();
+            
+            current.recoverPassword(email , Type: type)
+            
+            
+            
+            
         } //end else
         
         
 
     }// end fun recover
+    
+    
+    
+    
+    
+    @IBAction func out(sender: AnyObject) {
+        
+        
+        
+        print(" iam in 1")
+        
+        var flag: Bool
+        flag = false
+        
+        
+        
+        var current: Authentication = Authentication();
+        
+        current.logout(){
+            (login:Bool) in
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                flag = login
+                if(flag) {
+                    
+                    self.performSegueWithIdentifier("backtologin", sender: self)
+                    
+                    
+                    print("I am happy",login,flag) }
+                
+            }
+            print("I am Here")  }
+        
+        
+        
+        
+        
+        
+    } //end out */
+        
+        
+   
     
     
     

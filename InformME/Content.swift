@@ -201,11 +201,100 @@ class Content {
 
     func shareContent() {}
     func createContent(title: String,abstract: String ,images: [UIImage],video: String,Pdf: NSData) {}
-    func requestToDeleteComment() {}
     func deleteComment(comment: Comment) {}
     func disLikeContent() {}
     func likeContent() {}
-    func requestToAddComment() {}
-    func saveComment(comment: Comment) {}
     
+    //MARK --Found No Need for the commented methods
+    //func requestToAddComment() {}
+    //func requestToDeleteComment() {}
+
+    func saveComment(comment: Comment, completionHandler: (done:Bool) -> ()) {
+        let com = comment.comment
+        let user = comment.user.userID
+        let cid = comment.contentID
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/content/addcomment.php")
+        let request = NSMutableURLRequest(URL:MYURL!)
+        request.HTTPMethod = "POST";
+        
+        //Change UserID"
+        
+        let postString = "cid=\(cid)&uid=\(user)&comment=\(com)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+            // You can print out response object
+            print("response = \(response)")
+
+            
+            completionHandler(done: true)
+        }
+        
+        task.resume()
+        
+    }
+
+    
+    //MARK: --- THIS METHOD WAS MOVED FROM EVENTS CLASS ---
+    func ViewContent(ContentID: Int, completionHandler: (content:Content) -> ()){
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/contentdetails.php")!)
+        request.HTTPMethod = "POST"
+        let postString = "cid=\(ContentID)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if let urlContent = data {
+                
+                do {
+                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
+                    
+                    for var x=0; x<jsonResult.count;x++ {
+                        let item = jsonResult[x]
+                        let c : Content = Content()
+                        c.contentId = Int(item["ContentID"] as! String)!
+                        c.Title = item["Title"] as! String
+                        c.Abstract = item["Abstract"] as! String
+                        c.Pdf = item["PDFFiles"] as! String
+                        c.Video = item["Videos"] as! String
+                        c.shares = Int(item["ShareCounter"] as! String)!
+                        c.label = item["Label"] as! String
+                        //c.likes.counter = Int(item["Likes"] as! String)!
+                        //c.dislikes.counter = Int(item ["DisLikes"] as! String)!
+                        
+                        var comments: [Comment] = []
+                        let itemC = item["Comments"] as! NSArray
+                        for var i=0; i<itemC.count;i++ {
+                            let comment: Comment = Comment()
+                            comment.comment = itemC[i]["CommentText"] as! String
+                            comment.user.username = itemC[i]["UserName"] as! String
+                            comments.append(comment)
+                        }
+                        c.comments = comments
+                        completionHandler(content: c)
+
+                        print("DONE")
+                    }
+                } catch {
+                    
+                    print("JSON serialization failed")
+                    
+                }
+                
+                
+            }
+        }
+        task.resume()
+    }
 }
+ 
