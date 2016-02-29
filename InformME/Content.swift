@@ -53,7 +53,7 @@ class Content {
     }
 
 
-    func saveContent(title: String,abstract: String ,video: String,Pdf: String,image: UIImage,completionHandler: (flag:Bool) -> ()) {
+    func saveContent(title: String,abstract: String ,video: String,Pdf: String,image: [UIImage],flagI: [Bool], completionHandler: (flag:Bool) -> ()) {
         
         var f=false
 
@@ -85,56 +85,57 @@ class Content {
         }
 
         task.resume()
-        addImage(title,abstract: abstract,image: image)
+        addImage(title,abstract: abstract,image: image ,flagI: flagI)
         f=true
         completionHandler(flag: f)
 }
     
-    func addImage(title: String,abstract: String ,image: UIImage){
+    func addImage(title: String,abstract: String ,image: [UIImage] , flagI : [Bool]){
         let eid=1
         let l = "be"
         let SC = 1
-        let MYURL = NSURL(string:"http://bemyeyes.co/API/content/AddImage.php")
-        
-        let request = NSMutableURLRequest(URL:MYURL!)
-        
-        request.HTTPMethod = "POST";
-        
-        let param : [String: String] = [
-            "Title"     : title,
-            "Abstract"  :abstract,
-            "EventID"  :String(eid),
-            "ShareCounter" :String(SC),
-            "Label" : l
-            
-        ]
-        
-        let boundary = generateBoundaryString()
-        
-        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        
-        
-        let imageData = UIImageJPEGRepresentation(image, -1)
-        if imageData==nil{
-            print("it is nil")}
-        
-        request.HTTPBody = createBodyWithParameters(param, filePathKey: "file", imageDataKey: imageData!, boundary: boundary)
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            
-            if error != nil
-            {
-                print("error=\(error)")
-                return
+
+        for i in 0...image.count {
+            if flagI[i]{
+                
+                let MYURL = NSURL(string:"http://bemyeyes.co/API/content/AddImage.php")
+                
+                let request = NSMutableURLRequest(URL:MYURL!)
+                
+                request.HTTPMethod = "POST";
+                
+                let param : [String: String] = [
+                    "Title"     : title,
+                    "Abstract"  :abstract,
+                    "EventID"  :String(eid),
+                    "ShareCounter" :String(SC),
+                    "Label" : l,
+                    "ImageNum" : String(i)
+                ]
+                let boundary = generateBoundaryString()
+                request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+                let imageData = UIImageJPEGRepresentation(image[i], -1)
+                if imageData==nil{
+                    print("it is nil")}
+                
+                request.HTTPBody = createBodyWithParameters(param, filePathKey: "file", imageDataKey: imageData!, boundary: boundary)
+                
+                let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                    data, response, error in
+                    
+                    if error != nil
+                    {
+                        print("error=\(error)")
+                        return
+                    }
+                    // You can print out response object
+                    print("response = \(response)")
+                }
+                task.resume()
+                
+                
             }
-            // You can print out response object
-            print("response = \(response)")
-            
         }
-        
-        task.resume()
-        
     }
 
     func generateBoundaryString() -> String {
