@@ -10,6 +10,13 @@ import Foundation
 import UIKit
 class ProfileOrganizerViewController : UIViewController {
     /*Hello : ) */
+    
+    
+    @IBOutlet var usernameField: UITextField!
+    @IBOutlet var emailField: UITextField!
+    @IBOutlet var bioField: UITextField!
+    @IBOutlet var passwordField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
