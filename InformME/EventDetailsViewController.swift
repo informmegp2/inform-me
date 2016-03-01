@@ -84,39 +84,22 @@ class EventDetailsViewController: UIViewController {
 
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "showReport") {
-            var reportVC = segue!.destinationViewController as! ReportViewController;
-            reportVC.event.id = self.evid;
+            let reportVC = segue.destinationViewController as! ReportViewController;
+            reportVC.event.id = self.evid
         }
         else     if (segue.identifier == "showContents") {
-            var contentVC = segue!.destinationViewController as! ManageContentsViewController;
-            contentVC.UserID = self.evid; 
+            let contentVC = segue.destinationViewController as! ManageContentsViewController;
+            contentVC.UserID = self.evid
 
         }
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        if (segue.identifier == "updateEvent") {
+        else    if (segue.identifier == "updateEvent") {
           
           
             //Checking identifier is crucial as there might be multiple
             // segues attached to same view
-            var detailVC = segue!.destinationViewController as! UpdateEventViewController;
+            let detailVC = segue.destinationViewController as! UpdateEventViewController;
             detailVC.evid = evid
             detailVC.evname=evname
             detailVC.evwebsite=evwebsite
@@ -127,6 +110,9 @@ class EventDetailsViewController: UIViewController {
         
     }
     
-    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
 }
