@@ -225,11 +225,4 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
     }
 
     
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-        self.view.endEditing(true)
-        
-    }
-   
 }

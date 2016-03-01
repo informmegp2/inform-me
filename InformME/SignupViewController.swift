@@ -58,7 +58,11 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
 
             
          }//end else if
+         else if (isValidEmail(email) == false) {
             
+            displayAlert("", message: "  يرجى إدخال صيغة بريد الكتروني صحيحة")
+            
+         }
             
             
          else {
@@ -179,6 +183,26 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
         
     }//end fun display alert
 
+    
+    
+    
+    func isValidEmail(testStr:String) -> Bool {
+        
+        
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        var emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        
+        var result = emailTest.evaluateWithObject(testStr)
+        
+        return result
+        
+    }
+    
+    
+    
+    
+    
     
     
     

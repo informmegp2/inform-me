@@ -79,9 +79,13 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
         temp = llabel
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
-        return false
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
