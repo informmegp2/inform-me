@@ -47,7 +47,7 @@ class EventDetailsViewController: UIViewController {
         
         
         
-        var current: Authentication = Authentication();
+        let current: Authentication = Authentication();
         
         current.logout(){
             (login:Bool) in
@@ -90,8 +90,8 @@ class EventDetailsViewController: UIViewController {
             reportVC.event.id = self.evid
         }
         else     if (segue.identifier == "showContents") {
-            let contentVC = segue.destinationViewController as! ManageContentsViewController;
-            contentVC.UserID = self.evid
+            let contentVC = segue.destinationViewController as! ManageContentsViewController
+            contentVC.EID =  self.evid
 
         }
         else    if (segue.identifier == "updateEvent") {
