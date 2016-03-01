@@ -62,7 +62,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("contentCell")! as UITableViewCell
         
    cell.textLabel?.text = contentList[indexPath.row].Title
-        
+    cell.tag = contentList[indexPath.row].contentId
         return cell
     }
  
@@ -91,22 +91,8 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
                 do {
                    if let jsonResults = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? [AnyObject]{
                     for item in jsonResults {
-                        
-                        print("item \(item)")
-                        
-                    
                         self.contentList.append(Content(json: item as! [String : AnyObject]))
-                        
-                       
-                    }
-                    }
-               /*     for item in data
-                        {self.contentList.append(Content(json: item))
-                            print(Content(json: item).Title)
-                            print("After json")}*/
-                
-                    for element in self.contentList {
-                        print("ID: \(element.Title)")
+                        }
                     }
 
                 }
@@ -122,7 +108,6 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         
     }
     
-
 
     
     
