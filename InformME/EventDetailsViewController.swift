@@ -73,9 +73,28 @@ class EventDetailsViewController: UIViewController {
     } //end out */
 
         
+    // MARK: -Segue Functions
+    @IBAction func reportButton() {
+        self.performSegueWithIdentifier("showReport", sender: self)
+
+    }
     
+    @IBAction func detailsButton(){
+        self.performSegueWithIdentifier("showContents", sender: self)
+
+    }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if (segue.identifier == "showReport") {
+            var reportVC = segue!.destinationViewController as! ReportViewController;
+            reportVC.event.id = self.evid;
+        }
+        else     if (segue.identifier == "showContents") {
+            var contentVC = segue!.destinationViewController as! ManageContentsViewController;
+            contentVC.UserID = self.evid; 
+
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -107,5 +126,7 @@ class EventDetailsViewController: UIViewController {
         }
         
     }
+    
+    
     
 }
