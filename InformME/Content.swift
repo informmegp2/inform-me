@@ -217,20 +217,19 @@ class Content {
         
         
     }
-    func requestcontentlist(id: Int,completionHandler: (contentInfo:[Content]) -> ()){
+    func requestcontentlist(ID: Int,completionHandler: (contentInfo:[Content]) -> ()){
         
         
         var TitleA : [String] = []
         var contentInfo: [Content] = []
-        let uid=id
-        let eid=1
+        let Eid=ID
         let cid=1
         
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/SelectContent.php")!)
         
         request.HTTPMethod = "POST"
-        let postString = "eid=\(eid)&cid=\(cid)"
+        let postString = "eid=\(Eid)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {

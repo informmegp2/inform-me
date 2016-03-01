@@ -19,11 +19,11 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
     
     var contentInfo: [Content] = []
     var content: Content = Content()
-    var UserID: Int = 1
+    var EID: Int = 1
     
     
     override func viewDidLoad() {
-        content.requestcontentlist(UserID){
+        content.requestcontentlist(EID){
             (contentInfo:[Content]) in
             dispatch_async(dispatch_get_main_queue()) {
                 self.contentInfo = contentInfo
@@ -39,9 +39,6 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
 
     
     @IBAction func out(sender: AnyObject) {
-        
-        
-        
         
         print(" iam in 1")
         
@@ -82,10 +79,7 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
         
         cell.title.text = c.Title
         
-        
-        
         return cell
-        
         
     }
     
