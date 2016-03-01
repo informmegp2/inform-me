@@ -19,11 +19,11 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
     
     var contentInfo: [Content] = []
     var content: Content = Content()
-    var UserID: Int = 1
+    var EventID: Int = 1
     
     
     override func viewDidLoad() {
-        content.requestcontentlist(UserID){
+        content.requestcontentlist(EventID){
             (contentInfo:[Content]) in
             dispatch_async(dispatch_get_main_queue()) {
                 self.contentInfo = contentInfo
