@@ -20,11 +20,11 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     @IBOutlet weak var commentField: UITextField!
     var content: Content = Content()
     var cid: Int = 68
-    
+    var uid: Int = 1
     override func viewDidLoad() {
         commentsTable.delegate = self;
         commentsTable.dataSource = self;
-        content.ViewContent(cid){
+        content.ViewContent(cid, UserID: uid){
             (content:Content) in
             dispatch_async(dispatch_get_main_queue()) {
                 self.content = content
@@ -36,6 +36,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
             }
             
         }
+        
     }
     
     //MARK -- Social Media --
@@ -143,6 +144,15 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // TODO: this number should be changed to the actual number of recieved events.
         return self.content.comments.count;
+    }
+    
+    
+    @IBAction func likeContent(sender: AnyObject) {
+    }
+    
+    
+    
+    @IBAction func dislikeContent(sender: AnyObject) {
     }
     
     //MARK: --- New Comment --- 

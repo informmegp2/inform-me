@@ -22,6 +22,8 @@ class Content {
     var shares: Int = 0
     var label: String = ""
     var contentId: Int = 0
+    var like: Int = 0
+    var dislike: Int = 0
     
     
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
@@ -422,11 +424,11 @@ class Content {
 
     
     //MARK: --- THIS METHOD WAS MOVED FROM EVENTS CLASS ---
-    func ViewContent(ContentID: Int, completionHandler: (content:Content) -> ()){
+    func ViewContent(ContentID: Int, UserID:Int, completionHandler: (content:Content) -> ()){
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/contentdetails.php")!)
         request.HTTPMethod = "POST"
-        let postString = "cid=\(ContentID)"
+        let postString = "cid=\(ContentID)&uid=\(UserID)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -458,6 +460,11 @@ class Content {
                             comment.user.username = itemC[i]["UserName"] as! String
                             comments.append(comment)
                         }
+                       let lk = item["Like"] as! String
+                        c.like = Int(lk)!
+                        
+                        let dislk = item["dislike"] as! String
+                        c.dislike = Int(lk)!
                         c.comments = comments
                         completionHandler(content: c)
 
