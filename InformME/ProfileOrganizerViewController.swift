@@ -29,7 +29,6 @@ class ProfileOrganizerViewController : UIViewController , UITextFieldDelegate{
                 self.usernameField.text = OrganizerInfo.username
                 self.emailField.text = OrganizerInfo.email
                 self.bioField.text = OrganizerInfo.bio
-                self.passwordField.text = OrganizerInfo.password
             }
             
         }
@@ -146,8 +145,8 @@ class ProfileOrganizerViewController : UIViewController , UITextFieldDelegate{
         var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
             
-            self.dismissViewControllerAnimated(true, completion: nil)
-            
+            if( message != "يرجى إدخال كافة الحقول") {
+                self.dismissViewControllerAnimated(true, completion: nil) }
         })))
         
         self.presentViewController(alert, animated: true, completion: nil)
