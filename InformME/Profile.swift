@@ -15,7 +15,10 @@ var password: String = ""
 var picture:UIImage?
 var bio:String = ""
 
-    func editProfile() {}
+    func editProfile(){}
+        
+     
+        
     func updateProfile(username: String,email: String,password: String,picture: UIImage ,bio: String) {}
 
 }
