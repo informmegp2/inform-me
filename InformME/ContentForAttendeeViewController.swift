@@ -19,8 +19,8 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     @IBOutlet weak var navbar: UINavigationItem!
     @IBOutlet weak var commentField: UITextField!
     var content: Content = Content()
-    var cid: Int = 68
-    var uid: Int = 1
+    var cid: Int = 139
+    var uid: Int = 29
     override func viewDidLoad() {
         commentsTable.delegate = self;
         commentsTable.dataSource = self;
@@ -33,6 +33,8 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
                 self.pdf.text = self.content.Pdf
                 self.video.text = self.content.Video
                 self.navbar.title = self.content.Title
+                print(self.content.like)
+                print(self.content.dislike)
             }
             
         }
@@ -148,11 +150,29 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     
     
     @IBAction func likeContent(sender: AnyObject) {
+        self.content.likeContent(self.cid, uid: self.uid){
+            (done:Bool) in
+            dispatch_async(dispatch_get_main_queue()) {
+                print("I am cool")
+                
+                
+            }
+        }
+
     }
     
     
     
     @IBAction func dislikeContent(sender: AnyObject) {
+        self.content.disLikeContent(self.cid, uid: self.uid){
+            (done:Bool) in
+            dispatch_async(dispatch_get_main_queue()) {
+                print("I am cool")
+                
+                
+            }
+        }
+
     }
     
     //MARK: --- New Comment --- 

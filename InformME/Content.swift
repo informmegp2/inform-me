@@ -460,11 +460,14 @@ class Content {
                             comment.user.username = itemC[i]["UserName"] as! String
                             comments.append(comment)
                         }
-                       let lk = item["Like"] as! String
-                        c.like = Int(lk)!
+                        if (item["Like"] != nil){
                         
+                       let lk = item["Like"] as! String
+                            c.like = Int(lk)!}
+                       
+                        if (item["dislike"] != nil){
                         let dislk = item["dislike"] as! String
-                        c.dislike = Int(lk)!
+                            c.dislike = Int(dislk)!}
                         c.comments = comments
                         completionHandler(content: c)
 
