@@ -22,6 +22,8 @@ class Content {
     var shares: Int = 0
     var label: String = ""
     var contentId: Int = 0
+    var like: Int = 0
+    var dislike: Int = 0
     
     
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
@@ -315,8 +317,73 @@ class Content {
     }
     func createContent(title: String,abstract: String ,images: [UIImage],video: String,Pdf: NSData) {}
     func deleteComment(comment: Comment) {}
-    func disLikeContent() {}
-    func likeContent() {}
+    
+    func disLikeContent(cid: Int, uid: Int, completionHandler: (done:Bool) -> ()) {
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/content/evaluate.php")
+        let request = NSMutableURLRequest(URL:MYURL!)
+        request.HTTPMethod = "POST";
+        
+        //Change UserID"
+        let dislike = 1
+        let like = 0
+        let postString = "cid=\(cid)&uid=\(uid)&like=\(like)&dislike=\(dislike)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+            // You can print out response object
+            print("response = \(response)")
+            
+            
+            completionHandler(done: true)
+        }
+        
+        task.resume()
+        
+
+    }
+    func likeContent(cid: Int, uid: Int, completionHandler: (done:Bool) -> ()){
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/content/evaluate.php")
+        let request = NSMutableURLRequest(URL:MYURL!)
+        request.HTTPMethod = "POST";
+        
+        //Change UserID"
+        let dislike = 0
+        let like = 1
+        let postString = "cid=\(cid)&uid=\(uid)&like=\(like)&dislike=\(dislike)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+            // You can print out response object
+            print("response = \(response)")
+            
+            
+            completionHandler(done: true)
+        }
+        
+        task.resume()
+        
+
+    
+    
+    
+    
+    }
     
     //MARK --Found No Need for the commented methods
     //func requestToAddComment() {}
@@ -357,11 +424,11 @@ class Content {
 
     
     //MARK: --- THIS METHOD WAS MOVED FROM EVENTS CLASS ---
-    func ViewContent(ContentID: Int, completionHandler: (content:Content) -> ()){
+    func ViewContent(ContentID: Int, UserID:Int, completionHandler: (content:Content) -> ()){
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/contentdetails.php")!)
         request.HTTPMethod = "POST"
-        let postString = "cid=\(ContentID)"
+        let postString = "cid=\(ContentID)&uid=\(UserID)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -393,6 +460,14 @@ class Content {
                             comment.user.username = itemC[i]["UserName"] as! String
                             comments.append(comment)
                         }
+                        if (item["Like"] != nil){
+                        
+                       let lk = item["Like"] as! String
+                            c.like = Int(lk)!}
+                       
+                        if (item["dislike"] != nil){
+                        let dislk = item["dislike"] as! String
+                            c.dislike = Int(dislk)!}
                         c.comments = comments
                         completionHandler(content: c)
 

@@ -93,12 +93,11 @@ class EventOrganizer {
         
  
     
-    func requestcontentlist(id: Int,completionHandler: (OrganizerInfo:[EventOrganizer]) -> ()){
+    func requestInfo(completionHandler: (OrganizerInfo:EventOrganizer) -> ()){
         
         
-        var TitleA : [String] = []
-        var OrganizerInfo:[EventOrganizer] = []
-        let id=id
+     
+        let id=NSUserDefaults.standardUserDefaults().stringForKey("id")!
        
         
         
@@ -133,9 +132,8 @@ class EventOrganizer {
                         info.bio=v as! String
                         
                       
-                            //self.values.addObject(content)
-                            
-                            OrganizerInfo.append(info)
+                        completionHandler(OrganizerInfo: info)
+                        
                         }}
                 catch {
                     
@@ -146,7 +144,6 @@ class EventOrganizer {
                 
             }
             
-            completionHandler(OrganizerInfo: OrganizerInfo)
         }
         task.resume()
         
@@ -156,6 +153,77 @@ class EventOrganizer {
     
     
     
+    func UpdateProfile(username: String,email: String,password: String,bio: String ,completionHandler: (flag:Bool) -> ()) {
+        let id =
+        NSUserDefaults.standardUserDefaults().stringForKey("id")!
+        print(id + username + email + bio + password)
+        struct f { static var flag = false }
+        
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/organizer/EditProfileOrganizer.php")
+        let request = NSMutableURLRequest(URL:MYURL!)
+        request.HTTPMethod = "POST";
+        
+        //Change UserID"
+        let postString = "UserID=\(id)&username=\(username)&email=\(email)&pass=\(password)&bio=\(bio)";
+        
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            else{
+                
+                if let urlContent = data {
+                    
+                    do {
+                        
+                        let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
+                        
+                        let l = jsonResult["status"]!!
+                        
+                        let s = String (l)
+                        print (s+"hi this status update")
+                        
+                        if( s == "success") {
+                            
+                            f.flag = true
+                            print (s+"hi 1111")
+                            
+                        } //end if
+                        else if( s == "unsuccess") {
+                            f.flag = false
+                            print (s+"hi 222")
+                            
+                        } //end else
+                        
+                        
+                        
+                    } catch {
+                        
+                        print("JSON serialization failed")
+                        
+                    }
+                    
+                    
+                }
+            }//end els
+            
+            
+         
+            
+            completionHandler(flag: f.flag)
+            
+            
+            
+        }
+        task.resume()
+        
+    }
     
     
     
