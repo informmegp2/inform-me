@@ -4397,13 +4397,14 @@ AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
         <image name="كلمة المرور" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="geg-LT-dMU"/>
-        <segue reference="bFI-E1-VSS"/>
-        <segue reference="sh7-tv-Zda"/>
-        <segue reference="zio-Qz-4lL"/>
-        <segue reference="Co7-Qq-mQW"/>
-        <segue reference="Qgb-AC-CeO"/>
+        <segue reference="nqB-fl-sns"/>
+        <segue reference="jax-Lw-FKV"/>
+        <segue reference="qa7-0V-P1l"/>
+        <segue reference="oQM-Ab-5Yy"/>
+        <segue reference="KhZ-9v-s7c"/>
+        <segue reference="KVE-N5-Gkc"/>
         <segue reference="ZTI-2B-VFQ"/>
+        <segue reference="Qgb-AC-CeO"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>
