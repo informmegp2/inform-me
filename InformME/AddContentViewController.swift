@@ -19,8 +19,10 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
     @IBOutlet var SImage: UIButton!
     @IBOutlet var TImage: UIButton!
     var cellContent = [String]()
+    var images = [UIImage]()
     var numRow:Int?
-    
+    var flags = [Bool](count: 4, repeatedValue: false) // for checking the images
+
       @IBAction func Submit(sender: AnyObject) {
         var title = TTitle.text!
         var abstract = Abstract.text!
@@ -28,8 +30,9 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         var pdf = PDF.text!
         
         var c : Content = Content()
+      //  c.saveContent(title,abstract: abstract,video: video,Pdf: pdf ,image: FImage.backgroundImageForState(.Normal)!){
         
-        c.saveContent(title,abstract: abstract,video: video,Pdf: pdf ,image: FImage.backgroundImageForState(.Normal)!){
+        c.saveContent(title,abstract: abstract,video: video,Pdf: pdf ,image: images,flagI: flags){
             (flag:Bool) in
             //we should perform all segues in the main thread
             dispatch_async(dispatch_get_main_queue()) {
@@ -79,22 +82,28 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
         
     {
-        
+
          if picker == pickerOne {
         FImage.setBackgroundImage(info[UIImagePickerControllerOriginalImage] as? UIImage, forState: .Normal)
+            flags[0]=true
+            images.append(FImage.backgroundImageForState(.Normal)!)
         }
         
           else if picker == pickerTwo {
             SImage.setBackgroundImage(info[UIImagePickerControllerOriginalImage] as? UIImage, forState: .Normal)
+            flags[1]=true
+            images.append(SImage.backgroundImageForState(.Normal)!)
+
         }
          else if picker == pickerThree {
             TImage.setBackgroundImage(info[UIImagePickerControllerOriginalImage] as? UIImage, forState: .Normal)
+            flags[2]=true
+            images.append(TImage.backgroundImageForState(.Normal)!)
         }
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
 
-    
     // *** for keyboard
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
