@@ -159,26 +159,30 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     @IBOutlet var dislikeButton: UIButton!
     
     @IBAction func likeContent(sender: AnyObject) {
+          if (self.content.like==0 || self.content.dislike==0){
         self.content.likeContent(self.cid, uid: self.uid){
             (done:Bool) in
             dispatch_async(dispatch_get_main_queue()) {
                 print("I am cool")
       self.likeButton.setImage(UIImage(named: "like.png"), forState: UIControlState.Normal)
+                self.content.like=1
             }
-        }
+            }}
 
     }
     
     
     
     @IBAction func dislikeContent(sender: AnyObject) {
+        if (self.content.like==0 || self.content.dislike==0){
         self.content.disLikeContent(self.cid, uid: self.uid){
             (done:Bool) in
             dispatch_async(dispatch_get_main_queue()) {
                 print("I am cool")
                  self.dislikeButton.setImage(UIImage(named: "dislike.png"), forState: UIControlState.Normal)
+                self.content.dislike=1
                 
-            }
+            }}
         }
 
     }
