@@ -317,6 +317,38 @@ class Content {
     func createContent(title: String,abstract: String ,images: [UIImage],video: String,Pdf: NSData) {}
     func deleteComment(comment: Comment) {}
     
+    func updateEvaluation (cid: Int, uid:Int, likeNo:Int, dislikeNo:Int, completionHandler: (done:Bool) -> ()) {
+        
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/content/updateEvaluation.php")
+        let request = NSMutableURLRequest(URL:MYURL!)
+        request.HTTPMethod = "POST";
+        
+        //Change UserID"
+        
+        let postString = "cid=\(cid)&uid=\(uid)&like=\(likeNo)&dislike=\(dislikeNo)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+            // You can print out response object
+            print("response = \(response)")
+            
+            
+            completionHandler(done: true)
+        }
+        
+        task.resume()
+
+        
+    }
+    
     func disLikeContent(cid: Int, uid: Int, completionHandler: (done:Bool) -> ()) {
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/evaluate.php")
         let request = NSMutableURLRequest(URL:MYURL!)

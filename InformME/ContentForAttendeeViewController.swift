@@ -19,7 +19,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     @IBOutlet weak var navbar: UINavigationItem!
     @IBOutlet weak var commentField: UITextField!
     var content: Content = Content()
-    var cid: Int = 106
+    var cid: Int = 140
     var uid: Int = 29
     
     @IBOutlet var likeButton: UIButton!
@@ -171,13 +171,16 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
             }
             }}
           else if (self.content.dislike==1){
+            self.content.updateEvaluation(self.cid, uid: self.uid, likeNo: 1, dislikeNo: 0){
+                (done:Bool) in
+                dispatch_async(dispatch_get_main_queue()) {
             self.likeButton.setImage(UIImage(named: "like.png"), forState: UIControlState.Normal)
             self.content.like=1
             self.content.dislike=0
             self.dislikeButton.setImage(UIImage(named: "dislike-g.png"), forState: UIControlState.Normal)
             print(self.content.like)
             print(self.content.dislike)
-        }
+                }}}
 
     }
     
@@ -196,12 +199,16 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
             }}
         }
         else if (self.content.like==1){
+            self.content.updateEvaluation(self.cid, uid: self.uid, likeNo: 0, dislikeNo: 1){
+                (done:Bool) in
+                dispatch_async(dispatch_get_main_queue()) {
+
             self.dislikeButton.setImage(UIImage(named: "dislike.png"), forState: UIControlState.Normal)
             self.content.like=0
             self.content.dislike=1
             self.likeButton.setImage(UIImage(named: "like-g.png"), forState: UIControlState.Normal)
             print(self.content.like)
-            print(self.content.dislike)
+                    print(self.content.dislike)}}
         }
     }
     
