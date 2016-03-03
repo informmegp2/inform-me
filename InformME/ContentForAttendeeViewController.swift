@@ -19,8 +19,10 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     @IBOutlet weak var navbar: UINavigationItem!
     @IBOutlet weak var commentField: UITextField!
     var content: Content = Content()
-    var cid: Int = 139
+    var cid: Int = 140
     var uid: Int = 29
+    
+    @IBOutlet var likeButton: UIButton!
     override func viewDidLoad() {
         commentsTable.delegate = self;
         commentsTable.dataSource = self;
@@ -148,14 +150,14 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         return self.content.comments.count;
     }
     
+    @IBOutlet var dislikeButton: UIButton!
     
     @IBAction func likeContent(sender: AnyObject) {
         self.content.likeContent(self.cid, uid: self.uid){
             (done:Bool) in
             dispatch_async(dispatch_get_main_queue()) {
                 print("I am cool")
-                
-                
+      self.likeButton.setImage(UIImage(named: "like.png"), forState: UIControlState.Normal)
             }
         }
 
@@ -168,7 +170,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
             (done:Bool) in
             dispatch_async(dispatch_get_main_queue()) {
                 print("I am cool")
-                
+                 self.dislikeButton.setImage(UIImage(named: "dislike.png"), forState: UIControlState.Normal)
                 
             }
         }
