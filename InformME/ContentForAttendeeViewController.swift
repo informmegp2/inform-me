@@ -37,6 +37,12 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
                 self.navbar.title = self.content.Title
                 print(self.content.like)
                 print(self.content.dislike)
+                if(self.content.like==1){
+                     self.likeButton.setImage(UIImage(named: "like.png"), forState: UIControlState.Normal)
+                }
+                else if (self.content.dislike==1){
+                    self.dislikeButton.setImage(UIImage(named: "dislike.png"), forState: UIControlState.Normal)
+                }
             }
             
         }
