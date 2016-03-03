@@ -21,6 +21,8 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     var content: Content = Content()
     var cid: Int = 105
     var uid: Int = 29
+    
+    @IBOutlet var likeButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         commentsTable.delegate = self;
@@ -36,6 +38,12 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
                 self.navbar.title = self.content.Title
                 print(self.content.like)
                 print(self.content.dislike)
+                if(self.content.like==1){
+                     self.likeButton.setImage(UIImage(named: "like.png"), forState: UIControlState.Normal)
+                }
+                else if (self.content.dislike==1){
+                    self.dislikeButton.setImage(UIImage(named: "dislike.png"), forState: UIControlState.Normal)
+                }
           self.collectionView.delegate = self
           self.collectionView.dataSource = self
             }
