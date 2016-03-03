@@ -25,7 +25,7 @@ class ReportViewController: UIViewController, UITableViewDataSource, UITableView
         }
 
         }
-        print("I am Back")
+        print("I am Back22")
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         self.tableView.reloadData();

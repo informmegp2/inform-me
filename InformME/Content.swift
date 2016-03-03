@@ -224,7 +224,7 @@ class Content {
         var contentInfo: [Content] = []
         let Eid=ID
         let cid=1
-        
+       
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/SelectContent.php")!)
         
@@ -432,7 +432,7 @@ class Content {
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
-            
+            print("\(response)")
             if let urlContent = data {
                 
                 do {
@@ -444,8 +444,18 @@ class Content {
                         c.contentId = Int(item["ContentID"] as! String)!
                         c.Title = item["Title"] as! String
                         c.Abstract = item["Abstract"] as! String
+                        if item["PDFFiles"] is NSNull  {
+                            c.Pdf = "No PDF"
+                        }
+                        else{
                         c.Pdf = item["PDFFiles"] as! String
+                        }
+                        if item["Videos"]  is NSNull  {
+                        c.Video = "No Video"
+                        }
+                        else{
                         c.Video = item["Videos"] as! String
+                        }
                         c.shares = Int(item["ShareCounter"] as! String)!
                         c.label = item["Label"] as! String
                         //c.likes.counter = Int(item["Likes"] as! String)!
@@ -459,12 +469,17 @@ class Content {
                             comment.user.username = itemC[i]["UserName"] as! String
                             comments.append(comment)
                         }
-                        if (item["Like"] != nil){
-                        
+                        if item["Like"] is NSNull  {
+                            c.like = 0
+                        }
+                        else{
                        let lk = item["Like"] as! String
                             c.like = Int(lk)!}
                        
-                        if (item["dislike"] != nil){
+                        if item["dislike"] is NSNull {
+                            c.dislike = 0
+                        }
+                        else {
                         let dislk = item["dislike"] as! String
                             c.dislike = Int(dislk)!}
                         c.comments = comments

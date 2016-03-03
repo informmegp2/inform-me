@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Social
 
-class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource{
+class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource,  UICollectionViewDataSource, UICollectionViewDelegate {
    
     @IBOutlet var commentsTable: UITableView!
     @IBOutlet var abstract: UILabel!
@@ -19,8 +19,9 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     @IBOutlet weak var navbar: UINavigationItem!
     @IBOutlet weak var commentField: UITextField!
     var content: Content = Content()
-    var cid: Int = 139
+    var cid: Int = 105
     var uid: Int = 29
+    @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         commentsTable.delegate = self;
         commentsTable.dataSource = self;
@@ -35,12 +36,35 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
                 self.navbar.title = self.content.Title
                 print(self.content.like)
                 print(self.content.dislike)
+          self.collectionView.delegate = self
+          self.collectionView.dataSource = self
             }
-            
         }
         
     }
     
+    // the controller that has a reference to the collection view
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        var insets = self.collectionView.contentInset
+        let value = (self.view.frame.size.width - (self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize.width) * 0.5
+        insets.left = value
+        insets.right = value
+        self.collectionView.contentInset = insets
+        print("\(value)")
+        self.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
+    }
+    
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 100
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ImageCell", forIndexPath: indexPath)
+        return cell
+    }
+
     //MARK -- Social Media --
     func showAlertMessage(message: String!) {
         let alertController = UIAlertController(title: "", message: message, preferredStyle: UIAlertControllerStyle.Alert)

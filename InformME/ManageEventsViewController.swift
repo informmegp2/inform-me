@@ -17,10 +17,10 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
   
      var eventsInfo: [Event] = []
     var event:Event = Event()
-    var UserID: Int = 1
-    
+    var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
     override func viewDidLoad() {
-       
+        print(NSUserDefaults.standardUserDefaults().integerForKey("id"))
+
         event.requesteventlist(UserID){
             (eventsInfo:[Event]) in
             dispatch_async(dispatch_get_main_queue()) {

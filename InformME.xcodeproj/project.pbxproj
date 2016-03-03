@@ -25,6 +25,7 @@
 		0E601FC91C77236D003E9B50 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E601FC81C77236D003E9B50 /* ReportViewController.swift */; };
 		0E601FCB1C786D29003E9B50 /* ContentReportTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E601FCA1C786D29003E9B50 /* ContentReportTableViewCellController.swift */; };
 		0E601FCD1C78CBAC003E9B50 /* CommentTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E601FCC1C78CBAC003E9B50 /* CommentTableViewCellController.swift */; };
+		0E70A2861C88353400DDBC5B /* CenterCellCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E70A2851C88353400DDBC5B /* CenterCellCollectionViewFlowLayout.swift */; };
 		0E8BDFB61C6A41D3003364A5 /* UpdateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8BDFB51C6A41D3003364A5 /* UpdateEventViewController.swift */; };
 		0E8BDFB81C6A4607003364A5 /* UpdateBeaconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8BDFB71C6A4607003364A5 /* UpdateBeaconViewController.swift */; };
 		0E8BDFBA1C6A4D5A003364A5 /* RecoverPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8BDFB91C6A4D5A003364A5 /* RecoverPasswordViewController.swift */; };
@@ -121,6 +122,7 @@
 		0E601FC81C77236D003E9B50 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		0E601FCA1C786D29003E9B50 /* ContentReportTableViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentReportTableViewCellController.swift; sourceTree = "<group>"; };
 		0E601FCC1C78CBAC003E9B50 /* CommentTableViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCellController.swift; sourceTree = "<group>"; };
+		0E70A2851C88353400DDBC5B /* CenterCellCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterCellCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		0E8BDFB51C6A41D3003364A5 /* UpdateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateEventViewController.swift; sourceTree = "<group>"; };
 		0E8BDFB71C6A4607003364A5 /* UpdateBeaconViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateBeaconViewController.swift; sourceTree = "<group>"; };
 		0E8BDFB91C6A4D5A003364A5 /* RecoverPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewController.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				0E601FCC1C78CBAC003E9B50 /* CommentTableViewCellController.swift */,
 				0E8D31311C7B857F00B0D2B0 /* ContentForAttendeeViewController.swift */,
 				0EDDEAB81C80CAB400D17F1D /* ProfileOrganizerViewController.swift */,
+				0E70A2851C88353400DDBC5B /* CenterCellCollectionViewFlowLayout.swift */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				0EF156BE1C64FBF4004BE735 /* EventTableCellViewController.swift in Sources */,
 				56B7959F1C75058A00A239F3 /* AddContentViewController.swift in Sources */,
 				0ECC04061C63B01A00458C86 /* Report.swift in Sources */,
+				0E70A2861C88353400DDBC5B /* CenterCellCollectionViewFlowLayout.swift in Sources */,
 				0E8BDFBE1C6A5BDD003364A5 /* NearbyContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

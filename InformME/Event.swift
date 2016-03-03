@@ -44,18 +44,20 @@ class Event {
                         
                         
                         var e : Event = Event()
-                        
+                        print("is it before?")
                         var evID = jsonResult[x]["EventID"] as! String
                         e.date=jsonResult[x]["Date"] as! String
                         e.name=jsonResult[x]["EventName"] as! String
                         e.website=jsonResult[x]["Website"] as! String
-                        
+                        print("is it after?")
+
                         e.id = Int(evID)!
                         let url:NSURL = NSURL(string : jsonResult[x]["Logo"] as! String)!
-                        let data = NSData(contentsOfURL: url)
+                       let data = NSData(contentsOfURL: url)
                         e.logo=UIImage(data: data!)
                         eventsInfo.append(e)
-                        
+                        print("is it at the end?")
+
                         
                         
                     }
@@ -69,7 +71,7 @@ class Event {
                 
                 
             }
-            
+            print("here?")
               completionHandler(eventsInfo: eventsInfo)
         }
         task.resume()

@@ -12,7 +12,7 @@ class Report {
     func viewReport(event: Event,completionHandler: (contents:[Content]) -> ()){
         var contents: [Content] = []
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/viwereport.php")!)
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/viewreport.php")!)
         request.HTTPMethod = "POST"
         let postString = "uid=\(event.id)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
@@ -32,9 +32,14 @@ class Report {
                         
                         _ = item["ContentID"] as! String
                         c.Title = item["Title"] as! String
+                        if item["Likes"] is NSNull  {
+                            c.likes.counter = 0
+                            c.dislikes.counter = 0
+                        }
+                        else{
                         c.likes.counter = Int(item["Likes"] as! String)!
                         c.dislikes.counter = Int(item ["DisLikes"] as! String)!
-                        
+                        }
                         var comments: [Comment] = []
                         let itemC = item["Comments"] as! NSArray
                         for var i=0; i<itemC.count;i++ {
