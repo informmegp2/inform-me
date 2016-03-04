@@ -16,6 +16,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     
     var Requested: [String] = [""]
     var contentList = [Content]()
+    var uid = 29;
 
     
     //This manager is for ranging
@@ -25,6 +26,9 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     //Here we will search for content nearby
     override func viewDidLoad() {
         super.viewDidLoad()
+        var c = Content ()
+        c.contentId = 104
+        contentList.append(c)
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -73,17 +77,55 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         
         cell.SaveButton.tag = contentList[indexPath.row].contentId
         
-        cell.SaveButton.addTarget(self, action: "Save", forControlEvents: .TouchUpInside)
-        
         return cell
         
     }
 
-   
-    @IBAction func Save(sender: UIButton)
-    {
+    @IBAction func save(sender: AnyObject) {
+        
         print("Save!")
+        
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/SaveContent")!)
+        request.HTTPMethod = "POST";
+        let postString = "uid=\(uid)&cid=\(sender.tag)";
+        print("\(postString)")
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+         if error != nil {
+                print("error=\(error)")
+                return
+            }
+            else {
+                do {
+                    if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? String {
+                        
+                        print("\(jsonResult)")
+                        
+                        if (jsonResult == "Saved")
+                        {print("Yes")}
+                        
+                        else
+                        {print("Failed")}
+                    }
+                    
+                }
+                catch {
+                    // failure
+                    print("Fetch failed: \((error as NSError).localizedDescription)")
+                }
+                
+            }
+            
+        }
+        task.resume()
+
     }
+   
+ 
     
     override func prepareForSegue (segue: UIStoryboardSegue, sender: AnyObject?)
     {        print("in seque")
