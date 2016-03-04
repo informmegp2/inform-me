@@ -2037,9 +2037,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="Fav" destination="E6q-vt-DCq" id="bCc-Ji-I3u"/>
-                                            <outlet property="more" destination="H4s-Pb-yzX" id="BtT-Br-Lrx"/>
-                                            <outlet property="title" destination="3jc-ta-uCL" id="75G-I2-txG"/>
+                                            <outlet property="SaveButton" destination="E6q-vt-DCq" id="iLy-Cd-0v1"/>
+                                            <outlet property="Title" destination="3jc-ta-uCL" id="G2D-eu-A35"/>
+                                            <outlet property="ViewContentButton" destination="H4s-Pb-yzX" id="FPB-md-inY"/>
+                                            <segue destination="pwt-sH-Oa5" kind="show" identifier="ShowView" id="giJ-U6-EkG"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2923,7 +2924,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pI7-II-bSY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="65B47FB7-3EBB-44D2-8C50-69F194E647BB" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="79AF68D3-4B39-4522-887E-1D6F0ECB2F15" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
                                             <rect key="frame" x="-292" y="-143" width="1184" height="486"/>
                                             <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
@@ -2950,7 +2951,7 @@
                                         </label>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aY-Ke-P4A">
                                             <rect key="frame" x="20" y="20" width="29" height="55"/>
-                                            <state key="normal" image="4DA5CDE5-5511-4E89-BFCD-F605295952BF"/>
+                                            <state key="normal" image="E376B717-46E8-4C45-9940-89A2E5112681"/>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4100,7 +4101,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="4DA5CDE5-5511-4E89-BFCD-F605295952BF" width="29" height="55">
+        <image name="79AF68D3-4B39-4522-887E-1D6F0ECB2F15" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -4276,7 +4277,7 @@ yybWJt8m8ib2JwEnCicPJxcnGicfJy4nMic5J0EnTidTJ1UnVydcJ2QnZydsJ3QndyeJJ4wnkQAAAAAA
 AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
 </mutableData>
         </image>
-        <image name="65B47FB7-3EBB-44D2-8C50-69F194E647BB" width="29" height="55">
+        <image name="E376B717-46E8-4C45-9940-89A2E5112681" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -4482,14 +4483,14 @@ AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="A2r-1a-nU5"/>
-        <segue reference="JsG-U2-1zO"/>
         <segue reference="67Q-Xd-Lwx"/>
-        <segue reference="4ML-xU-euD"/>
+        <segue reference="JsG-U2-1zO"/>
+        <segue reference="ZTI-2B-VFQ"/>
+        <segue reference="fVn-jx-ZJd"/>
+        <segue reference="EV8-if-h6O"/>
         <segue reference="KhZ-9v-s7c"/>
         <segue reference="oQM-Ab-5Yy"/>
-        <segue reference="EV8-if-h6O"/>
-        <segue reference="fVn-jx-ZJd"/>
-        <segue reference="ZTI-2B-VFQ"/>
+        <segue reference="4ML-xU-euD"/>
         <segue reference="geg-LT-dMU"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>

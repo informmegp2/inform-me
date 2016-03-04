@@ -56,7 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
     }
 
     func beaconManager(manager: AnyObject, didEnterRegion region: CLBeaconRegion) {
-        print("hi")
         beacons.BeaconNotification()
     }
     

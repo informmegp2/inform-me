@@ -77,7 +77,7 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
         var c: Content = Content()
         c = self.contentInfo[indexPath.row] as! Content
         
-        cell.title.text = c.Title
+        cell.Title.text = c.Title
         
         return cell
         

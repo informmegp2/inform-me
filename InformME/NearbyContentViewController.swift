@@ -66,15 +66,40 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     let cell = tableView.dequeueReusableCellWithIdentifier("contentCell", forIndexPath: indexPath)
     as! ContentTableCellViewController
     
-   cell.title.text = contentList[indexPath.row].Title
-    cell.tag = contentList[indexPath.row].contentId
+        cell.Title.text = contentList[indexPath.row].Title
+   // cell.tag = contentList[indexPath.row].contentId
+        
+        cell.ViewContentButton.tag = contentList[indexPath.row].contentId
+        
+        cell.SaveButton.tag = contentList[indexPath.row].contentId
+        
+        cell.SaveButton.addTarget(self, action: "Save", forControlEvents: .TouchUpInside)
+        
         return cell
         
-        
-       // return UITableViewCell()
     }
 
    
+    @IBAction func Save(sender: UIButton)
+    {
+        print("Save!")
+    }
+    
+    override func prepareForSegue (segue: UIStoryboardSegue, sender: AnyObject?)
+    {        print("in seque")
+
+        if (segue.identifier == "ShowView")
+    {
+        var upcoming: ContentForAttendeeViewController = segue.destinationViewController as! ContentForAttendeeViewController
+        
+        let indexPath = self.tableView.indexPathForSelectedRow!
+        
+           let cid = contentList[indexPath.row].contentId
+        
+            upcoming.cid = cid
+       
+        }}
+    
     func PHPget (major: NSNumber, minor: NSNumber)
     {
        
