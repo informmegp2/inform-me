@@ -462,6 +462,7 @@
                     <tabBarItem key="tabBarItem" title="إدارة الأحداث" image="events" id="cuy-wA-rAi">
                         <inset key="imageInsets" minX="6" minY="6" maxX="6" maxY="6"/>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" id="Ba0-fT-Lek"/>
                     <connections>
                         <outlet property="tableView" destination="gjG-PP-rCB" id="1kW-nD-dFD"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backtologin" id="bUT-2r-J36"/>
@@ -598,7 +599,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWU-XX-SJ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1880" y="-402"/>
+            <point key="canvasLocation" x="1880" y="-370"/>
         </scene>
         <!--Add Content View Controller-->
         <scene sceneID="gw0-C1-DkY">
@@ -770,7 +771,6 @@
                                         <connections>
                                             <action selector="Submit:" destination="CYb-wh-2ss" eventType="touchUpInside" id="ByD-0z-MDR"/>
                                             <action selector="Submit:" destination="CFc-gN-5Iw" eventType="touchUpInside" id="XWG-mW-Ud7"/>
-                                            <segue destination="LO6-6k-7m7" kind="show" identifier="addContent" id="Qgb-AC-CeO"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JdN-LW-Dsm">
@@ -811,11 +811,12 @@
                         <outlet property="TImage" destination="yYN-NH-GLj" id="R8A-aG-JHB"/>
                         <outlet property="TTitle" destination="c2C-XS-WB6" id="Vpm-MJ-1BB"/>
                         <outlet property="Video" destination="HgI-7d-awF" id="C9U-9i-wZa"/>
+                        <segue destination="LO6-6k-7m7" kind="show" identifier="addContent" id="1xK-ul-Y0G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rn2-wF-Aaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3239" y="-292"/>
+            <point key="canvasLocation" x="3208" y="-299"/>
         </scene>
         <!--تفاصيل الحدث-->
         <scene sceneID="dAJ-yH-7JM">
@@ -1177,7 +1178,7 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kbY-Bf-mMp">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="193"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="194"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="cq9-GA-zko">
                                                 <rect key="frame" x="-292" y="-147" width="1184" height="487"/>
@@ -1233,17 +1234,17 @@
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="اسم المستخدم" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Asv-Wv-XwU">
-                                        <rect key="frame" x="0.0" y="193" width="600" height="78"/>
+                                        <rect key="frame" x="0.0" y="194" width="600" height="78"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="البريد الالكتروني" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QvR-3P-liK">
-                                        <rect key="frame" x="0.0" y="271" width="600" height="78"/>
+                                        <rect key="frame" x="0.0" y="272" width="600" height="78"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="URL"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="الوصف الشخصي" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EhX-Ko-zMt">
-                                        <rect key="frame" x="0.0" y="348" width="600" height="77"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="الوصف الشخصي" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EhX-Ko-zMt">
+                                        <rect key="frame" x="0.0" y="349" width="600" height="76"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -1547,7 +1548,6 @@
                                         </state>
                                         <connections>
                                             <action selector="Submit:" destination="CFc-gN-5Iw" eventType="touchUpInside" id="6Mr-Fh-9iM"/>
-                                            <segue destination="pO8-Kb-4jP" kind="show" identifier="addBeacon" id="KVE-N5-Gkc"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1571,6 +1571,7 @@
                         <outlet property="Label" destination="lTr-jn-qFR" id="bGS-0j-fZl"/>
                         <outlet property="Major" destination="Xc8-KD-gAz" id="eaL-gn-c6L"/>
                         <outlet property="Minor" destination="lGo-KM-GlL" id="K8Q-qU-EBG"/>
+                        <segue destination="pO8-Kb-4jP" kind="show" identifier="addBeacon" id="Qg2-K4-dOT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mBS-YZ-2x7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1801,7 +1802,6 @@
                                         </state>
                                         <connections>
                                             <action selector="Submit:" destination="vOV-aj-79F" eventType="touchUpInside" id="OCi-sB-69h"/>
-                                            <segue destination="pO8-Kb-4jP" kind="show" identifier="alertPressedOK" id="Co7-Qq-mQW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1825,6 +1825,7 @@
                         <outlet property="Label" destination="xcY-gi-dfO" id="fbb-Xe-Lyo"/>
                         <outlet property="Major" destination="c43-bn-hpi" id="1eW-5z-cI3"/>
                         <outlet property="Minor" destination="axG-0G-bht" id="uVE-BB-1nc"/>
+                        <segue destination="pO8-Kb-4jP" kind="show" identifier="alertPressedOK" id="IE9-Mg-KXe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jXn-rO-u1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1991,7 +1992,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VUc-mw-NZe">
+                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VUc-mw-NZe">
                                 <rect key="frame" x="0.0" y="80" width="600" height="471"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -2590,17 +2591,17 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oKD-lU-ClB">
-                                <rect key="frame" x="0.0" y="80" width="600" height="471"/>
+                                <rect key="frame" x="0.0" y="80" width="600" height="520"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gYd-4h-SNc">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="157"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="174"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQZ-iH-1Lv">
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qQZ-iH-1Lv">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="173"/>
                                                 <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="10"/>
                                                 <state key="normal" title="Button" image="eventMng"/>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="المحتويات القريبة" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMk-yI-7hm">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="المحتويات القريبة" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMk-yI-7hm">
                                                 <rect key="frame" x="252" y="76" width="97" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2618,14 +2619,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxU-Xy-1eh">
-                                        <rect key="frame" x="0.0" y="157" width="600" height="157"/>
+                                        <rect key="frame" x="0.0" y="174" width="600" height="173"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0U-wc-2Gt">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="174"/>
                                                 <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
                                                 <state key="normal" title="Button" image="favoriteList"/>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="قائمة المفضلة" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Uh-ef-lCT">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="قائمة المفضلة" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Uh-ef-lCT">
                                                 <rect key="frame" x="262" y="77" width="77" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2643,9 +2644,9 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gf-73-jxq">
-                                        <rect key="frame" x="0.0" y="314" width="600" height="157"/>
+                                        <rect key="frame" x="0.0" y="347" width="600" height="174"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAC-5L-5GZ">
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAC-5L-5GZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="173"/>
                                                 <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="20"/>
                                                 <state key="normal" title="Button" image="Profile"/>
@@ -2653,7 +2654,7 @@
                                                     <segue destination="Tmy-5C-cFc" kind="show" id="3Nf-Cq-Fdi"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="الملف الشخصي" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QW5-7V-zXH">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="الملف الشخصي" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QW5-7V-zXH">
                                                 <rect key="frame" x="254" y="76" width="93" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2733,7 +2734,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V93-Yg-lyx">
+                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V93-Yg-lyx">
                                 <rect key="frame" x="0.0" y="80" width="600" height="471"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -3195,7 +3196,6 @@
                                         <connections>
                                             <action selector="Submit:" destination="CFc-gN-5Iw" eventType="touchUpInside" id="NHf-Tc-qd6"/>
                                             <action selector="deleteContent:" destination="o5G-EH-eI9" eventType="touchUpInside" id="HLK-bQ-sPp"/>
-                                            <segue destination="LO6-6k-7m7" kind="show" identifier="deleteok" id="X5i-Ej-hk0"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -3224,6 +3224,7 @@
                         <outlet property="EPDF" destination="nXd-gr-NeQ" id="LYS-8W-MyX"/>
                         <outlet property="ETitle" destination="h41-ke-utc" id="loS-mA-GyS"/>
                         <outlet property="EVideo" destination="8gM-9H-eco" id="ps5-Lx-YX7"/>
+                        <segue destination="LO6-6k-7m7" kind="show" identifier="deleteok" id="DQw-up-2BM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ft-uz-t7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4495,6 +4496,10 @@ AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
         <segue reference="oQM-Ab-5Yy"/>
         <segue reference="4ML-xU-euD"/>
         <segue reference="geg-LT-dMU"/>
+        <segue reference="DQw-up-2BM"/>
+        <segue reference="m6w-zl-QBt"/>
+        <segue reference="iTh-6x-Xez"/>
+        <segue reference="3Nf-Cq-Fdi"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>
