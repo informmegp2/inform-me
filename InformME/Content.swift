@@ -57,7 +57,7 @@ class Content {
 
  //   func saveContent(title: String,abstract: String ,video: String,Pdf: String,image: [UIImage],flagI: [Bool], completionHandler: (flag:Bool) -> ()) {
         
-    func saveContent(title: String,abstract: String ,video: String,Pdf: String,image: [UIImage],flagI: [Bool]) {
+    func createContent(title: String,abstract: String ,video: String,Pdf: String,image: [UIImage],flagI: [Bool]) {
         save=false;
         var f=false
 
@@ -317,7 +317,7 @@ class Content {
      
     
     }
-    func createContent(title: String,abstract: String ,images: [UIImage],video: String,Pdf: NSData) {}
+    func saveContent(title: String,abstract: String ,images: [UIImage],video: String,Pdf: NSData) {}
     func deleteComment(comment: Comment) {}
     
     func updateEvaluation (cid: Int, uid:Int, likeNo:Int, dislikeNo:Int, completionHandler: (done:Bool) -> ()) {

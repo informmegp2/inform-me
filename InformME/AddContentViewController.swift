@@ -34,7 +34,7 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         
         //c.saveContent(title,abstract: abstract,video: video,Pdf: pdf ,image: images,flagI: flags){
          //   (flag:Bool) in
-        c.saveContent(title,abstract: abstract,video: video,Pdf: pdf ,image: images,flagI: flags)
+        c.createContent(title,abstract: abstract,video: video,Pdf: pdf ,image: images,flagI: flags)
 
             //we should perform all segues in the main thread
            // dispatch_async(dispatch_get_main_queue()) {
