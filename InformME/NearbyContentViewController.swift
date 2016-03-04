@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 
 class NearbyContentViewController: UIViewController,UITableViewDelegate, UITableViewDataSource , ESTBeaconManagerDelegate {
-    @IBOutlet
-    var tableView: UITableView!
+    
+    
+    @IBOutlet var tableView: UITableView!
     
     var Requested: [String] = [""]
     var contentList = [Content]()
@@ -25,7 +26,9 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "contentCell")
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+     //   self.tableView.registerClass(ContentTableCellViewController.self, forCellReuseIdentifier: "contentCell")
         
         // 3. Set the beacon manager's delegate
         self.beaconManager.delegate = self
@@ -33,7 +36,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         self.beaconManager.requestAlwaysAuthorization()
     }
    
-     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
@@ -59,13 +62,18 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("contentCell")! as UITableViewCell
-        
-   cell.textLabel?.text = contentList[indexPath.row].Title
+    
+    let cell = tableView.dequeueReusableCellWithIdentifier("contentCell", forIndexPath: indexPath)
+    as! ContentTableCellViewController
+    
+   cell.title.text = contentList[indexPath.row].Title
     cell.tag = contentList[indexPath.row].contentId
         return cell
+        
+        
+       // return UITableViewCell()
     }
- 
+
    
     func PHPget (major: NSNumber, minor: NSNumber)
     {
