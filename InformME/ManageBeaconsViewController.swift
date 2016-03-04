@@ -70,7 +70,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     
     
     func get(){
-        let uid=1
+        let uid=13
         
         
         

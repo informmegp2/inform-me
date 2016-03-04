@@ -13,7 +13,7 @@ class Beacon {
     var Label:  String = ""
     var Major: String = ""
     var Minor: String = ""
-    
+    var save : Bool = false;
       func addBeacon(label: String,major: String,minor: String,completionHandler: (flag:Bool) -> ()) {
         
         var f=false
@@ -24,7 +24,7 @@ class Beacon {
         
         //Change UserID"
         
-        let postString = "Label="+label+"&Major="+major+"&Minor="+minor+"&UserID=1"
+        let postString = "Label="+label+"&Major="+major+"&Minor="+minor+"&UserID=13"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -49,15 +49,16 @@ class Beacon {
 }
     func fillForm(label: String,major: String,minor: String) {}
     
-    func updateBeacon(label: String,major: String,minor: String , Temp: String ,completionHandler: (flag:Bool) -> ()) {
+   // func updateBeacon(label: String,major: String,minor: String , Temp: String ,completionHandler: (flag:Bool) -> ()) {)
+         func updateBeacon(label: String,major: String,minor: String , Temp: String){
         
+        save = false;
         var f=false
 
         let MYURL = NSURL(string:"http://bemyeyes.co/API/beacon/EditBeacon.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
         
-        //Change UserID"
         
         let postString = "Label="+label+"&Major="+major+"&Minor="+minor+"&PreLabel="+Temp
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
@@ -74,12 +75,11 @@ class Beacon {
 
             // You can print out response object
             print("response = \(response)")
-            
-            completionHandler(flag: f)
-
+           // completionHandler(flag: f)
+//
             
         }
-        
+            save = true
         task.resume()
         
         

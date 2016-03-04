@@ -24,7 +24,7 @@ class Content {
     var contentId: Int = 0
     var like: Int = 0
     var dislike: Int = 0
-    
+    var save:Bool = false;
     
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
         var body = NSMutableData();
@@ -55,8 +55,10 @@ class Content {
     }
 
 
-    func saveContent(title: String,abstract: String ,video: String,Pdf: String,image: [UIImage],flagI: [Bool], completionHandler: (flag:Bool) -> ()) {
+ //   func saveContent(title: String,abstract: String ,video: String,Pdf: String,image: [UIImage],flagI: [Bool], completionHandler: (flag:Bool) -> ()) {
         
+    func saveContent(title: String,abstract: String ,video: String,Pdf: String,image: [UIImage],flagI: [Bool]) {
+        save=false;
         var f=false
 
         let eid=1
@@ -89,7 +91,7 @@ class Content {
         task.resume()
         addImage(title,abstract: abstract,image: image ,flagI: flagI)
         f=true
-        completionHandler(flag: f)
+        //completionHandler(flag: f)
 }
     
     func addImage(title: String,abstract: String ,image: [UIImage] , flagI : [Bool]){
@@ -138,6 +140,7 @@ class Content {
                 
             }
         }
+        save=true;
     }
 
     func generateBoundaryString() -> String {

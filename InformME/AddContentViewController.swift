@@ -32,13 +32,16 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         var c : Content = Content()
       //  c.saveContent(title,abstract: abstract,video: video,Pdf: pdf ,image: FImage.backgroundImageForState(.Normal)!){
         
-        c.saveContent(title,abstract: abstract,video: video,Pdf: pdf ,image: images,flagI: flags){
-            (flag:Bool) in
+        //c.saveContent(title,abstract: abstract,video: video,Pdf: pdf ,image: images,flagI: flags){
+         //   (flag:Bool) in
+        c.saveContent(title,abstract: abstract,video: video,Pdf: pdf ,image: images,flagI: flags)
+
             //we should perform all segues in the main thread
-            dispatch_async(dispatch_get_main_queue()) {
+           // dispatch_async(dispatch_get_main_queue()) {
+        if (c.save){
             self.performSegueWithIdentifier("addContent", sender:sender)
-            }}
-        }
+            }
+       }
     
     
     override func viewDidLoad() {
