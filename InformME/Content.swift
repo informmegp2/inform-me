@@ -317,7 +317,32 @@ class Content {
      
     
     }
-    func saveContent(title: String,abstract: String ,images: [UIImage],video: String,Pdf: NSData) {}
+    func saveContent(uid: Int , cid: Int) {
+    
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/SaveContent.php")!)
+        request.HTTPMethod = "POST";
+        let postString = "uid=\(uid)&cid=\(cid)";
+        print("\(postString)")
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("response = \(response)")
+            
+            
+        }
+        task.resume()
+
+    
+    
+    
+    }
     func deleteComment(comment: Comment) {}
     
     func updateEvaluation (cid: Int, uid:Int, likeNo:Int, dislikeNo:Int, completionHandler: (done:Bool) -> ()) {

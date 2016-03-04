@@ -16,7 +16,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     
     var Requested: [String] = [""]
     var contentList = [Content]()
-    var uid = 29;
+    var uid = 30;
 
     
     //This manager is for ranging
@@ -27,7 +27,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         var c = Content ()
-        c.contentId = 104
+        c.contentId = 106
         contentList.append(c)
         
         self.tableView.dataSource = self
@@ -71,7 +71,8 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     as! ContentTableCellViewController
     
         cell.Title.text = contentList[indexPath.row].Title
-   // cell.tag = contentList[indexPath.row].contentId
+   
+        cell.tag = contentList[indexPath.row].contentId
         
         cell.ViewContentButton.tag = contentList[indexPath.row].contentId
         
@@ -81,54 +82,21 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         
     }
 
-    @IBAction func save(sender: AnyObject) {
+    @IBAction func save(sender: UIButton) {
         
-        print("Save!")
+        let image = UIImage(named: "starF.png") as UIImage!
+        sender.setImage(image, forState: .Normal)
+        
+        Content ().saveContent(uid, cid: (sender.tag))
         
         
-        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/SaveContent")!)
-        request.HTTPMethod = "POST";
-        let postString = "uid=\(uid)&cid=\(sender.tag)";
-        print("\(postString)")
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-            data, response, error in
-            
-         if error != nil {
-                print("error=\(error)")
-                return
-            }
-            else {
-                do {
-                    if let jsonResult = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as? String {
-                        
-                        print("\(jsonResult)")
-                        
-                        if (jsonResult == "Saved")
-                        {print("Yes")}
-                        
-                        else
-                        {print("Failed")}
-                    }
-                    
-                }
-                catch {
-                    // failure
-                    print("Fetch failed: \((error as NSError).localizedDescription)")
-                }
-                
-            }
-            
-        }
-        task.resume()
-
+      
     }
    
  
     
     override func prepareForSegue (segue: UIStoryboardSegue, sender: AnyObject?)
-    {        print("in seque")
+    {        print("in segue")
 
         if (segue.identifier == "ShowView")
     {
