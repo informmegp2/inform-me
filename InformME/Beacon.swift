@@ -47,6 +47,40 @@ class Beacon {
         
         task.resume()
 }
+    
+    func assign (label: String, var cid:Int ,completionHandler: (flag:Bool) -> ()) {
+        var f=false
+        
+        let MYURL = NSURL(string:"http://bemyeyes.co/API/content/assign.php")
+        let request = NSMutableURLRequest(URL:MYURL!)
+        request.HTTPMethod = "POST";
+        
+        //Change UserID"
+       var cid1=String(cid)
+        let postString = "label="+label+"&cid="+cid1
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            f=true
+            
+            // You can print out response object
+            print("response = \(response)")
+            
+            completionHandler(flag: f)
+            
+            
+        }
+        
+        task.resume()
+        
+    }
     func fillForm(label: String,major: String,minor: String) {}
     
    // func updateBeacon(label: String,major: String,minor: String , Temp: String ,completionHandler: (flag:Bool) -> ()) {)
