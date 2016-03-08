@@ -576,23 +576,6 @@ class Content {
     init(json: [String: AnyObject]) {
         contentId = Int(json["ContentID"] as! String)!
         Title = json["Title"] as! String
-        Abstract = json["Abstract"] as! String
-       // Pdf = json["PDFFiles"] as! String
-      //  Video = json["Videos"] as! String
-        shares = Int(json["ShareCounter"] as! String)!
-        label = json["Label"] as! String
-        //likes.counter = Int(json["Likes"] as! String)!
-        //dislikes.counter = Int(json ["DisLikes"] as! String)!
-        
-       /* var comments: [Comment] = []
-        let itemC = json["Comments"] as! NSArray
-        for var i=0; i<itemC.count;i++ {
-            let comment: Comment = Comment()
-            comment.comment = itemC[i]["CommentText"] as! String
-            comment.user.username = itemC[i]["UserName"] as! String
-            comments.append(comment)
-        }
-        self.comments = comments*/
     }
 }
 /*extension NSMutableData {

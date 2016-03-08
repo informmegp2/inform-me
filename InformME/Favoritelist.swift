@@ -6,9 +6,16 @@
 //  Copyright © 2016 King Saud University. All rights reserved.
 //
 
+
+/* 
+I dont think we need this class
+The methods save/removeSave are in content 
+and there is no need for a favrite list since we will get them by request
+*/
 import Foundation
 class Favoritelist {
     var listContent: [Content] = []
-    func addFavorit(content: Content) {}
+    func Favorite(contentID: Int) {}
+    func Unfavorite(contentID: Int) {}
     
 }

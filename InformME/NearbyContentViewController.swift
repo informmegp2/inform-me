@@ -26,13 +26,9 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     //Here we will search for content nearby
     override func viewDidLoad() {
         super.viewDidLoad()
-        var c = Content ()
-        c.contentId = 106
-        contentList.append(c)
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-     //   self.tableView.registerClass(ContentTableCellViewController.self, forCellReuseIdentifier: "contentCell")
         
         // 3. Set the beacon manager's delegate
         self.beaconManager.delegate = self

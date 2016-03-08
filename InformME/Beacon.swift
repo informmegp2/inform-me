@@ -170,7 +170,7 @@ return beaconRegion
         
     let notification = UILocalNotification()
     notification.alertBody =
-    "Hello!"
+    "هنالك بيكون بالقرب منك!"
     UIApplication.sharedApplication().presentLocalNotificationNow(notification)
     }
     
