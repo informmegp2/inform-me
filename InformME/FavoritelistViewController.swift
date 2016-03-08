@@ -15,8 +15,8 @@ class FavoritelistViewController: UIViewController,UITableViewDelegate, UITableV
     
     var contentList = [Content]()
     var uid = 30;
-
-    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet var tableView: UITableView!
     @IBAction func out(sender: AnyObject) {
         print(" iam in 1")
         
@@ -45,19 +45,34 @@ class FavoritelistViewController: UIViewController,UITableViewDelegate, UITableV
         
     } //end out */ backtologin
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+      //  loadFavorite ()
+       
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        PHPget ();
+          loadFavorite ()
+      // self.tableView.reloadData()
+     /*   var c = Content ()
+        c.contentId = 106
+        c.Title = "This is working"
+        contentList.append(c)
+        
+        
+        self.tableView.reloadData()
+print("Done")*/
     }
-    
+    /*
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
-    }
+    }*/
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contentList.count;
@@ -65,9 +80,9 @@ class FavoritelistViewController: UIViewController,UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("contentCell", forIndexPath: indexPath)
-            as! ContentTableCellViewController
+        let cell = tableView.dequeueReusableCellWithIdentifier("contentCell", forIndexPath: indexPath) as! ContentTableCellViewController
         
+     
         cell.Title.text = contentList[indexPath.row].Title
         
         cell.tag = contentList[indexPath.row].contentId
@@ -100,7 +115,7 @@ class FavoritelistViewController: UIViewController,UITableViewDelegate, UITableV
             
         }}*/
     
-    func PHPget ()
+    func loadFavorite ()
     {
         
         //Col::(ContentID, Title, Abstract, Sharecounter, Label, EventID)
@@ -128,6 +143,7 @@ class FavoritelistViewController: UIViewController,UITableViewDelegate, UITableV
                         }
                         for cont in self.contentList {
                         print("\(cont.Title)")}
+                      self.tableView.reloadData()
                     }
                     
                 }
@@ -137,10 +153,8 @@ class FavoritelistViewController: UIViewController,UITableViewDelegate, UITableV
                 }
                 
             }
-            
         }
         task.resume()
-        self.tableView.reloadData()
         
     }
 

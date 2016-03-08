@@ -36,13 +36,13 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         self.beaconManager.requestAlwaysAuthorization()
     }
    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+ /*   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
      func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
-    }
+    }*/
 
 
     //To start/stop ranging as the view controller appears/disappears
@@ -106,7 +106,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
        
         }}
     
-    func PHPget (major: NSNumber, minor: NSNumber)
+    func loadContent (major: NSNumber, minor: NSNumber)
     {
        
         //Col::(ContentID, Title, Abstract, Sharecounter, Label, EventID)
@@ -160,7 +160,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
                     //Check if the content was requested
                     if (!Requested.contains("\(beacon.major):\(beacon.minor)"))
                     {//If not request content then add to requested array
-                        PHPget(beacon.major, minor: beacon.minor)
+                        loadContent(beacon.major, minor: beacon.minor)
                         Requested.append("\(beacon.major):\(beacon.minor)")
                     }
 
