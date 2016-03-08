@@ -13,13 +13,15 @@ import UIKit
    func showContentDetails()
     
 }
+
 class ContentTableCellViewController: UITableViewCell {
     var delegate:ContentCellDelegate?
     var content: Content = Content()
     
     
-    @IBOutlet var title: UILabel!
-    @IBOutlet var more: UIButton!
-    @IBOutlet var Fav: UIButton!
+    @IBOutlet var Title: UILabel!
+    @IBOutlet var ViewContentButton: UIButton!
+    @IBOutlet var SaveButton: UIButton!
     
+
 }

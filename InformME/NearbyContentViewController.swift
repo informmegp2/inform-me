@@ -16,6 +16,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     
     var Requested: [String] = [""]
     var contentList = [Content]()
+    var uid = 30;
 
     
     //This manager is for ranging
@@ -28,7 +29,6 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-     //   self.tableView.registerClass(ContentTableCellViewController.self, forCellReuseIdentifier: "contentCell")
         
         // 3. Set the beacon manager's delegate
         self.beaconManager.delegate = self
@@ -36,13 +36,13 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         self.beaconManager.requestAlwaysAuthorization()
     }
    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+ /*   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
     
      func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
-    }
+    }*/
 
 
     //To start/stop ranging as the view controller appears/disappears
@@ -66,16 +66,47 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     let cell = tableView.dequeueReusableCellWithIdentifier("contentCell", forIndexPath: indexPath)
     as! ContentTableCellViewController
     
-   cell.title.text = contentList[indexPath.row].Title
-    cell.tag = contentList[indexPath.row].contentId
+        cell.Title.text = contentList[indexPath.row].Title
+   
+        cell.tag = contentList[indexPath.row].contentId
+        
+        cell.ViewContentButton.tag = contentList[indexPath.row].contentId
+        
+        cell.SaveButton.tag = contentList[indexPath.row].contentId
+        
         return cell
         
-        
-       // return UITableViewCell()
     }
 
+    @IBAction func save(sender: UIButton) {
+        
+        let image = UIImage(named: "starF.png") as UIImage!
+        sender.setImage(image, forState: .Normal)
+        
+        Content ().saveContent(uid, cid: (sender.tag))
+        
+        
+      
+    }
    
-    func PHPget (major: NSNumber, minor: NSNumber)
+ 
+    
+    override func prepareForSegue (segue: UIStoryboardSegue, sender: AnyObject?)
+    {        print("in segue")
+
+        if (segue.identifier == "ShowView")
+    {
+        var upcoming: ContentForAttendeeViewController = segue.destinationViewController as! ContentForAttendeeViewController
+        
+        let indexPath = self.tableView.indexPathForSelectedRow!
+        
+           let cid = contentList[indexPath.row].contentId
+        
+            upcoming.cid = cid
+       
+        }}
+    
+    func loadContent (major: NSNumber, minor: NSNumber)
     {
        
         //Col::(ContentID, Title, Abstract, Sharecounter, Label, EventID)
@@ -129,7 +160,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
                     //Check if the content was requested
                     if (!Requested.contains("\(beacon.major):\(beacon.minor)"))
                     {//If not request content then add to requested array
-                        PHPget(beacon.major, minor: beacon.minor)
+                        loadContent(beacon.major, minor: beacon.minor)
                         Requested.append("\(beacon.major):\(beacon.minor)")
                     }
 

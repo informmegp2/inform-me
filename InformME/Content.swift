@@ -25,7 +25,7 @@ class Content {
     var like: Int = 0
     var dislike: Int = 0
     var save:Bool = false;
-    
+    var del:Bool = false
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
         var body = NSMutableData();
         
@@ -183,10 +183,10 @@ class Content {
     
     }
     
-    func DeleteContent(id: Int ,completionHandler: (flag:Bool) -> ()){
+    func DeleteContent(id: Int ){
         
         var f=false
-
+      del = true
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/DeleteContent.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
@@ -209,7 +209,7 @@ class Content {
 
             // You can print out response object
             print("response = \(response)")
-            completionHandler(flag: f)
+            //completionHandler(flag: f)
 
             
             
@@ -217,7 +217,7 @@ class Content {
         }
         
         task.resume()
-        
+        del = true 
         
     }
     func requestcontentlist(ID: Int,completionHandler: (contentInfo:[Content]) -> ()){
@@ -317,7 +317,32 @@ class Content {
      
     
     }
-    func saveContent(title: String,abstract: String ,images: [UIImage],video: String,Pdf: NSData) {}
+    func saveContent(uid: Int , cid: Int) {
+    
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/SaveContent.php")!)
+        request.HTTPMethod = "POST";
+        let postString = "uid=\(uid)&cid=\(cid)";
+        print("\(postString)")
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("response = \(response)")
+            
+            
+        }
+        task.resume()
+
+    
+    
+    
+    }
     func deleteComment(comment: Comment) {}
     
     func updateEvaluation (cid: Int, uid:Int, likeNo:Int, dislikeNo:Int, completionHandler: (done:Bool) -> ()) {
@@ -551,23 +576,6 @@ class Content {
     init(json: [String: AnyObject]) {
         contentId = Int(json["ContentID"] as! String)!
         Title = json["Title"] as! String
-        Abstract = json["Abstract"] as! String
-       // Pdf = json["PDFFiles"] as! String
-      //  Video = json["Videos"] as! String
-        shares = Int(json["ShareCounter"] as! String)!
-        label = json["Label"] as! String
-        //likes.counter = Int(json["Likes"] as! String)!
-        //dislikes.counter = Int(json ["DisLikes"] as! String)!
-        
-       /* var comments: [Comment] = []
-        let itemC = json["Comments"] as! NSArray
-        for var i=0; i<itemC.count;i++ {
-            let comment: Comment = Comment()
-            comment.comment = itemC[i]["CommentText"] as! String
-            comment.user.username = itemC[i]["UserName"] as! String
-            comments.append(comment)
-        }
-        self.comments = comments*/
     }
 }
 /*extension NSMutableData {
