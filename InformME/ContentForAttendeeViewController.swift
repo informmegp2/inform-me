@@ -21,6 +21,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     var content: Content = Content()
     var cid: Int = 105
     var uid: Int = 29
+    var images: [UIImage] = []
     
     @IBOutlet var likeButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -36,6 +37,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
                 self.pdf.text = self.content.Pdf
                 self.video.text = self.content.Video
                 self.navbar.title = self.content.Title
+                self.images = self.content.Images
                 print(self.content.like)
                 print(self.content.dislike)
                 if(self.content.like==1){
@@ -65,11 +67,13 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return images.count
     }
     
+
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ImageCell", forIndexPath: indexPath)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ImageCell", forIndexPath: indexPath) as! ImageCollectionViewCell
+        cell.cellImage.image = images[indexPath.row]
         return cell
     }
 

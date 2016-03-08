@@ -35,6 +35,7 @@
 		0E8D31321C7B857F00B0D2B0 /* ContentForAttendeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D31311C7B857F00B0D2B0 /* ContentForAttendeeViewController.swift */; };
 		0E91C6AD1C67BFA900BD736B /* JF_Flat_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E91C6AC1C67BFA900BD736B /* JF_Flat_regular.ttf */; };
 		0EAE38D51C62A2B00082DAD2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAE38D41C62A2B00082DAD2 /* Event.swift */; };
+		0EC958811C8F87BA00DE56BE /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC958801C8F87BA00DE56BE /* ImageCollectionViewCell.swift */; };
 		0ECC03FE1C63ACFE00458C86 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECC03FD1C63ACFE00458C86 /* Authentication.swift */; };
 		0ECC04061C63B01A00458C86 /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECC04051C63B01A00458C86 /* Report.swift */; };
 		0ECC04081C63B06400458C86 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECC04071C63B06400458C86 /* Beacon.swift */; };
@@ -133,6 +134,7 @@
 		0E8D31311C7B857F00B0D2B0 /* ContentForAttendeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentForAttendeeViewController.swift; sourceTree = "<group>"; };
 		0E91C6AC1C67BFA900BD736B /* JF_Flat_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JF_Flat_regular.ttf; sourceTree = "<group>"; };
 		0EAE38D41C62A2B00082DAD2 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		0EC958801C8F87BA00DE56BE /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		0ECC03FD1C63ACFE00458C86 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		0ECC04051C63B01A00458C86 /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
 		0ECC04071C63B06400458C86 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				0E8D31311C7B857F00B0D2B0 /* ContentForAttendeeViewController.swift */,
 				0EDDEAB81C80CAB400D17F1D /* ProfileOrganizerViewController.swift */,
 				0E70A2851C88353400DDBC5B /* CenterCellCollectionViewFlowLayout.swift */,
+				0EC958801C8F87BA00DE56BE /* ImageCollectionViewCell.swift */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				0ECC04121C63BC3E00458C86 /* Favoritelist.swift in Sources */,
 				0ECC04081C63B06400458C86 /* Beacon.swift in Sources */,
 				0ECC040A1C63B76C00458C86 /* Content.swift in Sources */,
+				0EC958811C8F87BA00DE56BE /* ImageCollectionViewCell.swift in Sources */,
 				0EF156BC1C64C276004BE735 /* ManageBeaconsViewController.swift in Sources */,
 				9590B5501C8C70AD00ED1FA9 /* assignContentToTheBeaconViewController.swift in Sources */,
 				0E8BDFBA1C6A4D5A003364A5 /* RecoverPasswordViewController.swift in Sources */,
