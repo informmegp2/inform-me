@@ -54,7 +54,12 @@ class FavoritelistViewController: UIViewController,UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-          loadFavorite ()
+        loadFavorite () {
+            () in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.tableView.reloadData()
+            }
+        }
       // self.tableView.reloadData()
      /*   var c = Content ()
         c.contentId = 106
@@ -115,7 +120,7 @@ print("Done")*/
             
         }}*/
     
-    func loadFavorite ()
+    func loadFavorite (completion: () -> Void)
     {
         
         //Col::(ContentID, Title, Abstract, Sharecounter, Label, EventID)
@@ -143,7 +148,7 @@ print("Done")*/
                         }
                         for cont in self.contentList {
                         print("\(cont.Title)")}
-                      self.tableView.reloadData()
+                     // self.tableView.reloadData()
                     }
                     
                 }
@@ -153,6 +158,8 @@ print("Done")*/
                 }
                 
             }
+            
+            completion()
         }
         task.resume()
         
