@@ -25,7 +25,7 @@ class Content {
     var like: Int = 0
     var dislike: Int = 0
     var save:Bool = false;
-    
+    var del:Bool = false
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
         var body = NSMutableData();
         
@@ -183,10 +183,10 @@ class Content {
     
     }
     
-    func DeleteContent(id: Int ,completionHandler: (flag:Bool) -> ()){
+    func DeleteContent(id: Int ){
         
         var f=false
-
+      del = true
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/DeleteContent.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
@@ -209,7 +209,7 @@ class Content {
 
             // You can print out response object
             print("response = \(response)")
-            completionHandler(flag: f)
+            //completionHandler(flag: f)
 
             
             
@@ -217,7 +217,7 @@ class Content {
         }
         
         task.resume()
-        
+        del = true 
         
     }
     func requestcontentlist(ID: Int,completionHandler: (contentInfo:[Content]) -> ()){
