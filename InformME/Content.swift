@@ -241,35 +241,70 @@ class Content {
             if let urlContent = data {
                 
                 do {
-                    
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
                     
-                    
                     for var x=0; x<jsonResult.count;x++ {
-                        var content: Content = Content()
-                        var t : AnyObject = jsonResult[x]["Title"]as! String
-                        var a : AnyObject = jsonResult[x]["Abstract"]as! String
-                        var p : AnyObject = jsonResult[x]["PDFFiles"]as! String
-                        var v : AnyObject = jsonResult[x]["Videos"]as! String
-                        var id : String = jsonResult[x]["ContentID"]as! String
-                        
-                        
-                        content.Title=t as! String
-                        content.Abstract=a as! String
-                        content.Pdf=p as! String
-                        content.Video=v as! String
-                        content.CID=Int (id)
-                        if TitleA.contains(t as! String) {
-                            
+                        let item = jsonResult[x]
+                        let c : Content = Content()
+                        c.contentId = Int(item["ContentID"] as! String)!
+                        c.Title = item["Title"] as! String
+                        c.Abstract = item["Abstract"] as! String
+                        if item["PDFFiles"] is NSNull  {
+                            c.Pdf = "No PDF"
                         }
-                        else
-                        {
-                            TitleA.append(t as! String)
-                            //self.values.addObject(content)
-                           
-                            contentInfo.append(content)
-                        }}}
-                catch {
+                        else{
+                            c.Pdf = item["PDFFiles"] as! String
+                        }
+                        if item["Videos"]  is NSNull  {
+                            c.Video = "No Video"
+                        }
+                        else{
+                            c.Video = item["Videos"] as! String
+                        }
+                        c.shares = Int(item["ShareCounter"] as! String)!
+                        c.label = item["Label"] as! String
+                        
+                        var comments: [Comment] = []
+                        let itemC = item["Comments"] as! NSArray
+                        for var i=0; i<itemC.count;i++ {
+                            let comment: Comment = Comment()
+                            comment.comment = itemC[i]["CommentText"] as! String
+                            comment.user.username = itemC[i]["UserName"] as! String
+                            comments.append(comment)
+                        }
+                        c.comments = comments;
+                        
+                        var images: [UIImage] = []
+                        let itemI = item["Images"] as! NSArray
+                        for var i=0; i<itemI.count;i++ {
+                            let url:NSURL = NSURL(string : itemI[i] as! String)!
+                            let data = NSData(contentsOfURL: url)
+                            let image=UIImage(data: data!)
+                            images.append(image!)
+                        }
+                        c.Images = images;
+                        
+                        if item["Like"] is NSNull  {
+                            c.like = 0
+                        }
+                        else{
+                            let lk = item["Like"] as! String
+                            c.like = Int(lk)!}
+                        
+                        if item["dislike"] is NSNull {
+                            c.dislike = 0
+                        }
+                        else {
+                            let dislk = item["dislike"] as! String
+                            c.dislike = Int(dislk)!}
+                        
+                        contentInfo.append(c)
+                        print("DONE")
+                    }
+                    completionHandler(contentInfo: contentInfo)
+
+                    
+                } catch {
                     
                     print("JSON serialization failed")
                     
@@ -277,13 +312,10 @@ class Content {
                 
                 
             }
-            
-            completionHandler(contentInfo: contentInfo)
         }
         task.resume()
-        
-        
     }
+
 
     
     
@@ -518,9 +550,7 @@ class Content {
                         }
                         c.shares = Int(item["ShareCounter"] as! String)!
                         c.label = item["Label"] as! String
-                        //c.likes.counter = Int(item["Likes"] as! String)!
-                        //c.dislikes.counter = Int(item ["DisLikes"] as! String)!
-                        
+
                         var comments: [Comment] = []
                         let itemC = item["Comments"] as! NSArray
                         for var i=0; i<itemC.count;i++ {
@@ -529,6 +559,18 @@ class Content {
                             comment.user.username = itemC[i]["UserName"] as! String
                             comments.append(comment)
                         }
+                        c.comments = comments;
+                        
+                        var images: [UIImage] = []
+                        let itemI = item["Images"] as! NSArray
+                        for var i=0; i<itemI.count;i++ {
+                            let url:NSURL = NSURL(string : itemI[i] as! String)!
+                            let data = NSData(contentsOfURL: url)
+                            let image=UIImage(data: data!)
+                            images.append(image!)
+                        }
+                        c.Images = images;
+                        
                         if item["Like"] is NSNull  {
                             c.like = 0
                         }
@@ -542,11 +584,13 @@ class Content {
                         else {
                         let dislk = item["dislike"] as! String
                             c.dislike = Int(dislk)!}
-                        c.comments = comments
+                        
                         completionHandler(content: c)
 
                         print("DONE")
                     }
+                    
+                    
                 } catch {
                     
                     print("JSON serialization failed")

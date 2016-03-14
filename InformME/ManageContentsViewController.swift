@@ -19,7 +19,7 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
     
     var contentInfo: [Content] = []
     var content: Content = Content()
-    var EID: Int = 1
+    var EID: Int =  133
     
     
     override func viewDidLoad() {
@@ -104,8 +104,8 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
             detailVC.abstract=c.Abstract
             detailVC.pdf=c.Pdf
             detailVC.video=c.Video
-            detailVC.contentid=c.CID!
-            
+            detailVC.contentid=c.contentId
+            detailVC.images = c.Images
 
         
         }

@@ -8,14 +8,15 @@
 
 import Foundation
 import UIKit
-class ContentForOrganizerViewController: UIViewController {
+class ContentForOrganizerViewController: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate{
     
-    var contentid: Int=1;
+    @IBOutlet weak var collectionView: UICollectionView!
+    var contentid: Int=105;
     var ttitle: String=""
     var abstract: String=""
     var video: String=""
     var pdf: String=""
-    //  var evlogo: UIImage?
+    var images: [UIImage]=[]
    // var cid : Int?
     
     @IBOutlet var TTitle: UINavigationItem!
@@ -27,13 +28,14 @@ class ContentForOrganizerViewController: UIViewController {
     
     // @IBOutlet var logo: UIImageView!
     override func viewDidLoad() {
-        
+
         super.viewDidLoad()
         self.TTitle.title = ttitle
         self.AAbstract.text = abstract
         self.PDF.text = pdf
         self.VVideo.text=video
-        
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -97,4 +99,15 @@ class ContentForOrganizerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+    }
+    
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ImageCell", forIndexPath: indexPath) as! ImageCollectionViewCell
+        cell.cellImage.image = images[indexPath.row]
+        return cell
+    }
 }
