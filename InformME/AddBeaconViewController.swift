@@ -45,7 +45,7 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
         else {
 
             if  labels.contains(llabel) {
-                let alert = UIAlertController(title: "", message: " الرجاء إختيار إسم آخر \n إسم البيكون مستخدم مسبقا ", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert = UIAlertController(title: "", message: " إسم البيكون مستخدم مسبقا \n الرجاء إختيار إسم أخر ", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
                     
