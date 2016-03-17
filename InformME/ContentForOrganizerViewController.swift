@@ -16,6 +16,7 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
     var abstract: String=""
     var video: String=""
     var pdf: String=""
+    var label: String=""
     var images: [UIImage]=[]
    // var cid : Int?
     
@@ -90,7 +91,7 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
             detailVC.ppdf=PDF.text!
             detailVC.vvideo=VVideo.text!
             detailVC.cid=contentid
-          
+            detailVC.label=self.label
         }
     }
 

@@ -57,12 +57,12 @@ class Content {
 
  //   func saveContent(title: String,abstract: String ,video: String,Pdf: String,image: [UIImage],flagI: [Bool], completionHandler: (flag:Bool) -> ()) {
         
-    func createContent(title: String,abstract: String ,video: String,Pdf: String,image: [UIImage],flagI: [Bool]) {
+    func createContent(title: String,abstract: String ,video: String,Pdf: String,BLabel: String,image: [UIImage],flagI: [Bool]) {
         save=false;
         var f=false
 
-        let eid=1
-        let l = "be"
+        let eid=133
+        let l = BLabel
         let SC = 1
         
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/AddContent.php")
@@ -147,7 +147,7 @@ class Content {
         return "Boundary-\(NSUUID().UUIDString)"
     }
     
-    func updateContent(title: String,abstract: String ,video: String,Pdf: String , TempV: String , TempP: String , cID:Int ,completionHandler: (flag:Bool) -> ()) {
+    func updateContent(title: String,abstract: String ,video: String,Pdf: String ,bLabel: String, TempV: String , TempP: String , cID:Int ,completionHandler: (flag:Bool) -> ()) {
         
         var f=false
 
@@ -157,7 +157,7 @@ class Content {
         
         //Change UserID"
         
-        let postString = "Title=\(title)&Abstract=\(abstract)&PDF=\(Pdf)&Video=\(video)&CID=\(cID)&pPDF=\(TempP)&pVideo=\(TempV)"
+        let postString = "Title=\(title)&Abstract=\(abstract)&PDF=\(Pdf)&Video=\(video)&CID=\(cID)&pPDF=\(TempP)&pVideo=\(TempV)&label=\(bLabel)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -249,6 +249,7 @@ class Content {
                         c.contentId = Int(item["ContentID"] as! String)!
                         c.Title = item["Title"] as! String
                         c.Abstract = item["Abstract"] as! String
+                        c.label = item["Label"] as! String
                         if item["PDFFiles"] is NSNull  {
                             c.Pdf = "No PDF"
                         }
