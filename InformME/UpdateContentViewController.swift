@@ -9,9 +9,11 @@
 import Foundation
 import UIKit
 
-class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
-
+class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UICollectionViewDataSource,UICollectionViewDelegate{
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    var images: [UIImage]=[]
+
     @IBOutlet var ETitle: UITextField!
     @IBOutlet  var EAbstract: UITextField!
     @IBOutlet  var EPDF: UITextField!
@@ -138,7 +140,8 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
         beacon.requestbeaconlist(UserID){// fo assign beacon
             (beaconsInfo:[Beacon]) in
             dispatch_async(dispatch_get_main_queue()) {
@@ -188,5 +191,29 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
     // Pass the selected object to the new view controller.
     }
     */
+    
+    // the controller that has a reference to the collection view
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        var insets = self.collectionView.contentInset
+        let value = (self.view.frame.size.width - (self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize.width) * 0.5
+        insets.left = value
+        insets.right = value
+        self.collectionView.contentInset = insets
+        print("\(value)")
+        self.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+    }
+    
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("UpdateImageCell", forIndexPath: indexPath) as! UpdateImageCollectionViewCell
+        cell.cellButton.setImage(images[indexPath.row], forState: UIControlState.Normal)
+        return cell
+    }
+
     
 }

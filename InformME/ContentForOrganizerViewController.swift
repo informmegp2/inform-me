@@ -40,6 +40,19 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
         // Do any additional setup after loading the view.
     }
     
+    // the controller that has a reference to the collection view
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        var insets = self.collectionView.contentInset
+        let value = (self.view.frame.size.width - (self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout).itemSize.width) * 0.5
+        insets.left = value
+        insets.right = value
+        self.collectionView.contentInset = insets
+        print("\(value)")
+        self.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
+    }
+    
+
     @IBAction func out(sender: AnyObject) {
   
         
@@ -92,6 +105,7 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
             detailVC.vvideo=VVideo.text!
             detailVC.cid=contentid
             detailVC.label=self.label
+            detailVC.images = self.images
         }
     }
 
