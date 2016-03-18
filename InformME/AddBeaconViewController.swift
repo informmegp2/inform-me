@@ -20,7 +20,7 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
     //var minor:Int?
     var cellContent = [String]()
     var numRow:Int?
-    
+    var labels = [String]()
     
     @IBAction func Submit(sender: AnyObject) {
         
@@ -28,7 +28,9 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
         var llabel = Label.text!
         var  major = Major.text!
         var flag : Bool = false
-
+        
+        let uid=13
+        
         if (Minor.text == "" || Major.text == "" || llabel == "") {
             let alert = UIAlertController(title: "", message: " يرجى إكمال كافة الحقول", preferredStyle: UIAlertControllerStyle.Alert)
             
@@ -41,13 +43,28 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
             self.presentViewController(alert, animated: true, completion: nil)
                    }
         else {
+
+            if  labels.contains(llabel) {
+                let alert = UIAlertController(title: "", message: " إسم البيكون مستخدم مسبقا \n الرجاء إختيار إسم أخر ", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+                    
+                    // self.dismissViewControllerAnimated(true, completion: nil)
+                    
+                }))
+                
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+                
+            }
+            else {
             var b : Beacon = Beacon()
             b.addBeacon (llabel, major: major,minor:minor){
                 (flag:Bool) in
                 //we should perform all segues in the main thread
                 dispatch_async(dispatch_get_main_queue()) {
             self.performSegueWithIdentifier("addBeacon", sender:sender)
-            }
+                }}
             }}
         
     }

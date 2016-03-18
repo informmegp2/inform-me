@@ -81,6 +81,60 @@ class Beacon {
         task.resume()
         
     }
+    
+    func requestbeaconlist(id: Int,completionHandler: (beaconsInfo:[Beacon]) -> ()){
+        var beaconsInfo: [Beacon] = []
+        print("in beacon managment")
+        let uid=id
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/beacon/SelectBeacon.php")!)
+        request.HTTPMethod = "POST"
+        let postString = "uid=\(uid)"
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if let urlContent = data {
+                
+                do {
+                    
+                    let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
+                    
+                    for var x=0; x<jsonResult.count;x++ {
+                        
+                        
+                        var beacon: Beacon = Beacon()
+                        var l : AnyObject = jsonResult[x]["Label"]as! String
+                        var m : AnyObject = jsonResult[x]["Major"]as! String
+                        var mi : AnyObject = jsonResult[x]["Minor"]as! String
+                        
+                        beacon.Label=l as! String
+                        beacon.Major=m as! String
+                        beacon.Minor=mi as! String
+                        beaconsInfo.append(beacon)
+                        
+                        
+                        
+                    }
+                    
+                    
+                } catch {
+                    
+                    print("JSON serialization failed")
+                    
+                }
+                
+                
+            }
+            print("here?")
+            completionHandler(beaconsInfo: beaconsInfo)
+        }
+        task.resume()
+        print("hi");
+    }
+    
+
     func fillForm(label: String,major: String,minor: String) {}
     
    // func updateBeacon(label: String,major: String,minor: String , Temp: String ,completionHandler: (flag:Bool) -> ()) {)

@@ -15,9 +15,10 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     
     
     var values:NSMutableArray = []
-    var label:NSMutableArray = []
+    var Labels : [String] = []
     var beaconsInfo:NSMutableArray=[]
     var bID:Int = 1;
+    
     
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
@@ -103,7 +104,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
                         beacon.Minor=mi as! String
                         self.values.addObject(beacon)
                         self.beaconsInfo.addObject(beacon)
-                        
+                        self.Labels.append(l as! String)
                         
                     }
                     dispatch_async(dispatch_get_main_queue()){
@@ -122,6 +123,10 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         }
         task.resume()
         tableView.reloadData()
+    }
+    
+    func addBeacon(){
+        performSegueWithIdentifier("addBeacon", sender: self)
     }
     
     
@@ -208,6 +213,13 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
             detailVC.mmajor=b.Major
             detailVC.mminor=b.Minor
         
+    }
+    
+    if (segue.identifier == "addBeacon") {
+        var detailVC = segue.destinationViewController as! AddBeaconViewController
+        //detailVC.evid = e.id
+        detailVC.labels = Labels
+
     }
     
     }

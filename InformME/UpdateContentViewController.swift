@@ -9,13 +9,14 @@
 import Foundation
 import UIKit
 
-class UpdateContentViewController: UIViewController  , UITextFieldDelegate{
+class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+
     
     @IBOutlet var ETitle: UITextField!
     @IBOutlet  var EAbstract: UITextField!
     @IBOutlet  var EPDF: UITextField!
     @IBOutlet  var EVideo: UITextField!
-
+    @IBOutlet var pickerTextField: UITextField!// for assign
     
     var ttitel:String=""
     var aabstract:String=""
@@ -24,16 +25,40 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate{
     var tempV:String=""
     var tempP:String=""
     var cid : Int?
+    var label:String=""
     
     var cellContent = [String]()
     var numRow:Int?
+    var beaconsInfo: [Beacon] = []//nouf add it for assign beacon
+    var beacon:Beacon = Beacon()// for assign beacon
+    var UserID = 13
     
     
+    // for assign
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return beaconsInfo.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return beaconsInfo[row].Label
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pickerTextField.text = beaconsInfo[row].Label
+    }
+
     @IBAction func Submit(sender: AnyObject) {
         var title = ETitle.text!
         var abstract = EAbstract.text!
         var pdf = EPDF.text!
         var video = EVideo.text!
+        var blabel = pickerTextField.text!
         var flag : Bool = false
         
         var alertController = UIAlertController(title: "", message: " هل أنت متأكد من رغبتك بحفظ التغييرات؟", preferredStyle: .Alert)
@@ -44,7 +69,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate{
             NSLog("OK Pressed")
 
             var c : Content = Content()
-            c.updateContent (title, abstract: abstract,video: pdf , Pdf: video , TempV: self.tempV , TempP: self.tempP , cID: self.cid!){
+            c.updateContent (title, abstract: abstract,video: pdf , Pdf: video ,bLabel: blabel, TempV: self.tempV , TempP: self.tempP , cID: self.cid!){
                 (flag:Bool) in
                 //we should perform all segues in the main thread
                 dispatch_async(dispatch_get_main_queue()) {
@@ -113,10 +138,28 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        beacon.requestbeaconlist(UserID){// fo assign beacon
+            (beaconsInfo:[Beacon]) in
+            dispatch_async(dispatch_get_main_queue()) {
+                self.beaconsInfo = beaconsInfo
+                print("get info")
+                var pickerView = UIPickerView()
+                
+                pickerView.delegate = self
+                
+                self.pickerTextField.inputView = pickerView
+                
+               
+            }
+            
+        }
+
         self.ETitle.text = ttitel
         self.EAbstract.text = aabstract
         self.EPDF.text = ppdf
         self.EVideo.text = vvideo
+        self.pickerTextField.text = label
         tempV=vvideo
         tempP=ppdf
 
