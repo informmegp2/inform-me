@@ -727,7 +727,7 @@
                                         <rect key="frame" x="0.0" y="380" width="600" height="88"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bFe-eD-E4b">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="88"/>
+                                                <rect key="frame" x="30" y="0.0" width="570" height="88"/>
                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ePs-js-wp4" customClass="CenterCellCollectionViewFlowLayout" customModule="InformME" customModuleProvider="target">
                                                     <size key="itemSize" width="71" height="71"/>
@@ -762,13 +762,24 @@
                                                     </collectionViewCell>
                                                 </cells>
                                             </collectionView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edN-q9-GUp">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="88"/>
+                                                <color key="backgroundColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                                <state key="normal" title="+">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="bFe-eD-E4b" firstAttribute="centerY" secondItem="Tet-NB-WZz" secondAttribute="centerY" id="6Ah-hB-4QC"/>
-                                            <constraint firstItem="bFe-eD-E4b" firstAttribute="leading" secondItem="Tet-NB-WZz" secondAttribute="leading" id="Kgg-gC-ZMZ"/>
+                                            <constraint firstItem="edN-q9-GUp" firstAttribute="leading" secondItem="Tet-NB-WZz" secondAttribute="leading" id="Eko-AR-cXs"/>
+                                            <constraint firstItem="bFe-eD-E4b" firstAttribute="leading" secondItem="edN-q9-GUp" secondAttribute="trailing" id="H7d-LH-Yax"/>
                                             <constraint firstAttribute="trailing" secondItem="bFe-eD-E4b" secondAttribute="trailing" id="Lad-4H-EDy"/>
                                             <constraint firstItem="bFe-eD-E4b" firstAttribute="height" secondItem="Tet-NB-WZz" secondAttribute="height" id="UqO-GS-Ely"/>
+                                            <constraint firstItem="edN-q9-GUp" firstAttribute="height" secondItem="Tet-NB-WZz" secondAttribute="height" id="eTQ-dX-PUi"/>
+                                            <constraint firstItem="edN-q9-GUp" firstAttribute="centerY" secondItem="Tet-NB-WZz" secondAttribute="centerY" id="xZE-Uo-NHc"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ربط المحتوى بالبيكون" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p2N-CG-cTc" userLabel="assign beacon">
@@ -2948,7 +2959,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pI7-II-bSY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="3865A1D9-EDB6-4396-8CF3-95D9C2DAE3EC" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="0EF39B97-FCA5-43EE-B8CF-867909FB9AB2" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
                                             <rect key="frame" x="-292" y="-143" width="1184" height="486"/>
                                             <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
@@ -2975,7 +2986,7 @@
                                         </label>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aY-Ke-P4A">
                                             <rect key="frame" x="20" y="20" width="29" height="55"/>
-                                            <state key="normal" image="FB0BF3AE-10C7-4DFE-B6B6-40D6BB60E1E6"/>
+                                            <state key="normal" image="5A1E6988-0F7F-40EB-844D-C44C3390A7F7"/>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4322,7 +4333,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="3865A1D9-EDB6-4396-8CF3-95D9C2DAE3EC" width="29" height="55">
+        <image name="0EF39B97-FCA5-43EE-B8CF-867909FB9AB2" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -4498,7 +4509,7 @@ yybWJt8m8ib2JwEnCicPJxcnGicfJy4nMic5J0EnTidTJ1UnVydcJ2QnZydsJ3QndyeJJ4wnkQAAAAAA
 AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
 </mutableData>
         </image>
-        <image name="FB0BF3AE-10C7-4DFE-B6B6-40D6BB60E1E6" width="29" height="55">
+        <image name="5A1E6988-0F7F-40EB-844D-C44C3390A7F7" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
