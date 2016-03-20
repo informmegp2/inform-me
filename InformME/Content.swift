@@ -26,6 +26,8 @@ class Content {
     var dislike: Int = 0
     var save:Bool = false;
     var del:Bool = false
+    var upd:Bool = false
+
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
         var body = NSMutableData();
         
@@ -53,27 +55,23 @@ class Content {
         
         return body
     }
+    var f=false
 
-
- //   func saveContent(title: String,abstract: String ,video: String,Pdf: String,image: [UIImage],flagI: [Bool], completionHandler: (flag:Bool) -> ()) {
-        
-    func createContent(title: String,abstract: String ,video: String,Pdf: String,BLabel: String,image: [UIImage],flagI: [Bool]) {
-        save=false;
-        var f=false
-
+    func createContent(title: String,abstract: String ,video: String,Pdf: String,BLabel: String,image: [UIImage], completionHandler: (flag:Bool) -> ()) {
+          f = false
         let eid=133
         let l = BLabel
-        let SC = 1
+        let SC = 0
         
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/AddContent.php")
-
+        
         let request = NSMutableURLRequest(URL:MYURL!)
-
+        
         request.HTTPMethod = "POST";
         let postString = "Title="+title+"&Abstract="+abstract+"&ShareCounter=\(SC)&Label=\(l)&EventID=\(eid)&PDF=\(Pdf)&Video=\(video)"
         
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
-
+        
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             
@@ -83,81 +81,80 @@ class Content {
                 return
             }
             
-
+            
             print("response = \(response)")
             
         }
-
+        
         task.resume()
-        addImage(title,abstract: abstract,image: image ,flagI: flagI)
-        f=true
-        //completionHandler(flag: f)
+        addImage(title,abstract: abstract,BLabel: BLabel,image: image)
+        completionHandler(flag: f)
 }
     
-    func addImage(title: String,abstract: String ,image: [UIImage] , flagI : [Bool]){
-        let eid=1
-        let l = "be"
-        let SC = 1
-
-        for i in 0...image.count {
-            if flagI[i]{
+    func addImage(title: String,abstract: String ,BLabel: String,image: [UIImage]){
+        save = false
+        let eid=133
+        let l = BLabel
+        let SC = 0
+        var temp : Int = 0
+        print ("--------")
+        print (image.count)
+        for i in 0...image.count-1{
+            let MYURL = NSURL(string:"http://bemyeyes.co/API/content/AddImage.php")
+            
+            let request = NSMutableURLRequest(URL:MYURL!)
+            
+            request.HTTPMethod = "POST";
+            
+            let param : [String: String] = [
+                "Title"     : title,
+                "Abstract"  :abstract,
+                "EventID"  :String(eid),
+                "ShareCounter" :String(SC),
+                "Label" : l,
+                "ImageNum" : String(i)
+            ]
+            let boundary = generateBoundaryString()
+            request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+            let imageData = UIImageJPEGRepresentation(image[i], -1)
+            if imageData==nil{
+                print("it is nil")}
+            
+            request.HTTPBody = createBodyWithParameters(param, filePathKey: "file", imageDataKey: imageData!, boundary: boundary)
+            
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                data, response, error in
                 
-                let MYURL = NSURL(string:"http://bemyeyes.co/API/content/AddImage.php")
-                
-                let request = NSMutableURLRequest(URL:MYURL!)
-                
-                request.HTTPMethod = "POST";
-                
-                let param : [String: String] = [
-                    "Title"     : title,
-                    "Abstract"  :abstract,
-                    "EventID"  :String(eid),
-                    "ShareCounter" :String(SC),
-                    "Label" : l,
-                    "ImageNum" : String(i)
-                ]
-                let boundary = generateBoundaryString()
-                request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-                let imageData = UIImageJPEGRepresentation(image[i], -1)
-                if imageData==nil{
-                    print("it is nil")}
-                
-                request.HTTPBody = createBodyWithParameters(param, filePathKey: "file", imageDataKey: imageData!, boundary: boundary)
-                
-                let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
-                    data, response, error in
-                    
-                    if error != nil
-                    {
-                        print("error=\(error)")
-                        return
-                    }
-                    // You can print out response object
-                    print("response = \(response)")
+                if error != nil
+                {
+                    print("error=\(error)")
+                    return
                 }
-                task.resume()
-                
-                
-            }
-        }
-        save=true;
-    }
 
+                // You can print out response object
+                print("response = \(response)")
+            }
+            task.resume()
+            }
+        self.f=true
+
+        
+    }
+    
     func generateBoundaryString() -> String {
         return "Boundary-\(NSUUID().UUIDString)"
     }
     
-    func updateContent(title: String,abstract: String ,video: String,Pdf: String ,bLabel: String, TempV: String , TempP: String , cID:Int ,completionHandler: (flag:Bool) -> ()) {
+    func updateContent(title: String,abstract: String ,video: String,Pdf: String ,bLabel: String,image: [UIImage], TempV: String , TempP: String , cID:Int) {
         
-        var f=false
-
+        upd=false
+        
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/EditContent.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
         
-        //Change UserID"
         
-        let postString = "Title=\(title)&Abstract=\(abstract)&PDF=\(Pdf)&Video=\(video)&CID=\(cID)&pPDF=\(TempP)&pVideo=\(TempV)&label=\(bLabel)"
+        let postString = "Title=\(title)&Abstract=\(abstract)&PDF=\(Pdf)&Video=\(video)&CID=\(cID)&pPDF=\(TempP)&pVideo=\(TempV)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -168,20 +165,92 @@ class Content {
                 print("error=\(error)")
                 return
             }
-            f=true
-
+            
             // You can print out response object
             print("response = \(response)")
-            completionHandler(flag: f)
-
+            
             
             
         }
         
         task.resume()
-
-    
+        updateImage(title,abstract: abstract,BLabel: bLabel,image: image )
+        
     }
+    
+    func updateImage(title: String,abstract: String ,BLabel: String,image: [UIImage]){
+        let eid=133
+        let l = BLabel
+        let SC = 0
+        upd = false
+        
+        let MYURL1 = NSURL(string:"http://bemyeyes.co/API/content/deleteImage.php")
+        let request1 = NSMutableURLRequest(URL:MYURL1!)
+        request1.HTTPMethod = "POST";
+        
+        let postString1 = "Title=\(title)&Abstract=\(abstract)&EventID=\(eid)&Label=\(l)&ShareCounter=\(SC)"
+        request1.HTTPBody = postString1.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task1 = NSURLSession.sharedSession().dataTaskWithRequest(request1) {
+            data, response, error in
+            
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            
+            // You can print out response object
+            print("response = \(response)")
+            //completionHandler(flag: f)
+            
+            
+            
+            
+        }
+        
+        task1.resume()
+        
+        for i in 0...image.count-1{
+            print ("entrr lop")
+            let MYURL = NSURL(string:"http://bemyeyes.co/API/content/updateImage.php")
+            
+            let request = NSMutableURLRequest(URL:MYURL!)
+            
+            request.HTTPMethod = "POST";
+            
+            let param : [String: String] = [
+                "Title"     : title,
+                "Abstract"  :abstract,
+                "EventID"  :String(eid),
+                "ShareCounter" :String(SC),
+                "Label" : l,
+                "ImageNum" : String(i)
+            ]
+            let boundary = generateBoundaryString()
+            request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+            let imageData = UIImageJPEGRepresentation(image[i], -1)
+            if imageData==nil{
+                print("it is nil")}
+            
+            request.HTTPBody = createBodyWithParameters(param, filePathKey: "file", imageDataKey: imageData!, boundary: boundary)
+            
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+                data, response, error in
+                
+                if error != nil
+                {
+                    print("error=\(error)")
+                    return
+                }
+                // You can print out response object
+                print("response = \(response)")
+            }
+            task.resume()
+        }
+        upd = true
+    }
+    
     
     func DeleteContent(id: Int ){
         
@@ -278,6 +347,7 @@ class Content {
                         var images: [UIImage] = []
                         let itemI = item["Images"] as! NSArray
                         for var i=0; i<itemI.count;i++ {
+                            print ( "IN ==========")
                             let url:NSURL = NSURL(string : itemI[i] as! String)!
                             let data = NSData(contentsOfURL: url)
                             let image=UIImage(data: data!)
