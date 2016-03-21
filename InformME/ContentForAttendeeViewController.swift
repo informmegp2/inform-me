@@ -259,4 +259,9 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         }
 
     }
+    
+    @IBAction func deleteComment(){
+        //self.content.deleteComment(self.content.id, )
+        //NSUserDefaults.standardUserDefaults().integerForKey("id")
+    }
 }
