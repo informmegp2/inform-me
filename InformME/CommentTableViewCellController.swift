@@ -12,5 +12,6 @@ import UIKit
 class CommentTableViewCellController: UITableViewCell {
     @IBOutlet var comment: UILabel!
     @IBOutlet var user: UILabel!
+    @IBOutlet weak var deletebutton: NSLayoutConstraint!
 
 }

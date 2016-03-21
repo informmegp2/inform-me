@@ -173,7 +173,8 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         cell.comment.text = maindata as String
         let username = self.content.comments[indexPath.row].user.username
         cell.user.text = username as String
-        
+        if(self.content.comments[indexPath.row].user.userID) == NSUserDefaults.standardUserDefaults().integerForKey("id")){
+            cell.deletebutton.hidden = false;}
         return cell
         
         
