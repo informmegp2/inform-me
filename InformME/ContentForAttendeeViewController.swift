@@ -263,7 +263,14 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     }
     
     @IBAction func deleteComment(){
-        //self.content.deleteComment(self.content.id, )
-        //NSUserDefaults.standardUserDefaults().integerForKey("id")
-    }
-}
+        self.content.deleteComment(self.content.contentId,uid: NSUserDefaults.standardUserDefaults().integerForKey("id")){
+            (done:Bool) in
+            dispatch_async(dispatch_get_main_queue()) {
+                print("I am cool")
+                self.commentsTable.reloadData()
+
+            }
+        }
+    }//end delete comment fun
+    
+}//end class
