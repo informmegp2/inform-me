@@ -2967,7 +2967,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pI7-II-bSY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="22EC38DF-3EA6-49DF-A03F-3D5643C9350B" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="ACEF31EE-9355-455D-ABA1-AFA0DACBA1CB" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
                                             <rect key="frame" x="-292" y="-143" width="1184" height="486"/>
                                             <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
@@ -2994,7 +2994,7 @@
                                         </label>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aY-Ke-P4A">
                                             <rect key="frame" x="20" y="20" width="29" height="55"/>
-                                            <state key="normal" image="CCA2652C-02A8-49AD-8B5D-609D80279F93"/>
+                                            <state key="normal" image="F96F693B-ECD0-485A-8CD5-16DF4D08327B"/>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4341,7 +4341,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="22EC38DF-3EA6-49DF-A03F-3D5643C9350B" width="29" height="55">
+        <image name="ACEF31EE-9355-455D-ABA1-AFA0DACBA1CB" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -4517,7 +4517,7 @@ yybWJt8m8ib2JwEnCicPJxcnGicfJy4nMic5J0EnTidTJ1UnVydcJ2QnZydsJ3QndyeJJ4wnkQAAAAAA
 AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
 </mutableData>
         </image>
-        <image name="CCA2652C-02A8-49AD-8B5D-609D80279F93" width="29" height="55">
+        <image name="F96F693B-ECD0-485A-8CD5-16DF4D08327B" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -4722,16 +4722,16 @@ AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
         <image name="كلمة المرور" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jax-Lw-FKV"/>
-        <segue reference="JUu-Ru-MGP"/>
-        <segue reference="wB1-eu-T0d"/>
-        <segue reference="1xK-ul-Y0G"/>
-        <segue reference="geg-LT-dMU"/>
-        <segue reference="oQM-Ab-5Yy"/>
-        <segue reference="KhZ-9v-s7c"/>
-        <segue reference="IE9-Mg-KXe"/>
-        <segue reference="iTh-6x-Xez"/>
         <segue reference="3Nf-Cq-Fdi"/>
+        <segue reference="iTh-6x-Xez"/>
+        <segue reference="ZTI-2B-VFQ"/>
+        <segue reference="1xK-ul-Y0G"/>
+        <segue reference="X5L-iZ-Uec"/>
+        <segue reference="KhZ-9v-s7c"/>
+        <segue reference="oQM-Ab-5Yy"/>
+        <segue reference="IE9-Mg-KXe"/>
+        <segue reference="geg-LT-dMU"/>
+        <segue reference="jax-Lw-FKV"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

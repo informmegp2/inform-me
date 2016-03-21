@@ -87,11 +87,16 @@ class Content {
         }
         
         task.resume()
-        addImage(title,abstract: abstract,BLabel: BLabel,image: image)
-        completionHandler(flag: f)
+        addImage(title,abstract: abstract,BLabel: BLabel,image: image){
+            (flag:Bool) in
+            //we should perform all segues in the main thread
+            dispatch_async(dispatch_get_main_queue()) {
+                completionHandler(flag: flag)
+            }
+        }
 }
     
-    func addImage(title: String,abstract: String ,BLabel: String,image: [UIImage]){
+    func addImage(title: String,abstract: String ,BLabel: String,image: [UIImage] ,completionHandler: (flag:Bool) -> ()) {
         save = false
         let eid=133
         let l = BLabel
@@ -133,10 +138,10 @@ class Content {
 
                 // You can print out response object
                 print("response = \(response)")
+                completionHandler(flag: true)
             }
             task.resume()
             }
-        self.f=true
 
         
     }
