@@ -106,7 +106,7 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
             detailVC.video=c.Video
             detailVC.contentid=c.contentId
             detailVC.images = c.Images
-             detailVC.label=c.label
+            detailVC.label=c.label
         
         }
     }

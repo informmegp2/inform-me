@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UICollectionViewDataSource,UICollectionViewDelegate{
+class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UICollectionViewDataSource,UICollectionViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     @IBOutlet weak var collectionView: UICollectionView!
     var images: [UIImage]=[]
@@ -69,16 +69,16 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
         var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
             UIAlertAction in
             NSLog("OK Pressed")
-
             var c : Content = Content()
-            c.updateContent (title, abstract: abstract,video: pdf , Pdf: video ,bLabel: blabel, TempV: self.tempV , TempP: self.tempP , cID: self.cid!){
-                (flag:Bool) in
-                //we should perform all segues in the main thread
-                dispatch_async(dispatch_get_main_queue()) {
-        self.performSegueWithIdentifier("alertPressedOK", sender:sender)
+           c.updateContent (title, abstract: abstract,video: pdf , Pdf: video ,bLabel: blabel,image: self.images, TempV: self.tempV , TempP: self.tempP , cID: self.cid!)
+            // (flag:Bool) in
+            //we should perform all segues in the main thread
+            // dispatch_async(dispatch_get_main_queue()) {
+            if (c.upd) {
+                self.performSegueWithIdentifier("alertPressedOK", sender:sender)
             }
             
-            }}
+        }
         
         var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
@@ -101,6 +101,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             detailVC.pdf=EPDF.text!
             detailVC.video=EVideo.text!
             detailVC.contentid=cid!
+            detailVC.images=images
 
             
         }
@@ -138,6 +139,8 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
         
         
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.dataSource = self
@@ -209,11 +212,68 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
     }
     
     
+    var imageNum : Int?
+    var cell : UpdateImageCollectionViewCell?
+    var i : Int = 0
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("UpdateImageCell", forIndexPath: indexPath) as! UpdateImageCollectionViewCell
-        cell.cellButton.setImage(images[indexPath.row], forState: UIControlState.Normal)
-        return cell
+        cell = collectionView.dequeueReusableCellWithReuseIdentifier("UpdateImageCell", forIndexPath: indexPath) as! UpdateImageCollectionViewCell
+        cell!.cellButton.setImage(images[indexPath.row], forState: UIControlState.Normal)
+        cell!.cellButton.tag = i
+        cell!.cellButton.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+        imageNum = indexPath.row
+        i++
+        return cell!
     }
-
+    
+    var pickerOne : UIImagePickerController?
+    var temp : Int?
+    func buttonClicked(sender:UIButton)
+    {
+        pickerOne = UIImagePickerController()
+        pickerOne!.delegate = self
+        pickerOne!.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(pickerOne!, animated: true, completion: nil)
+        
+        print ( "=======")
+        
+        print (sender.tag)
+        temp = sender.tag
+        
+    }
+    @IBOutlet var add: UIButton!
+    var image : UIImage?
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
+        
+    {
+        if ( temp == 100 ){
+            images.append((info[UIImagePickerControllerOriginalImage]as? UIImage)!)
+        }
+        else {
+            image = (info[UIImagePickerControllerOriginalImage]as? UIImage)!
+            images.removeAtIndex(temp!)
+            images.insert(image!, atIndex: temp!) }
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        collectionView.reloadData()
+        i=0
+        if images.count == 3 {
+            add.hidden = true
+        }
+    }
+    
+    @IBAction func addImage(sender: AnyObject) {
+        pickerOne = UIImagePickerController()
+        pickerOne!.delegate = self;
+        pickerOne!.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(pickerOne!, animated: true, completion: nil)
+        temp = 100
+    }
     
 }
+
+
+
+
+
+
