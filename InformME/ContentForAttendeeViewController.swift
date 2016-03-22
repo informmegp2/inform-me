@@ -173,10 +173,12 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         cell.comment.text = maindata as String
         let username = self.content.comments[indexPath.row].user.username
         cell.user.text = username as String
-        if(self.content.comments[indexPath.row].user.userID == 29){
+        
+        print("user id",self.content.comments[indexPath.row].user.userID )
+        if(self.content.comments[indexPath.row].user.userID == NSUserDefaults.standardUserDefaults().integerForKey("id")){
             cell.deleteButton.hidden = false
             
-            //NSUserDefaults.standardUserDefaults().integerForKey("id")
+            
         }
         return cell
         
@@ -265,7 +267,8 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     
     @IBAction func deleteComment(){
        // self.content.contentId,uid: NSUserDefaults.standardUserDefaults().integerForKey("id")
-        self.content.deleteComment(cid,uid: uid){
+        
+        self.content.deleteComment(self.content.contentId,uid: NSUserDefaults.standardUserDefaults().integerForKey("id")){
             (done:Bool) in
             dispatch_async(dispatch_get_main_queue()) {
                 print("I am cool")

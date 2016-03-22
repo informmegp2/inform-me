@@ -471,9 +471,22 @@ class Content {
                 return
             }
             
-            // You can print out response object
+            else { // You can print out response object
             print("response = \(response)")
+                var    i : Int;
             
+                for ( i=0; i<self.comments.count; i++)
+                {
+                    if (self.comments[i].user.userID == uid){
+                    
+                    self.comments.removeAtIndex(i)
+                    
+                    }//end if
+                
+                    
+                    
+                }//end for
+            }// end else
             
             completionHandler(done: true)
         }
