@@ -45,6 +45,7 @@ class FavoritelistViewController: UIViewController,UITableViewDelegate, UITableV
         
     } //end out */ backtologin
     
+  
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
       //  loadFavorite ()
@@ -70,14 +71,8 @@ class FavoritelistViewController: UIViewController,UITableViewDelegate, UITableV
         self.tableView.reloadData()
 print("Done")*/
     }
-    /*
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
     
-    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }*/
+ 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contentList.count;
@@ -103,9 +98,26 @@ print("Done")*/
     }
     
     
+    @IBAction func save(sender: UIButton) {
+        
+        let imageFull = UIImage(named: "starF.png") as UIImage!
+        let imageEmpty = UIImage(named: "star.png") as UIImage!
+        if (sender.currentImage == imageFull)
+        {//content saved -> user wants to delete save
+            sender.setImage(imageEmpty, forState: .Normal)
+            Content().unsaveContent(uid, cid: contentList[sender.tag].contentId)
+        }
+        else
+        {//content is not saved -> user wants to save
+            sender.setImage(imageFull, forState: .Normal)
+            let image = UIImage(named: "starF.png") as UIImage!
+            sender.setImage(image, forState: .Normal)
+            Content().saveContent(uid, cid: contentList[sender.tag].contentId)
+        }
+    }
+
     
-    
- /*   override func prepareForSegue (segue: UIStoryboardSegue, sender: AnyObject?)
+  override func prepareForSegue (segue: UIStoryboardSegue, sender: AnyObject?)
     {        print("in segue")
         
         if (segue.identifier == "ShowView")
@@ -118,7 +130,7 @@ print("Done")*/
             
             upcoming.cid = cid
             
-        }}*/
+        }}
     
     func loadFavorite (completion: () -> Void)
     {
@@ -146,9 +158,6 @@ print("Done")*/
                         for item in jsonResults {
                             self.contentList.append(Content(json: item as! [String : AnyObject]))
                         }
-                        for cont in self.contentList {
-                        print("\(cont.Title)")}
-                     // self.tableView.reloadData()
                     }
                     
                 }

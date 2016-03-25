@@ -30,20 +30,24 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         self.tableView.dataSource = self
         self.tableView.delegate = self
         
+      /*  
+        //Dummy data
+        var c = Content()
+        c.Title = "Title1"
+        c.contentId = 106
+        contentList.append(c)
+    
+        var c1 = Content()
+        c1.Title = "HERE!!"
+        c1.contentId = 105
+        contentList.append(c1)
+self.tableView.reloadData()*/
         // 3. Set the beacon manager's delegate
         self.beaconManager.delegate = self
         // 4. We need to request this authorization for every beacon manager
         self.beaconManager.requestAlwaysAuthorization()
     }
    
- /*   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
-    
-     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }*/
-
 
     //To start/stop ranging as the view controller appears/disappears
     override func viewWillAppear(animated: Bool) {
@@ -72,7 +76,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         
         cell.ViewContentButton.tag = contentList[indexPath.row].contentId
         
-        cell.SaveButton.tag = contentList[indexPath.row].contentId
+        cell.SaveButton.tag = indexPath.row
         
         return cell
         
@@ -80,13 +84,20 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
 
     @IBAction func save(sender: UIButton) {
         
-        let image = UIImage(named: "starF.png") as UIImage!
-        sender.setImage(image, forState: .Normal)
-        
-        Content ().saveContent(uid, cid: (sender.tag))
-        
-        
-      
+        let imageFull = UIImage(named: "starF.png") as UIImage!
+        let imageEmpty = UIImage(named: "star.png") as UIImage!
+        if (sender.currentImage == imageFull)
+        {//content saved -> user wants to delete save
+            sender.setImage(imageEmpty, forState: .Normal)
+            Content().unsaveContent(uid, cid: contentList[sender.tag].contentId)
+        }
+        else
+        {//content is not saved -> user wants to save
+            sender.setImage(imageFull, forState: .Normal)
+            let image = UIImage(named: "starF.png") as UIImage!
+            sender.setImage(image, forState: .Normal)
+            Content().saveContent(uid, cid: contentList[sender.tag].contentId)
+        }
     }
    
  
@@ -100,11 +111,42 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
         
         let indexPath = self.tableView.indexPathForSelectedRow!
         
-           let cid = contentList[indexPath.row].contentId
+        let cid = contentList[indexPath.row].contentId
         
+        upcoming.cid = cid
+        
+        /*var upcoming: ContentForAttendeeViewController = segue.destinationViewController as! ContentForAttendeeViewController
+        
+        let indexPath = self.tableView.indexPathForSelectedRow!
+        
+           let cid = contentList[indexPath.row].contentId
+          var content: Content = Content()
             upcoming.cid = cid
-       
-        }}
+        
+      Content().ViewContent(cid, UserID: uid){
+            (content:Content) in
+            dispatch_async(dispatch_get_main_queue()) {
+                upcoming.content = content
+                upcoming.commentsTable.reloadData()
+                upcoming.abstract.text = content.Abstract
+                upcoming.pdf.text = content.Pdf
+                upcoming.video.text = content.Video
+                upcoming.navbar.title = content.Title
+                upcoming.images = content.Images
+                print(upcoming.content.like)
+                print(upcoming.content.dislike)
+                if(upcoming.content.like==1){
+                    upcoming.likeButton.setImage(UIImage(named: "like.png"), forState: UIControlState.Normal)
+                }
+                else if (upcoming.content.dislike==1){
+                    upcoming.dislikeButton.setImage(UIImage(named: "dislike.png"), forState: UIControlState.Normal)
+                }
+            }
+
+        }
+    upcoming.content = content*/
+        }
+    }
     
     func loadContent (major: NSNumber, minor: NSNumber)
     {

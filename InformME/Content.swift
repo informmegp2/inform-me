@@ -451,6 +451,34 @@ class Content {
     
     
     }
+    
+    func unsaveContent(uid: Int , cid: Int) {
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/UnsaveContent.php")!)
+        request.HTTPMethod = "POST";
+        let postString = "uid=\(uid)&cid=\(cid)";
+        print("\(postString)")
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
+            data, response, error in
+            
+            if error != nil {
+                print("error=\(error)")
+                return
+            }
+            
+            print("response = \(response)")
+            
+            
+        }
+        task.resume()
+        
+        
+        
+        
+    }
+    
     func deleteComment(cid : Int, uid : Int,completionHandler: (done:Bool) -> ()) {
        
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/deletecomment.php")
@@ -735,11 +763,23 @@ class Content {
         label = ""
         contentId = 0}
     
-    init(json: [String: AnyObject]) {
+    init(json: [String: AnyObject])
+    {
         contentId = Int(json["ContentID"] as! String)!
         Title = json["Title"] as! String
-    }
+        
+        if let NotSaved = (json["NotSaved"] as? String)
+        {if (!(NotSaved.isEmpty) && NotSaved == "0")
+        {self.save = true}}
+
 }
+
+
+}
+
+
+
+
 /*extension NSMutableData {
     
     func appendString(string: String) {
