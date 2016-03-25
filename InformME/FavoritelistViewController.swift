@@ -89,7 +89,7 @@ print("Done")*/
         
         cell.ViewContentButton.tag = contentList[indexPath.row].contentId
         
-        cell.SaveButton.tag = contentList[indexPath.row].contentId
+        cell.SaveButton.tag = indexPath.row
         
         print("HERE IN CELL")
         
