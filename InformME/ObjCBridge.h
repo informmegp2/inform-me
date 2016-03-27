@@ -10,5 +10,6 @@
 #define ObjCBridge_h
 
 #import <EstimoteSDK/EstimoteSDK.h>
+#import "SWRevealViewController.h"
 
 #endif /* ObjCBridge_h */

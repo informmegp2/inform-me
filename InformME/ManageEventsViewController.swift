@@ -15,6 +15,7 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
     
     @IBOutlet var tableView: UITableView!
   
+    @IBOutlet weak var menuButton: UIBarButtonItem!
      var eventsInfo: [Event] = []
     var event:Event = Event()
     var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
@@ -26,6 +27,13 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
             dispatch_async(dispatch_get_main_queue()) {
                 self.eventsInfo = eventsInfo
                 self.tableView.reloadData()
+            }
+            
+            
+            if self.revealViewController() != nil {
+                self.menuButton.target = self.revealViewController()
+                self.menuButton.action = "revealToggle:"
+                self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             }
             
         }

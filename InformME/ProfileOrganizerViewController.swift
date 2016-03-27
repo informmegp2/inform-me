@@ -18,6 +18,7 @@ class ProfileOrganizerViewController : UIViewController , UITextFieldDelegate{
     @IBOutlet var passwordField: UITextField!
     var e :EventOrganizer = EventOrganizer()
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     
     override func viewDidLoad() {
@@ -31,6 +32,12 @@ class ProfileOrganizerViewController : UIViewController , UITextFieldDelegate{
                 self.bioField.text = OrganizerInfo.bio
             }
             
+            
+            if self.revealViewController() != nil {
+                self.menuButton.target = self.revealViewController()
+                self.menuButton.action = "revealToggle:"
+                self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            }
         }
         
         

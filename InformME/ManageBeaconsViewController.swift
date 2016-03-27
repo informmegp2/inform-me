@@ -19,6 +19,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     var beaconsInfo:NSMutableArray=[]
     var bID:Int = 1;
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
@@ -26,6 +27,12 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         get();
         tableView.reloadData()
         //setup tint color for tha back button.
+        
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
     
     
