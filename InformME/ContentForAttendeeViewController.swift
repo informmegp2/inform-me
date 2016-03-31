@@ -12,6 +12,7 @@ import Social
 
 class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource,  UICollectionViewDataSource, UICollectionViewDelegate {
    
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet var commentsTable: UITableView!
     @IBOutlet var abstract: UILabel!
     @IBOutlet var pdf: UILabel!
@@ -26,6 +27,11 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     @IBOutlet var likeButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
         commentsTable.delegate = self;
         commentsTable.dataSource = self;
         content.ViewContent(cid, UserID: uid){

@@ -14,6 +14,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     var Requested: [String] = [""]
     var contentList = [Content]()
     var uid = 30;
@@ -46,6 +47,12 @@ self.tableView.reloadData()*/
         self.beaconManager.delegate = self
         // 4. We need to request this authorization for every beacon manager
         self.beaconManager.requestAlwaysAuthorization()
+        
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
     }
    
 

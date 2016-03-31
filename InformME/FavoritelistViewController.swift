@@ -12,6 +12,7 @@ import UIKit
 class FavoritelistViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
     
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     var contentList = [Content]()
     var uid = 30;
@@ -55,6 +56,11 @@ class FavoritelistViewController: UIViewController,UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if self.revealViewController() != nil {
+            menuButton.target = self.revealViewController()
+            menuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
         loadFavorite () {
             () in
             dispatch_async(dispatch_get_main_queue()) {

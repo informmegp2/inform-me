@@ -12,6 +12,7 @@ import UIKit
 class ProfileViewController: UIViewController {
     
     
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet var usernameFiled: UITextField!
     @IBOutlet var emailFiled: UITextField!
     @IBOutlet var bioFiled: UITextField!
@@ -29,11 +30,15 @@ class ProfileViewController: UIViewController {
                 self.usernameFiled.text = AttendeeInfo.username
                 self.emailFiled.text = AttendeeInfo.email
                 self.bioFiled.text = AttendeeInfo.bio
+               
                 
             }
-            
         }
-        
+            if self.revealViewController() != nil {
+                self.menuButton.target = self.revealViewController()
+                self.menuButton.action = "revealToggle:"
+                self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+            }
         
         
     }//end fun didload
