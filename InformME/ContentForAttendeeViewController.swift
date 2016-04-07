@@ -21,7 +21,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     @IBOutlet weak var commentField: UITextField!
     var content: Content = Content()
     var cid: Int = 105
-    var uid: Int = 29
+    var uid: Int = NSUserDefaults.standardUserDefaults().integerForKey("id")
     var images: [UIImage] = []
     
     @IBOutlet var likeButton: UIButton!
@@ -102,7 +102,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
          let twitterComposeVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
                 twitterComposeVC.setInitialText("test post content from our app")
                 self.presentViewController(twitterComposeVC, animated: true, completion: nil)
-                self.content.shareContent(self.cid){
+                self.content.shareContent(self.content.CID!){
                     (done:Bool) in
                     dispatch_async(dispatch_get_main_queue()) {
                         print("I am cool")
@@ -199,7 +199,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     
     @IBAction func likeContent(sender: AnyObject) {
           if (self.content.like==0 && self.content.dislike==0){
-        self.content.likeContent(self.cid, uid: self.uid){
+        self.content.likeContent(self.content.CID!, uid: self.uid){
             (done:Bool) in
             dispatch_async(dispatch_get_main_queue()) {
                 print("I am cool")
@@ -210,7 +210,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
             }
             }}
           else if (self.content.dislike==1){
-            self.content.updateEvaluation(self.cid, uid: self.uid, likeNo: 1, dislikeNo: 0){
+            self.content.updateEvaluation(self.content.CID!, uid: self.uid, likeNo: 1, dislikeNo: 0){
                 (done:Bool) in
                 dispatch_async(dispatch_get_main_queue()) {
             self.likeButton.setImage(UIImage(named: "like.png"), forState: UIControlState.Normal)
@@ -227,7 +227,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     
     @IBAction func dislikeContent(sender: AnyObject) {
         if (self.content.like==0 && self.content.dislike==0){
-        self.content.disLikeContent(self.cid, uid: self.uid){
+        self.content.disLikeContent(self.content.CID!, uid: self.uid){
             (done:Bool) in
             dispatch_async(dispatch_get_main_queue()) {
                 print("I am cool")
@@ -238,7 +238,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
             }}
         }
         else if (self.content.like==1){
-            self.content.updateEvaluation(self.cid, uid: self.uid, likeNo: 0, dislikeNo: 1){
+            self.content.updateEvaluation(self.content.CID!, uid: self.uid, likeNo: 0, dislikeNo: 1){
                 (done:Bool) in
                 dispatch_async(dispatch_get_main_queue()) {
 
@@ -255,8 +255,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     
     @IBAction func comment(){
         let comment: Comment = Comment()
-        comment.user.userID = 6
-            //NSUserDefaults.standardUserDefaults().integerForKey("id")
+        comment.user.userID = self.uid            //NSUserDefaults.standardUserDefaults().integerForKey("id")
         comment.comment = self.commentField.text!
         comment.contentID = self.content.contentId
         //TODO: --Check if comment added succesfully :) --
