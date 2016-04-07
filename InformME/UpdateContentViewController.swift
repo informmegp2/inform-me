@@ -70,16 +70,13 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             UIAlertAction in
             NSLog("OK Pressed")
             var c : Content = Content()
-
-            c.updateContent (title, abstract: abstract,video: pdf , Pdf: video ,bLabel: blabel,image: self.images, TempV: self.tempV , TempP: self.tempP , cID: self.cid!)
-            //(flag:Bool) in
-           // we should perform all segues in the main thread
-           // dispatch_async(dispatch_get_main_queue()) {
-            if (c.upd) {
-                self.performSegueWithIdentifier("alertPressedOK", sender:sender)
-            }
-            
-        }
+            c.updateContent (title, abstract: abstract,video: pdf , Pdf: video ,bLabel: blabel,image: self.images, TempV: self.tempV , TempP: self.tempP ,EID: self.EID!, cID: self.cid!){
+                (flag:Bool) in
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.performSegueWithIdentifier("alertPressedOK", sender:sender)
+                }
+                
+            } }
         
         var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
@@ -104,6 +101,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             detailVC.video=EVideo.text!
             detailVC.contentid=cid!
             detailVC.images=images
+            
             
         }
         
