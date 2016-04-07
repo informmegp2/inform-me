@@ -132,14 +132,14 @@ class Event {
     
     
     
-    func AddEvent(name: String,web: String,date: String,logo: UIImage, completionHandler: (flag:Bool) -> ()){
+    func AddEvent(uid:Int, name: String,web: String,date: String,logo: UIImage, completionHandler: (flag:Bool) -> ()){
         
         
         var f=false
         
         
         
-        
+        var uuid = String(uid)
         
         let MYURL = NSURL(string:"http://bemyeyes.co/API/event/addEvent.php")
         let request = NSMutableURLRequest(URL:MYURL!)
@@ -149,7 +149,7 @@ class Event {
             "evName"  : name,
             "evWebsite"    : web,
             "evDate"    : date,
-            "uid" : "1"
+            "uid" : uuid
         ]
         
         //Change UserID"

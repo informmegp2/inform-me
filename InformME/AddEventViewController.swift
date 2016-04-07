@@ -9,7 +9,8 @@
 import UIKit
 import Foundation
 class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
+    var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
     @IBOutlet var EventLogoo: UIButton!
     @IBOutlet var EventDate: UITextField!
     @IBOutlet var EventWebsite: UITextField!
@@ -107,7 +108,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         else {
             print(EventName.text)
             let e : Event = Event()
-            e.AddEvent (name, web: website, date: date, logo: EventLogoo.backgroundImageForState(.Normal)!){
+            e.AddEvent (UserID, name: name, web: website, date: date, logo: EventLogoo.backgroundImageForState(.Normal)!){
                 (flag:Bool) in
                 //we should perform all segues in the main thread
                 dispatch_async(dispatch_get_main_queue()) {
