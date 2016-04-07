@@ -14,6 +14,8 @@ class Beacon {
     var Major: String = ""
     var Minor: String = ""
     var save : Bool = false;
+    var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
+
       func addBeacon(label: String,major: String,minor: String,completionHandler: (flag:Bool) -> ()) {
         
         var f=false
@@ -24,7 +26,7 @@ class Beacon {
         
         //Change UserID"
         
-        let postString = "Label="+label+"&Major="+major+"&Minor="+minor+"&UserID=13"
+        let postString = "Label="+label+"&Major="+major+"&Minor="+minor+"&UserID=\(UserID)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -137,7 +139,7 @@ class Beacon {
 
     func fillForm(label: String,major: String,minor: String) {}
     
-   // func updateBeacon(label: String,major: String,minor: String , Temp: String ,completionHandler: (flag:Bool) -> ()) {)
+
          func updateBeacon(label: String,major: String,minor: String , Temp: String){
         
         save = false;

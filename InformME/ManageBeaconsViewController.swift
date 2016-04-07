@@ -18,7 +18,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     var Labels : [String] = []
     var beaconsInfo:NSMutableArray=[]
     var bID:Int = 1;
-    
+    var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     @IBOutlet var tableView: UITableView!
@@ -78,14 +78,10 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     
     
     func get(){
-        let uid=13
-        
-        
-        
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/beacon/SelectBeacon.php")!)
         
         request.HTTPMethod = "POST"
-        let postString = "uid=\(uid)"
+        let postString = "uid=\(UserID)"
         
       
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
