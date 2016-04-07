@@ -13,21 +13,19 @@ class Content {
     var Abstract: String = ""
     var Images: [UIImage] = []
     var Video: String = ""
-    //var Pdf: NSData = NSData() //this will be changed depending on our chosen type.
     var Pdf : String = ""
     var likes: Like = Like()
     var dislikes:Dislike = Dislike()
     var comments: [Comment] = []
-    var CID:Int?
     var shares: Int = 0
     var label: String = ""
-    var contentId: Int = 0
+    var contentId: Int?
     var like: Int = 0
     var dislike: Int = 0
     var save:Bool = false;
     var del:Bool = false
     var upd:Bool = false
-
+    
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
         var body = NSMutableData();
         
@@ -40,7 +38,6 @@ class Content {
         }
         
         let filename = "ContentImage.jpg"
-        
         let mimetype = "image/jpg"
         
         body.appendString("--\(boundary)\r\n")
@@ -55,11 +52,8 @@ class Content {
         
         return body
     }
-    var f=false
-
-    func createContent(title: String,abstract: String ,video: String,Pdf: String,BLabel: String,image: [UIImage], completionHandler: (flag:Bool) -> ()) {
-          f = false
-        let eid=133
+    
+    func createContent(title: String,abstract: String ,video: String,Pdf: String,BLabel: String,EID:Int,image: [UIImage], completionHandler: (flag:Bool) -> ()) {
         let l = BLabel
         let SC = 0
         
@@ -68,7 +62,7 @@ class Content {
         let request = NSMutableURLRequest(URL:MYURL!)
         
         request.HTTPMethod = "POST";
-        let postString = "Title="+title+"&Abstract="+abstract+"&ShareCounter=\(SC)&Label=\(l)&EventID=\(eid)&PDF=\(Pdf)&Video=\(video)"
+        let postString = "Title="+title+"&Abstract="+abstract+"&ShareCounter=\(SC)&Label=\(l)&EventID=\(EID)&PDF=\(Pdf)&Video=\(video)"
         
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
@@ -87,23 +81,18 @@ class Content {
         }
         
         task.resume()
-        addImage(title,abstract: abstract,BLabel: BLabel,image: image){
+        addImage(title,abstract: abstract,BLabel: BLabel,EID: EID,image: image){
             (flag:Bool) in
             //we should perform all segues in the main thread
             dispatch_async(dispatch_get_main_queue()) {
                 completionHandler(flag: flag)
             }
         }
-}
+    }
     
-    func addImage(title: String,abstract: String ,BLabel: String,image: [UIImage] ,completionHandler: (flag:Bool) -> ()) {
-        save = false
-        let eid=133
+    func addImage(title: String,abstract: String ,BLabel: String,EID:Int,image: [UIImage] ,completionHandler: (flag:Bool) -> ()) {
         let l = BLabel
         let SC = 0
-        var temp : Int = 0
-        print ("--------")
-        print (image.count)
         for i in 0...image.count-1{
             let MYURL = NSURL(string:"http://bemyeyes.co/API/content/AddImage.php")
             
@@ -114,7 +103,7 @@ class Content {
             let param : [String: String] = [
                 "Title"     : title,
                 "Abstract"  :abstract,
-                "EventID"  :String(eid),
+                "EventID"  :String(EID),
                 "ShareCounter" :String(SC),
                 "Label" : l,
                 "ImageNum" : String(i)
@@ -135,14 +124,14 @@ class Content {
                     print("error=\(error)")
                     return
                 }
-
+                
                 // You can print out response object
                 print("response = \(response)")
                 completionHandler(flag: true)
             }
             task.resume()
-            }
-
+        }
+        
         
     }
     
@@ -150,15 +139,11 @@ class Content {
         return "Boundary-\(NSUUID().UUIDString)"
     }
     
-    func updateContent(title: String,abstract: String ,video: String,Pdf: String ,bLabel: String,image: [UIImage], TempV: String , TempP: String , cID:Int) {
-        
-        upd=false
+    func updateContent(title: String,abstract: String ,video: String,Pdf: String ,bLabel: String,image: [UIImage], TempV: String , TempP: String ,EID:Int, cID:Int ,completionHandler: (flag:Bool) -> ()) {
         
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/EditContent.php")
         let request = NSMutableURLRequest(URL:MYURL!)
-        request.HTTPMethod = "POST";
-        
-        
+        request.HTTPMethod = "POST"
         let postString = "Title=\(title)&Abstract=\(abstract)&PDF=\(Pdf)&Video=\(video)&CID=\(cID)&pPDF=\(TempP)&pVideo=\(TempV)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
@@ -173,27 +158,30 @@ class Content {
             
             // You can print out response object
             print("response = \(response)")
-            
-            
-            
         }
         
         task.resume()
-        updateImage(title,abstract: abstract,BLabel: bLabel,image: image )
+        
+        updateImage(title,abstract: abstract,BLabel: bLabel,EID: EID,image: image ){
+            (flag:Bool) in
+            //we should perform all segues in the main thread
+            dispatch_async(dispatch_get_main_queue()) {
+                completionHandler(flag: flag)
+            }
+        }
+        
         
     }
     
-    func updateImage(title: String,abstract: String ,BLabel: String,image: [UIImage]){
-        let eid=133
+    func updateImage(title: String,abstract: String ,BLabel: String,EID:Int,image: [UIImage],completionHandler: (flag:Bool) -> ()) {
+        
         let l = BLabel
-        let SC = 0
-        upd = false
         
         let MYURL1 = NSURL(string:"http://bemyeyes.co/API/content/deleteImage.php")
         let request1 = NSMutableURLRequest(URL:MYURL1!)
         request1.HTTPMethod = "POST";
         
-        let postString1 = "Title=\(title)&Abstract=\(abstract)&EventID=\(eid)&Label=\(l)&ShareCounter=\(SC)"
+        let postString1 = "Title=\(title)&Abstract=\(abstract)&EventID=\(EID)&Label=\(l)"
         request1.HTTPBody = postString1.dataUsingEncoding(NSUTF8StringEncoding);
         
         let task1 = NSURLSession.sharedSession().dataTaskWithRequest(request1) {
@@ -207,17 +195,11 @@ class Content {
             
             // You can print out response object
             print("response = \(response)")
-            //completionHandler(flag: f)
-            
-            
-            
-            
         }
         
         task1.resume()
         
         for i in 0...image.count-1{
-            print ("entrr lop")
             let MYURL = NSURL(string:"http://bemyeyes.co/API/content/updateImage.php")
             
             let request = NSMutableURLRequest(URL:MYURL!)
@@ -227,8 +209,7 @@ class Content {
             let param : [String: String] = [
                 "Title"     : title,
                 "Abstract"  :abstract,
-                "EventID"  :String(eid),
-                "ShareCounter" :String(SC),
+                "EventID"  :String(EID),
                 "Label" : l,
                 "ImageNum" : String(i)
             ]
@@ -253,6 +234,7 @@ class Content {
             }
             task.resume()
         }
+        completionHandler(flag: true)
         upd = true
     }
     
@@ -260,13 +242,10 @@ class Content {
     func DeleteContent(id: Int ){
         
         var f=false
-      del = true
+        del = true
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/DeleteContent.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
-        
-        
-        //Change UserID"
         
         let postString = "cid=\(id)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
@@ -280,29 +259,20 @@ class Content {
                 return
             }
             f=true
-
+            
             // You can print out response object
             print("response = \(response)")
             //completionHandler(flag: f)
-
-            
-            
-            
         }
         
         task.resume()
-        del = true 
+        del = true
         
     }
     func requestcontentlist(ID: Int,completionHandler: (contentInfo:[Content]) -> ()){
-        
-        
         var TitleA : [String] = []
         var contentInfo: [Content] = []
         let Eid=ID
-        let cid=1
-       
-        
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/SelectContent.php")!)
         
         request.HTTPMethod = "POST"
@@ -359,7 +329,6 @@ class Content {
                         var images: [UIImage] = []
                         let itemI = item["Images"] as! NSArray
                         for var i=0; i<itemI.count;i++ {
-                            print ( "IN ==========")
                             let url:NSURL = NSURL(string : itemI[i] as! String)!
                             let data = NSData(contentsOfURL: url)
                             let image=UIImage(data: data!)
@@ -385,7 +354,7 @@ class Content {
                         print("DONE")
                     }
                     completionHandler(contentInfo: contentInfo)
-
+                    
                     
                 } catch {
                     
@@ -398,8 +367,8 @@ class Content {
         }
         task.resume()
     }
-
-
+    
+    
     
     
     func shareContent(cid: Int, completionHandler: (done:Bool) -> ()) {
@@ -429,11 +398,11 @@ class Content {
         }
         
         task.resume()
-     
-    
+        
+        
     }
     func saveContent(uid: Int , cid: Int) {
-    
+        
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/SaveContent.php")!)
         request.HTTPMethod = "POST";
         let postString = "uid=\(uid)&cid=\(cid)";
@@ -453,10 +422,8 @@ class Content {
             
         }
         task.resume()
-
-    
-    
-    
+        
+        
     }
     
     func unsaveContent(uid: Int , cid: Int) {
@@ -480,14 +447,10 @@ class Content {
             
         }
         task.resume()
-        
-        
-        
-        
     }
     
     func deleteComment(cid : Int, uid : Int,completionHandler: (done:Bool) -> ()) {
-       
+        
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/deletecomment.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
@@ -505,19 +468,19 @@ class Content {
                 print("error=\(error)")
                 return
             }
-            
+                
             else { // You can print out response object
-            print("response = \(response)")
+                print("response = \(response)")
                 var    i : Int;
-            
+                
                 for ( i=0; i<self.comments.count; i++)
                 {
                     if (self.comments[i].user.userID == uid){
-                    
-                    self.comments.removeAtIndex(i)
-                    
+                        
+                        self.comments.removeAtIndex(i)
+                        
                     }//end if
-                
+                    
                     
                     
                 }//end for
@@ -558,7 +521,7 @@ class Content {
         }
         
         task.resume()
-
+        
         
     }
     
@@ -591,7 +554,7 @@ class Content {
         
         task.resume()
         
-
+        
     }
     func likeContent(cid: Int, uid: Int, completionHandler: (done:Bool) -> ()){
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/evaluate.php")
@@ -622,17 +585,17 @@ class Content {
         
         task.resume()
         
-
-    
-    
-    
-    
+        
+        
+        
+        
+        
     }
     
     //MARK --Found No Need for the commented methods
     //func requestToAddComment() {}
     //func requestToDeleteComment() {}
-
+    
     func saveComment(comment: Comment, completionHandler: (done:Bool) -> ()) {
         let com = comment.comment
         let user = comment.user.userID
@@ -657,7 +620,7 @@ class Content {
             
             // You can print out response object
             print("response = \(response)")
-
+            
             
             completionHandler(done: true)
         }
@@ -665,7 +628,7 @@ class Content {
         task.resume()
         
     }
-
+    
     
     //MARK: --- THIS METHOD WAS MOVED FROM EVENTS CLASS ---
     func ViewContent(ContentID: Int, UserID:Int, completionHandler: (content:Content) -> ()){
@@ -693,17 +656,17 @@ class Content {
                             c.Pdf = "No PDF"
                         }
                         else{
-                        c.Pdf = item["PDFFiles"] as! String
+                            c.Pdf = item["PDFFiles"] as! String
                         }
                         if item["Videos"]  is NSNull  {
-                        c.Video = "No Video"
+                            c.Video = "No Video"
                         }
                         else{
-                        c.Video = item["Videos"] as! String
+                            c.Video = item["Videos"] as! String
                         }
                         c.shares = Int(item["ShareCounter"] as! String)!
                         c.label = item["Label"] as! String
-
+                        
                         var comments: [Comment] = []
                         let itemC = item["Comments"] as! NSArray
                         for var i=0; i<itemC.count;i++ {
@@ -728,18 +691,18 @@ class Content {
                             c.like = 0
                         }
                         else{
-                       let lk = item["Like"] as! String
+                            let lk = item["Like"] as! String
                             c.like = Int(lk)!}
-                       
+                        
                         if item["dislike"] is NSNull {
                             c.dislike = 0
                         }
                         else {
-                        let dislk = item["dislike"] as! String
+                            let dislk = item["dislike"] as! String
                             c.dislike = Int(dislk)!}
                         
                         completionHandler(content: c)
-
+                        
                         print("DONE")
                     }
                     
@@ -778,19 +741,8 @@ class Content {
         if let NotSaved = (json["NotSaved"] as? String)
         {if (!(NotSaved.isEmpty) && NotSaved == "0")
         {self.save = true}}
-
-}
-
-
-}
-
-
-
-
-/*extension NSMutableData {
-    
-    func appendString(string: String) {
-        let data = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
-        appendData(data!)
+        
     }
-}*/
+    
+    
+}

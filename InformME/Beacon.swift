@@ -14,17 +14,18 @@ class Beacon {
     var Major: String = ""
     var Minor: String = ""
     var save : Bool = false;
-      func addBeacon(label: String,major: String,minor: String,completionHandler: (flag:Bool) -> ()) {
+    var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
+    
+    func addBeacon(label: String,major: String,minor: String,completionHandler: (flag:Bool) -> ()) {
         
         var f=false
-
+        
         let MYURL = NSURL(string:"http://bemyeyes.co/API/beacon/AddBeacon.php")
         let request = NSMutableURLRequest(URL:MYURL!)
-        request.HTTPMethod = "POST";
-        
-        //Change UserID"
-        
-        let postString = "Label="+label+"&Major="+major+"&Minor="+minor+"&UserID=13"
+        request.HTTPMethod = "POST"
+        let majorHash = "\(UserID),\(major)"
+        let minorHash = "\(UserID),\(minor)"
+        let postString = "Label="+label+"&Major="+majorHash+"&Minor="+minorHash+"&UserID=\(UserID)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -36,17 +37,17 @@ class Beacon {
                 return
             }
             f=true
-
+            
             // You can print out response object
             print("response = \(response)")
             
             completionHandler(flag: f)
-
+            
             
         }
         
         task.resume()
-}
+    }
     
     func assign (label: String, var cid:Int ,completionHandler: (flag:Bool) -> ()) {
         var f=false
@@ -56,7 +57,7 @@ class Beacon {
         request.HTTPMethod = "POST";
         
         //Change UserID"
-       var cid1=String(cid)
+        var cid1=String(cid)
         let postString = "label="+label+"&cid="+cid1
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
@@ -84,7 +85,6 @@ class Beacon {
     
     func requestbeaconlist(id: Int,completionHandler: (beaconsInfo:[Beacon]) -> ()){
         var beaconsInfo: [Beacon] = []
-        print("in beacon managment")
         let uid=id
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/beacon/SelectBeacon.php")!)
@@ -113,36 +113,26 @@ class Beacon {
                         beacon.Major=m as! String
                         beacon.Minor=mi as! String
                         beaconsInfo.append(beacon)
-                        
-                        
-                        
                     }
-                    
-                    
                 } catch {
                     
                     print("JSON serialization failed")
-                    
                 }
-                
-                
             }
-            print("here?")
             completionHandler(beaconsInfo: beaconsInfo)
         }
         task.resume()
-        print("hi");
     }
     
-
+    
     func fillForm(label: String,major: String,minor: String) {}
     
-   // func updateBeacon(label: String,major: String,minor: String , Temp: String ,completionHandler: (flag:Bool) -> ()) {)
-         func updateBeacon(label: String,major: String,minor: String , Temp: String){
+    
+    func updateBeacon(label: String,major: String,minor: String , Temp: String){
         
         save = false;
         var f=false
-
+        
         let MYURL = NSURL(string:"http://bemyeyes.co/API/beacon/EditBeacon.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
@@ -160,19 +150,19 @@ class Beacon {
                 return
             }
             f=true
-
+            
             // You can print out response object
             print("response = \(response)")
-           // completionHandler(flag: f)
-//
+            // completionHandler(flag: f)
+            //
             
         }
-            save = true
+        save = true
         task.resume()
         
         
     }
-
+    
     func updateform(label: String, major: String, minor: String) {}
     func displayBeacon() {}
     
@@ -180,7 +170,7 @@ class Beacon {
         let MYURL = NSURL(string:"http://bemyeyes.co/API/beacon/DeleteBeacon.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
-      
+        
         let postString = "Label="+label
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
@@ -201,31 +191,31 @@ class Beacon {
         }
         
         task.resume()
-}
-   
+    }
+    
     func MonitorBeacon() -> CLBeaconRegion {
         //When the app starts the application will begin scanning for beacons
         //This ID is temporary, I will create a UUID for all of our beacons
         
         let uuid = NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!
         let beaconRegion = CLBeaconRegion(proximityUUID: uuid, identifier: "MyBeacon")
-     /*   beaconRegion.notifyOnEntry = true
-        beaconRegion.notifyOnExit = true
-        beaconRegion.notifyEntryStateOnDisplay = true
-        */
+        /*   beaconRegion.notifyOnEntry = true
+         beaconRegion.notifyOnExit = true
+         beaconRegion.notifyEntryStateOnDisplay = true
+         */
         
-return beaconRegion
-
-    
+        return beaconRegion
+        
+        
     }
     
     
     func BeaconNotification(){
         
-    let notification = UILocalNotification()
-    notification.alertBody =
-    "هنالك بيكون بالقرب منك!"
-    UIApplication.sharedApplication().presentLocalNotificationNow(notification)
+        let notification = UILocalNotification()
+        notification.alertBody =
+        "هنالك بيكون بالقرب منك!"
+        UIApplication.sharedApplication().presentLocalNotificationNow(notification)
     }
     
     

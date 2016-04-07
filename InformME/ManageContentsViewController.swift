@@ -11,19 +11,15 @@ import UIKit
 
 class ManageContentsViewController: UIViewController,UITableViewDataSource, UITableViewDelegate ,ContentCellDelegate  {
     
-   // var values:NSMutableArray = []
-  /// var contentsInfo:NSMutableArray=[]
-    //var bID:Int = 1;
-    
     @IBOutlet var tableView: UITableView!
     
     var contentInfo: [Content] = []
     var content: Content = Content()
-    var EID: Int =  133
+    var EID: Int?
     
     
     override func viewDidLoad() {
-        content.requestcontentlist(EID){
+        content.requestcontentlist(EID!){
             (contentInfo:[Content]) in
             dispatch_async(dispatch_get_main_queue()) {
                 self.contentInfo = contentInfo
@@ -36,7 +32,11 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
         self.tableView.reloadData();
         //setup tint color for tha back button.
     }
-
+    
+    
+    @IBAction func addcontent(sender: AnyObject) {
+        self.performSegueWithIdentifier("addContentbutton", sender: self)
+    }
     
     @IBAction func out(sender: AnyObject) {
         
@@ -68,8 +68,8 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
         
         
         
-    }//end out
-
+    }//end out addContent
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("contentCell", forIndexPath: indexPath) as! ContentTableCellViewController
@@ -87,7 +87,7 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
     func showContentDetails(){
         performSegueWithIdentifier("showContentDetails", sender: self)
     }
-   
+    
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         
         if (segue.identifier == "showContentDetails") {
@@ -107,8 +107,15 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
             detailVC.contentid=c.contentId
             detailVC.images = c.Images
             detailVC.label=c.label
-        
+            detailVC.EID = self.EID
+            
+            
         }
+        else if (segue.identifier == "addContentbutton") {
+            let addVC = segue.destinationViewController as! AddContentViewController
+            addVC.EID =  self.EID
+        }
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -91,9 +91,9 @@ print("Done")*/
      
         cell.Title.text = contentList[indexPath.row].Title
         
-        cell.tag = contentList[indexPath.row].contentId
+        cell.tag = contentList[indexPath.row].contentId!
         
-        cell.ViewContentButton.tag = contentList[indexPath.row].contentId
+        cell.ViewContentButton.tag = contentList[indexPath.row].contentId!
         
         cell.SaveButton.tag = indexPath.row
         
@@ -111,14 +111,14 @@ print("Done")*/
         if (sender.currentImage == imageFull)
         {//content saved -> user wants to delete save
             sender.setImage(imageEmpty, forState: .Normal)
-            Content().unsaveContent(uid, cid: contentList[sender.tag].contentId)
+            Content().unsaveContent(uid, cid: contentList[sender.tag].contentId!)
         }
         else
         {//content is not saved -> user wants to save
             sender.setImage(imageFull, forState: .Normal)
             let image = UIImage(named: "starF.png") as UIImage!
             sender.setImage(image, forState: .Normal)
-            Content().saveContent(uid, cid: contentList[sender.tag].contentId)
+            Content().saveContent(uid, cid: contentList[sender.tag].contentId!)
         }
     }
 
@@ -134,7 +134,7 @@ print("Done")*/
             
             let cid = contentList[indexPath.row].contentId
             
-            upcoming.cid = cid
+            upcoming.cid = cid!
             
         }}
     
