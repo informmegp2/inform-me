@@ -91,8 +91,14 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
                         var mi : AnyObject = jsonResult[x]["Minor"]as! String
                         
                         beacon.Label=l as! String
-                        beacon.Major=m as! String
-                        beacon.Minor=mi as! String
+                       
+                        
+                        let majorsplits = (m as! String).characters.split{$0 == ","}.map(String.init)
+                       
+                         let minorsplits = (mi as! String).characters.split{$0 == ","}.map(String.init)
+                        
+                        beacon.Major=majorsplits[1]
+                        beacon.Minor=minorsplits[1]
                         self.values.addObject(beacon)
                         self.beaconsInfo.addObject(beacon)
                         self.Labels.append(l as! String)
