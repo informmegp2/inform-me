@@ -25,8 +25,9 @@ class Beacon {
         request.HTTPMethod = "POST";
         
         //Change UserID"
-        
-        let postString = "Label="+label+"&Major="+major+"&Minor="+minor+"&UserID=\(UserID)"
+        let majorHash = "\(UserID),\(major)"
+        let minorHash = "\(UserID),\(minor)"
+        let postString = "Label="+label+"&Major="+majorHash+"&Minor="+minorHash+"&UserID=\(UserID)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
@@ -112,8 +113,12 @@ class Beacon {
                         var mi : AnyObject = jsonResult[x]["Minor"]as! String
                         
                         beacon.Label=l as! String
-                        beacon.Major=m as! String
-                        beacon.Minor=mi as! String
+                        let majorsplits = (m as! String).characters.split{$0 == ","}.map(String.init)
+                        
+                        let minorsplits = (mi as! String).characters.split{$0 == ","}.map(String.init)
+                        
+                        beacon.Major=majorsplits[1]
+                        beacon.Minor=minorsplits[1]
                         beaconsInfo.append(beacon)
                         
                         
@@ -148,9 +153,10 @@ class Beacon {
         let MYURL = NSURL(string:"http://bemyeyes.co/API/beacon/EditBeacon.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
+            let majorHash = "\(UserID),\(major)"
+            let minorHash = "\(UserID),\(minor)"
         
-        
-        let postString = "Label="+label+"&Major="+major+"&Minor="+minor+"&PreLabel="+Temp
+        let postString = "Label="+label+"&Major="+majorHash+"&Minor="+minorHash+"&PreLabel="+Temp
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
