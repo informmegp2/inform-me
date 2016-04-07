@@ -42,6 +42,14 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
             }
         } }
     
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        if (segue.identifier == "addContent") {
+            var detailVC = segue!.destinationViewController as! ManageContentsViewController
+            detailVC.EID=EID
+            
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
