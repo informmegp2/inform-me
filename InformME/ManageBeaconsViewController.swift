@@ -17,7 +17,6 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     var values:NSMutableArray = []
     var Labels : [String] = []
     var beaconsInfo:NSMutableArray=[]
-    var bID:Int = 1;
     var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
@@ -73,19 +72,12 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         
     } //end out */
     
-    
-    
-    
-    
     func get(){
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/beacon/SelectBeacon.php")!)
         
         request.HTTPMethod = "POST"
         let postString = "uid=\(UserID)"
-        
-      
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
-        
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
             data, response, error in
             
@@ -94,8 +86,6 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
                 do {
                     
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
-                    
-                    
                     for var x=0; x<jsonResult.count;x++ {
                         var beacon: Beacon = Beacon()
                         var l : AnyObject = jsonResult[x]["Label"]as! String
@@ -118,11 +108,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
                     print("JSON serialization failed")
                     
                 }
-                
-                
             }
-            
-            
         }
         task.resume()
         tableView.reloadData()
@@ -143,15 +129,11 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("beaconCell", forIndexPath: indexPath) as! BeaconTableCellViewController
-        //var maindata = values[indexPath.row].minor
         var b: Beacon = Beacon()
         b = self.values[indexPath.row] as! Beacon
         
         cell.name.text = b.Label+" \n القيمة الأساسية:"+b.Major+" ،القيمة الثانوية: "+b.Minor as? String
-        
-        
-        
-        return cell
+            return cell
         
         
     }
@@ -190,7 +172,6 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: this number should be changed to the actual number of recieved events.
         return values.count;
     }
     
@@ -211,7 +192,6 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
             //Checking identifier is crucial as there might be multiple
             // segues attached to same view
             var detailVC = segue.destinationViewController as! UpdateBeaconViewController;
-            //detailVC.evid = e.id
             detailVC.llabel=b.Label
             detailVC.mmajor=b.Major
             detailVC.mminor=b.Minor
@@ -220,7 +200,6 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     
     if (segue.identifier == "addBeacon") {
         var detailVC = segue.destinationViewController as! AddBeaconViewController
-        //detailVC.evid = e.id
         detailVC.labels = Labels
 
     }

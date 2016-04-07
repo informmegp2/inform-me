@@ -15,9 +15,6 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
     @IBOutlet weak var Minor: UITextField!
     @IBOutlet weak var Major: UITextField!
     
-    //var llabel:String?
-    //var major:Int?
-    //var minor:Int?
     var cellContent = [String]()
     var numRow:Int?
     var labels = [String]()
@@ -29,14 +26,10 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
         var  major = Major.text!
         var flag : Bool = false
         
-        let uid=13
-        
         if (Minor.text == "" || Major.text == "" || llabel == "") {
             let alert = UIAlertController(title: "", message: " يرجى إكمال كافة الحقول", preferredStyle: UIAlertControllerStyle.Alert)
             
             alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
-                
-               // self.dismissViewControllerAnimated(true, completion: nil)
                 
             }))
             
@@ -48,14 +41,9 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
                 let alert = UIAlertController(title: "", message: " إسم البيكون مستخدم مسبقا \n الرجاء إختيار إسم أخر ", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
-                    
-                    // self.dismissViewControllerAnimated(true, completion: nil)
-                    
                 }))
                 
                 self.presentViewController(alert, animated: true, completion: nil)
-                
-                
             }
             else {
             var b : Beacon = Beacon()

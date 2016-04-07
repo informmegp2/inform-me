@@ -23,9 +23,6 @@ class Beacon {
         let MYURL = NSURL(string:"http://bemyeyes.co/API/beacon/AddBeacon.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
-        
-        //Change UserID"
-        
         let postString = "Label="+label+"&Major="+major+"&Minor="+minor+"&UserID=\(UserID)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
@@ -86,7 +83,6 @@ class Beacon {
     
     func requestbeaconlist(id: Int,completionHandler: (beaconsInfo:[Beacon]) -> ()){
         var beaconsInfo: [Beacon] = []
-        print("in beacon managment")
         let uid=id
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/beacon/SelectBeacon.php")!)
@@ -115,25 +111,15 @@ class Beacon {
                         beacon.Major=m as! String
                         beacon.Minor=mi as! String
                         beaconsInfo.append(beacon)
-                        
-                        
-                        
                     }
-                    
-                    
                 } catch {
                     
                     print("JSON serialization failed")
-                    
                 }
-                
-                
             }
-            print("here?")
             completionHandler(beaconsInfo: beaconsInfo)
         }
         task.resume()
-        print("hi");
     }
     
 

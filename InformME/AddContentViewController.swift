@@ -21,10 +21,10 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
 
     @IBOutlet var pickerTextField: UITextField!// for assign
     var cellContent = [String]()
-    var numRow:Int?
+       var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
     var beaconsInfo: [Beacon] = []//nouf add it for assign beacon
     var beacon:Beacon = Beacon()// for assign beacon
-    var UserID = 13
+    var EID : Int?
       @IBAction func Submit(sender: AnyObject) {
         var title = TTitle.text!
         var abstract = Abstract.text!
@@ -34,7 +34,7 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         
         var c : Content = Content()
 
-        c.createContent(title,abstract: abstract,video: video,Pdf: pdf ,BLabel: label!,image: images){
+        c.createContent(title,abstract: abstract,video: video,Pdf: pdf ,BLabel: label!,EID: EID! ,image: images ){
             (flag:Bool) in
             //we should perform all segues in the main thread
             dispatch_async(dispatch_get_main_queue()) {

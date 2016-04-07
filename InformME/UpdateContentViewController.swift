@@ -28,12 +28,12 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
     var tempP:String=""
     var cid : Int?
     var label:String=""
-    
+    var EID :Int?
     var cellContent = [String]()
     var numRow:Int?
     var beaconsInfo: [Beacon] = []//nouf add it for assign beacon
     var beacon:Beacon = Beacon()// for assign beacon
-    var UserID = 13
+    var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
     
     
     // for assign
@@ -70,15 +70,13 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             UIAlertAction in
             NSLog("OK Pressed")
             var c : Content = Content()
-           c.updateContent (title, abstract: abstract,video: pdf , Pdf: video ,bLabel: blabel,image: self.images, TempV: self.tempV , TempP: self.tempP , cID: self.cid!)
-            // (flag:Bool) in
-            //we should perform all segues in the main thread
-            // dispatch_async(dispatch_get_main_queue()) {
-            if (c.upd) {
+            c.updateContent (title, abstract: abstract,video: pdf , Pdf: video ,bLabel: blabel,image: self.images, TempV: self.tempV , TempP: self.tempP ,EID: self.EID!, cID: self.cid!){
+             (flag:Bool) in
+             dispatch_async(dispatch_get_main_queue()) {
                 self.performSegueWithIdentifier("alertPressedOK", sender:sender)
             }
             
-        }
+            } }
         
         var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
@@ -234,10 +232,6 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
         pickerOne!.delegate = self
         pickerOne!.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         self.presentViewController(pickerOne!, animated: true, completion: nil)
-        
-        print ( "=======")
-        
-        print (sender.tag)
         temp = sender.tag
         
     }

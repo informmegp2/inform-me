@@ -11,13 +11,14 @@ import UIKit
 class ContentForOrganizerViewController: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate{
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var contentid: Int=105;
+    var contentid: Int?;
     var ttitle: String=""
     var abstract: String=""
     var video: String=""
     var pdf: String=""
     var label: String=""
     var images: [UIImage]=[]
+    var EID : Int?
    // var cid : Int?
     
     @IBOutlet var TTitle: UINavigationItem!
@@ -106,6 +107,8 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
             detailVC.cid=contentid
             detailVC.label=self.label
             detailVC.images = self.images
+            detailVC.EID = self.EID
+            
         }
     }
 
