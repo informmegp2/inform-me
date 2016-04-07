@@ -100,7 +100,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         let tweetAction = UIAlertAction(title: "تويتر", style: UIAlertActionStyle.Default) { (action) -> Void in
             if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
          let twitterComposeVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-                twitterComposeVC.setInitialText("test post content from our app")
+                twitterComposeVC.setInitialText("\(self.abstract.text)\(self.pdf.text)")
                 self.presentViewController(twitterComposeVC, animated: true, completion: nil)
                 self.content.shareContent(self.content.CID!){
                     (done:Bool) in
