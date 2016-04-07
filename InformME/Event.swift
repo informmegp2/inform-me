@@ -49,7 +49,7 @@ class Event {
                         e.date=jsonResult[x]["Date"] as! String
                         e.name=jsonResult[x]["EventName"] as! String
                         e.website=jsonResult[x]["Website"] as! String
-                        print("is it after?")
+                        print("is it after?\(evID)")
 
                         e.id = Int(evID)!
                         let url:NSURL = NSURL(string : jsonResult[x]["Logo"] as! String)!

@@ -70,10 +70,11 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             UIAlertAction in
             NSLog("OK Pressed")
             var c : Content = Content()
-           c.updateContent (title, abstract: abstract,video: pdf , Pdf: video ,bLabel: blabel,image: self.images, TempV: self.tempV , TempP: self.tempP , cID: self.cid!)
-            // (flag:Bool) in
-            //we should perform all segues in the main thread
-            // dispatch_async(dispatch_get_main_queue()) {
+
+            c.updateContent (title, abstract: abstract,video: pdf , Pdf: video ,bLabel: blabel,image: self.images, TempV: self.tempV , TempP: self.tempP , cID: self.cid!)
+            //(flag:Bool) in
+           // we should perform all segues in the main thread
+           // dispatch_async(dispatch_get_main_queue()) {
             if (c.upd) {
                 self.performSegueWithIdentifier("alertPressedOK", sender:sender)
             }
@@ -95,6 +96,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
   
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue.identifier == "alertPressedOK") {
+            print("In prepare for segue")
             var detailVC = segue!.destinationViewController as! ContentForOrganizerViewController;
             detailVC.ttitle=ETitle.text!
             detailVC.abstract=EAbstract.text!
@@ -102,7 +104,6 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             detailVC.video=EVideo.text!
             detailVC.contentid=cid!
             detailVC.images=images
-
             
         }
         

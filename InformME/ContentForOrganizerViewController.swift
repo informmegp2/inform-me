@@ -121,6 +121,7 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
     
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        print("Collection View?")
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ImageCell", forIndexPath: indexPath) as! ImageCollectionViewCell
         cell.cellImage.image = images[indexPath.row]
         return cell

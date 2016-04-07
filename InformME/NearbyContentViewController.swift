@@ -164,7 +164,7 @@ self.tableView.reloadData()*/
         
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/getContent.php")!)
         request.HTTPMethod = "POST";
-        let postString = "major=\(major)&minor=\(minor)";
+        let postString = "major=\(major)&minor=\(minor)&uid=\(uid)";
 
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
      

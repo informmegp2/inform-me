@@ -21,19 +21,16 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
     var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
     override func viewDidLoad() {
         print(NSUserDefaults.standardUserDefaults().integerForKey("id"))
-
+        if self.revealViewController() != nil {
+            self.menuButton.target = self.revealViewController()
+            self.menuButton.action = "revealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
         event.requesteventlist(UserID){
             (eventsInfo:[Event]) in
             dispatch_async(dispatch_get_main_queue()) {
                 self.eventsInfo = eventsInfo
                 self.tableView.reloadData()
-            }
-            
-            
-            if self.revealViewController() != nil {
-                self.menuButton.target = self.revealViewController()
-                self.menuButton.action = "revealToggle:"
-                self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             }
             
         }

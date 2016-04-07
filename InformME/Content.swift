@@ -323,7 +323,11 @@ class Content {
                         c.contentId = Int(item["ContentID"] as! String)!
                         c.Title = item["Title"] as! String
                         c.Abstract = item["Abstract"] as! String
-                        c.label = item["Label"] as! String
+                        if item["Label"]  is NSNull  {
+                            c.label = "No Label"
+                        }
+                        else{
+                            c.label = item["Label"] as! String}
                         if item["PDFFiles"] is NSNull  {
                             c.Pdf = "No PDF"
                         }
@@ -336,9 +340,12 @@ class Content {
                         else{
                             c.Video = item["Videos"] as! String
                         }
-                        c.shares = Int(item["ShareCounter"] as! String)!
-                        c.label = item["Label"] as! String
-                        
+                        if item["ShareCounter"]  is NSNull  {
+                            c.shares = 0
+                        }
+                        else{
+                            c.shares = Int(item["ShareCounter"] as! String)!
+                        }
                         var comments: [Comment] = []
                         let itemC = item["Comments"] as! NSArray
                         for var i=0; i<itemC.count;i++ {
