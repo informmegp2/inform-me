@@ -12,8 +12,6 @@ import UIKit
 
 
 class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, BeaconCellDelegate  {
-    
-    
     var values:NSMutableArray = []
     var Labels : [String] = []
     var beaconsInfo:NSMutableArray=[]
@@ -182,7 +180,6 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     }
     
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-
         if (segue.identifier == "updateBeacon") {
             let pointInTable: CGPoint = sender.convertPoint(sender.bounds.origin, toView: self.tableView)
             let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
@@ -195,7 +192,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
             detailVC.llabel=b.Label
             detailVC.mmajor=b.Major
             detailVC.mminor=b.Minor
-        
+
     }
     
     if (segue.identifier == "addBeacon") {
