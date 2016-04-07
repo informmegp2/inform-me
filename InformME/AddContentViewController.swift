@@ -12,20 +12,20 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
     
     @IBOutlet weak var collectionView: UICollectionView!
     var images: [UIImage]=[]
-
+    
     
     @IBOutlet weak var TTitle: UITextField!
     @IBOutlet weak var Abstract: UITextField!
     @IBOutlet weak var Video: UITextField!
     @IBOutlet weak var PDF: UITextField!
-
+    
     @IBOutlet var pickerTextField: UITextField!// for assign
     var cellContent = [String]()
-       var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
+    var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
     var beaconsInfo: [Beacon] = []//nouf add it for assign beacon
     var beacon:Beacon = Beacon()// for assign beacon
     var EID : Int?
-      @IBAction func Submit(sender: AnyObject) {
+    @IBAction func Submit(sender: AnyObject) {
         var title = TTitle.text!
         var abstract = Abstract.text!
         var video = Video.text!
@@ -33,12 +33,12 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         var label=pickerTextField.text
         
         var c : Content = Content()
-
+        
         c.createContent(title,abstract: abstract,video: video,Pdf: pdf ,BLabel: label!,EID: EID! ,image: images ){
             (flag:Bool) in
             //we should perform all segues in the main thread
             dispatch_async(dispatch_get_main_queue()) {
-            self.performSegueWithIdentifier("addContent", sender:sender)
+                self.performSegueWithIdentifier("addContent", sender:sender)
             }
         } }
     
@@ -64,14 +64,14 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         Abstract.delegate = self
         Video.delegate = self
         PDF.delegate = self
-      
+        
     }
     
     // for assign
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
-  
+    
     
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -90,7 +90,7 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
     var image : UIImage?
     
     @IBAction func addImage(sender: AnyObject) {
-       let pickerOne = UIImagePickerController()
+        let pickerOne = UIImagePickerController()
         pickerOne.delegate = self;
         pickerOne.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         self.presentViewController(pickerOne, animated: true, completion: nil)
@@ -109,7 +109,7 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
             add.hidden = true
         }
     }
-
+    
     // *** for keyboard
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
@@ -147,6 +147,6 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         cell.cellButton.setImage(images[indexPath.row], forState: UIControlState.Normal)
         return cell
     }
-
+    
     
 }

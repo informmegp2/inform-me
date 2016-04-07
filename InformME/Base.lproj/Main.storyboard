@@ -597,7 +597,7 @@
                                 <color key="separatorColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" id="hRj-kU-Wmh" customClass="EventTableCellViewController" customModule="InformME" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hRj-kU-Wmh" id="4U7-JY-Esj">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -1058,7 +1058,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSu-OT-TV0">
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aSu-OT-TV0">
                                 <rect key="frame" x="0.0" y="44" width="600" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="A3f-Uy-gVK"/>
@@ -1080,7 +1080,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1f2-ho-H8u">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1f2-ho-H8u">
                                 <rect key="frame" x="0.0" y="124" width="600" height="427"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fmA-Sn-Q1K">
@@ -1100,7 +1100,7 @@
                                             <constraint firstItem="lYK-xN-j5I" firstAttribute="centerY" secondItem="fmA-Sn-Q1K" secondAttribute="centerY" id="wc2-6Q-ix7"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kOu-3x-ugm">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kOu-3x-ugm">
                                         <rect key="frame" x="0.0" y="242" width="600" height="52"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="موقع الحدث الإلكتروني" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rlA-YP-7AG">
@@ -1126,7 +1126,7 @@
                                             <constraint firstItem="rlA-YP-7AG" firstAttribute="top" secondItem="kOu-3x-ugm" secondAttribute="top" id="tG4-Nb-rxb"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qru-fZ-Ayp">
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qru-fZ-Ayp">
                                         <rect key="frame" x="0.0" y="294" width="600" height="52"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تاريخ الحدث" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3QI-LV-Xrl">
@@ -1152,7 +1152,7 @@
                                             <constraint firstItem="3QI-LV-Xrl" firstAttribute="leading" secondItem="qru-fZ-Ayp" secondAttribute="leading" id="vBh-7y-7nB"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ic-9b-4Of">
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ic-9b-4Of">
                                         <rect key="frame" x="0.0" y="346" width="600" height="81"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J24-Qk-u6x">
@@ -2875,7 +2875,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lLY-eB-N2h">
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lLY-eB-N2h">
                                 <rect key="frame" x="0.0" y="44" width="600" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="44V-o1-lV8"/>
@@ -2899,7 +2899,7 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IpO-0e-Kef">
+                            <tableView clipsSubviews="YES" alpha="0.5" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IpO-0e-Kef">
                                 <rect key="frame" x="0.0" y="124" width="600" height="476"/>
                                 <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -2964,7 +2964,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="tableView" destination="IpO-0e-Kef" id="2TY-dq-2SJ"/>
-                        <segue destination="CYb-wh-2ss" kind="show" identifier="addContent" id="3cO-4P-i4R"/>
+                        <segue destination="CYb-wh-2ss" kind="show" identifier="addContentbutton" id="ATb-cj-x89"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhX-gl-toF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2978,7 +2978,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pI7-II-bSY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="0D23BBA4-B2CB-4824-860A-911B63342DE7" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="F60B83D0-C35A-4475-8977-458A553CF36E" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
                                             <rect key="frame" x="-292" y="-143" width="1184" height="486"/>
                                             <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
@@ -3005,7 +3005,7 @@
                                         </label>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aY-Ke-P4A">
                                             <rect key="frame" x="20" y="20" width="29" height="55"/>
-                                            <state key="normal" image="BD42EF13-2110-47D0-8DC1-E224709BDD7D"/>
+                                            <state key="normal" image="AEA6E04A-48C8-4875-8173-B8A85AEE15EA"/>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4731,7 +4731,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="0D23BBA4-B2CB-4824-860A-911B63342DE7" width="29" height="55">
+        <image name="AEA6E04A-48C8-4875-8173-B8A85AEE15EA" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -4907,7 +4907,7 @@ yybWJt8m8ib2JwEnCicPJxcnGicfJy4nMic5J0EnTidTJ1UnVydcJ2QnZydsJ3QndyeJJ4wnkQAAAAAA
 AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
 </mutableData>
         </image>
-        <image name="BD42EF13-2110-47D0-8DC1-E224709BDD7D" width="29" height="55">
+        <image name="F60B83D0-C35A-4475-8977-458A553CF36E" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -5112,19 +5112,19 @@ AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
         <image name="كلمة المرور" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="PzC-iQ-FXf"/>
+        <segue reference="cVL-Sw-prK"/>
+        <segue reference="WHE-Xf-Klp"/>
+        <segue reference="SQn-7A-E0A"/>
+        <segue reference="MjX-V7-fz1"/>
+        <segue reference="gmB-ff-Wib"/>
+        <segue reference="vY2-89-HyV"/>
+        <segue reference="xBa-iv-6d8"/>
+        <segue reference="giJ-U6-EkG"/>
+        <segue reference="bFI-E1-VSS"/>
+        <segue reference="nqB-fl-sns"/>
         <segue reference="ZTI-2B-VFQ"/>
         <segue reference="1xK-ul-Y0G"/>
-        <segue reference="MjX-V7-fz1"/>
-        <segue reference="cVL-Sw-prK"/>
-        <segue reference="xBa-iv-6d8"/>
-        <segue reference="vY2-89-HyV"/>
-        <segue reference="PzC-iQ-FXf"/>
-        <segue reference="gmB-ff-Wib"/>
-        <segue reference="giJ-U6-EkG"/>
-        <segue reference="SQn-7A-E0A"/>
-        <segue reference="WHE-Xf-Klp"/>
-        <segue reference="nqB-fl-sns"/>
-        <segue reference="bFI-E1-VSS"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

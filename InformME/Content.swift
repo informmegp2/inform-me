@@ -13,7 +13,6 @@ class Content {
     var Abstract: String = ""
     var Images: [UIImage] = []
     var Video: String = ""
-    //var Pdf: NSData = NSData() //this will be changed depending on our chosen type.
     var Pdf : String = ""
     var likes: Like = Like()
     var dislikes:Dislike = Dislike()
@@ -26,7 +25,7 @@ class Content {
     var save:Bool = false;
     var del:Bool = false
     var upd:Bool = false
-
+    
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
         var body = NSMutableData();
         
@@ -39,7 +38,6 @@ class Content {
         }
         
         let filename = "ContentImage.jpg"
-        
         let mimetype = "image/jpg"
         
         body.appendString("--\(boundary)\r\n")
@@ -54,7 +52,7 @@ class Content {
         
         return body
     }
-
+    
     func createContent(title: String,abstract: String ,video: String,Pdf: String,BLabel: String,EID:Int,image: [UIImage], completionHandler: (flag:Bool) -> ()) {
         let l = BLabel
         let SC = 0
@@ -90,7 +88,7 @@ class Content {
                 completionHandler(flag: flag)
             }
         }
-}
+    }
     
     func addImage(title: String,abstract: String ,BLabel: String,EID:Int,image: [UIImage] ,completionHandler: (flag:Bool) -> ()) {
         let l = BLabel
@@ -126,14 +124,14 @@ class Content {
                     print("error=\(error)")
                     return
                 }
-
+                
                 // You can print out response object
                 print("response = \(response)")
                 completionHandler(flag: true)
             }
             task.resume()
-            }
-
+        }
+        
         
     }
     
@@ -163,20 +161,20 @@ class Content {
         }
         
         task.resume()
-    
-    updateImage(title,abstract: abstract,BLabel: bLabel,EID: EID,image: image ){
-    (flag:Bool) in
-    //we should perform all segues in the main thread
-    dispatch_async(dispatch_get_main_queue()) {
-    completionHandler(flag: flag)
-    }
-    }
-
-    
+        
+        updateImage(title,abstract: abstract,BLabel: bLabel,EID: EID,image: image ){
+            (flag:Bool) in
+            //we should perform all segues in the main thread
+            dispatch_async(dispatch_get_main_queue()) {
+                completionHandler(flag: flag)
+            }
+        }
+        
+        
     }
     
     func updateImage(title: String,abstract: String ,BLabel: String,EID:Int,image: [UIImage],completionHandler: (flag:Bool) -> ()) {
-
+        
         let l = BLabel
         
         let MYURL1 = NSURL(string:"http://bemyeyes.co/API/content/deleteImage.php")
@@ -244,11 +242,11 @@ class Content {
     func DeleteContent(id: Int ){
         
         var f=false
-      del = true
+        del = true
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/DeleteContent.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
-
+        
         let postString = "cid=\(id)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
@@ -261,14 +259,14 @@ class Content {
                 return
             }
             f=true
-
+            
             // You can print out response object
             print("response = \(response)")
             //completionHandler(flag: f)
         }
         
         task.resume()
-        del = true 
+        del = true
         
     }
     func requestcontentlist(ID: Int,completionHandler: (contentInfo:[Content]) -> ()){
@@ -349,7 +347,7 @@ class Content {
                         print("DONE")
                     }
                     completionHandler(contentInfo: contentInfo)
-
+                    
                     
                 } catch {
                     
@@ -362,8 +360,8 @@ class Content {
         }
         task.resume()
     }
-
-
+    
+    
     
     
     func shareContent(cid: Int, completionHandler: (done:Bool) -> ()) {
@@ -393,11 +391,11 @@ class Content {
         }
         
         task.resume()
-     
-    
+        
+        
     }
     func saveContent(uid: Int , cid: Int) {
-    
+        
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/SaveContent.php")!)
         request.HTTPMethod = "POST";
         let postString = "uid=\(uid)&cid=\(cid)";
@@ -417,7 +415,7 @@ class Content {
             
         }
         task.resume()
-
+        
         
     }
     
@@ -445,7 +443,7 @@ class Content {
     }
     
     func deleteComment(cid : Int, uid : Int,completionHandler: (done:Bool) -> ()) {
-       
+        
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/deletecomment.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST";
@@ -463,19 +461,19 @@ class Content {
                 print("error=\(error)")
                 return
             }
-            
+                
             else { // You can print out response object
-            print("response = \(response)")
+                print("response = \(response)")
                 var    i : Int;
-            
+                
                 for ( i=0; i<self.comments.count; i++)
                 {
                     if (self.comments[i].user.userID == uid){
-                    
-                    self.comments.removeAtIndex(i)
-                    
+                        
+                        self.comments.removeAtIndex(i)
+                        
                     }//end if
-                
+                    
                     
                     
                 }//end for
@@ -516,7 +514,7 @@ class Content {
         }
         
         task.resume()
-
+        
         
     }
     
@@ -549,7 +547,7 @@ class Content {
         
         task.resume()
         
-
+        
     }
     func likeContent(cid: Int, uid: Int, completionHandler: (done:Bool) -> ()){
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/evaluate.php")
@@ -580,17 +578,17 @@ class Content {
         
         task.resume()
         
-
-    
-    
-    
-    
+        
+        
+        
+        
+        
     }
     
     //MARK --Found No Need for the commented methods
     //func requestToAddComment() {}
     //func requestToDeleteComment() {}
-
+    
     func saveComment(comment: Comment, completionHandler: (done:Bool) -> ()) {
         let com = comment.comment
         let user = comment.user.userID
@@ -615,7 +613,7 @@ class Content {
             
             // You can print out response object
             print("response = \(response)")
-
+            
             
             completionHandler(done: true)
         }
@@ -623,7 +621,7 @@ class Content {
         task.resume()
         
     }
-
+    
     
     //MARK: --- THIS METHOD WAS MOVED FROM EVENTS CLASS ---
     func ViewContent(ContentID: Int, UserID:Int, completionHandler: (content:Content) -> ()){
@@ -651,17 +649,17 @@ class Content {
                             c.Pdf = "No PDF"
                         }
                         else{
-                        c.Pdf = item["PDFFiles"] as! String
+                            c.Pdf = item["PDFFiles"] as! String
                         }
                         if item["Videos"]  is NSNull  {
-                        c.Video = "No Video"
+                            c.Video = "No Video"
                         }
                         else{
-                        c.Video = item["Videos"] as! String
+                            c.Video = item["Videos"] as! String
                         }
                         c.shares = Int(item["ShareCounter"] as! String)!
                         c.label = item["Label"] as! String
-
+                        
                         var comments: [Comment] = []
                         let itemC = item["Comments"] as! NSArray
                         for var i=0; i<itemC.count;i++ {
@@ -686,18 +684,18 @@ class Content {
                             c.like = 0
                         }
                         else{
-                       let lk = item["Like"] as! String
+                            let lk = item["Like"] as! String
                             c.like = Int(lk)!}
-                       
+                        
                         if item["dislike"] is NSNull {
                             c.dislike = 0
                         }
                         else {
-                        let dislk = item["dislike"] as! String
+                            let dislk = item["dislike"] as! String
                             c.dislike = Int(dislk)!}
                         
                         completionHandler(content: c)
-
+                        
                         print("DONE")
                     }
                     
@@ -736,8 +734,8 @@ class Content {
         if let NotSaved = (json["NotSaved"] as? String)
         {if (!(NotSaved.isEmpty) && NotSaved == "0")
         {self.save = true}}
-
-}
-
-
+        
+    }
+    
+    
 }

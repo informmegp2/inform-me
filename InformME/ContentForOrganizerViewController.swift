@@ -19,10 +19,10 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
     var label: String=""
     var images: [UIImage]=[]
     var EID : Int?
-   // var cid : Int?
+    // var cid : Int?
     
     @IBOutlet var TTitle: UINavigationItem!
-
+    
     @IBOutlet var AAbstract: UILabel!
     @IBOutlet var PDF: UILabel!
     @IBOutlet var VVideo: UILabel!
@@ -30,7 +30,7 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
     
     // @IBOutlet var logo: UIImageView!
     override func viewDidLoad() {
-
+        
         super.viewDidLoad()
         self.TTitle.title = ttitle
         self.AAbstract.text = abstract
@@ -53,9 +53,9 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
         self.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
     }
     
-
+    
     @IBAction func out(sender: AnyObject) {
-  
+        
         
         
         print(" iam in 1")
@@ -89,8 +89,8 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
         
         
     } //end out */
-        
-        
+    
+    
     
     func editContent(){
         performSegueWithIdentifier("editContent", sender: self)
@@ -111,12 +111,12 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
             
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count

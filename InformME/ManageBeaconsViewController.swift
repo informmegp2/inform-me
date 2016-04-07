@@ -12,6 +12,8 @@ import UIKit
 
 
 class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, BeaconCellDelegate  {
+    
+    
     var values:NSMutableArray = []
     var Labels : [String] = []
     var beaconsInfo:NSMutableArray=[]
@@ -36,8 +38,8 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     
     
     @IBAction func out(sender: AnyObject) {
-    
-    
+        
+        
         print(" iam in 1")
         
         var flag: Bool
@@ -91,14 +93,8 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
                         var mi : AnyObject = jsonResult[x]["Minor"]as! String
                         
                         beacon.Label=l as! String
-                       
-                        
-                        let majorsplits = (m as! String).characters.split{$0 == ","}.map(String.init)
-                       
-                         let minorsplits = (mi as! String).characters.split{$0 == ","}.map(String.init)
-                        
-                        beacon.Major=majorsplits[1]
-                        beacon.Minor=minorsplits[1]
+                        beacon.Major=m as! String
+                        beacon.Minor=mi as! String
                         self.values.addObject(beacon)
                         self.beaconsInfo.addObject(beacon)
                         self.Labels.append(l as! String)
@@ -128,7 +124,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -137,7 +133,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         b = self.values[indexPath.row] as! Beacon
         
         cell.name.text = b.Label+" \n القيمة الأساسية:"+b.Major+" ،القيمة الثانوية: "+b.Minor as? String
-            return cell
+        return cell
         
         
     }
@@ -185,7 +181,8 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         performSegueWithIdentifier("updateBeacon", sender: self)
     }
     
-   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
         if (segue.identifier == "updateBeacon") {
             let pointInTable: CGPoint = sender.convertPoint(sender.bounds.origin, toView: self.tableView)
             let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
@@ -198,15 +195,15 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
             detailVC.llabel=b.Label
             detailVC.mmajor=b.Major
             detailVC.mminor=b.Minor
-
-    }
-    
-    if (segue.identifier == "addBeacon") {
-        var detailVC = segue.destinationViewController as! AddBeaconViewController
-        detailVC.labels = Labels
-
-    }
-    
+            
+        }
+        
+        if (segue.identifier == "addBeacon") {
+            var detailVC = segue.destinationViewController as! AddBeaconViewController
+            detailVC.labels = Labels
+            
+        }
+        
     }
     
     func deleteBeacon(label: String) {
@@ -215,7 +212,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     }
     
     /*  func updateBeacon() {
-    //   code
-    }*/
+     //   code
+     }*/
     
 }

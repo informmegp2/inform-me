@@ -32,10 +32,10 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
         self.tableView.reloadData();
         //setup tint color for tha back button.
     }
-
+    
     
     @IBAction func addcontent(sender: AnyObject) {
-          self.performSegueWithIdentifier("addContent", sender: self)
+        self.performSegueWithIdentifier("addContentbutton", sender: self)
     }
     
     @IBAction func out(sender: AnyObject) {
@@ -69,7 +69,7 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
         
         
     }//end out addContent
-
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("contentCell", forIndexPath: indexPath) as! ContentTableCellViewController
@@ -87,7 +87,7 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
     func showContentDetails(){
         performSegueWithIdentifier("showContentDetails", sender: self)
     }
-   
+    
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         
         if (segue.identifier == "showContentDetails") {
@@ -108,10 +108,10 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
             detailVC.images = c.Images
             detailVC.label=c.label
             detailVC.EID = self.EID
-
-        
+            
+            
         }
-        else if (segue.identifier == "addContent") {
+        else if (segue.identifier == "addContentbutton") {
             let addVC = segue.destinationViewController as! AddContentViewController
             addVC.EID =  self.EID
         }

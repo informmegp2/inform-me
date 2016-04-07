@@ -13,7 +13,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
     
     @IBOutlet weak var collectionView: UICollectionView!
     var images: [UIImage]=[]
-
+    
     @IBOutlet var ETitle: UITextField!
     @IBOutlet  var EAbstract: UITextField!
     @IBOutlet  var EPDF: UITextField!
@@ -54,7 +54,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         pickerTextField.text = beaconsInfo[row].Label
     }
-
+    
     @IBAction func Submit(sender: AnyObject) {
         var title = ETitle.text!
         var abstract = EAbstract.text!
@@ -71,11 +71,11 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             NSLog("OK Pressed")
             var c : Content = Content()
             c.updateContent (title, abstract: abstract,video: pdf , Pdf: video ,bLabel: blabel,image: self.images, TempV: self.tempV , TempP: self.tempP ,EID: self.EID!, cID: self.cid!){
-             (flag:Bool) in
-             dispatch_async(dispatch_get_main_queue()) {
-                self.performSegueWithIdentifier("alertPressedOK", sender:sender)
-            }
-            
+                (flag:Bool) in
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.performSegueWithIdentifier("alertPressedOK", sender:sender)
+                }
+                
             } }
         
         var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
@@ -90,7 +90,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
         self.presentViewController(alertController, animated: true, completion: nil)
         
     }
-  
+    
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         if (segue.identifier == "alertPressedOK") {
             var detailVC = segue!.destinationViewController as! ContentForOrganizerViewController;
@@ -100,12 +100,12 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             detailVC.video=EVideo.text!
             detailVC.contentid=cid!
             detailVC.images=images
-
+            
             
         }
         
     }
-
+    
     @IBAction func deleteContent(sender: AnyObject) {
         var alertController = UIAlertController(title: "", message: "هل أنت متأكد من رغبتك بالحذف", preferredStyle: .Alert)
         
@@ -114,14 +114,14 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             UIAlertAction in
             NSLog("OK Pressed")
             var c: Content = Content()
-
+            
             c.DeleteContent(self.cid!)
-               // (flag:Bool) in
-                //we should perform all segues in the main thread
-               // dispatch_async(dispatch_get_main_queue()) {
+            // (flag:Bool) in
+            //we should perform all segues in the main thread
+            // dispatch_async(dispatch_get_main_queue()) {
             if ( c.del){
-            self.performSegueWithIdentifier("deleteok", sender:sender)
-                }}
+                self.performSegueWithIdentifier("deleteok", sender:sender)
+            }}
         var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
             NSLog("Cancel Pressed")
@@ -154,11 +154,11 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
                 
                 self.pickerTextField.inputView = pickerView
                 
-               
+                
             }
             
         }
-
+        
         self.ETitle.text = ttitel
         self.EAbstract.text = aabstract
         self.EPDF.text = ppdf
@@ -166,7 +166,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
         self.pickerTextField.text = label
         tempV=vvideo
         tempP=ppdf
-
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -184,14 +184,14 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
     
     
     /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
     // the controller that has a reference to the collection view
     override func viewDidLayoutSubviews() {

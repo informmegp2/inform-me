@@ -34,9 +34,9 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
             }))
             
             self.presentViewController(alert, animated: true, completion: nil)
-                   }
+        }
         else {
-
+            
             if  labels.contains(llabel) {
                 let alert = UIAlertController(title: "", message: " إسم البيكون مستخدم مسبقا \n الرجاء إختيار إسم أخر ", preferredStyle: UIAlertControllerStyle.Alert)
                 
@@ -46,13 +46,13 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
                 self.presentViewController(alert, animated: true, completion: nil)
             }
             else {
-            var b : Beacon = Beacon()
-            b.addBeacon (llabel, major: major,minor:minor){
-                (flag:Bool) in
-                //we should perform all segues in the main thread
-                dispatch_async(dispatch_get_main_queue()) {
-            self.performSegueWithIdentifier("addBeacon", sender:sender)
-                }}
+                var b : Beacon = Beacon()
+                b.addBeacon (llabel, major: major,minor:minor){
+                    (flag:Bool) in
+                    //we should perform all segues in the main thread
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.performSegueWithIdentifier("addBeacon", sender:sender)
+                    }}
             }}
         
     }
@@ -78,13 +78,13 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
     
     
     /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
 }

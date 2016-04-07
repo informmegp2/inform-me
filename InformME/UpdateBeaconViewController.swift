@@ -51,26 +51,26 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
             
             var b : Beacon = Beacon()
             b.updateBeacon (llabel, major: major,minor:minor ,Temp: self.temp)
-               // (flag:Bool) in
-                //we should perform all segues in the main thread
-               // dispatch_async(dispatch_get_main_queue()) {
+            // (flag:Bool) in
+            //we should perform all segues in the main thread
+            // dispatch_async(dispatch_get_main_queue()) {
             if (b.save){
-                    self.performSegueWithIdentifier("alertPressedOK", sender:sender)} }
-
-            
+                self.performSegueWithIdentifier("alertPressedOK", sender:sender)} }
         
-    
+        
+        
+        
         var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
             NSLog("Cancel Pressed")
         }
-          // Add the actions
+        // Add the actions
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
         
         // Present the controller
         self.presentViewController(alertController, animated: true, completion: nil)
-    
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,13 +96,13 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
     
     
     /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
 }
