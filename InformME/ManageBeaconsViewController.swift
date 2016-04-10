@@ -21,6 +21,8 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     @IBOutlet var tableView: UITableView!
+    var UID = [String]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         get();
@@ -91,6 +93,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
                         var l : AnyObject = jsonResult[x]["Label"]as! String
                         var m : AnyObject = jsonResult[x]["Major"]as! String
                         var mi : AnyObject = jsonResult[x]["Minor"]as! String
+                        var id : AnyObject = jsonResult[x]["UserID"]as! String
                         
                         beacon.Label=l as! String
                         beacon.Major=m as! String
@@ -98,6 +101,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
                         self.values.addObject(beacon)
                         self.beaconsInfo.addObject(beacon)
                         self.Labels.append(l as! String)
+                        self.UID.append(id as! String)
                         
                     }
                     dispatch_async(dispatch_get_main_queue()){
@@ -201,6 +205,8 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         if (segue.identifier == "addBeacon") {
             var detailVC = segue.destinationViewController as! AddBeaconViewController
             detailVC.labels = Labels
+            detailVC.UID = UID
+
             
         }
         
