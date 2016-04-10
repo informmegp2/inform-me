@@ -20,7 +20,7 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
     var UID = [String]()
     var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
 
-    
+
     @IBAction func Submit(sender: AnyObject) {
         
         var minor = Minor.text!

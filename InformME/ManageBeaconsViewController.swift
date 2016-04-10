@@ -95,7 +95,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
                         var m : AnyObject = jsonResult[x]["Major"]as! String
                         var mi : AnyObject = jsonResult[x]["Minor"]as! String
                         var id : AnyObject = jsonResult[x]["UserID"]as! String
-
+                        
                         beacon.Label=l as! String
                         beacon.Major=m as! String
                         beacon.Minor=mi as! String
@@ -207,6 +207,8 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
             var detailVC = segue.destinationViewController as! AddBeaconViewController
             detailVC.labels = Labels
             detailVC.UID = UID
+
+            
         }
         
     }
