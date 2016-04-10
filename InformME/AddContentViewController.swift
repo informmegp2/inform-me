@@ -51,6 +51,8 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         
     }
     
+    @IBAction func assignBeacon(sender: AnyObject) {
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         beacon.requestbeaconlist(UserID){// fo assign beacon

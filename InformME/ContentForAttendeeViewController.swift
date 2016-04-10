@@ -32,13 +32,13 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
             menuButton.action = "revealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-        commentsTable.delegate = self;
-        commentsTable.dataSource = self;
+       // commentsTable.delegate = self;
+     //   commentsTable.dataSource = self;
         content.ViewContent(cid, UserID: uid){
             (content:Content) in
             dispatch_async(dispatch_get_main_queue()) {
                 self.content = content
-                self.commentsTable.reloadData()
+              //  self.commentsTable.reloadData()
                 self.abstract.text = self.content.Abstract
                 self.pdf.text = self.content.Pdf
                 self.video.text = self.content.Video

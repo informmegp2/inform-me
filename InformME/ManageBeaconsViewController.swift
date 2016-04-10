@@ -22,6 +22,8 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     @IBOutlet var tableView: UITableView!
+    var UID = [String]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         get();

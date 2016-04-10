@@ -14,7 +14,6 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
     @IBOutlet weak var Label: UITextField!
     @IBOutlet weak var Minor: UITextField!
     @IBOutlet weak var Major: UITextField!
-    
     var cellContent = [String]()
     var numRow:Int?
     var labels = [String]()
