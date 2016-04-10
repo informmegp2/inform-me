@@ -18,6 +18,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     var Labels : [String] = []
     var beaconsInfo:NSMutableArray=[]
     var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
+    var UID : [String] = []
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     @IBOutlet var tableView: UITableView!

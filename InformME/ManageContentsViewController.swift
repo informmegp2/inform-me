@@ -113,7 +113,8 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
         }
         else if (segue.identifier == "addContentbutton") {
             let addVC = segue.destinationViewController as! AddContentViewController
-            addVC.EID =  self.EID
+            addVC.EID =  self.EID!
+            print("This is Hi -------------- \(addVC.EID)")
         }
         
     }
