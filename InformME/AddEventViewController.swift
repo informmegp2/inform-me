@@ -97,11 +97,12 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         let name = EventName.text!
         let website = EventWebsite.text!
         let  date = EventDate.text!
-       let dateVlidation = checkDate(date)
+       
         if (EventName.text == "" || EventDate.text == "") {
             displayAlert("", message: "يرجى إدخال كافة الحقول")
                }
-       else if(!dateVlidation){
+      
+        else if(EventDate.text != "" && !checkDate(date)){
             
             displayAlert("", message: "يرجى إدخال تاريخ الحدث بشكل الصحيح")
             }
