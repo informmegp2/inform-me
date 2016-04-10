@@ -183,8 +183,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         print("user id",self.content.comments[indexPath.row].user.userID )
         if(self.content.comments[indexPath.row].user.userID == NSUserDefaults.standardUserDefaults().integerForKey("id")){
             cell.deleteButton.hidden = false
-            
-            
+            self.commentField.enabled = false
         }
         return cell
         
@@ -255,9 +254,10 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     
     @IBAction func comment(){
         let comment: Comment = Comment()
-        comment.user.userID = self.uid            //NSUserDefaults.standardUserDefaults().integerForKey("id")
+        comment.user.userID = self.uid
         comment.comment = self.commentField.text!
         comment.contentID = self.content.contentId!
+        if(self.commentField.text! != ""){
         //TODO: --Check if comment added succesfully :) --
         self.content.saveComment(comment){
             (done:Bool) in
@@ -267,7 +267,18 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
             self.commentsTable.reloadData()
         }
         }
-
+        }
+        else
+        {
+                let alert = UIAlertController(title: "", message: " يرجى كتابة تعليق ", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+                    
+                    // self.dismissViewControllerAnimated(true, completion: nil)
+                    
+                }))
+                self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func deleteComment(){

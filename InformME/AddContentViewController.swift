@@ -24,17 +24,17 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
     var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
     var beaconsInfo: [Beacon] = []//nouf add it for assign beacon
     var beacon:Beacon = Beacon()// for assign beacon
-    var EID : Int?
+    var EID = 1;
     @IBAction func Submit(sender: AnyObject) {
         var title = TTitle.text!
         var abstract = Abstract.text!
         var video = Video.text!
         var pdf = PDF.text!
-        var label=pickerTextField.text
+        var label=pickerTextField.text!
         
         var c : Content = Content()
         
-        c.createContent(title,abstract: abstract,video: video,Pdf: pdf ,BLabel: label!,EID: EID! ,image: images ){
+        c.createContent(title,abstract: abstract,video: video,Pdf: pdf ,BLabel: label, EID: EID, image: images ){
             (flag:Bool) in
             //we should perform all segues in the main thread
             dispatch_async(dispatch_get_main_queue()) {
@@ -62,8 +62,11 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
                 
                 pickerView.delegate = self
                 
+             
                 self.pickerTextField.inputView = pickerView
             }
+            print ("=====")
+            print (self.EID)
             
         }
         self.collectionView.dataSource = self

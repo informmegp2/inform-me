@@ -18,6 +18,9 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
     var cellContent = [String]()
     var numRow:Int?
     var labels = [String]()
+    var UID = [String]()
+    var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
+
     
     @IBAction func Submit(sender: AnyObject) {
         
@@ -36,15 +39,14 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
             self.presentViewController(alert, animated: true, completion: nil)
         }
         else {
-            
-            if  labels.contains(llabel) {
+            if UID.contains(String(UserID)) && labels.contains(llabel) {
                 let alert = UIAlertController(title: "", message: " إسم البيكون مستخدم مسبقا \n الرجاء إختيار إسم أخر ", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
                 }))
                 
                 self.presentViewController(alert, animated: true, completion: nil)
-            }
+                }
             else {
                 var b : Beacon = Beacon()
                 b.addBeacon (llabel, major: major,minor:minor){
