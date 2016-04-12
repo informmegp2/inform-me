@@ -398,8 +398,6 @@ class Content {
         }
         
         task.resume()
-        
-        
     }
     func saveContent(uid: Int , cid: Int) {
         

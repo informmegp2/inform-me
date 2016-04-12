@@ -19,6 +19,7 @@ class ContentReportTableViewCellController: UITableViewCell, UITableViewDelegate
     @IBOutlet var dislikes: UILabel!
     @IBOutlet var commentsNo: UILabel!
     @IBOutlet var commentsTable: UITableView!
+    @IBOutlet var sharesNo: UILabel!
 
     var comments: [Comment] = []
     

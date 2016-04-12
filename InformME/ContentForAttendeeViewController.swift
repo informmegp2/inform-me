@@ -294,4 +294,23 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         }
     }//end delete comment fun
     
+    @IBAction func save(sender: UIButton) {
+        
+        let imageFull = UIImage(named: "starF.png") as UIImage!
+        let imageEmpty = UIImage(named: "star.png") as UIImage!
+        if (sender.currentImage == imageFull)
+        {//content saved -> user wants to delete save
+            sender.setImage(imageEmpty, forState: .Normal)
+            Content().unsaveContent(uid, cid: self.cid)
+        }
+        else
+        {//content is not saved -> user wants to save
+            sender.setImage(imageFull, forState: .Normal)
+            let image = UIImage(named: "starF.png") as UIImage!
+            sender.setImage(image, forState: .Normal)
+            Content().saveContent(uid, cid: self.cid)
+        }
+    }
+    
+    
 }//end class

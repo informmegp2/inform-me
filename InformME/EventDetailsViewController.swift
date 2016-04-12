@@ -15,6 +15,7 @@ class EventDetailsViewController: UIViewController {
     var evwebsite: String=""
     var evdate: String=""
     var evlogo: UIImage?
+    var event: Event?
     @IBOutlet var ddate: UILabel!
     @IBOutlet var wwebsite: UILabel!
     @IBOutlet var nnamd: UINavigationItem!
@@ -87,7 +88,7 @@ class EventDetailsViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "showReport") {
             let reportVC = segue.destinationViewController as! ReportViewController;
-            reportVC.event.id = self.evid
+            reportVC.event = self.event!
         }
         else     if (segue.identifier == "showContents") {
             let contentVC = segue.destinationViewController as! ManageContentsViewController
