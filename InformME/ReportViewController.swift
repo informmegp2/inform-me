@@ -16,7 +16,6 @@ class ReportViewController: UIViewController, UITableViewDataSource, UITableView
     
     @IBOutlet var tableView: UITableView!
     override func viewDidLoad() {
-        self.event.id = 1
         report.viewReport(event){
             (contents:[Content]) in
             dispatch_async(dispatch_get_main_queue()) {
@@ -47,6 +46,7 @@ class ReportViewController: UIViewController, UITableViewDataSource, UITableView
         cell.commentsNo.text = String(comments.count)
         cell.commentsTable.delegate = cell;
         cell.commentsTable.dataSource = cell;
+        cell.sharesNo.text = String(self.contents[indexPath.row].shares)
         return cell
         
         

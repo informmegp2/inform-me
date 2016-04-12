@@ -128,11 +128,11 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
             // segues attached to same view
             var detailVC = segue!.destinationViewController as! EventDetailsViewController;
            detailVC.evid = e.id
-        detailVC.evname=e.name
-detailVC.evwebsite=e.website
-detailVC.evdate=e.date
-        
-        detailVC.evlogo=e.logo    }
+           detailVC.evname=e.name
+           detailVC.evwebsite=e.website
+           detailVC.evdate=e.date
+           detailVC.event = e
+           detailVC.evlogo=e.logo    }
     
     }
 }
