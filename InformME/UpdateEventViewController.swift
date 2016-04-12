@@ -148,7 +148,7 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         if (EventName.text == "" || EventDate.text == "") {
             displayMessage("", message: "يرجى إدخال كافة الحقول")
         }
-        else if(!dateVlidation){
+         else if(EventDate.text != "" && !checkDate(date)){
             
             displayMessage("", message: "يرجى إدخال تاريخ الحدث بشكل الصحيح")
         }
