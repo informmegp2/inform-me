@@ -34,6 +34,9 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
     }
     
     
+    @IBAction func add(sender: AnyObject) {
+                self.performSegueWithIdentifier("add", sender: self)
+    }
     @IBAction func addcontent(sender: AnyObject) {
         self.performSegueWithIdentifier("addContentbutton", sender: self)
     }
