@@ -62,6 +62,7 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
         Minor.delegate = self
         Major.delegate = self
         Label.delegate = self
+        
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
