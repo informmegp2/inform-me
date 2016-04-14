@@ -27,7 +27,7 @@ class Report {
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
                     
                     for var x=0; x<jsonResult.count;x++ {
-                        let item = jsonResult[x]
+                        let item = jsonResult[x] as AnyObject
                         let c : Content = Content()
                         
                         _ = item["ContentID"] as! String
