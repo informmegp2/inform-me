@@ -8,8 +8,10 @@
 
 import UIKit
 
-class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate {
-    
+class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate, ESTBeaconManagerDelegate {
+   
+    var Requested: [String] = [""]
+
     
     @IBOutlet weak var Label: UITextField!
     @IBOutlet weak var Minor: UITextField!
@@ -19,7 +21,11 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
     var labels = [String]()
     var UID = [String]()
     var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
-
+   
+    //This manager is for ranging
+    let beaconManager = ESTBeaconManager()
+    let beaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, identifier: "MyBeacon")
+    
 
     @IBAction func Submit(sender: AnyObject) {
         
@@ -62,9 +68,24 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
         Minor.delegate = self
         Major.delegate = self
         Label.delegate = self
-        
+        // 3. Set the beacon manager's delegate
+        self.beaconManager.delegate = self
+        // 4. We need to request this authorization for every beacon manager
+        self.beaconManager.requestAlwaysAuthorization()
+
     }
     
+    //To start/stop ranging as the view controller appears/disappears
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.beaconManager.startRangingBeaconsInRegion(self.beaconRegion)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.beaconManager.stopRangingBeaconsInRegion(self.beaconRegion)
+    }
+
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -78,7 +99,49 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
         // Dispose of any resources that can be recreated.
     }
     
+    //This method will be called everytime we are in the range of beacons
+    func beaconManager(manager: AnyObject, didRangeBeacons beacons: [CLBeacon],
+                       inRegion region: CLBeaconRegion) {
+        //Get the array of beacons in range
+        if let beacons = beacons as? [CLBeacon] {
+            //For each beacon in array
+            for beacon in beacons {
+                //Check if the content was requested
+                if(beaconDiscovered==0){
+                if (!Requested.contains("\(beacon.major):\(beacon.minor)"))
+                {//If not request content then add to requested array
+                    loadContent(beacon.major, minor: beacon.minor)
+                    Requested.append("\(beacon.major):\(beacon.minor)")
+                    }}
+                else{
+                    let alert = UIAlertController(title: "", message: " تم اكتشاف أكثر من بيكون، الرجاء قلبها و،المحاولة من جديد لضمان الدقة ", preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+                        
+                        // self.dismissViewControllerAnimated(true, completion: nil)
+                        
+                    }))
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+                
+            }
+        }
+        self.view.reloadInputViews();
+        
+    }
+    var beaconDiscovered = 0
+    func loadContent (major: NSNumber, minor: NSNumber)
+    {
+        
+        //Col::(ContentID, Title, Abstract, Sharecounter, Label, EventID)
+        print("HERE IN PHPget \(major):\(minor)")
+        
+        Minor.text = String(minor);
+        Major.text = String(major);
+        self.view.reloadInputViews()
+    }
     
+
     /*
      // MARK: - Navigation
      
