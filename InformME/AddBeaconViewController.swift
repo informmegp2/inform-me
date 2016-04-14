@@ -112,23 +112,27 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
                 {//If not request content then add to requested array
                     loadContent(beacon.major, minor: beacon.minor)
                     Requested.append("\(beacon.major):\(beacon.minor)")
+                    beaconDiscovered=beaconDiscovered+1;
                     }}
-                else{
+                else if((beacon.major != Int(Major.text!)) && (beacon.minor != Int(Minor.text!)) && !alertOn){
                     let alert = UIAlertController(title: "", message: " تم اكتشاف أكثر من بيكون، الرجاء قلبها و،المحاولة من جديد لضمان الدقة ", preferredStyle: UIAlertControllerStyle.Alert)
-                    
+                    self.alertOn = true
                     alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
-                        
+                        self.Minor.text = "";
+                        self.Major.text = "";
+                        self.view.reloadInputViews()
+                        self.beaconDiscovered=0
+                        self.Requested = [""]
                         // self.dismissViewControllerAnimated(true, completion: nil)
-                        
+                        self.alertOn = false
                     }))
                     self.presentViewController(alert, animated: true, completion: nil)
                 }
                 
             }
         }
-        self.view.reloadInputViews();
-        
     }
+    var alertOn = false
     var beaconDiscovered = 0
     func loadContent (major: NSNumber, minor: NSNumber)
     {
