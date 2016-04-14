@@ -62,7 +62,6 @@ class RecoverPasswordViewController: UIViewController, UITextFieldDelegate, UINa
                     if(flag) {
                         self.displayAlert("", message: " تم إرسال البريد الإلكتروني")
                         
-                      self.performSegueWithIdentifier("backtologin", sender: self)
                     print("I am happy",login,flag)
                     }//end if
                     
@@ -148,6 +147,12 @@ class RecoverPasswordViewController: UIViewController, UITextFieldDelegate, UINa
         alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
             
             self.dismissViewControllerAnimated(true, completion: nil)
+            if(message == " تم إرسال البريد الإلكتروني")
+            {
+                print("Oooops")
+                self.performSegueWithIdentifier("backtologin", sender: self)
+
+            }
             
         })))
         
