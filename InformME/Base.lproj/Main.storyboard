@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bCK-wZ-tV4">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -33,7 +33,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WIX-6n-7ux" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1229" y="-570"/>
+            <point key="canvasLocation" x="-417" y="-570"/>
         </scene>
         <!--Menu Table-->
         <scene sceneID="JuX-aV-iCc">
@@ -222,7 +222,7 @@
                         <outlet property="logout" destination="rYn-Qu-0Tw" id="zlT-Ur-fXe"/>
                         <outlet property="table" destination="UxQ-g5-3Py" id="DU1-4m-9Ed"/>
                         <outlet property="tableView" destination="UxQ-g5-3Py" id="qsA-lJ-peM"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="backtologin" id="KIp-x6-3mH"/>
+                        <segue destination="bCK-wZ-tV4" kind="show" identifier="backtologin" id="KIp-x6-3mH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jWj-1Q-EdR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -242,13 +242,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RTG-o5-lFT">
-                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g89-1q-eFd">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="194"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="179"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="MAF-zP-7xc">
-                                                <rect key="frame" x="-291" y="-147" width="1182" height="487"/>
+                                                <rect key="frame" x="-291" y="-154" width="1182" height="487"/>
                                                 <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="MAF-zP-7xc" secondAttribute="height" multiplier="100:41" constant="-3.8048780487804379" id="iOy-Ec-wDE"/>
@@ -261,7 +261,7 @@
                                                 </variation>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="تسجيل الدخول" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="izX-00-3nl">
-                                                <rect key="frame" x="257" y="86" width="87" height="21"/>
+                                                <rect key="frame" x="257" y="79" width="87" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -282,7 +282,7 @@
                                         </constraints>
                                     </view>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yrq-I2-325">
-                                        <rect key="frame" x="0.0" y="194" width="600" height="78"/>
+                                        <rect key="frame" x="0.0" y="179" width="600" height="73"/>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <segments>
                                             <segment title="زائر"/>
@@ -291,7 +291,7 @@
                                         <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </segmentedControl>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="البريد الإلكتروني" textAlignment="right" minimumFontSize="17" background="كلمة المرور" translatesAutoresizingMaskIntoConstraints="NO" id="vEs-rq-j1q">
-                                        <rect key="frame" x="0.0" y="271" width="600" height="78"/>
+                                        <rect key="frame" x="0.0" y="251" width="600" height="71"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -302,10 +302,10 @@
                                         </variation>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMo-HJ-uDs">
-                                        <rect key="frame" x="0.0" y="349" width="600" height="77"/>
+                                        <rect key="frame" x="0.0" y="322" width="600" height="72"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="كلمة المرور" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fTu-wG-Jv7">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="78"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="72"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -316,7 +316,7 @@
                                                 </variation>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeJ-TD-KNT">
-                                                <rect key="frame" x="10" y="24" width="92" height="30"/>
+                                                <rect key="frame" x="10" y="21" width="92" height="30"/>
                                                 <state key="normal" title="نسيت كلمة المرور؟"/>
                                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                                     <rect key="frame" x="8" y="309" width="92" height="30"/>
@@ -340,7 +340,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="01q-xN-ePs">
-                                        <rect key="frame" x="0.0" y="426" width="600" height="77"/>
+                                        <rect key="frame" x="0.0" y="394" width="600" height="70"/>
                                         <color key="backgroundColor" red="0.32156862749999998" green="0.13725490200000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="أدخل">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -356,7 +356,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUQ-fS-ZYT">
-                                        <rect key="frame" x="0.0" y="503" width="600" height="77"/>
+                                        <rect key="frame" x="0.0" y="464" width="600" height="72"/>
                                         <color key="backgroundColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="تسجيل جديد">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -368,7 +368,7 @@
                                             <rect key="frame" x="0.0" y="649" width="800" height="151"/>
                                         </variation>
                                         <connections>
-                                            <segue destination="8yb-fg-OUT" kind="showDetail" id="jU2-rc-WOW"/>
+                                            <segue destination="8yb-fg-OUT" kind="show" id="4GD-fS-gAn"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -389,6 +389,7 @@
                             <constraint firstItem="RTG-o5-lFT" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="wyC-eK-YUi"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Dx2-K7-nWF"/>
                     <connections>
                         <outlet property="emailfiled" destination="vEs-rq-j1q" id="HIO-mp-ImN"/>
                         <outlet property="passwordfiled" destination="fTu-wG-Jv7" id="8ab-mw-0vt"/>
@@ -399,7 +400,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1946" y="-580"/>
+            <point key="canvasLocation" x="-1235" y="-700"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="hxe-9P-eIo">
@@ -414,13 +415,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="kzU-ZN-Wfr">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0k-uA-mFs">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="185"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="التسجيل" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0LI-KU-vPJ">
-                                                <rect key="frame" x="275" y="89" width="51" height="21"/>
+                                                <rect key="frame" x="275" y="82" width="51" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -438,7 +439,7 @@
                                                 <state key="normal" image="leftArrow"/>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="PxH-GG-sok">
-                                                <rect key="frame" x="-292" y="-143" width="1184" height="486"/>
+                                                <rect key="frame" x="-292" y="-151" width="1184" height="487"/>
                                                 <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="PxH-GG-sok" secondAttribute="height" multiplier="100:41" constant="-1.8048780487804379" id="guK-sT-qfc"/>
@@ -462,7 +463,7 @@
                                         </constraints>
                                     </view>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5mN-ig-ajq">
-                                        <rect key="frame" x="0.0" y="200" width="600" height="81"/>
+                                        <rect key="frame" x="0.0" y="185" width="600" height="75"/>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <segments>
                                             <segment title="زائر"/>
@@ -474,9 +475,9 @@
                                         </variation>
                                     </segmentedControl>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="اسم المستخدم" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fF6-xv-fLn">
-                                        <rect key="frame" x="0.0" y="280" width="600" height="80"/>
+                                        <rect key="frame" x="0.0" y="259" width="600" height="74"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
                                         <variation key="heightClass=compact-widthClass=compact" misplaced="YES">
                                             <rect key="frame" x="0.0" y="186" width="400" height="54"/>
                                         </variation>
@@ -487,8 +488,8 @@
                                             <rect key="frame" x="0.0" y="474" width="800" height="30"/>
                                         </variation>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="البريد الإلكتروني" textAlignment="right" minimumFontSize="17" background="كلمة المرور" translatesAutoresizingMaskIntoConstraints="NO" id="Tka-AX-qeL">
-                                        <rect key="frame" x="0.0" y="360" width="600" height="80"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="البريد الإلكتروني" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tka-AX-qeL">
+                                        <rect key="frame" x="0.0" y="333" width="600" height="75"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -499,10 +500,10 @@
                                         </variation>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JUf-tP-laL">
-                                        <rect key="frame" x="0.0" y="440" width="600" height="80"/>
+                                        <rect key="frame" x="0.0" y="408" width="600" height="74"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="كلمة المرور" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5sv-CB-kUL">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="74"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -515,29 +516,17 @@
                                                     <action selector="register:" destination="8yb-fg-OUT" eventType="editingDidEnd" id="DQK-0a-UZM"/>
                                                 </connections>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLq-6T-hWk">
-                                                <rect key="frame" x="10" y="25" width="92" height="30"/>
-                                                <state key="normal" title="نسيت كلمة المرور؟"/>
-                                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                                    <rect key="frame" x="8" y="309" width="92" height="30"/>
-                                                </variation>
-                                                <variation key="heightClass=regular-widthClass=regular" fixedFrame="YES">
-                                                    <rect key="frame" x="12" y="473" width="248" height="30"/>
-                                                </variation>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="VLq-6T-hWk" firstAttribute="leading" secondItem="5sv-CB-kUL" secondAttribute="leading" constant="10" id="36J-62-RdZ"/>
                                             <constraint firstItem="5sv-CB-kUL" firstAttribute="height" secondItem="JUf-tP-laL" secondAttribute="height" id="ERB-5W-u8L"/>
-                                            <constraint firstItem="VLq-6T-hWk" firstAttribute="centerY" secondItem="5sv-CB-kUL" secondAttribute="centerY" id="FvR-Ro-h6L"/>
                                             <constraint firstItem="5sv-CB-kUL" firstAttribute="centerY" secondItem="JUf-tP-laL" secondAttribute="centerY" id="aze-Ym-8c2"/>
                                             <constraint firstItem="5sv-CB-kUL" firstAttribute="width" secondItem="JUf-tP-laL" secondAttribute="width" id="sXx-eh-MAj"/>
                                             <constraint firstItem="5sv-CB-kUL" firstAttribute="centerX" secondItem="JUf-tP-laL" secondAttribute="centerX" id="tYD-Ij-Xof"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M0R-sG-TfI">
-                                        <rect key="frame" x="0.0" y="520" width="600" height="80"/>
+                                        <rect key="frame" x="0.0" y="482" width="600" height="74"/>
                                         <color key="backgroundColor" red="0.32156862749999998" green="0.13725490200000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="سجل">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -575,7 +564,6 @@
                         <outlet property="regPassword" destination="5sv-CB-kUL" id="cfp-6A-sXv"/>
                         <outlet property="regType" destination="5mN-ig-ajq" id="x0P-Kq-4MI"/>
                         <outlet property="regUsername" destination="fF6-xv-fLn" id="ycK-HO-kNe"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="loginpage" id="ftC-aB-NCc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qR-As-uer" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -667,7 +655,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpb-rA-hg9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1092" y="-618"/>
+            <point key="canvasLocation" x="1904" y="-618"/>
         </scene>
         <!-- إضافة حدث-->
         <scene sceneID="GCI-Rb-ytb">
@@ -796,7 +784,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WWU-XX-SJ3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1836" y="-618"/>
+            <point key="canvasLocation" x="2648" y="-618"/>
         </scene>
         <!--Add Content View Controller-->
         <scene sceneID="gw0-C1-DkY">
@@ -1019,7 +1007,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rn2-wF-Aaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4909" y="-296"/>
+            <point key="canvasLocation" x="5721" y="-296"/>
         </scene>
         <!--تفاصيل الحدث-->
         <scene sceneID="dAJ-yH-7JM">
@@ -1953,13 +1941,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BnM-Gp-FrJ">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BnM-Gp-FrJ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mty-ZK-k5h">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="185"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Ef0-hA-C8H">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Ef0-hA-C8H">
                                                 <rect key="frame" x="-292" y="-143" width="1184" height="486"/>
                                                 <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                                 <constraints>
@@ -1972,7 +1960,7 @@
                                                     <rect key="frame" x="0.0" y="28" width="800" height="419"/>
                                                 </variation>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="إستعادة كلمة المرور" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjz-EE-IiR">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="إستعادة كلمة المرور" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hjz-EE-IiR">
                                                 <rect key="frame" x="244" y="90" width="112" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2005,7 +1993,7 @@
                                         </constraints>
                                     </view>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XE0-at-HEj">
-                                        <rect key="frame" x="0.0" y="200" width="600" height="101"/>
+                                        <rect key="frame" x="0.0" y="185" width="600" height="94"/>
                                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <segments>
                                             <segment title="زائر"/>
@@ -2013,8 +2001,8 @@
                                         </segments>
                                         <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </segmentedControl>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="البريد الإلكتروني" textAlignment="right" minimumFontSize="17" background="كلمة المرور" translatesAutoresizingMaskIntoConstraints="NO" id="bHK-tQ-5oF">
-                                        <rect key="frame" x="0.0" y="300" width="600" height="100"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="البريد الإلكتروني" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bHK-tQ-5oF">
+                                        <rect key="frame" x="0.0" y="278" width="600" height="93"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                         <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
@@ -2025,11 +2013,11 @@
                                         </variation>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HXu-Cu-Fcn">
-                                        <rect key="frame" x="0.0" y="400" width="600" height="100"/>
+                                        <rect key="frame" x="0.0" y="371" width="600" height="92"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haJ-EH-nVi">
-                                        <rect key="frame" x="0.0" y="500" width="600" height="100"/>
+                                        <rect key="frame" x="0.0" y="463" width="600" height="93"/>
                                         <color key="backgroundColor" red="0.32156862749999998" green="0.13725490200000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="استعد كلمة المرور">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2064,12 +2052,12 @@
                     <connections>
                         <outlet property="recEmail" destination="bHK-tQ-5oF" id="lSw-c6-POS"/>
                         <outlet property="recType" destination="XE0-at-HEj" id="Irg-Vc-UzW"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="backtologin" id="Uvq-s7-T63"/>
+                        <segue destination="bCK-wZ-tV4" kind="show" identifier="backtologin" id="Uvq-s7-T63"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJI-nC-ICD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1235" y="-1391"/>
+            <point key="canvasLocation" x="-1229" y="-1507"/>
         </scene>
         <!--المحتويات القريبة-->
         <scene sceneID="6aS-xN-cqD">
@@ -2589,7 +2577,7 @@
                         <outlet property="likeButton" destination="UT5-tG-ao3" id="94I-f7-dQD"/>
                         <outlet property="pdf" destination="HBi-ZA-CIX" id="v4i-Hw-oq8"/>
                         <outlet property="video" destination="lyg-dg-oFE" id="fv2-bN-Xl7"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="backtologin" id="ZDi-NZ-fAN"/>
+                        <segue destination="bCK-wZ-tV4" kind="show" identifier="backtologin" id="ZDi-NZ-fAN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3cw-Ly-dvV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3018,7 +3006,7 @@
                     </barButtonItem>
                 </navigationItem>
             </objects>
-            <point key="canvasLocation" x="4265" y="-296"/>
+            <point key="canvasLocation" x="5077" y="-296"/>
         </scene>
         <!--Update Content View Controller-->
         <scene sceneID="Rmp-Le-Har">
@@ -3079,27 +3067,27 @@
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="عنوان المحتوى" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h41-ke-utc">
-                                        <rect key="frame" x="0.0" y="160" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="160" width="600" height="49"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ملخص المحتوى" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QAb-gs-mkB">
-                                        <rect key="frame" x="0.0" y="200" width="600" height="80"/>
+                                        <rect key="frame" x="0.0" y="209" width="600" height="98"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="URL"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AIQ-RF-Rpy">
-                                        <rect key="frame" x="0.0" y="280" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="307" width="600" height="49"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wEb-eD-7VK">
-                                                <rect key="frame" x="8" y="7" width="26" height="26"/>
+                                                <rect key="frame" x="8" y="8" width="32" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="wEb-eD-7VK" secondAttribute="height" multiplier="1:1" id="JsJ-py-pF4"/>
                                                 </constraints>
                                                 <state key="normal" image="plus"/>
                                             </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="إضافة pdf" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nXd-gr-NeQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="49"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -3116,10 +3104,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D7s-sd-Jd8">
-                                        <rect key="frame" x="0.0" y="320" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="356" width="600" height="48"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="إضافة فيديو" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8gM-9H-eco">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="48"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -3133,10 +3121,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D76-Fy-aPe">
-                                        <rect key="frame" x="0.0" y="360" width="600" height="80"/>
+                                        <rect key="frame" x="0.0" y="404" width="600" height="98"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lwe-t3-hxq">
-                                                <rect key="frame" x="0.0" y="40" width="600" height="0.0"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lwe-t3-hxq">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="98"/>
                                                 <color key="backgroundColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <state key="normal" title="+">
@@ -3147,7 +3135,7 @@
                                                 </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jtd-Yv-lQD">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                                <rect key="frame" x="30" y="0.0" width="570" height="98"/>
                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GyE-Jj-kdg" customClass="CenterCellCollectionViewFlowLayout" customModule="InformME" customModuleProvider="target">
                                                     <size key="itemSize" width="71" height="71"/>
@@ -3157,7 +3145,7 @@
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UpdateImageCell" id="kns-Kg-SMU" customClass="UpdateImageCollectionViewCell" customModule="InformME" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="5" width="71" height="71"/>
+                                                        <rect key="frame" x="0.0" y="14" width="71" height="71"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                             <rect key="frame" x="0.0" y="0.0" width="71" height="71"/>
@@ -3185,29 +3173,22 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="Lwe-t3-hxq" firstAttribute="leading" secondItem="D76-Fy-aPe" secondAttribute="leading" id="Q2J-2Q-iCv"/>
+                                            <constraint firstItem="Lwe-t3-hxq" firstAttribute="centerY" secondItem="D76-Fy-aPe" secondAttribute="centerY" id="Ys4-eD-1oG"/>
                                             <constraint firstItem="jtd-Yv-lQD" firstAttribute="height" secondItem="D76-Fy-aPe" secondAttribute="height" id="YwD-6p-mxr"/>
+                                            <constraint firstItem="jtd-Yv-lQD" firstAttribute="leading" secondItem="Lwe-t3-hxq" secondAttribute="trailing" id="dR6-Ji-hRS"/>
                                             <constraint firstAttribute="trailing" secondItem="jtd-Yv-lQD" secondAttribute="trailing" id="fHC-Jc-RUf"/>
+                                            <constraint firstItem="Lwe-t3-hxq" firstAttribute="height" secondItem="D76-Fy-aPe" secondAttribute="height" id="mOu-Mg-0y5"/>
                                             <constraint firstItem="jtd-Yv-lQD" firstAttribute="centerY" secondItem="D76-Fy-aPe" secondAttribute="centerY" id="vHo-yW-KEJ"/>
-                                            <constraint firstItem="jtd-Yv-lQD" firstAttribute="leading" secondItem="D76-Fy-aPe" secondAttribute="leading" id="zRY-O9-uJm"/>
                                         </constraints>
                                     </view>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ربط المحتوى بالبيكون" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0pr-ql-9DK">
-                                        <rect key="frame" x="0.0" y="440" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="502" width="600" height="49"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6BL-6x-dSb">
-                                        <rect key="frame" x="0.0" y="480" width="600" height="40"/>
-                                        <color key="backgroundColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="الربط بالبيكون">
-                                            <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="Submit:" destination="CFc-gN-5Iw" eventType="touchUpInside" id="A58-ML-tge"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S25-Nj-Oi6">
-                                        <rect key="frame" x="0.0" y="520" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="551" width="600" height="49"/>
                                         <color key="backgroundColor" red="0.32156862749999998" green="0.13725490200000001" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="حفظ">
                                             <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
@@ -3218,7 +3199,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9O1-cL-wys">
-                                        <rect key="frame" x="0.0" y="560" width="600" height="40"/>
+                                        <rect key="frame" x="0.0" y="600" width="600" height="0.0"/>
                                         <color key="backgroundColor" red="0.70127467109999997" green="0.12549019610000001" blue="0.33845600329999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="حذف">
                                             <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
@@ -3232,10 +3213,8 @@
                                 <constraints>
                                     <constraint firstItem="B8f-ce-rJW" firstAttribute="height" secondItem="Az1-V9-hDS" secondAttribute="height" multiplier="8:30" id="4zU-CC-X3H"/>
                                     <constraint firstItem="D76-Fy-aPe" firstAttribute="height" secondItem="QAb-gs-mkB" secondAttribute="height" id="6GV-Yz-COU"/>
-                                    <constraint firstItem="0pr-ql-9DK" firstAttribute="height" secondItem="6BL-6x-dSb" secondAttribute="height" id="FXG-xU-R9A"/>
-                                    <constraint firstItem="6BL-6x-dSb" firstAttribute="height" secondItem="S25-Nj-Oi6" secondAttribute="height" id="NoJ-WX-Y1b"/>
                                     <constraint firstItem="h41-ke-utc" firstAttribute="height" secondItem="QAb-gs-mkB" secondAttribute="height" multiplier="1:2" id="Upe-ce-ohN"/>
-                                    <constraint firstItem="9O1-cL-wys" firstAttribute="height" secondItem="6BL-6x-dSb" secondAttribute="height" id="oJG-ry-FxX"/>
+                                    <constraint firstItem="0pr-ql-9DK" firstAttribute="height" secondItem="S25-Nj-Oi6" secondAttribute="height" id="hW8-Mm-ZDP"/>
                                     <constraint firstItem="AIQ-RF-Rpy" firstAttribute="height" secondItem="h41-ke-utc" secondAttribute="height" id="qMk-Aj-XcC"/>
                                     <constraint firstItem="S25-Nj-Oi6" firstAttribute="height" secondItem="QAb-gs-mkB" secondAttribute="height" multiplier="1:2" id="vEP-a2-JoO"/>
                                     <constraint firstItem="D7s-sd-Jd8" firstAttribute="height" secondItem="AIQ-RF-Rpy" secondAttribute="height" id="vi6-uD-Qou"/>
@@ -3263,7 +3242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ft-uz-t7R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5552" y="-296"/>
+            <point key="canvasLocation" x="6364" y="-296"/>
         </scene>
         <!--المحتوى للمنظم-->
         <scene sceneID="QFE-Ys-gpL">
@@ -3536,7 +3515,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rKu-xi-eUS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5552" y="-1010"/>
+            <point key="canvasLocation" x="6364" y="-1010"/>
         </scene>
         <!-- إضافة مكان-->
         <scene sceneID="5f8-TB-Rud">
@@ -4334,7 +4313,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MMr-j0-9TF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="280" y="-618"/>
+            <point key="canvasLocation" x="1092" y="-618"/>
         </scene>
         <!--إدارة بيكون-->
         <scene sceneID="Dp7-AJ-gBm">
@@ -4674,12 +4653,30 @@
                         <outlet property="logout" destination="gU5-LH-HUb" id="K9V-VB-iRY"/>
                         <outlet property="table" destination="tJz-v9-62o" id="NJp-Ze-LDd"/>
                         <outlet property="tableView" destination="tJz-v9-62o" id="rVR-QW-ba9"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="backtologin" id="cVL-Sw-prK"/>
+                        <segue destination="bCK-wZ-tV4" kind="show" identifier="backtologin" id="cVL-Sw-prK"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gc8-Lv-O2o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1229" y="166"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Yj7-LZ-Lpr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bCK-wZ-tV4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Bm-Ah-n33">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="5jj-pI-vHM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BlB-hH-yia" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1946" y="-580"/>
         </scene>
     </scenes>
     <resources>
@@ -4859,7 +4856,7 @@ yybWJt8m8ib2JwEnCicPJxcnGicfJy4nMic5J0EnTidTJ1UnVydcJ2QnZydsJ3QndyeJJ4wnkQAAAAAA
 AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
 </mutableData>
         </image>
-        <image name="A17D9F19-8D34-45D4-A6E4-2E1C929007F0" width="26" height="23">
+        <image name="D8E8591B-39D4-4579-B72D-7731314DC52D" width="26" height="23">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -5117,6 +5114,8 @@ AAAAPwAAAAAAAAAAAAAAAAAAGBI
         <segue reference="3Nf-Cq-Fdi"/>
         <segue reference="DB3-SZ-mVb"/>
         <segue reference="wEZ-GV-jb3"/>
+        <segue reference="DQw-up-2BM"/>
+        <segue reference="wB1-eu-T0d"/>
         <segue reference="IE9-Mg-KXe"/>
         <segue reference="1xK-ul-Y0G"/>
         <segue reference="ZTI-2B-VFQ"/>
