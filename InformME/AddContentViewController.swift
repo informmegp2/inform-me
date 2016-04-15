@@ -82,6 +82,9 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
    func doneButton(sender:UIButton)
     {
         pickerTextField.resignFirstResponder()
+        var row = pickerView.selectedRowInComponent(0);
+        NSLog("value L %d", row)
+        pickerView(pickerView, didSelectRow: row, inComponent:0)
         
     }
     
