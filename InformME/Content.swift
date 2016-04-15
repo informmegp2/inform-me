@@ -144,7 +144,7 @@ class Content {
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/EditContent.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST"
-        let postString = "Title=\(title)&Abstract=\(abstract)&PDF=\(Pdf)&Video=\(video)&CID=\(cID)&pPDF=\(TempP)&pVideo=\(TempV)"
+        let postString = "Title=\(title)&Abstract=\(abstract)&PDF=\(Pdf)&Video=\(video)&CID=\(cID)&pPDF=\(TempP)&pVideo=\(TempV)&label=\(bLabel)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
