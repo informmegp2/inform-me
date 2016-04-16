@@ -27,7 +27,6 @@ class Content {
     
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
         var body = NSMutableData();
-        
         if parameters != nil {
             for (key, value) in parameters! {
                 body.appendString("--\(boundary)\r\n")
