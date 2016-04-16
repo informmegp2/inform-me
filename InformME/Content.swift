@@ -89,10 +89,14 @@ class Content {
     }
     
     func addImage(title: String,abstract: String ,BLabel: String,EID:Int,image: [UIImage] ,completionHandler: (flag:Bool) -> ()) {
+        var myGroup = dispatch_group_create()
+
         let l = BLabel
         let SC = 0
         var count = 0
         for var i=0; i<image.count;i++ {
+            dispatch_group_enter(myGroup)
+
             let MYURL = NSURL(string:"http://bemyeyes.co/API/content/AddImage.php")
             let request = NSMutableURLRequest(URL:MYURL!)
             request.HTTPMethod = "POST";
@@ -121,17 +125,22 @@ class Content {
 
                 // You can print out response object
                 print("response = \(response)")
+                dispatch_group_leave(myGroup)
+
             }
             task.resume()
-            if (i+1 == image.count){
-                completionHandler(flag: true)}
         }
         if (image.count == 0){
             completionHandler(flag: true)}
+        
+        dispatch_group_notify(myGroup, dispatch_get_main_queue(), {
+            print("Finished all requests.")
+            completionHandler(flag: true)
 
+        })
         
         }
-        
+    
     
     
     func generateBoundaryString() -> String {
