@@ -17,7 +17,7 @@ class NearbyContentViewController: UIViewController,UITableViewDelegate, UITable
     @IBOutlet weak var menuButton: UIBarButtonItem!
     var Requested: [String] = [""]
     var contentList = [Content]()
-    var uid = 30;
+    var uid : Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
 
     
     //This manager is for ranging
