@@ -37,17 +37,13 @@ class Content {
         
         let filename = "ContentImage.jpg"
         let mimetype = "image/jpg"
-        
         body.appendString("--\(boundary)\r\n")
         body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
         body.appendString("Content-Type: \(mimetype)\r\n\r\n")
         body.appendData(imageDataKey)
         body.appendString("\r\n")
-        
-        
-        
         body.appendString("--\(boundary)--\r\n")
-        
+
         return body
     }
     
