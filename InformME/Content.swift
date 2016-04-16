@@ -93,7 +93,7 @@ class Content {
     func addImage(title: String,abstract: String ,BLabel: String,EID:Int,image: [UIImage] ,completionHandler: (flag:Bool) -> ()) {
         let l = BLabel
         let SC = 0
-        for i in 0...image.count-1{
+        for var i=0; i<image.count;i++ {
             let MYURL = NSURL(string:"http://bemyeyes.co/API/content/AddImage.php")
             
             let request = NSMutableURLRequest(URL:MYURL!)
@@ -198,8 +198,7 @@ class Content {
         }
         
         task1.resume()
-        
-        for i in 0...image.count-1{
+        for var i=0; i<image.count;i++ {
             let MYURL = NSURL(string:"http://bemyeyes.co/API/content/updateImage.php")
             
             let request = NSMutableURLRequest(URL:MYURL!)
