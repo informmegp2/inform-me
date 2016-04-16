@@ -93,13 +93,11 @@ class Content {
     func addImage(title: String,abstract: String ,BLabel: String,EID:Int,image: [UIImage] ,completionHandler: (flag:Bool) -> ()) {
         let l = BLabel
         let SC = 0
+        
         for var i=0; i<image.count;i++ {
             let MYURL = NSURL(string:"http://bemyeyes.co/API/content/AddImage.php")
-            
             let request = NSMutableURLRequest(URL:MYURL!)
-            
             request.HTTPMethod = "POST";
-            
             let param : [String: String] = [
                 "Title"     : title,
                 "Abstract"  :abstract,
@@ -113,12 +111,9 @@ class Content {
             let imageData = UIImageJPEGRepresentation(image[i], -1)
             if imageData==nil{
                 print("it is nil")}
-            
             request.HTTPBody = createBodyWithParameters(param, filePathKey: "file", imageDataKey: imageData!, boundary: boundary)
-            
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
                 data, response, error in
-                
                 if error != nil
                 {
                     print("error=\(error)")
@@ -186,25 +181,19 @@ class Content {
         
         let task1 = NSURLSession.sharedSession().dataTaskWithRequest(request1) {
             data, response, error in
-            
             if error != nil
             {
                 print("error=\(error)")
                 return
             }
-            
             // You can print out response object
             print("response = \(response)")
         }
-        
         task1.resume()
-        for var i=0; i<image.count;i++ {
+            for var i=0; i<image.count;i++ {
             let MYURL = NSURL(string:"http://bemyeyes.co/API/content/updateImage.php")
-            
             let request = NSMutableURLRequest(URL:MYURL!)
-            
             request.HTTPMethod = "POST";
-            
             let param : [String: String] = [
                 "Title"     : title,
                 "Abstract"  :abstract,
