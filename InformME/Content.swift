@@ -43,7 +43,6 @@ class Content {
         body.appendData(imageDataKey)
         body.appendString("\r\n")
         body.appendString("--\(boundary)--\r\n")
-
         return body
     }
     
