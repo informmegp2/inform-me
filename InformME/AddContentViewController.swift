@@ -27,6 +27,7 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
     var EID = 1;
      var pickerView = UIPickerView()
     @IBAction func Submit(sender: AnyObject) {
+        print ("''''''''''add content ")
         var title = TTitle.text!
         var abstract = Abstract.text!
         var video = Video.text!

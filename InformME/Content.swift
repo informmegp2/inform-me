@@ -24,7 +24,6 @@ class Content {
     var dislike: Int = 0
     var save:Bool = false;
     var del:Bool = false
-    var upd:Bool = false
     
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
         var body = NSMutableData();
@@ -74,13 +73,12 @@ class Content {
                 print("error=\(error)")
                 return
             }
-            
-            
             print("response = \(response)")
             
         }
         
         task.resume()
+        
         addImage(title,abstract: abstract,BLabel: BLabel,EID: EID,image: image){
             (flag:Bool) in
             //we should perform all segues in the main thread
@@ -93,7 +91,7 @@ class Content {
     func addImage(title: String,abstract: String ,BLabel: String,EID:Int,image: [UIImage] ,completionHandler: (flag:Bool) -> ()) {
         let l = BLabel
         let SC = 0
-        
+        var count = 0
         for var i=0; i<image.count;i++ {
             let MYURL = NSURL(string:"http://bemyeyes.co/API/content/AddImage.php")
             let request = NSMutableURLRequest(URL:MYURL!)
@@ -119,16 +117,22 @@ class Content {
                     print("error=\(error)")
                     return
                 }
-                
+              
+
                 // You can print out response object
                 print("response = \(response)")
-                completionHandler(flag: true)
             }
             task.resume()
+            if (i+1 == image.count){
+                completionHandler(flag: true)}
+        }
+        if (image.count == 0){
+            completionHandler(flag: true)}
+
+        
         }
         
-        
-    }
+    
     
     func generateBoundaryString() -> String {
         return "Boundary-\(NSUUID().UUIDString)"
@@ -223,7 +227,6 @@ class Content {
             task.resume()
         }
         completionHandler(flag: true)
-        upd = true
     }
     
     

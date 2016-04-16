@@ -107,7 +107,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             UIAlertAction in
             NSLog("OK Pressed")
             var c : Content = Content()
-            c.updateContent (title, abstract: abstract,video: pdf , Pdf: video ,bLabel: blabel,image: self.images, TempV: self.tempV , TempP: self.tempP ,EID: self.EID!, cID: self.cid!){
+            c.updateContent (title, abstract: abstract,video: video , Pdf: pdf ,bLabel: blabel,image: self.images, TempV: self.tempV , TempP: self.tempP ,EID: self.EID!, cID: self.cid!){
                 (flag:Bool) in
                 dispatch_async(dispatch_get_main_queue()) {
                     self.performSegueWithIdentifier("alertPressedOK", sender:sender)
@@ -139,6 +139,12 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             detailVC.contentid=cid!
             detailVC.images=images
             detailVC.label=pickerTextField.text!
+            
+        }
+        if (segue.identifier == "deleteok") {
+            var detailVC = segue!.destinationViewController as! ManageContentsViewController
+            detailVC.EID=EID
+           
             
         }
         

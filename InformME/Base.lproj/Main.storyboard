@@ -970,7 +970,7 @@
                                             <color key="titleColor" name="controlLightHighlightColor" catalog="System" colorSpace="catalog"/>
                                         </state>
                                         <connections>
-                                            <action selector="Submit:" destination="CYb-wh-2ss" eventType="touchUpInside" id="ByD-0z-MDR"/>
+                                            <action selector="Submit:" destination="CYb-wh-2ss" eventType="touchUpInside" id="Sco-gC-eUu"/>
                                             <action selector="Submit:" destination="CFc-gN-5Iw" eventType="touchUpInside" id="XWG-mW-Ud7"/>
                                         </connections>
                                     </button>
@@ -2077,7 +2077,7 @@
                                 <color key="separatorColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="contentCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="contentCell" id="fsz-9P-tJA" customClass="ContentTableCellViewController" customModule="InformME" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fsz-9P-tJA" id="eW4-DT-ewo">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -2917,7 +2917,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pI7-II-bSY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="6C563BF2-6909-4FEA-9E6A-C063584CF438" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="294A9A89-B143-407C-AEC3-345586BCFA0D" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
                                             <rect key="frame" x="-292" y="-143" width="1184" height="486"/>
                                             <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
@@ -2944,7 +2944,7 @@
                                         </label>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aY-Ke-P4A">
                                             <rect key="frame" x="20" y="20" width="29" height="55"/>
-                                            <state key="normal" image="C65A1733-6A84-4C95-882D-4B41C7AC9ADB"/>
+                                            <state key="normal" image="E8871952-E18B-4835-B409-C78BF6946368"/>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4686,7 +4686,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="6C563BF2-6909-4FEA-9E6A-C063584CF438" width="26" height="23">
+        <image name="294A9A89-B143-407C-AEC3-345586BCFA0D" width="26" height="23">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -4795,7 +4795,7 @@ hwCSAJQAlgCYAJ0AoACiAKQApgCoAK0AxADGAMgXMhc3F0IXSxdeF2IXbRd2F3sXgxeGF4sXmheeF6UX
 rRe6F78XwRfDF8gX0BfTF9gX4BfjF/UX+Bf9AAAAAAAAAgEAAAAAAAAAPgAAAAAAAAAAAAAAAAAAF/8
 </mutableData>
         </image>
-        <image name="C65A1733-6A84-4C95-882D-4B41C7AC9ADB" width="29" height="55">
+        <image name="E8871952-E18B-4835-B409-C78BF6946368" width="29" height="55">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -5000,18 +5000,18 @@ AAIBAAAAAAAAAD4AAAAAAAAAAAAAAAAAACeTA
         <image name="كلمة المرور" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="bFI-E1-VSS"/>
-        <segue reference="geg-LT-dMU"/>
-        <segue reference="3Nf-Cq-Fdi"/>
-        <segue reference="iTh-6x-Xez"/>
-        <segue reference="DB3-SZ-mVb"/>
-        <segue reference="dgw-3D-ny4"/>
-        <segue reference="wEZ-GV-jb3"/>
-        <segue reference="ZDi-NZ-fAN"/>
+        <segue reference="KIp-x6-3mH"/>
         <segue reference="pz3-kv-3qy"/>
         <segue reference="oQM-Ab-5Yy"/>
-        <segue reference="IE9-Mg-KXe"/>
         <segue reference="1xK-ul-Y0G"/>
+        <segue reference="bFI-E1-VSS"/>
+        <segue reference="nqB-fl-sns"/>
+        <segue reference="dgw-3D-ny4"/>
+        <segue reference="iTh-6x-Xez"/>
+        <segue reference="3Nf-Cq-Fdi"/>
+        <segue reference="DB3-SZ-mVb"/>
+        <segue reference="wEZ-GV-jb3"/>
+        <segue reference="IE9-Mg-KXe"/>
         <segue reference="wB1-eu-T0d"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
