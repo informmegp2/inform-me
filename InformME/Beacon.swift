@@ -49,7 +49,7 @@ class Beacon {
         task.resume()
     }
     
-    func assign (label: String, var cid:Int ,completionHandler: (flag:Bool) -> ()) {
+    func assign (label: String, cid:Int ,completionHandler: (flag:Bool) -> ()) {
         var f=false
         
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/assign.php")
@@ -57,7 +57,7 @@ class Beacon {
         request.HTTPMethod = "POST";
         
         //Change UserID"
-        var cid1=String(cid)
+        let cid1=String(cid)
         let postString = "label="+label+"&cid="+cid1
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
@@ -101,13 +101,13 @@ class Beacon {
                     
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
                     
-                    for var x=0; x<jsonResult.count;x++ {
+                    for x in 0 ..< jsonResult.count {
                         
                         
-                        var beacon: Beacon = Beacon()
-                        var l : AnyObject = jsonResult[x]["Label"]as! String
-                        var m : AnyObject = jsonResult[x]["Major"]as! String
-                        var mi : AnyObject = jsonResult[x]["Minor"]as! String
+                        let beacon: Beacon = Beacon()
+                        let l : AnyObject = jsonResult[x]["Label"]as! String
+                        let m : AnyObject = jsonResult[x]["Major"]as! String
+                        let mi : AnyObject = jsonResult[x]["Minor"]as! String
                         
                         beacon.Label=l as! String
                         beacon.Major=m as! String
@@ -131,7 +131,6 @@ class Beacon {
     func updateBeacon(label: String,major: String,minor: String , Temp: String){
         
         save = false;
-        var f=false
         
         let MYURL = NSURL(string:"http://bemyeyes.co/API/beacon/EditBeacon.php")
         let request = NSMutableURLRequest(URL:MYURL!)
@@ -148,9 +147,7 @@ class Beacon {
             {
                 print("error=\(error)")
                 return
-            }
-            f=true
-            
+            }            
             // You can print out response object
             print("response = \(response)")
             // completionHandler(flag: f)

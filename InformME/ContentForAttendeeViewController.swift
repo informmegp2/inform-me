@@ -29,7 +29,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     override func viewDidLoad() {
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
        // commentsTable.delegate = self;
@@ -148,7 +148,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         
         
         
-        var current: Authentication = Authentication();
+        let current: Authentication = Authentication();
         
         current.logout(){
             (login:Bool) in

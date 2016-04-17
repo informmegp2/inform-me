@@ -29,10 +29,10 @@ class assignContentToTheBeaconViewController: UIViewController,UITableViewDataSo
     @IBAction func assign(sender: AnyObject) {
         
         
-        var alertController = UIAlertController(title: "", message: "هل تود ربط المحتوى بهذا البيكون", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "", message: "هل تود ربط المحتوى بهذا البيكون", preferredStyle: .Alert)
         
         // Create the actions
-        var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
+        let okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
             UIAlertAction in
             NSLog("OK Pressed")
             var b: Beacon = Beacon()
@@ -50,7 +50,7 @@ class assignContentToTheBeaconViewController: UIViewController,UITableViewDataSo
                 }}
 
         }
-        var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
+        let cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
             NSLog("Cancel Pressed")
         }
@@ -85,11 +85,11 @@ class assignContentToTheBeaconViewController: UIViewController,UITableViewDataSo
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
                     
                     
-                    for var x=0; x<jsonResult.count;x++ {
-                        var beacon: Beacon = Beacon()
-                        var l : AnyObject = jsonResult[x]["Label"]as! String
-                        var m : AnyObject = jsonResult[x]["Major"]as! String
-                        var mi : AnyObject = jsonResult[x]["Minor"]as! String
+                    for x in 0 ..< jsonResult.count {
+                        let beacon: Beacon = Beacon()
+                        let l : AnyObject = jsonResult[x]["Label"]as! String
+                        let m : AnyObject = jsonResult[x]["Major"]as! String
+                        let mi : AnyObject = jsonResult[x]["Minor"]as! String
                         
                         beacon.Label=l as! String
                         beacon.Major=m as! String
@@ -125,7 +125,7 @@ class assignContentToTheBeaconViewController: UIViewController,UITableViewDataSo
         var b: Beacon = Beacon()
         b = self.beaconsInfo[indexPath.row] as! Beacon
         
-        cell.name.text = b.Label+" \n القيمة الأساسية:"+b.Major+" ،القيمة الثانوية: "+b.Minor as? String
+        cell.name.text = b.Label+" \n القيمة الأساسية:"+b.Major+" ،القيمة الثانوية: "+b.Minor as String
         
         
         

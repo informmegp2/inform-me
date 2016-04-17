@@ -29,10 +29,9 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
 
     @IBAction func Submit(sender: AnyObject) {
         
-        var minor = Minor.text!
-        var llabel = Label.text!
-        var  major = Major.text!
-        var flag : Bool = false
+        let minor = Minor.text!
+        let llabel = Label.text!
+        let  major = Major.text!
         
         if (Minor.text == "" || Major.text == "" || llabel == "") {
             let alert = UIAlertController(title: "", message: " يرجى إكمال كافة الحقول", preferredStyle: UIAlertControllerStyle.Alert)
@@ -53,7 +52,7 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
                 self.presentViewController(alert, animated: true, completion: nil)
                 }
             else {
-                var b : Beacon = Beacon()
+                let b : Beacon = Beacon()
                 b.addBeacon (llabel, major: major,minor:minor){
                     (flag:Bool) in
                     //we should perform all segues in the main thread
@@ -103,7 +102,6 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
     func beaconManager(manager: AnyObject, didRangeBeacons beacons: [CLBeacon],
                        inRegion region: CLBeaconRegion) {
         //Get the array of beacons in range
-        if let beacons = beacons as? [CLBeacon] {
             //For each beacon in array
             for beacon in beacons {
                 //Check if the content was requested
@@ -130,7 +128,6 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
                 }
                 
             }
-        }
     }
     var alertOn = false
     var beaconDiscovered = 0

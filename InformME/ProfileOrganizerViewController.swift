@@ -35,7 +35,7 @@ class ProfileOrganizerViewController : UIViewController , UITextFieldDelegate{
             
             if self.revealViewController() != nil {
                 self.menuButton.target = self.revealViewController()
-                self.menuButton.action = "revealToggle:"
+                self.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
                 self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             }
         }
@@ -60,7 +60,7 @@ class ProfileOrganizerViewController : UIViewController , UITextFieldDelegate{
         
         
         
-        var current: Authentication = Authentication();
+        let current: Authentication = Authentication();
         
         current.logout(){
             (login:Bool) in
@@ -99,10 +99,10 @@ class ProfileOrganizerViewController : UIViewController , UITextFieldDelegate{
         }
     
         else {
-            var alertController = UIAlertController(title: "", message: " هل أنت متأكد من رغبتك بحفظ التغييرات؟", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: "", message: " هل أنت متأكد من رغبتك بحفظ التغييرات؟", preferredStyle: .Alert)
             
             // Create the actions
-            var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
+            let okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
                 UIAlertAction in
                 NSLog("OK Pressed")
                 
@@ -123,7 +123,7 @@ class ProfileOrganizerViewController : UIViewController , UITextFieldDelegate{
                 
             }
             
-            var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel)
+            let cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel)
                 {
                     UIAlertAction in
                     NSLog("Cancel Pressed")
@@ -149,7 +149,7 @@ class ProfileOrganizerViewController : UIViewController , UITextFieldDelegate{
     
     func displayAlert(title: String, message: String) {
         
-        var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
             
             if( message != "يرجى إدخال كافة الحقول") {
@@ -173,7 +173,7 @@ class ProfileOrganizerViewController : UIViewController , UITextFieldDelegate{
         
     }
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
         

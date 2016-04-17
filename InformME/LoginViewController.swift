@@ -34,8 +34,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UINavigationCo
     
     @IBAction func login(sender: AnyObject) {
         
-        var email = emailfiled.text!
-        var password = passwordfiled.text!
+        let email = emailfiled.text!
+        let password = passwordfiled.text!
         var type: Int
         type = -1;
         
@@ -60,7 +60,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UINavigationCo
             
             var flag: Bool
             flag = false
-            var current: Authentication = Authentication();
+            let current: Authentication = Authentication();
             
             //Wher use a completion handler here in order to make sure we got the latest value of flag.
             current.login( email, Passoword: password, Type: type) {
@@ -112,9 +112,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UINavigationCo
         
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         
-        var emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         
-        var result = emailTest.evaluateWithObject(testStr)
+        let result = emailTest.evaluateWithObject(testStr)
         
         return result
         
@@ -128,7 +128,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UINavigationCo
 
     func displayAlert(title: String, message: String) {
         
-        var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
             
             self.dismissViewControllerAnimated(true, completion: nil)
@@ -152,7 +152,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UINavigationCo
         
     }
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
         

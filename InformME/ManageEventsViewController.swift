@@ -23,7 +23,7 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
         print(NSUserDefaults.standardUserDefaults().integerForKey("id"))
         if self.revealViewController() != nil {
             self.menuButton.target = self.revealViewController()
-            self.menuButton.action = "revealToggle:"
+            self.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         event.requesteventlist(UserID){
@@ -57,7 +57,7 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
         
         
         
-        var current: Authentication = Authentication();
+        let current: Authentication = Authentication();
         
         current.logout(){
             (login:Bool) in
@@ -94,7 +94,7 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
         
         let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as! EventTableCellViewController
         var e : Event = Event()
-        e=eventsInfo[(indexPath.row)] as! Event
+        e=eventsInfo[(indexPath.row)]
         print(e.name)
        
         cell.name.text = e.name
@@ -116,17 +116,17 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
         performSegueWithIdentifier("showEventDetails", sender: self)
     }
     
-   override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
     if (segue.identifier == "showEventDetails") {
         let pointInTable: CGPoint = sender.convertPoint(sender.bounds.origin, toView: self.tableView)
         let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
      
         var e : Event = Event()
-        e=eventsInfo[(cellIndexPath?.row)!] as! Event
+        e=eventsInfo[(cellIndexPath?.row)!]
 
             //Checking identifier is crucial as there might be multiple
             // segues attached to same view
-            var detailVC = segue!.destinationViewController as! EventDetailsViewController;
+            let detailVC = segue.destinationViewController as! EventDetailsViewController;
            detailVC.evid = e.id
            detailVC.evname=e.name
            detailVC.evwebsite=e.website

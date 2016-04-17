@@ -31,7 +31,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
@@ -49,7 +49,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         
         
         
-        var current: Authentication = Authentication();
+        let current: Authentication = Authentication();
         
         current.logout(){
             (login:Bool) in
@@ -88,12 +88,12 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
                 do {
                     
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
-                    for var x=0; x<jsonResult.count;x++ {
-                        var beacon: Beacon = Beacon()
-                        var l : AnyObject = jsonResult[x]["Label"]as! String
-                        var m : AnyObject = jsonResult[x]["Major"]as! String
-                        var mi : AnyObject = jsonResult[x]["Minor"]as! String
-                        var id : AnyObject = jsonResult[x]["UserID"]as! String
+                    for x in 0 ..< jsonResult.count {
+                        let beacon: Beacon = Beacon()
+                        let l : AnyObject = jsonResult[x]["Label"]as! String
+                        let m : AnyObject = jsonResult[x]["Major"]as! String
+                        let mi : AnyObject = jsonResult[x]["Minor"]as! String
+                        let id : AnyObject = jsonResult[x]["UserID"]as! String
                         
                         beacon.Label=l as! String
                         beacon.Major=m as! String
@@ -136,7 +136,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         var b: Beacon = Beacon()
         b = self.values[indexPath.row] as! Beacon
         
-        cell.name.text = b.Label+" \n القيمة الأساسية:"+b.Major+" ،القيمة الثانوية: "+b.Minor as? String
+        cell.name.text = b.Label+" \n القيمة الأساسية:"+b.Major+" ،القيمة الثانوية: "+b.Minor as String
         return cell
         
         
@@ -146,10 +146,10 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         if editingStyle == UITableViewCellEditingStyle.Delete {
             
             
-            var alertController = UIAlertController(title: "", message: "هل أنت متأكد من رغبتك بالحذف", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: "", message: "هل أنت متأكد من رغبتك بالحذف", preferredStyle: .Alert)
             
             // Create the actions
-            var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
+            let okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
                 UIAlertAction in
                 NSLog("OK Pressed")
                 var b: Beacon = Beacon()
@@ -158,7 +158,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
                 self.deleteBeacon(b.Label)
             }
-            var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
+            let cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
                 UIAlertAction in
                 NSLog("Cancel Pressed")
             }
@@ -195,7 +195,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
             b=beaconsInfo[(cellIndexPath?.row)!] as! Beacon
             //Checking identifier is crucial as there might be multiple
             // segues attached to same view
-            var detailVC = segue.destinationViewController as! UpdateBeaconViewController;
+            let detailVC = segue.destinationViewController as! UpdateBeaconViewController;
             detailVC.llabel=b.Label
             detailVC.mmajor=b.Major
             detailVC.mminor=b.Minor
@@ -203,7 +203,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         }
         
         if (segue.identifier == "addBeacon") {
-            var detailVC = segue.destinationViewController as! AddBeaconViewController
+            let detailVC = segue.destinationViewController as! AddBeaconViewController
             detailVC.labels = Labels
             detailVC.UID = UID
 
@@ -213,7 +213,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
     }
     
     func deleteBeacon(label: String) {
-        var b: Beacon = Beacon()
+        let b: Beacon = Beacon()
         b.deleteBeacon(label)
     }
     

@@ -26,7 +26,7 @@ class Report {
                     
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
                     
-                    for var x=0; x<jsonResult.count;x++ {
+                    for x in 0 ..< jsonResult.count {
                         let item = jsonResult[x] as AnyObject
                         let c : Content = Content()
                         
@@ -42,7 +42,7 @@ class Report {
                         }
                         var comments: [Comment] = []
                         let itemC = item["Comments"] as! NSArray
-                        for var i=0; i<itemC.count;i++ {
+                        for i in 0 ..< itemC.count {
                             let comment: Comment = Comment()
                             comment.comment = itemC[i]["CommentText"] as! String
                             comment.user.username = itemC[i]["UserName"] as! String

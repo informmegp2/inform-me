@@ -32,7 +32,7 @@ class RecoverPasswordViewController: UIViewController, UITextFieldDelegate, UINa
     @IBAction func recover(sender: AnyObject) {
   
     
-        var email = recEmail.text!
+        let email = recEmail.text!
         var type: Int
         type = -1;
         
@@ -52,7 +52,7 @@ class RecoverPasswordViewController: UIViewController, UITextFieldDelegate, UINa
             var flag: Bool
             flag = false
             
-             var current: Authentication = Authentication();
+             let current: Authentication = Authentication();
             
             current.recoverPassword(email , Type: type){
                 (login:Bool) in
@@ -101,7 +101,7 @@ class RecoverPasswordViewController: UIViewController, UITextFieldDelegate, UINa
         
         
         
-        var current: Authentication = Authentication();
+        let current: Authentication = Authentication();
         
         current.logout(){
             (login:Bool) in
@@ -143,7 +143,7 @@ class RecoverPasswordViewController: UIViewController, UITextFieldDelegate, UINa
     
     func displayAlert(title: String, message: String) {
         
-        var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
             
             self.dismissViewControllerAnimated(true, completion: nil)
@@ -170,7 +170,7 @@ class RecoverPasswordViewController: UIViewController, UITextFieldDelegate, UINa
         
     }
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
         

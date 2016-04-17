@@ -26,13 +26,13 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
     var beacon:Beacon = Beacon()// for assign beacon
     var EID = 1;
     @IBAction func Submit(sender: AnyObject) {
-        var title = TTitle.text!
-        var abstract = Abstract.text!
-        var video = Video.text!
-        var pdf = PDF.text!
-        var label=pickerTextField.text!
+        let title = TTitle.text!
+        let abstract = Abstract.text!
+        let video = Video.text!
+        let pdf = PDF.text!
+        let label=pickerTextField.text!
         
-        var c : Content = Content()
+        let c : Content = Content()
         
         c.createContent(title,abstract: abstract,video: video,Pdf: pdf ,BLabel: label, EID: EID, image: images ){
             (flag:Bool) in
@@ -42,9 +42,9 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
             }
         } }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "addContent") {
-            var detailVC = segue!.destinationViewController as! ManageContentsViewController
+            let detailVC = segue.destinationViewController as! ManageContentsViewController
             detailVC.EID=EID
             
         }
@@ -60,7 +60,7 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
             dispatch_async(dispatch_get_main_queue()) {
                 self.beaconsInfo = beaconsInfo
                 print("get info")
-                var pickerView = UIPickerView()
+                let pickerView = UIPickerView()
                 
                 pickerView.delegate = self
                 
