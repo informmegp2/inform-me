@@ -84,12 +84,11 @@ class Content {
     }
     
     func addImage(title: String,abstract: String ,BLabel: String,EID:Int,image: [UIImage] ,completionHandler: (flag:Bool) -> ()) {
-        var myGroup = dispatch_group_create()
+        let myGroup = dispatch_group_create()
 
         let l = BLabel
         let SC = 0
-        var count = 0
-        for var i=0; i<image.count;i++ {
+        for i in 0 ..< image.count {
             dispatch_group_enter(myGroup)
 
             let MYURL = NSURL(string:"http://bemyeyes.co/API/content/AddImage.php")
@@ -198,7 +197,7 @@ class Content {
             print("response = \(response)")
         }
         task1.resume()
-            for var i=0; i<image.count;i++ {
+            for i in 0 ..< image.count {
             let MYURL = NSURL(string:"http://bemyeyes.co/API/content/updateImage.php")
             let request = NSMutableURLRequest(URL:MYURL!)
             request.HTTPMethod = "POST";

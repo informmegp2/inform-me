@@ -58,7 +58,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
         
         inputView.addSubview(doneButton) // add Button to UIView
         
-        doneButton.addTarget(self, action: "doneButton:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
+        doneButton.addTarget(self, action: #selector(UpdateContentViewController.doneButton(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
         
         (sender as! UITextField).inputView = inputView
         (sender as! UITextField).delegate = self
@@ -68,7 +68,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
     func doneButton(sender:UIButton)
     {
         pickerTextField.resignFirstResponder()
-        var row = pickerView.selectedRowInComponent(0);
+        let row = pickerView.selectedRowInComponent(0);
         NSLog("value L %d", row)
         pickerView(pickerView, didSelectRow: row, inComponent:0)
         
@@ -146,7 +146,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             
         }
         if (segue.identifier == "deleteok") {
-            var detailVC = segue!.destinationViewController as! ManageContentsViewController
+            let detailVC = segue.destinationViewController as! ManageContentsViewController
             detailVC.EID=EID
            
             
@@ -196,11 +196,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             dispatch_async(dispatch_get_main_queue()) {
                 self.beaconsInfo = beaconsInfo
                 print("get info")
-                let pickerView = UIPickerView()
-                
-                pickerView.delegate = self
-                
-                self.pickerTextField.inputView = pickerView
+               
                 
                 
             }

@@ -72,7 +72,7 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         
         inputView.addSubview(doneButton) // add Button to UIView
         
-        doneButton.addTarget(self, action: "doneButton:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
+        doneButton.addTarget(self, action: #selector(AddContentViewController.doneButton(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
         
         (sender as! UITextField).inputView = inputView
       (sender as! UITextField).delegate = self
@@ -82,7 +82,7 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
    func doneButton(sender:UIButton)
     {
         pickerTextField.resignFirstResponder()
-        var row = pickerView.selectedRowInComponent(0);
+        let row = pickerView.selectedRowInComponent(0);
         NSLog("value L %d", row)
         pickerView(pickerView, didSelectRow: row, inComponent:0)
         
@@ -97,7 +97,7 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
             dispatch_async(dispatch_get_main_queue()) {
                 self.beaconsInfo = beaconsInfo
                 print("get info")
-                let pickerView = UIPickerView()
+              /*  var pickerView = UIPickerView()
                 
                 pickerView.delegate = self
                 

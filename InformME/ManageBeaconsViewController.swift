@@ -136,7 +136,8 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         var b: Beacon = Beacon()
         b = self.values[indexPath.row] as! Beacon
         
-        cell.name.text = b.Label+" \n القيمة الأساسية:"+b.Major+" ،القيمة الثانوية: "+b.Minor as String
+        cell.name.text = b.Label+" \n القيمة الأساسية:"+b.Major+" \n القيمة الثانوية: "+b.Minor as String
+        tableView.rowHeight = 60
         return cell
         
         
