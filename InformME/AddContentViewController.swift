@@ -133,7 +133,13 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
     }
     
    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickerTextField.text = beaconsInfo[row].Label
+    if (beaconsInfo.count == 0)
+    {
+        pickerTextField.text = ""
+    }
+    else {
+        
+        pickerTextField.text = beaconsInfo[row].Label}
        
     }
     
