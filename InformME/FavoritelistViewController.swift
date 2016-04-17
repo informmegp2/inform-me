@@ -15,7 +15,7 @@ class FavoritelistViewController: UIViewController,UITableViewDelegate, UITableV
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     var contentList = [Content]()
-    var uid = 30;
+    var uid : Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
     
     @IBOutlet var tableView: UITableView!
     @IBAction func out(sender: AnyObject) {

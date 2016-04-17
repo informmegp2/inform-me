@@ -34,9 +34,46 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
     var beaconsInfo: [Beacon] = []//nouf add it for assign beacon
     var beacon:Beacon = Beacon()// for assign beacon
     var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
-    
+    var pickerView = UIPickerView() 
     
     // for assign
+    
+    @IBAction func assignBeacon(sender: AnyObject) {
+        
+        let inputView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 240))
+        
+        
+        
+        pickerView.delegate = self
+        pickerView.showsSelectionIndicator = true
+        
+        pickerView.dataSource = self
+        inputView.addSubview(pickerView) // add date picker to UIView
+        
+        let doneButton = UIButton(frame: CGRectMake((self.view.frame.size.width/2) - (100/2), 0, 100, 50))
+        doneButton.setTitle("Done", forState: UIControlState.Normal)
+        doneButton.setTitle("Done", forState: UIControlState.Highlighted)
+        doneButton.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
+        doneButton.setTitleColor(UIColor.grayColor(), forState: UIControlState.Highlighted)
+        
+        inputView.addSubview(doneButton) // add Button to UIView
+        
+        doneButton.addTarget(self, action: "doneButton:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
+        
+        (sender as! UITextField).inputView = inputView
+        (sender as! UITextField).delegate = self
+        
+        
+    }
+    func doneButton(sender:UIButton)
+    {
+        pickerTextField.resignFirstResponder()
+        var row = pickerView.selectedRowInComponent(0);
+        NSLog("value L %d", row)
+        pickerView(pickerView, didSelectRow: row, inComponent:0)
+        
+    }
+    
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -52,7 +89,12 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickerTextField.text = beaconsInfo[row].Label
+        if (beaconsInfo.count == 0){
+        pickerTextField.text=""}
+        else{
+            pickerTextField.text = beaconsInfo[row].Label}
+        
+        
     }
     
     @IBAction func Submit(sender: AnyObject) {
@@ -100,7 +142,13 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             detailVC.video=EVideo.text!
             detailVC.contentid=cid!
             detailVC.images=images
+            detailVC.label=pickerTextField.text!
             
+        }
+        if (segue.identifier == "deleteok") {
+            var detailVC = segue!.destinationViewController as! ManageContentsViewController
+            detailVC.EID=EID
+           
             
         }
         

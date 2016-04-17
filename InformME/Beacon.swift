@@ -23,9 +23,8 @@ class Beacon {
         let MYURL = NSURL(string:"http://bemyeyes.co/API/beacon/AddBeacon.php")
         let request = NSMutableURLRequest(URL:MYURL!)
         request.HTTPMethod = "POST"
-        let majorHash = "\(UserID),\(major)"
-        let minorHash = "\(UserID),\(minor)"
-        let postString = "Label="+label+"&Major="+majorHash+"&Minor="+minorHash+"&UserID=\(UserID)"
+        
+        let postString = "Label="+label+"&Major="+major+"&Minor="+minor+"&UserID=\(UserID)"
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
