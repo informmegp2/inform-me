@@ -103,7 +103,16 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
         let pdf = EPDF.text!
         let video = EVideo.text!
         let blabel = pickerTextField.text!
-        
+        if (ETitle.text == "") {
+            let alert = UIAlertController(title: "", message: " يرجى إدخال عنوان المحتوى", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+                
+            }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        else {
         let alertController = UIAlertController(title: "", message: " هل أنت متأكد من رغبتك بحفظ التغييرات؟", preferredStyle: .Alert)
         
         // Create the actions
@@ -130,7 +139,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
         // Present the controller
         self.presentViewController(alertController, animated: true, completion: nil)
         
-    }
+        } }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "alertPressedOK") {

@@ -2828,7 +2828,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pI7-II-bSY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="80FA2AFF-5551-4210-894E-FF126A60CB5B" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1CB297C3-7D69-449D-9A46-F76D6D8B3DA5" translatesAutoresizingMaskIntoConstraints="NO" id="lF2-OY-RjB">
                                             <rect key="frame" x="273" y="89" width="54" height="23"/>
                                             <color key="backgroundColor" name="alternateSelectedControlColor" catalog="System" colorSpace="catalog"/>
                                             <constraints>
@@ -2855,7 +2855,7 @@
                                         </label>
                                         <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aY-Ke-P4A">
                                             <rect key="frame" x="20" y="20" width="26" height="23"/>
-                                            <state key="normal" image="9E0F925C-E9B0-4005-B5F8-491F3BFA0596"/>
+                                            <state key="normal" image="A14DA888-319F-4CEC-B847-6A71E2E19261"/>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -4483,7 +4483,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="80FA2AFF-5551-4210-894E-FF126A60CB5B" width="26" height="23">
+        <image name="1CB297C3-7D69-449D-9A46-F76D6D8B3DA5" width="26" height="23">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -4592,7 +4592,7 @@ hwCSAJQAlgCYAJ0AoACiAKQApgCoAK0AxADGAMgXMhc3F0IXSxdeF2IXbRd2F3sXgxeGF4sXmheeF6UX
 rRe6F78XwRfDF8gX0BfTF9gX4BfjF/UX+Bf9AAAAAAAAAgEAAAAAAAAAPgAAAAAAAAAAAAAAAAAAF/8
 </mutableData>
         </image>
-        <image name="9E0F925C-E9B0-4005-B5F8-491F3BFA0596" width="26" height="23">
+        <image name="A14DA888-319F-4CEC-B847-6A71E2E19261" width="26" height="23">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOjtYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISgrLjQ3VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
@@ -4732,16 +4732,16 @@ rRe6F78XwRfDF8gX0BfTF9gX4BfjF/UX+Bf9AAAAAAAAAgEAAAAAAAAAPgAAAAAAAAAAAAAAAAAAF/8
         <segue reference="5jj-pI-vHM"/>
         <segue reference="UaN-9i-zBA"/>
         <segue reference="fHa-K5-hYu"/>
-        <segue reference="Y1c-ci-hi5"/>
-        <segue reference="SKo-99-BSF"/>
         <segue reference="SdP-dw-4aO"/>
+        <segue reference="SKo-99-BSF"/>
+        <segue reference="Y1c-ci-hi5"/>
         <segue reference="giJ-U6-EkG"/>
-        <segue reference="OHT-nf-Gls"/>
         <segue reference="Gol-Td-gCN"/>
+        <segue reference="OHT-nf-Gls"/>
         <segue reference="KhZ-9v-s7c"/>
-        <segue reference="ZTI-2B-VFQ"/>
-        <segue reference="DQw-up-2BM"/>
         <segue reference="IE9-Mg-KXe"/>
+        <segue reference="1xK-ul-Y0G"/>
+        <segue reference="ZTI-2B-VFQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.32156862749999998" green="0.12549019610000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>
