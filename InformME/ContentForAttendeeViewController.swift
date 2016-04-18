@@ -15,8 +15,8 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet var commentsTable: UITableView!
     @IBOutlet var abstract: UILabel!
-    @IBOutlet var pdf: UILabel!
-    @IBOutlet var video: UILabel!
+    @IBOutlet var pdf: UIButton!
+    @IBOutlet var video: UIButton!
     @IBOutlet weak var navbar: UINavigationItem!
     @IBOutlet weak var commentField: UITextField!
     var content: Content = Content()
@@ -27,6 +27,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     @IBOutlet var likeButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
+        self.abstract.numberOfLines = 0
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
@@ -40,12 +41,13 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
                 self.content = content
               //  self.commentsTable.reloadData()
                 self.abstract.text = self.content.Abstract
-                self.pdf.text = self.content.Pdf
-                self.video.text = self.content.Video
+                self.pdf.setTitle(self.content.Pdf, forState: UIControlState.Normal)
+                self.video.setTitle(self.content.Video, forState: UIControlState.Normal)
                 self.navbar.title = self.content.Title
                 self.images = self.content.Images
                 print(self.content.like)
                 print(self.content.dislike)
+                
                 if(self.content.like==1){
                      self.likeButton.setImage(UIImage(named: "like.png"), forState: UIControlState.Normal)
                 }
@@ -90,6 +92,11 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         presentViewController(alertController, animated: true, completion: nil)
     }
     
+
+    @IBAction func openLink(sender: UIButton) {
+        let openLink = NSURL(string : sender.currentTitle!)
+        UIApplication.sharedApplication().openURL(openLink!)
+    }
     
     @IBAction func shareContent(sender: AnyObject) {
         
@@ -100,7 +107,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         let tweetAction = UIAlertAction(title: "تويتر", style: UIAlertActionStyle.Default) { (action) -> Void in
             if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
          let twitterComposeVC = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-                twitterComposeVC.setInitialText("\(self.abstract.text)\(self.pdf.text)")
+                twitterComposeVC.setInitialText("\(self.abstract.text)\(self.pdf.currentTitle)")
                 self.presentViewController(twitterComposeVC, animated: true, completion: nil)
                 self.content.shareContent(self.content.contentId!){
                     (done:Bool) in
