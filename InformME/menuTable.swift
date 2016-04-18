@@ -29,7 +29,7 @@ class menuTable: UITableViewController {
         
         
         
-        var current: Authentication = Authentication();
+        let current: Authentication = Authentication();
         
         current.logout(){
             (login:Bool) in

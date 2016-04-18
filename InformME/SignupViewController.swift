@@ -33,9 +33,9 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
     
     @IBAction func register(sender: AnyObject) {
         
-        var username = regUsername.text!
-        var email = regEmail.text!
-        var password = regPassword.text!
+        let username = regUsername.text!
+        let email = regEmail.text!
+        let password = regPassword.text!
         var type: Int
         type = -1;
         var count: Int
@@ -71,9 +71,9 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
             flag = false
             
             if (type == 0){
-            var current1: Attendee = Attendee();
-            
-            
+                let current1: Attendee = Attendee();
+                
+                
                 current1.createAccount (username, email: email,  password: password){
                     (login:Bool) in
                     //we should perform all segues in the main thread
@@ -85,27 +85,29 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
                             
                             print("i am in true")
                             
-                           self.displayAlert("", message: "لقد تم تسجيلك")
-                          self.performSegue(flag)
+                            self.displayAlert("", message: "لقد تم تسجيلك")
+                            self.f = flag
                             
                         }//end if
                         else if (flag == false){
                             print(flag)
-
-                             self.displayAlert("", message: "البريد الإلكتروني مسجل لدينا سابقاً")
+                            
+                            self.displayAlert("", message: "البريد الإلكتروني مسجل لدينا سابقاً")
                         }//end else
                         
                         
-                }// end  dipatch
+                    }// end  dipatch
+                    
+                    
+                    
+                }//end call
                 
                 
-                
-            }//end call 
             }//end if type 0
             
             else if (type == 1)
             {
-                var current2: EventOrganizer = EventOrganizer();
+                let current2: EventOrganizer = EventOrganizer();
                 
                 
                 current2.createAccount (username, email: email,  password: password){
@@ -120,7 +122,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
                             print("i am in true")
                             
                             self.displayAlert("", message: "لقد تم تسجيلك")
-                            self.performSegue(flag)
+                            self.f = flag
                             
                         }//end if
                         else if (flag == false){
@@ -143,7 +145,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
         
     }// end fun register
     
-    
+    var f: Bool = false
     
     func performSegue(flag: Bool) {
         
@@ -169,11 +171,12 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
     
     func displayAlert(title: String, message: String) {
         
-        var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
             
             if( message == "لقد تم تسجيلك") {
-                self.dismissViewControllerAnimated(true, completion: nil) }
+                self.dismissViewControllerAnimated(true, completion: nil)
+                self.performSegue(self.f)}
 
             
         })))
@@ -191,9 +194,9 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
         
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         
-        var emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         
-        var result = emailTest.evaluateWithObject(testStr)
+        let result = emailTest.evaluateWithObject(testStr)
         
         return result
         
@@ -213,7 +216,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
         
     }
     
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         textField.resignFirstResponder()
         

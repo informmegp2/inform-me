@@ -50,7 +50,7 @@ self.tableView.reloadData()*/
         
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
     }
@@ -114,7 +114,7 @@ self.tableView.reloadData()*/
 
         if (segue.identifier == "ShowView")
     {
-        var upcoming: ContentForAttendeeViewController = segue.destinationViewController as! ContentForAttendeeViewController
+        let upcoming: ContentForAttendeeViewController = segue.destinationViewController as! ContentForAttendeeViewController
         
         let indexPath = self.tableView.indexPathForSelectedRow!
         
@@ -203,7 +203,6 @@ self.tableView.reloadData()*/
     func beaconManager(manager: AnyObject, didRangeBeacons beacons: [CLBeacon],
         inRegion region: CLBeaconRegion) {
             //Get the array of beacons in range
-            if let beacons = beacons as? [CLBeacon] {
                 //For each beacon in array
                 for beacon in beacons {
                     //Check if the content was requested
@@ -214,7 +213,7 @@ self.tableView.reloadData()*/
                     }
 
                 }
-            }
+
              self.tableView.reloadData()
             
     }

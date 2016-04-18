@@ -59,7 +59,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         let inputView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 240))
         
         
-        var datePickerView  : UIDatePicker = UIDatePicker(frame: CGRectMake(0, 40, 0, 0))
+        let datePickerView  : UIDatePicker = UIDatePicker(frame: CGRectMake(0, 40, 0, 0))
         datePickerView.datePickerMode = UIDatePickerMode.Date
         inputView.addSubview(datePickerView) // add date picker to UIView
         
@@ -71,10 +71,10 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         
         inputView.addSubview(doneButton) // add Button to UIView
         
-        doneButton.addTarget(self, action: "doneButton:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
+        doneButton.addTarget(self, action: #selector(AddEventViewController.doneButton(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
         
         sender.inputView = inputView
-        datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerView.addTarget(self, action: #selector(AddEventViewController.handleDatePicker(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         handleDatePicker(datePickerView) // Set the date on start.
         
@@ -86,7 +86,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
     
     func handleDatePicker(sender: UIDatePicker) {
           sender.minimumDate = NSDate()
-        var dateFormatter = NSDateFormatter()
+        let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         EventDate.text = dateFormatter.stringFromDate(sender.date)
     }
@@ -114,9 +114,6 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         {
           return true
             }
-
-        return false
-        
     }
    
     @IBAction func save(sender: AnyObject) {

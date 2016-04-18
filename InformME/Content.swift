@@ -26,7 +26,8 @@ class Content {
     var del:Bool = false
     
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
-        var body = NSMutableData();
+        let body = NSMutableData();
+        
         if parameters != nil {
             for (key, value) in parameters! {
                 body.appendString("--\(boundary)\r\n")
@@ -83,12 +84,11 @@ class Content {
     }
     
     func addImage(title: String,abstract: String ,BLabel: String,EID:Int,image: [UIImage] ,completionHandler: (flag:Bool) -> ()) {
-        var myGroup = dispatch_group_create()
+        let myGroup = dispatch_group_create()
 
         let l = BLabel
         let SC = 0
-        var count = 0
-        for var i=0; i<image.count;i++ {
+        for i in 0 ..< image.count {
             dispatch_group_enter(myGroup)
 
             let MYURL = NSURL(string:"http://bemyeyes.co/API/content/AddImage.php")
@@ -197,7 +197,7 @@ class Content {
             print("response = \(response)")
         }
         task1.resume()
-            for var i=0; i<image.count;i++ {
+            for i in 0 ..< image.count {
             let MYURL = NSURL(string:"http://bemyeyes.co/API/content/updateImage.php")
             let request = NSMutableURLRequest(URL:MYURL!)
             request.HTTPMethod = "POST";
@@ -235,7 +235,6 @@ class Content {
     
     func DeleteContent(id: Int ){
         
-        var f=false
         del = true
         let MYURL = NSURL(string:"http://bemyeyes.co/API/content/DeleteContent.php")
         let request = NSMutableURLRequest(URL:MYURL!)
@@ -252,7 +251,6 @@ class Content {
                 print("error=\(error)")
                 return
             }
-            f=true
             
             // You can print out response object
             print("response = \(response)")
@@ -264,7 +262,6 @@ class Content {
         
     }
     func requestcontentlist(ID: Int,completionHandler: (contentInfo:[Content]) -> ()){
-        var TitleA : [String] = []
         var contentInfo: [Content] = []
         let Eid=ID
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/SelectContent.php")!)
@@ -281,7 +278,7 @@ class Content {
                 do {
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
                     
-                    for var x=0; x<jsonResult.count;x++ {
+                    for x in 0 ..< jsonResult.count {
                         let item = jsonResult[x] as AnyObject
                         let c : Content = Content()
                         c.contentId = Int(item["ContentID"] as! String)!
@@ -312,7 +309,7 @@ class Content {
                         }
                         var comments: [Comment] = []
                         let itemC = item["Comments"] as! NSArray
-                        for var i=0; i<itemC.count;i++ {
+                        for i in 0 ..< itemC.count {
                             let comment: Comment = Comment()
                             comment.comment = itemC[i]["CommentText"] as! String
                             comment.user.username = itemC[i]["UserName"] as! String
@@ -322,7 +319,7 @@ class Content {
                         
                         var images: [UIImage] = []
                         let itemI = item["Images"] as! NSArray
-                        for var i=0; i<itemI.count;i++ {
+                        for i in 0 ..< itemI.count {
                             let url:NSURL = NSURL(string : itemI[i] as! String)!
                             let data = NSData(contentsOfURL: url)
                             let image=UIImage(data: data!)
@@ -463,9 +460,8 @@ class Content {
                 
             else { // You can print out response object
                 print("response = \(response)")
-                var    i : Int;
                 
-                for ( i=0; i<self.comments.count; i++)
+                for i in 0 ..< self.comments.count
                 {
                     if (self.comments[i].user.userID == uid){
                         
@@ -638,7 +634,7 @@ class Content {
                 do {
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
                     
-                    for var x=0; x<jsonResult.count;x++ {
+                    for x in 0 ..< jsonResult.count {
                         let item = jsonResult[x] as AnyObject
                         let c : Content = Content()
                         c.contentId = Int(item["ContentID"] as! String)!
@@ -661,7 +657,7 @@ class Content {
                         
                         var comments: [Comment] = []
                         let itemC = item["Comments"] as! NSArray
-                        for var i=0; i<itemC.count;i++ {
+                        for i in 0 ..< itemC.count {
                             let comment: Comment = Comment()
                             comment.comment = itemC[i]["CommentText"] as! String
                             comment.user.username = itemC[i]["UserName"] as! String
@@ -671,7 +667,7 @@ class Content {
                         
                         var images: [UIImage] = []
                         let itemI = item["Images"] as! NSArray
-                        for var i=0; i<itemI.count;i++ {
+                        for i in 0 ..< itemI.count {
                             let url:NSURL = NSURL(string : itemI[i] as! String)!
                             let data = NSData(contentsOfURL: url)
                             let image=UIImage(data: data!)

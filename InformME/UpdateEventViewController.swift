@@ -66,7 +66,7 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         let inputView = UIView(frame: CGRectMake(0, 0, self.view.frame.width, 240))
         
         
-        var datePickerView  : UIDatePicker = UIDatePicker(frame: CGRectMake(0, 40, 0, 0))
+        let datePickerView  : UIDatePicker = UIDatePicker(frame: CGRectMake(0, 40, 0, 0))
         datePickerView.datePickerMode = UIDatePickerMode.Date
         inputView.addSubview(datePickerView) // add date picker to UIView
         
@@ -78,10 +78,10 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         
         inputView.addSubview(doneButton) // add Button to UIView
         
-        doneButton.addTarget(self, action: "doneButton:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
+        doneButton.addTarget(self, action: #selector(UpdateEventViewController.doneButton(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
         
         sender.inputView = inputView
-        datePickerView.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerView.addTarget(self, action: #selector(UpdateEventViewController.handleDatePicker(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
         handleDatePicker(datePickerView) // Set the date on start.
         
@@ -125,9 +125,6 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
             {
                 return true
             }
-        
-        return false
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -144,19 +141,19 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         let name = EventName.text!
         let website = EventWebsite.text!
         let  date = EventDate.text!
-        let dateVlidation = checkDate(date)
+        let dateValidation = checkDate(date)
         if (EventName.text == "" || EventDate.text == "") {
             displayMessage("", message: "يرجى إدخال كافة الحقول")
         }
-         else if(EventDate.text != "" && !checkDate(date)){
+         else if(EventDate.text != "" && !dateValidation){
             
             displayMessage("", message: "يرجى إدخال تاريخ الحدث بشكل الصحيح")
         }
         else {
-            var alertController = UIAlertController(title: "", message: " هل أنت متأكد من رغبتك بحفظ التغييرات؟", preferredStyle: .Alert)
+            let alertController = UIAlertController(title: "", message: " هل أنت متأكد من رغبتك بحفظ التغييرات؟", preferredStyle: .Alert)
             
             // Create the actions
-            var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
+            let okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
                 UIAlertAction in
                 NSLog("OK Pressed")
                 
@@ -177,7 +174,7 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
                 
             }
             
-            var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel)
+            let cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel)
                 {
                UIAlertAction in
                 NSLog("Cancel Pressed")
@@ -193,17 +190,17 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
     
     
     @IBAction func deleteEvent(sender: AnyObject) {
-        var alertController = UIAlertController(title: "", message: "هل أنت متأكد من رغبتك بالحذف", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "", message: "هل أنت متأكد من رغبتك بالحذف", preferredStyle: .Alert)
         
         // Create the actions
-        var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
+        let okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
             UIAlertAction in
             NSLog("OK Pressed")
-            var e: Event = Event()
+            let e: Event = Event()
                        e.DeleteEvent(self.evid)
              self.performSegueWithIdentifier("deleteok", sender:sender)
         }
-        var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
+        let cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
             NSLog("Cancel Pressed")
         }
@@ -232,10 +229,10 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "alertPressedOK") {
             print("segue")
-        var detailVC = segue!.destinationViewController as! EventDetailsViewController;
+        let detailVC = segue.destinationViewController as! EventDetailsViewController;
             detailVC.evid = evid
             detailVC.evname=EventName.text!
             detailVC.evwebsite=EventWebsite.text!

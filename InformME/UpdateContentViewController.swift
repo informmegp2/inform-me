@@ -58,7 +58,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
         
         inputView.addSubview(doneButton) // add Button to UIView
         
-        doneButton.addTarget(self, action: "doneButton:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
+        doneButton.addTarget(self, action: #selector(UpdateContentViewController.doneButton(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
         
         (sender as! UITextField).inputView = inputView
         (sender as! UITextField).delegate = self
@@ -68,7 +68,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
     func doneButton(sender:UIButton)
     {
         pickerTextField.resignFirstResponder()
-        var row = pickerView.selectedRowInComponent(0);
+        let row = pickerView.selectedRowInComponent(0);
         NSLog("value L %d", row)
         pickerView(pickerView, didSelectRow: row, inComponent:0)
         
@@ -89,25 +89,29 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickerTextField.text = beaconsInfo[row].Label
+        if (beaconsInfo.count == 0){
+        pickerTextField.text=""}
+        else{
+            pickerTextField.text = beaconsInfo[row].Label}
+        
+        
     }
     
     @IBAction func Submit(sender: AnyObject) {
-        var title = ETitle.text!
-        var abstract = EAbstract.text!
-        var pdf = EPDF.text!
-        var video = EVideo.text!
-        var blabel = pickerTextField.text!
-        var flag : Bool = false
+        let title = ETitle.text!
+        let abstract = EAbstract.text!
+        let pdf = EPDF.text!
+        let video = EVideo.text!
+        let blabel = pickerTextField.text!
         
-        var alertController = UIAlertController(title: "", message: " هل أنت متأكد من رغبتك بحفظ التغييرات؟", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "", message: " هل أنت متأكد من رغبتك بحفظ التغييرات؟", preferredStyle: .Alert)
         
         // Create the actions
-        var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
+        let okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
             UIAlertAction in
             NSLog("OK Pressed")
-            var c : Content = Content()
-            c.updateContent (title, abstract: abstract,video: video , Pdf: pdf ,bLabel: blabel,image: self.images, TempV: self.tempV , TempP: self.tempP ,EID: self.EID!, cID: self.cid!){
+            let c : Content = Content()
+            c.updateContent (title, abstract: abstract,video: pdf , Pdf: video ,bLabel: blabel,image: self.images, TempV: self.tempV , TempP: self.tempP ,EID: self.EID!, cID: self.cid!){
                 (flag:Bool) in
                 dispatch_async(dispatch_get_main_queue()) {
                     self.performSegueWithIdentifier("alertPressedOK", sender:sender)
@@ -115,7 +119,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
                 
             } }
         
-        var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
+        let cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
             NSLog("Cancel Pressed")
         }
@@ -128,10 +132,10 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "alertPressedOK") {
             print("In prepare for segue")
-            var detailVC = segue!.destinationViewController as! ContentForOrganizerViewController;
+            let detailVC = segue.destinationViewController as! ContentForOrganizerViewController;
             detailVC.ttitle=ETitle.text!
             detailVC.abstract=EAbstract.text!
             detailVC.pdf=EPDF.text!
@@ -142,7 +146,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             
         }
         if (segue.identifier == "deleteok") {
-            var detailVC = segue!.destinationViewController as! ManageContentsViewController
+            let detailVC = segue.destinationViewController as! ManageContentsViewController
             detailVC.EID=EID
            
             
@@ -151,13 +155,13 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
     }
     
     @IBAction func deleteContent(sender: AnyObject) {
-        var alertController = UIAlertController(title: "", message: "هل أنت متأكد من رغبتك بالحذف", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "", message: "هل أنت متأكد من رغبتك بالحذف", preferredStyle: .Alert)
         
         // Create the actions
-        var okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
+        let okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
             UIAlertAction in
             NSLog("OK Pressed")
-            var c: Content = Content()
+            let c: Content = Content()
             
             c.DeleteContent(self.cid!)
             // (flag:Bool) in
@@ -166,7 +170,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             if ( c.del){
                 self.performSegueWithIdentifier("deleteok", sender:sender)
             }}
-        var cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
+        let cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
             NSLog("Cancel Pressed")
         }
@@ -255,12 +259,12 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
     var i : Int = 0
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        cell = collectionView.dequeueReusableCellWithReuseIdentifier("UpdateImageCell", forIndexPath: indexPath) as! UpdateImageCollectionViewCell
+        cell = collectionView.dequeueReusableCellWithReuseIdentifier("UpdateImageCell", forIndexPath: indexPath) as? UpdateImageCollectionViewCell
         cell!.cellButton.setImage(images[indexPath.row], forState: UIControlState.Normal)
         cell!.cellButton.tag = i
-        cell!.cellButton.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+        cell!.cellButton.addTarget(self, action: #selector(UpdateContentViewController.buttonClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         imageNum = indexPath.row
-        i++
+        i += 1
         return cell!
     }
     

@@ -40,12 +40,12 @@ class Event {
                     
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
                     
-                    for var x=0; x<jsonResult.count;x++ {
+                    for x in 0 ..< jsonResult.count {
                         
                         
-                        var e : Event = Event()
+                        let e : Event = Event()
                         print("is it before?")
-                        var evID = jsonResult[x]["EventID"] as! String
+                        let evID = jsonResult[x]["EventID"] as! String
                         e.date=jsonResult[x]["Date"] as! String
                         e.name=jsonResult[x]["EventName"] as! String
                         e.website=jsonResult[x]["Website"] as! String
@@ -102,7 +102,7 @@ class Event {
     
     
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
-        var body = NSMutableData();
+        let body = NSMutableData();
         
         if parameters != nil {
             for (key, value) in parameters! {
@@ -139,7 +139,7 @@ class Event {
         
         
         
-        var uuid = String(uid)
+        let uuid = String(uid)
         
         let MYURL = NSURL(string:"http://bemyeyes.co/API/event/addEvent.php")
         let request = NSMutableURLRequest(URL:MYURL!)
@@ -199,7 +199,7 @@ class Event {
     
     func requestTodeleteEvent(){}
     func DeleteEvent(id: Int){
-        var eid = String(id)
+        let eid = String(id)
         
         
         

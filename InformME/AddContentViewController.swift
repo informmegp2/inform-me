@@ -27,13 +27,13 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
     var EID = 1;
      var pickerView = UIPickerView()
     @IBAction func Submit(sender: AnyObject) {
-        var title = TTitle.text!
-        var abstract = Abstract.text!
-        var video = Video.text!
-        var pdf = PDF.text!
-        var label=pickerTextField.text!
+        let title = TTitle.text!
+        let abstract = Abstract.text!
+        let video = Video.text!
+        let pdf = PDF.text!
+        let label=pickerTextField.text!
         
-        var c : Content = Content()
+        let c : Content = Content()
         
         c.createContent(title,abstract: abstract,video: video,Pdf: pdf ,BLabel: label, EID: EID, image: images ){
             (flag:Bool) in
@@ -43,9 +43,9 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
             }
         } }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "addContent") {
-            var detailVC = segue!.destinationViewController as! ManageContentsViewController
+            let detailVC = segue.destinationViewController as! ManageContentsViewController
             detailVC.EID=EID
             
         }
@@ -72,7 +72,7 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         
         inputView.addSubview(doneButton) // add Button to UIView
         
-        doneButton.addTarget(self, action: "doneButton:", forControlEvents: UIControlEvents.TouchUpInside) // set button click event
+        doneButton.addTarget(self, action: #selector(AddContentViewController.doneButton(_:)), forControlEvents: UIControlEvents.TouchUpInside) // set button click event
         
         (sender as! UITextField).inputView = inputView
       (sender as! UITextField).delegate = self
@@ -82,7 +82,7 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
    func doneButton(sender:UIButton)
     {
         pickerTextField.resignFirstResponder()
-        var row = pickerView.selectedRowInComponent(0);
+        let row = pickerView.selectedRowInComponent(0);
         NSLog("value L %d", row)
         pickerView(pickerView, didSelectRow: row, inComponent:0)
         
@@ -133,7 +133,13 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
     }
     
    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickerTextField.text = beaconsInfo[row].Label
+    if (beaconsInfo.count == 0)
+    {
+        pickerTextField.text = ""
+    }
+    else {
+        
+        pickerTextField.text = beaconsInfo[row].Label}
        
     }
     

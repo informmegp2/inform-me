@@ -51,7 +51,7 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
         
         
         
-        var current: Authentication = Authentication();
+        let current: Authentication = Authentication();
         
         current.logout(){
             (login:Bool) in
@@ -79,7 +79,7 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
         let cell = tableView.dequeueReusableCellWithIdentifier("contentCell", forIndexPath: indexPath) as! ContentTableCellViewController
         //var maindata = values[indexPath.row].minor
         var c: Content = Content()
-        c = self.contentInfo[indexPath.row] as! Content
+        c = self.contentInfo[indexPath.row] 
         
         cell.Title.text = c.Title
         
@@ -92,17 +92,17 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
         performSegueWithIdentifier("showContentDetails", sender: self)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
         if (segue.identifier == "showContentDetails") {
             let pointInTable: CGPoint = sender.convertPoint(sender.bounds.origin, toView: self.tableView)
             let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
             print(cellIndexPath?.row)
             var c : Content = Content()
-            c=contentInfo[(cellIndexPath?.row)!] as! Content
+            c=contentInfo[(cellIndexPath?.row)!] 
             //Checking identifier is crucial as there might be multiple
             // segues attached to same view
-            var detailVC = segue!.destinationViewController as! ContentForOrganizerViewController
+            let detailVC = segue.destinationViewController as! ContentForOrganizerViewController
             
             detailVC.ttitle=c.Title
             detailVC.abstract=c.Abstract

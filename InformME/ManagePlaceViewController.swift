@@ -27,7 +27,7 @@ class ManagePlaceViewController: UIViewController {
         
         
         
-        var current: Authentication = Authentication();
+        let current: Authentication = Authentication();
         
         current.logout(){
             (login:Bool) in

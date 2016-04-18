@@ -119,12 +119,12 @@ class Attendee {
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
                     
                     
-                    for var x=0; x<jsonResult.count;x++ {
-                        var info: Attendee = Attendee()
-                        var t : AnyObject = jsonResult[x]["UserName"]as! String
-                        var a : AnyObject = jsonResult[x]["Email"]as! String
-                        var p : AnyObject = jsonResult[x]["Password"]as! String
-                        var v : AnyObject = jsonResult[x]["Bio"]as! String
+                    for x in 0 ..< jsonResult.count {
+                        let info: Attendee = Attendee()
+                        let t : AnyObject = jsonResult[x]["UserName"]as! String
+                        let a : AnyObject = jsonResult[x]["Email"]as! String
+                        let p : AnyObject = jsonResult[x]["Password"]as! String
+                        let v : AnyObject = jsonResult[x]["Bio"]as! String
                         
                         
                         

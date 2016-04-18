@@ -49,16 +49,15 @@ class EventOrganizer {
                         let l = jsonResult["status"]!!
                         
                         let s = String (l)
-                        print (s+"hi")
                         
                         if( s == "success") {
                             f.flag = true
-                            print (s+"hi 1111")
+                            print (s)
                             
                         } //end if
                         else if( s == "unsuccess") {
                             f.flag = false
-                            print (s+"hi 222")
+                            print (s)
                             
                         } //end else
                         
@@ -117,12 +116,12 @@ class EventOrganizer {
                     let jsonResult = try NSJSONSerialization.JSONObjectWithData(urlContent, options: NSJSONReadingOptions.MutableContainers)
                     
                     
-                    for var x=0; x<jsonResult.count;x++ {
-                        var info: EventOrganizer = EventOrganizer()
-                        var t : AnyObject = jsonResult[x]["UserName"]as! String
-                        var a : AnyObject = jsonResult[x]["Email"]as! String
-                        var p : AnyObject = jsonResult[x]["Password"]as! String
-                        var v : AnyObject = jsonResult[x]["Bio"]as! String
+                    for x in 0 ..< jsonResult.count {
+                        let info: EventOrganizer = EventOrganizer()
+                        let t : AnyObject = jsonResult[x]["UserName"]as! String
+                        let a : AnyObject = jsonResult[x]["Email"]as! String
+                        let p : AnyObject = jsonResult[x]["Password"]as! String
+                        let v : AnyObject = jsonResult[x]["Bio"]as! String
                        
                         
                         

@@ -65,7 +65,7 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
         
         
         
-        var current: Authentication = Authentication();
+        let current: Authentication = Authentication();
         
         current.logout(){
             (login:Bool) in
@@ -95,10 +95,10 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
     func editContent(){
         performSegueWithIdentifier("editContent", sender: self)
     }
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
         if (segue.identifier == "editContent") {
-            var detailVC = segue!.destinationViewController as! UpdateContentViewController
+            let detailVC = segue.destinationViewController as! UpdateContentViewController
             
             detailVC.ttitel=TTitle.title!
             detailVC.aabstract=AAbstract.text!

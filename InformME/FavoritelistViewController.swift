@@ -26,7 +26,7 @@ class FavoritelistViewController: UIViewController,UITableViewDelegate, UITableV
         
         
         
-        var current: Authentication = Authentication();
+        let current: Authentication = Authentication();
         
         current.logout(){
             (login:Bool) in
@@ -58,7 +58,7 @@ class FavoritelistViewController: UIViewController,UITableViewDelegate, UITableV
         super.viewDidLoad()
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
-            menuButton.action = "revealToggle:"
+            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         loadFavorite () {
@@ -128,7 +128,7 @@ print("Done")*/
         
         if (segue.identifier == "ShowView")
         {
-            var upcoming: ContentForAttendeeViewController = segue.destinationViewController as! ContentForAttendeeViewController
+            let upcoming: ContentForAttendeeViewController = segue.destinationViewController as! ContentForAttendeeViewController
             
             let indexPath = self.tableView.indexPathForSelectedRow!
             
