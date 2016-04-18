@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController , UITextFieldDelegate{
     
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -22,7 +22,10 @@ class ProfileViewController: UIViewController {
     /*Hello : ) */
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        usernameFiled.delegate = self
+        emailFiled.delegate = self
+        bioFiled.delegate = self
+        passwordFiled.delegate = self
         e.requestInfo(){
             (AttendeeInfo:Attendee) in
             

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Social
 
-class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource,  UICollectionViewDataSource, UICollectionViewDelegate {
+class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource,  UICollectionViewDataSource, UICollectionViewDelegate,UITextFieldDelegate {
    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet var commentsTable: UITableView!
@@ -29,6 +29,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     @IBOutlet weak var save: UIButton!
     
     override func viewDidLoad() {
+        commentField.delegate=self
         self.abstract.numberOfLines = 0
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
