@@ -26,6 +26,8 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     
     @IBOutlet var likeButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var save: UIButton!
+    
     override func viewDidLoad() {
         self.abstract.numberOfLines = 0
         if self.revealViewController() != nil {
@@ -35,7 +37,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         }
        // commentsTable.delegate = self;
      //   commentsTable.dataSource = self;
-        content.ViewContent(cid, UserID: uid){
+      /*  content.ViewContent(cid, UserID: uid){
             (content:Content) in
             dispatch_async(dispatch_get_main_queue()) {
                 self.content = content
@@ -57,7 +59,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
           self.collectionView.delegate = self
           self.collectionView.dataSource = self
             }
-        }
+        }*/
         
     }
     
