@@ -113,14 +113,57 @@ self.tableView.reloadData()*/
     {        print("in segue")
 
         if (segue.identifier == "ShowView")
-    {
-        let upcoming: ContentForAttendeeViewController = segue.destinationViewController as! ContentForAttendeeViewController
+        {
+            let upcoming: ContentForAttendeeViewController = segue.destinationViewController as! ContentForAttendeeViewController
+            
+            let indexPath = self.tableView.indexPathForSelectedRow!
+            
+            let cid = contentList[indexPath.row].contentId
+            
+            let imageFull = UIImage(named: "starF.png") as UIImage!
+            let imageEmpty = UIImage(named: "star.png") as UIImage!
+            
+            upcoming.cid = cid!
+            
+            let content = Content()
+            
+            content.ViewContent(cid!, UserID: uid){
+                (content:Content) in
+                dispatch_async(dispatch_get_main_queue()) {
+                    upcoming.content = content
+                    print(content)
+                    //  self.commentsTable.reloadData()
+                    upcoming.abstract.text = content.Abstract
+                    upcoming.pdf.setTitle(content.Pdf, forState: UIControlState.Normal)
+                    upcoming.video.setTitle(content.Video, forState: UIControlState.Normal)
+                    upcoming.navbar.title = content.Title
+                    upcoming.images = content.Images
+                    print(content.like)
+                    print(content.dislike)
+                    
+                    if(upcoming.content.like==1){
+                        upcoming.likeButton.setImage(UIImage(named: "like.png"), forState: UIControlState.Normal)
+                    }
+                    else if (upcoming.content.dislike==1){
+                        upcoming.dislikeButton.setImage(UIImage(named: "dislike.png"), forState: UIControlState.Normal)
+                    }
+                    
+                    if ( self.contentList[indexPath.row].save)
+                    {
+                        upcoming.save.setImage(imageFull, forState: .Normal)
+                    }
+                    else
+                    {//content is not saved -> user wants to save
+                        upcoming.save.setImage(imageEmpty, forState: .Normal)
+                        
+                    }
+                    
+                    
+                }
+            }
+            
+            
         
-        let indexPath = self.tableView.indexPathForSelectedRow!
-        
-        let cid = contentList[indexPath.row].contentId
-        
-        upcoming.cid = cid!
         
         /*var upcoming: ContentForAttendeeViewController = segue.destinationViewController as! ContentForAttendeeViewController
         

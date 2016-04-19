@@ -321,6 +321,13 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
             Content().saveContent(uid, cid: self.cid)
         }
     }
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
 }//end class
