@@ -34,6 +34,16 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         let label=pickerTextField.text!
         
         let c : Content = Content()
+        if (TTitle.text == "") {
+            let alert = UIAlertController(title: "", message: " يرجى إدخال عنوان المحتوى", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+                
+            }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        else {
         
         c.createContent(title,abstract: abstract,video: video,Pdf: pdf ,BLabel: label, EID: EID, image: images ){
             (flag:Bool) in
@@ -41,7 +51,7 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
             dispatch_async(dispatch_get_main_queue()) {
                 self.performSegueWithIdentifier("addContent", sender:sender)
             }
-        } }
+            } }}
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "addContent") {

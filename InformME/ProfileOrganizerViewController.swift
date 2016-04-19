@@ -22,7 +22,10 @@ class ProfileOrganizerViewController : UIViewController , UITextFieldDelegate{
     
     
     override func viewDidLoad() {
-        
+        usernameField.delegate = self
+        emailField.delegate = self
+        bioField.delegate = self
+        passwordField.delegate = self
         e.requestInfo(){
             (OrganizerInfo:EventOrganizer) in
             

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Social
 
-class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource,  UICollectionViewDataSource, UICollectionViewDelegate {
+class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource,  UICollectionViewDataSource, UICollectionViewDelegate,UITextFieldDelegate {
    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet var commentsTable: UITableView!
@@ -26,7 +26,10 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     
     @IBOutlet var likeButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var save: UIButton!
+    
     override func viewDidLoad() {
+        commentField.delegate=self
         self.abstract.numberOfLines = 0
         if self.revealViewController() != nil {
             menuButton.target = self.revealViewController()
@@ -35,7 +38,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         }
        // commentsTable.delegate = self;
      //   commentsTable.dataSource = self;
-        content.ViewContent(cid, UserID: uid){
+      /*  content.ViewContent(cid, UserID: uid){
             (content:Content) in
             dispatch_async(dispatch_get_main_queue()) {
                 self.content = content
@@ -57,7 +60,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
           self.collectionView.delegate = self
           self.collectionView.dataSource = self
             }
-        }
+        }*/
         
     }
     
