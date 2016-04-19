@@ -36,13 +36,13 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
             menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-       // commentsTable.delegate = self;
-     //   commentsTable.dataSource = self;
-      /*  content.ViewContent(cid, UserID: uid){
+       commentsTable.delegate = self;
+       commentsTable.dataSource = self;
+      content.ViewContent(cid, UserID: uid){
             (content:Content) in
             dispatch_async(dispatch_get_main_queue()) {
                 self.content = content
-              //  self.commentsTable.reloadData()
+                 self.commentsTable.reloadData()
                 self.abstract.text = self.content.Abstract
                 self.pdf.setTitle(self.content.Pdf, forState: UIControlState.Normal)
                 self.video.setTitle(self.content.Video, forState: UIControlState.Normal)
@@ -60,7 +60,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
           self.collectionView.delegate = self
           self.collectionView.dataSource = self
             }
-        }*/
+        }
         
     }
     
@@ -320,9 +320,6 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
             sender.setImage(image, forState: .Normal)
             Content().saveContent(uid, cid: self.cid)
         }
-    }
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.view.endEditing(true)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
