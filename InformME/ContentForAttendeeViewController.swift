@@ -23,7 +23,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     var cid: Int = 105
     var uid: Int = NSUserDefaults.standardUserDefaults().integerForKey("id")
     var images: [UIImage] = []
-    
+    @IBOutlet var addComment: UIButton!
     @IBOutlet var likeButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var save: UIButton!
@@ -191,9 +191,10 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         cell.user.text = username as String
         
         print("user id",self.content.comments[indexPath.row].user.userID )
-        if(self.content.comments[indexPath.row].user.userID == NSUserDefaults.standardUserDefaults().integerForKey("id")){
+        if(self.content.comments[indexPath.row].user.userID == self.uid){
             cell.deleteButton.hidden = false
             self.commentField.enabled = false
+            self.addComment.enabled = false
         }
         return cell
         
@@ -273,6 +274,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
             (done:Bool) in
         dispatch_async(dispatch_get_main_queue()) {
             print("I am cool")
+            self.commentField.text! = ""
             self.content.comments.append(comment)
             self.commentsTable.reloadData()
         }
@@ -292,9 +294,8 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     }
     
     @IBAction func deleteComment(){
-       // self.content.contentId,uid: NSUserDefaults.standardUserDefaults().integerForKey("id")
-        
-        self.content.deleteComment(self.content.contentId!,uid: NSUserDefaults.standardUserDefaults().integerForKey("id")){
+
+        self.content.deleteComment(self.content.contentId!,uid: self.uid){
             (done:Bool) in
             dispatch_async(dispatch_get_main_queue()) {
                 print("I am cool")

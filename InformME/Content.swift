@@ -661,6 +661,7 @@ class Content {
                             let comment: Comment = Comment()
                             comment.comment = itemC[i]["CommentText"] as! String
                             comment.user.username = itemC[i]["UserName"] as! String
+                            comment.user.userID =  Int(itemC[i]["UserID"] as! String)!
                             comments.append(comment)
                         }
                         c.comments = comments;

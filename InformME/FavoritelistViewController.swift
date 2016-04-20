@@ -128,7 +128,7 @@ class FavoritelistViewController: UIViewController,UITableViewDelegate, UITableV
             let cid = contentList[indexPath.row].contentId
             
             let imageFull = UIImage(named: "starF.png") as UIImage!
-            let imageEmpty = UIImage(named: "star.png") as UIImage!
+           //  let imageEmpty = UIImage(named: "star.png") as UIImage!
             
             upcoming.cid = cid!
             
@@ -155,15 +155,8 @@ class FavoritelistViewController: UIViewController,UITableViewDelegate, UITableV
                         upcoming.dislikeButton.setImage(UIImage(named: "dislike.png"), forState: UIControlState.Normal)
                     }
                     
-                    if ( self.contentList[indexPath.row].save)
-                    {
                         upcoming.save.setImage(imageFull, forState: .Normal)
-                    }
-                    else
-                    {//content is not saved -> user wants to save
-                        upcoming.save.setImage(imageEmpty, forState: .Normal)
-                      
-                    }
+
 
                 
                 }
