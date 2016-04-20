@@ -33,8 +33,6 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
                 self.usernameFiled.text = AttendeeInfo.username
                 self.emailFiled.text = AttendeeInfo.email
                 self.bioFiled.text = AttendeeInfo.bio
-               
-                
             }
         }
             if self.revealViewController() != nil {
