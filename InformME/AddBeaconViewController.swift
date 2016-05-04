@@ -27,6 +27,7 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
     let beaconRegion = CLBeaconRegion(proximityUUID: NSUUID(UUIDString: "B9407F30-F5F8-466E-AFF9-25556B57FE6D")!, identifier: "MyBeacon")
     
 
+    // Add beacon
     @IBAction func Submit(sender: AnyObject) {
         
         let minor = Minor.text!
@@ -50,15 +51,32 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
                 }))
                 
                 self.presentViewController(alert, animated: true, completion: nil)
-                }
+            }
             else {
-                let b : Beacon = Beacon()
-                b.addBeacon (llabel, major: major,minor:minor){
-                    (flag:Bool) in
-                    //we should perform all segues in the main thread
-                    dispatch_async(dispatch_get_main_queue()) {
-                        self.performSegueWithIdentifier("addBeacon", sender:sender)
-                    }}
+                let alertController = UIAlertController(title: "", message: " هل أنت متأكد من رغبتك بحفظ التغييرات؟", preferredStyle: .Alert)
+                
+                // Create the actions
+                let okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
+                    UIAlertAction in
+                    NSLog("OK Pressed")
+                    
+                    let b : Beacon = Beacon()
+                    b.addBeacon (llabel, major: major,minor:minor){
+                        (flag:Bool) in
+                        //we should perform all segues in the main thread
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.performSegueWithIdentifier("addBeacon", sender:sender)
+                        }}}
+                let cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
+                    UIAlertAction in
+                    NSLog("Cancel Pressed")
+                }
+                // Add the actions
+                alertController.addAction(okAction)
+                alertController.addAction(cancelAction)
+                
+                // Present the controller
+                self.presentViewController(alertController, animated: true, completion: nil)
             }}
         
     }

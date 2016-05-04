@@ -23,6 +23,8 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     var cid: Int = 105
     var uid: Int = NSUserDefaults.standardUserDefaults().integerForKey("id")
     var images: [UIImage] = []
+    var pdfURL: String = "No pdf"
+    var vidURL: String = "No Video"
     @IBOutlet var addComment: UIButton!
     @IBOutlet var likeButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -31,11 +33,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     override func viewDidLoad() {
         commentField.delegate=self
         self.abstract.numberOfLines = 0
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
+
        commentsTable.delegate = self;
        commentsTable.dataSource = self;
       content.ViewContent(cid, UserID: uid){
@@ -97,9 +95,18 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     
 
     @IBAction func openLink(sender: UIButton) {
-        let openLink = NSURL(string : sender.currentTitle!)
-        UIApplication.sharedApplication().openURL(openLink!)
+        if(sender.currentTitle == "PDF"){
+            let openLink = NSURL(string : pdfURL)
+            UIApplication.sharedApplication().openURL(openLink!)
+
+        }
+        else {
+            let openLink = NSURL(string : vidURL)
+            UIApplication.sharedApplication().openURL(openLink!)
+
+        }
     }
+    
     
     @IBAction func shareContent(sender: AnyObject) {
         

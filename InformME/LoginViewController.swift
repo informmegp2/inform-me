@@ -10,18 +10,16 @@ import UIKit
 import Foundation
 
 
-class LoginViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate {
+class LoginViewController: CenterViewController, UITextFieldDelegate, UINavigationControllerDelegate{
 /*Hello : ) */
-    
-    
-    
+
     
     @IBOutlet var emailfiled: UITextField!
     @IBOutlet var passwordfiled: UITextField!
     
     
     @IBOutlet  var typefiled: UISegmentedControl!
-    
+    var window: UIWindow?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,12 +81,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate, UINavigationCo
         if ( flag  && type == 1) {
             print("here1")
 
-            self.performSegueWithIdentifier("homepage", sender: self)
+            window = UIWindow(frame: UIScreen.mainScreen().bounds)
             
+            let containerViewController = ContainerViewController()
+            containerViewController.centerViewController = UIStoryboard.centerViewController1()
+            window!.rootViewController = containerViewController
+            window!.makeKeyAndVisible()
+            self.performSegueWithIdentifier("homepage", sender: self)
         }
             
         else if ( flag && type == 0) {
             print("here2")
+            window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            
+            let containerViewController = ContainerViewController()
+            containerViewController.centerViewController = UIStoryboard.centerViewController2()
+            print(window!.rootViewController)
+
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+
+            window!.makeKeyAndVisible()
             self.performSegueWithIdentifier("homepage2", sender: self)
             
         }

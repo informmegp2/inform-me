@@ -10,7 +10,7 @@ import Foundation
 
 import UIKit
 
-class ManageEventsViewController: UIViewController , UITableViewDataSource, UITableViewDelegate, EventCellDelegate {
+class ManageEventsViewController: CenterViewController , UITableViewDataSource, UITableViewDelegate, EventCellDelegate {
     /*Hello : ) */
     
     @IBOutlet var tableView: UITableView!
@@ -21,11 +21,6 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
     var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
     override func viewDidLoad() {
         print(NSUserDefaults.standardUserDefaults().integerForKey("id"))
-        if self.revealViewController() != nil {
-            self.menuButton.target = self.revealViewController()
-            self.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
         event.requesteventlist(UserID){
             (eventsInfo:[Event]) in
             dispatch_async(dispatch_get_main_queue()) {
@@ -132,7 +127,8 @@ class ManageEventsViewController: UIViewController , UITableViewDataSource, UITa
            detailVC.evwebsite=e.website
            detailVC.evdate=e.date
            detailVC.event = e
-           detailVC.evlogo=e.logo    }
+           detailVC.evlogo=e.logo
+        }
+}
     
     }
-}

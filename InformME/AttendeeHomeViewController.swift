@@ -9,53 +9,62 @@
 import UIKit
 import Foundation
 
-class AttendeeHomeViewController: UIViewController {
+class AttendeeHomeViewController: CenterViewController {
     
     
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
     
     override func viewDidLoad() {
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
     }
-    @IBAction func out(sender: AnyObject) {
-        
-        
-        
-        print(" iam in 1")
-        
-        var flag: Bool
-        flag = false
-        
-        
-        
-        let current: Authentication = Authentication();
-        
-        current.logout(){
-            (login:Bool) in
+    var window:UIWindow!
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let containerViewController = ContainerViewController()
+        if(segue.identifier == "nearby"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("nearby") as? CenterViewController
+            print(window!.rootViewController)
             
-            dispatch_async(dispatch_get_main_queue()) {
-                
-                flag = login
-                if(flag) {
-                    
-                    self.performSegueWithIdentifier("backtologin", sender: self)
-                    
-                    
-                    print("I am happy",login,flag) }
-                
-            }
-            print("I am Here")  }
-        
-        
-        
-        
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+        }
+        else  if(segue.identifier == "profile1"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("proflie") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+        }
+        else  if(segue.identifier == "fav"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("favorite") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+        }
+        else  if(segue.identifier == "attendeeMain"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("CenterViewController2") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+        }
+        if(segue.identifier != "backtologin") {
+            containerViewController.centerViewController.delegate?.collapseSidePanels!()
+            
+        }
         
     }
     
+    func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
     
+ 
 }

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ProfileViewController: UIViewController , UITextFieldDelegate{
+class ProfileViewController: CenterViewController , UITextFieldDelegate{
     
     
     @IBOutlet weak var menuButton: UIBarButtonItem!
@@ -35,11 +35,6 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
                 self.bioFiled.text = AttendeeInfo.bio
             }
         }
-            if self.revealViewController() != nil {
-                self.menuButton.target = self.revealViewController()
-                self.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-                self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            }
         
         
     }//end fun didload
@@ -191,10 +186,25 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
     }
     // *** for keyboard
     
-    
-    
-    
-    
-    
+    var window:UIWindow!
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let containerViewController = ContainerViewController()
+        if(segue.identifier == "backtohoempage"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("CenterViewController2") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
 
+            containerViewController.centerViewController.delegate?.collapseSidePanels!()
+            
+        }
+        
+    }
+    
+    func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
+    
 }

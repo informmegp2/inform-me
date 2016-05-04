@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class NearbyContentViewController: UIViewController,UITableViewDelegate, UITableViewDataSource , ESTBeaconManagerDelegate {
+class NearbyContentViewController: CenterViewController,UITableViewDelegate, UITableViewDataSource , ESTBeaconManagerDelegate {
     
     
     @IBOutlet var tableView: UITableView!
@@ -48,11 +48,6 @@ self.tableView.reloadData()*/
         // 4. We need to request this authorization for every beacon manager
         self.beaconManager.requestAlwaysAuthorization()
         
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
     }
    
 
@@ -134,8 +129,14 @@ self.tableView.reloadData()*/
                     print(content)
                     //  self.commentsTable.reloadData()
                     upcoming.abstract.text = content.Abstract
-                    upcoming.pdf.setTitle(content.Pdf, forState: UIControlState.Normal)
-                    upcoming.video.setTitle(content.Video, forState: UIControlState.Normal)
+                    upcoming.pdfURL = content.Pdf
+                    if(upcoming.pdfURL == "No PDF"){
+                        upcoming.pdf.enabled = false
+                    }
+                    upcoming.vidURL = content.Video
+                    if(upcoming.vidURL == "No Video"){
+                        upcoming.video.enabled = false
+                    }
                     upcoming.navbar.title = content.Title
                     upcoming.images = content.Images
                     print(content.like)
@@ -249,8 +250,7 @@ self.tableView.reloadData()*/
                 //For each beacon in array
                 for beacon in beacons {
                     //Check if the content was requested
-                    if (!Requested.contains("\(beacon.major):\(beacon.minor)"))
-                    {//If not request content then add to requested array
+                    if (!Requested.contains("\(beacon.major):\(beacon.minor)") && ((beacon.proximity == .Immediate) || (beacon.proximity == .Near)))                    {//If not request content then add to requested array
                         loadContent(beacon.major, minor: beacon.minor)
                         Requested.append("\(beacon.major):\(beacon.minor)")
                     }

@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-class ProfileOrganizerViewController : UIViewController , UITextFieldDelegate{
+class ProfileOrganizerViewController : CenterViewController , UITextFieldDelegate{
     /*Hello : ) */
     
     
@@ -35,12 +35,6 @@ class ProfileOrganizerViewController : UIViewController , UITextFieldDelegate{
                 self.bioField.text = OrganizerInfo.bio
             }
             
-            
-            if self.revealViewController() != nil {
-                self.menuButton.target = self.revealViewController()
-                self.menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-                self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-            }
         }
         
         
@@ -185,6 +179,26 @@ class ProfileOrganizerViewController : UIViewController , UITextFieldDelegate{
     }
     // *** for keyboard
     
-
     
-}//end class
+    var window:UIWindow!
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let containerViewController = ContainerViewController()
+        if(segue.identifier == "backtohomepage"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("CenterViewController1") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+            
+            containerViewController.centerViewController.delegate?.collapseSidePanels!()
+            
+        }
+        
+    }
+    
+    func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
+    
+}

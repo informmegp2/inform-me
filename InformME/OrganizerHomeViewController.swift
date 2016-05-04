@@ -10,55 +10,64 @@ import Foundation
 
 import UIKit
 
-class OrganizerHomeViewController: UIViewController  {
+class OrganizerHomeViewController: CenterViewController  {
     @IBOutlet weak var menuButton: UIBarButtonItem!
     /*Hello : ) */
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
         //setup tint color for tha back button.
     }
     
-  
-    
-    @IBAction func outButton(sender: AnyObject) {
-       
-        print(" iam in 1")
-        
-        var flag: Bool
-        flag = false
-        
-        
-        
-         let current: Authentication = Authentication();
-        
-        current.logout(){
-        (login:Bool) in
-      
-        dispatch_async(dispatch_get_main_queue()) {
+    var window:UIWindow!
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let containerViewController = ContainerViewController()
+        if(segue.identifier == "orgMain"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("CenterViewController1") as? CenterViewController
+            print(window!.rootViewController)
             
-        flag = login
-        if(flag) {
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
             
-              self.performSegueWithIdentifier("backtologin", sender: self)
-        
+            window!.makeKeyAndVisible()
+        }
+        else  if(segue.identifier == "events"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("eventsMng") as? CenterViewController
+            print(window!.rootViewController)
             
-        print("I am happy",login,flag) }
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+        }
+        else  if(segue.identifier == "beacons"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("beaconsMng") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+        }
+        else  if(segue.identifier == "profile"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("profileMng") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+        }
+        if(segue.identifier != "backtologin") {
+            containerViewController.centerViewController.delegate?.collapseSidePanels!()
             
         }
-            print("I am Here")  }
         
-       
-        
-        
-        
+    }
     
-    } //end out */
+    func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

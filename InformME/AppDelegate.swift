@@ -21,7 +21,7 @@ extension UILabel {
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate  {
     
-    
+
     var window: UIWindow?
     var barPurple = UIColor(red: (96/255.0), green: (17/255.0), blue: (143/255.0), alpha: 1.0)
 
@@ -37,8 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         self.beaconManager.requestAlwaysAuthorization()
         
         beaconManager.startMonitoringForRegion(beacons.MonitorBeacon())
-      
-        
+
         //To show notifications
         UIApplication.sharedApplication().registerUserNotificationSettings(
             UIUserNotificationSettings(forTypes: .Alert, categories: nil))
@@ -52,6 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, ESTBeaconManagerDelegate 
         UINavigationBar.appearance().translucent = false
         let titleDict: NSDictionary = [NSFontAttributeName: UIFont(name: "JFFlat-Regular", size: 19)! , NSForegroundColorAttributeName: UIColor.whiteColor()]
         UINavigationBar.appearance().titleTextAttributes = titleDict as? [String : AnyObject]
+        // create viewController code...
+        
         return true
     }
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0E104DE31C600CF70079C1A9 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E104DE21C600CF70079C1A9 /* SignupViewController.swift */; };
+		0E16D6101CCB84C8000224C5 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E16D60F1CCB84C8000224C5 /* ContainerViewController.swift */; };
+		0E16D6121CCB91E6000224C5 /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E16D6111CCB91E6000224C5 /* CenterViewController.swift */; };
 		0E1BE2931C9C1F000086CE99 /* UpdateImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1BE2921C9C1F000086CE99 /* UpdateImageCollectionViewCell.swift */; };
 		0E1D8F121C66019A00D840D4 /* BeaconTableCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1D8F111C66019A00D840D4 /* BeaconTableCellViewController.swift */; };
 		0E2D5E341C6B5679000B1F95 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DC64231C6AF71000D8EDB6 /* EventDetailsViewController.swift */; };
@@ -35,7 +37,6 @@
 		0E8BDFC01C6A5C16003364A5 /* FavoritelistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8BDFBF1C6A5C16003364A5 /* FavoritelistViewController.swift */; };
 		0E8D31321C7B857F00B0D2B0 /* ContentForAttendeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D31311C7B857F00B0D2B0 /* ContentForAttendeeViewController.swift */; };
 		0E91C6AD1C67BFA900BD736B /* JF_Flat_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E91C6AC1C67BFA900BD736B /* JF_Flat_regular.ttf */; };
-		0E9BC0761CA6BD5B003D04C3 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E9BC0751CA6BD5B003D04C3 /* SWRevealViewController.m */; };
 		0EAE38D51C62A2B00082DAD2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAE38D41C62A2B00082DAD2 /* Event.swift */; };
 		0EC958811C8F87BA00DE56BE /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC958801C8F87BA00DE56BE /* ImageCollectionViewCell.swift */; };
 		0ECC03FE1C63ACFE00458C86 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECC03FD1C63ACFE00458C86 /* Authentication.swift */; };
@@ -103,6 +104,8 @@
 
 /* Begin PBXFileReference section */
 		0E104DE21C600CF70079C1A9 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		0E16D60F1CCB84C8000224C5 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		0E16D6111CCB91E6000224C5 /* CenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
 		0E1BE2921C9C1F000086CE99 /* UpdateImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		0E1D8F111C66019A00D840D4 /* BeaconTableCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTableCellViewController.swift; sourceTree = "<group>"; };
 		0E30A57A1C67A2CB0033AFCE /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -137,8 +140,6 @@
 		0E8BDFBF1C6A5C16003364A5 /* FavoritelistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritelistViewController.swift; sourceTree = "<group>"; };
 		0E8D31311C7B857F00B0D2B0 /* ContentForAttendeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentForAttendeeViewController.swift; sourceTree = "<group>"; };
 		0E91C6AC1C67BFA900BD736B /* JF_Flat_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JF_Flat_regular.ttf; sourceTree = "<group>"; };
-		0E9BC0741CA6BD5B003D04C3 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		0E9BC0751CA6BD5B003D04C3 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		0EAE38D41C62A2B00082DAD2 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0EC958801C8F87BA00DE56BE /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		0ECC03FD1C63ACFE00458C86 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -207,6 +208,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E16D60E1CCB8491000224C5 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				0E16D60F1CCB84C8000224C5 /* ContainerViewController.swift */,
+				0E16D6111CCB91E6000224C5 /* CenterViewController.swift */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
 		0E3FCB991C59E1920044CE7A = {
 			isa = PBXGroup;
 			children = (
@@ -264,19 +274,10 @@
 			path = InformMEUITests;
 			sourceTree = "<group>";
 		};
-		0E9BC0731CA6BCD3003D04C3 /* Sidebar */ = {
-			isa = PBXGroup;
-			children = (
-				0E9BC0741CA6BD5B003D04C3 /* SWRevealViewController.h */,
-				0E9BC0751CA6BD5B003D04C3 /* SWRevealViewController.m */,
-			);
-			name = Sidebar;
-			sourceTree = "<group>";
-		};
 		0EAE38CC1C6279F30082DAD2 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				0E9BC0731CA6BCD3003D04C3 /* Sidebar */,
+				0E16D60E1CCB8491000224C5 /* Menu */,
 				0E3FCBAC1C59E1930044CE7A /* Assets.xcassets */,
 				9594124C1C677E28000D23E3 /* AddEventViewController.swift */,
 				0E3FCBAE1C59E1930044CE7A /* LaunchScreen.storyboard */,
@@ -475,6 +476,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E16D6121CCB91E6000224C5 /* CenterViewController.swift in Sources */,
 				0EAE38D51C62A2B00082DAD2 /* Event.swift in Sources */,
 				56B795991C75017C00A239F3 /* ManageContentsViewController.swift in Sources */,
 				9594124D1C677E28000D23E3 /* AddEventViewController.swift in Sources */,
@@ -496,8 +498,8 @@
 				0ECC04181C63C3FC00458C86 /* EventOrganizer.swift in Sources */,
 				0E1BE2931C9C1F000086CE99 /* UpdateImageCollectionViewCell.swift in Sources */,
 				0EF156B01C64C229004BE735 /* ProfileViewController.swift in Sources */,
-				0E9BC0761CA6BD5B003D04C3 /* SWRevealViewController.m in Sources */,
 				0ECC040E1C63BAF300458C86 /* Like.swift in Sources */,
+				0E16D6101CCB84C8000224C5 /* ContainerViewController.swift in Sources */,
 				0EF156BA1C64C262004BE735 /* ManageEventsViewController.swift in Sources */,
 				0E601FC51C77234A003E9B50 /* UpdatePlaceViewController.swift in Sources */,
 				56EAA4681C66038300B8C249 /* AddBeaconViewController.swift in Sources */,

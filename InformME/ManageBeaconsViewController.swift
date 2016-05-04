@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 
 
-class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITableViewDelegate, BeaconCellDelegate  {
+class ManageBeaconsViewController: CenterViewController,UITableViewDataSource, UITableViewDelegate, BeaconCellDelegate  {
     
     
     var values:NSMutableArray = []
@@ -28,13 +28,7 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
         get();
         tableView.reloadData()
         //setup tint color for tha back button.
-        
-        if self.revealViewController() != nil {
-            menuButton.target = self.revealViewController()
-            menuButton.action = #selector(SWRevealViewController.revealToggle(_:))
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-    }
+            }
     
     
     
@@ -200,6 +194,8 @@ class ManageBeaconsViewController: UIViewController,UITableViewDataSource, UITab
             detailVC.llabel=b.Label
             detailVC.mmajor=b.Major
             detailVC.mminor=b.Minor
+            detailVC.labels = Labels
+            detailVC.UID = UID
             
         }
         

@@ -26,6 +26,7 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
     @IBOutlet var AAbstract: UILabel!
     @IBOutlet var PDF: UILabel!
     @IBOutlet var VVideo: UILabel!
+    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     
     // @IBOutlet var logo: UIImageView!
@@ -39,6 +40,7 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         // Do any additional setup after loading the view.
+        
     }
     
     // the controller that has a reference to the collection view
@@ -75,7 +77,7 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
                 flag = login
                 if(flag) {
                     
-                    self.performSegueWithIdentifier("backtologin", sender: self)
+                    //self.performSegueWithIdentifier("backtologin", sender: self)
                     
                     
                     print("I am happy",login,flag) }

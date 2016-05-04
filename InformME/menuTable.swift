@@ -12,14 +12,14 @@ class menuTable: UITableViewController {
     @IBOutlet weak var logout: UITableViewCell!
     
     @IBOutlet var table: UITableView!
-   
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedCell = tableView.cellForRowAtIndexPath(indexPath)
         if(selectedCell == logout){
             out()}
     }
     
-    func out() {
+    @IBAction func out() {
         
         
         print(" iam in 1")
@@ -48,12 +48,90 @@ class menuTable: UITableViewController {
             print("I am Here")  }
         
         
-        
-        
-        
-        
     } //end out */
-    
-    
+    var window:UIWindow!
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let containerViewController = ContainerViewController()
+        if(segue.identifier == "orgMain"){
+        containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("CenterViewController1") as? CenterViewController
+        print(window!.rootViewController)
+        
+        window!.rootViewController = containerViewController
+        print(window!.rootViewController)
+        
+        window!.makeKeyAndVisible()
+        }
+        else  if(segue.identifier == "events"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("eventsMng") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+        }
+        else  if(segue.identifier == "beacons"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("beaconsMng") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+        }
+        else  if(segue.identifier == "profile"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("profileMng") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+        }
+        else  if(segue.identifier == "nearby"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("nearby") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+        }
+        else  if(segue.identifier == "profile1"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("proflie") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+        }
+        else  if(segue.identifier == "fav"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("favorite") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+        }
+        else  if(segue.identifier == "attendeeMain"){
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("CenterViewController2") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+        }
+        if(segue.identifier != "backtologin") {
+            containerViewController.centerViewController.delegate?.collapseSidePanels!()
+
+        }
+
+    }
+   
+    func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
     
 }
