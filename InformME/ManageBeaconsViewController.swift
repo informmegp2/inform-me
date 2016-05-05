@@ -27,47 +27,14 @@ class ManageBeaconsViewController: CenterViewController,UITableViewDataSource, U
         super.viewDidLoad()
         get();
         tableView.reloadData()
+        self.navigationItem.title = "إدارة بيكون"
         //setup tint color for tha back button.
             }
     
     
     
     
-    @IBAction func out(sender: AnyObject) {
-        
-        
-        print(" iam in 1")
-        
-        var flag: Bool
-        flag = false
-        
-        
-        
-        let current: Authentication = Authentication();
-        
-        current.logout(){
-            (login:Bool) in
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                
-                flag = login
-                if(flag) {
-                    
-                    self.performSegueWithIdentifier("backtologin", sender: self)
-                    
-                    
-                    print("I am happy",login,flag) }
-                
-            }
-            print("I am Here")  }
-        
-        
-        
-        
-        
-        
-    } //end out */
-    
+
     func get(){
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/beacon/SelectBeacon.php")!)
         
@@ -212,6 +179,7 @@ class ManageBeaconsViewController: CenterViewController,UITableViewDataSource, U
     func deleteBeacon(label: String) {
         let b: Beacon = Beacon()
         b.deleteBeacon(label)
+        self.tableView.reloadData()
     }
     
     /*  func updateBeacon() {

@@ -40,6 +40,12 @@ class Report {
                         c.likes.counter = Int(item["Likes"] as! String)!
                         c.dislikes.counter = Int(item ["DisLikes"] as! String)!
                         }
+                        if item["ShareCounter"] != nil  {
+                            c.shares = Int(item["ShareCounter"] as! String)!
+                        }
+                        else {
+                             c.shares = 0
+                            }
                         var comments: [Comment] = []
                         let itemC = item["Comments"] as! NSArray
                         for i in 0 ..< itemC.count {

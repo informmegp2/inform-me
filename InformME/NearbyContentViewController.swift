@@ -132,12 +132,14 @@ self.tableView.reloadData()*/
                     upcoming.pdfURL = content.Pdf
                     if(upcoming.pdfURL == "No PDF"){
                         upcoming.pdf.enabled = false
+                        upcoming.pdf.setTitle("No PDF", forState: UIControlState.Disabled)
                     }
                     upcoming.vidURL = content.Video
                     if(upcoming.vidURL == "No Video"){
                         upcoming.video.enabled = false
+                        upcoming.video.setTitle("No Video", forState: UIControlState.Disabled)
+
                     }
-                    upcoming.navbar.title = content.Title
                     upcoming.images = content.Images
                     print(content.like)
                     print(content.dislike)

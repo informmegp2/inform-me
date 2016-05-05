@@ -131,6 +131,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
             }
         else {
             print(EventName.text)
+            if(Reachability.isConnectedToNetwork()){
             let e : Event = Event()
             e.AddEvent (UserID, name: name, web: website, date: date, logo: EventLogoo.backgroundImageForState(.Normal)!){
                 (flag:Bool) in
@@ -138,7 +139,12 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
                 dispatch_async(dispatch_get_main_queue()) {
                   self.performSegueWithIdentifier("addEvent", sender:sender)
                 }}
+            }
+                        else {
+                            self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
 
+                        }
+                    
           
 
         }
@@ -173,7 +179,26 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
         self.view.endEditing(true)
         return false
     }
-   
+    var window:UIWindow!
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let containerViewController = ContainerViewController()
+        
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("eventsMng") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+        
+            containerViewController.centerViewController.delegate?.collapseSidePanels!()
+        
+    }
+    
+    func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
+    
+
     
     
 

@@ -160,6 +160,25 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
         self.view.reloadInputViews()
     }
     
+    var window:UIWindow!
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let containerViewController = ContainerViewController()
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("beaconsMng") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+            containerViewController.centerViewController.delegate?.collapseSidePanels!()
+            
+        }
+        
+    
+    func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
+    
+
 
     /*
      // MARK: - Navigation

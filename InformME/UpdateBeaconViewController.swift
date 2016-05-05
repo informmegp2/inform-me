@@ -106,7 +106,26 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    var window:UIWindow!
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print ("???????")
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        let containerViewController = ContainerViewController()
+        containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("beaconsMng") as? CenterViewController
+        print(window!.rootViewController)
+        
+        window!.rootViewController = containerViewController
+        print(window!.rootViewController)
+        
+        window!.makeKeyAndVisible()
+        containerViewController.centerViewController.delegate?.collapseSidePanels!()
+        
+    }
     
+    
+    func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
+    
+
     
     
     /*

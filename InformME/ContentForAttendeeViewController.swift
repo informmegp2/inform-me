@@ -33,18 +33,18 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     override func viewDidLoad() {
         commentField.delegate=self
         self.abstract.numberOfLines = 0
-
        commentsTable.delegate = self;
        commentsTable.dataSource = self;
+        
       content.ViewContent(cid, UserID: uid){
             (content:Content) in
             dispatch_async(dispatch_get_main_queue()) {
                 self.content = content
                  self.commentsTable.reloadData()
                 self.abstract.text = self.content.Abstract
-                self.pdf.setTitle(self.content.Pdf, forState: UIControlState.Normal)
-                self.video.setTitle(self.content.Video, forState: UIControlState.Normal)
-                self.navbar.title = self.content.Title
+                self.pdfURL = self.content.Pdf
+                self.vidURL = self.content.Video
+                self.navigationItem.title = self.content.Title
                 self.images = self.content.Images
                 print(self.content.like)
                 print(self.content.dislike)
@@ -95,15 +95,22 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     
 
     @IBAction func openLink(sender: UIButton) {
-        if(sender.currentTitle == "PDF"){
+        if (sender.enabled){
+            print("hi")
+        if(sender.currentTitle == "PDF" && pdfURL != "No PDF"){
+            print(pdfURL)
             let openLink = NSURL(string : pdfURL)
+            print(pdfURL)
+            if(openLink != nil){
             UIApplication.sharedApplication().openURL(openLink!)
+            }
 
         }
-        else {
+        else if(vidURL != "No Video") {
             let openLink = NSURL(string : vidURL)
             UIApplication.sharedApplication().openURL(openLink!)
 
+        }
         }
     }
     
@@ -156,36 +163,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         
         
     }
-    
-    @IBAction func out(sender: AnyObject) {
-        print(" iam in 1")
-        
-        var flag: Bool
-        flag = false
-        
-        
-        
-        let current: Authentication = Authentication();
-        
-        current.logout(){
-            (login:Bool) in
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                
-                flag = login
-                if(flag) {
-                    
-                    self.performSegueWithIdentifier("backtologin", sender: self)
-                    
-                    
-                    print("I am happy",login,flag) }
-                
-            }
-            print("I am Here")  }
 
-        
-    } //end out */ backtologin
-    
     //MARK: -- Comments Table ---
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -334,5 +312,5 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         textField.resignFirstResponder()
         return true
     }
-    
+       
 }//end class

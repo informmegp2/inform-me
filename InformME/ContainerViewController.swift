@@ -116,29 +116,7 @@ extension ContainerViewController: UIGestureRecognizerDelegate {
     // MARK: Gesture recognizer
     
     func handlePanGesture(recognizer: UIPanGestureRecognizer) {
-        let gestureIsDraggingFromLeftToRight = (recognizer.velocityInView(view).x > 0)
         
-        switch(recognizer.state) {
-        case .Began:
-            if (currentState == .BothCollapsed) {
-                if (gestureIsDraggingFromLeftToRight) {
-                } else {
-                    addRightPanelViewController()
-                }
-                
-                showShadowForCenterViewController(true)
-            }
-        case .Changed:
-            recognizer.view!.center.x = recognizer.view!.center.x + recognizer.translationInView(view).x
-            recognizer.setTranslation(CGPointZero, inView: view)
-        case .Ended:
-                if (rightViewController != nil) {
-                let hasMovedGreaterThanHalfway = recognizer.view!.center.x < 0
-                animateRightPanel(hasMovedGreaterThanHalfway)
-            }
-        default:
-            break
-        }
     }
 }
 

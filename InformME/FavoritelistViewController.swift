@@ -137,9 +137,17 @@ class FavoritelistViewController: CenterViewController,UITableViewDelegate, UITa
                       print(content)
                     //  self.commentsTable.reloadData()
                     upcoming.abstract.text = content.Abstract
-                    upcoming.pdf.setTitle(content.Pdf, forState: UIControlState.Normal)
-                    upcoming.video.setTitle(content.Video, forState: UIControlState.Normal)
-                    upcoming.navbar.title = content.Title
+                    upcoming.pdfURL = content.Pdf
+                    if(upcoming.pdfURL == "No PDF"){
+                        upcoming.pdf.enabled = false
+                        upcoming.pdf.setTitle("No PDF", forState: UIControlState.Disabled)
+                    }
+                    upcoming.vidURL = content.Video
+                    if(upcoming.vidURL == "No Video"){
+                        upcoming.video.enabled = false
+                        upcoming.video.setTitle("No Video", forState: UIControlState.Disabled)
+                        
+                    }
                     upcoming.images = content.Images
                     print(content.like)
                     print(content.dislike)

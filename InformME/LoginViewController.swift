@@ -59,7 +59,7 @@ class LoginViewController: CenterViewController, UITextFieldDelegate, UINavigati
             var flag: Bool
             flag = false
             let current: Authentication = Authentication();
-            
+            if(Reachability.isConnectedToNetwork()){
             //Wher use a completion handler here in order to make sure we got the latest value of flag.
             current.login( email, Passoword: password, Type: type) {
                 (login:Bool) in
@@ -71,8 +71,12 @@ class LoginViewController: CenterViewController, UITextFieldDelegate, UINavigati
                         }
                 print("I am Here")
         
-        }
+            }
+            else {
+                self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
 
+            }
+        }
     }// end fun login
     
   

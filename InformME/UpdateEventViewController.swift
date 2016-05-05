@@ -239,8 +239,30 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
             detailVC.evdate=EventDate.text!
            
             detailVC.evlogo=self.EventLogo.backgroundImageForState(.Normal)
+        } else if (segue.identifier == "deleteok"){
+            var window:UIWindow!
+            window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            let containerViewController = ContainerViewController()
+            
+            containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("eventsMng") as? CenterViewController
+            print(window!.rootViewController)
+            
+            window!.rootViewController = containerViewController
+            print(window!.rootViewController)
+            
+            window!.makeKeyAndVisible()
+            
+            containerViewController.centerViewController.delegate?.collapseSidePanels!()
+            }
+
+
         }
-        
+
+
+    func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
+
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
     

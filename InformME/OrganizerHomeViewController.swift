@@ -23,6 +23,7 @@ class OrganizerHomeViewController: CenterViewController  {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         let containerViewController = ContainerViewController()
+        
         if(segue.identifier == "orgMain"){
             containerViewController.centerViewController = mainStoryboard().instantiateViewControllerWithIdentifier("CenterViewController1") as? CenterViewController
             print(window!.rootViewController)

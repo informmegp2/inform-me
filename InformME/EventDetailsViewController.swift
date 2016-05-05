@@ -34,45 +34,6 @@ class EventDetailsViewController: UIViewController {
     }
   
     
-    
-    
-    @IBAction func out(sender: AnyObject) {
-    
-        
-        
-        
-        print(" iam in 1")
-        
-        var flag: Bool
-        flag = false
-        
-        
-        
-        let current: Authentication = Authentication();
-        
-        current.logout(){
-            (login:Bool) in
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                
-                flag = login
-                if(flag) {
-                    
-                    self.performSegueWithIdentifier("backtologin", sender: self)
-                    
-                    
-                    print("I am happy",login,flag) }
-                
-            }
-            print("I am Here")  }
-        
-        
-        
-        
-        
-        
-    } //end out */
-
         
     // MARK: -Segue Functions
     @IBAction func reportButton() {

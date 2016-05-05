@@ -46,16 +46,46 @@ class ProfileViewController: CenterViewController , UITextFieldDelegate{
     
     
     
+    func isValidEmail(testStr:String) -> Bool {
+        
+        
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        
+        let result = emailTest.evaluateWithObject(testStr)
+        
+        return result
+        
+    }
+    
     
     @IBAction func save(sender: AnyObject) {
-        
         let username = usernameFiled.text!
         let email = emailFiled.text!
         let  password = passwordFiled.text!
         let bio = bioFiled.text!
         
-        if (usernameFiled.text == "" || emailFiled.text == "" || passwordFiled.text == "") {
-            self.displayAlert("", message: "يرجى إدخال كافة الحقول")
+        var count: Int
+        count = password.characters.count
+        
+        
+        if (username.isEmpty || email.isEmpty || password.isEmpty) {
+            
+            displayAlert("", message: "يرجى إدخال كافة الحقول")
+            
+        }// end if chack
+            
+        else if ( count < 8)
+        {
+            displayAlert("", message: "يرجى إدخال كلمة مرور لا تقل عن ثمانية أحرف")
+            
+            
+        }//end else if
+        else if (isValidEmail(email) == false) {
+            
+            displayAlert("", message: "  يرجى إدخال صيغة بريد الكتروني صحيحة")
+            
         }
             
         else {
@@ -109,43 +139,7 @@ class ProfileViewController: CenterViewController , UITextFieldDelegate{
     
     
     
-    
-    
-    @IBAction func out(sender: AnyObject) {
-        print(" iam in 1")
-        
-        var flag: Bool
-        flag = false
-        
-        
-        
-        let current: Authentication = Authentication();
-        
-        current.logout(){
-            (login:Bool) in
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                
-                flag = login
-                if(flag) {
-                    
-                    self.performSegueWithIdentifier("backtologin", sender: self)
-                    
-                    
-                    print("I am happy",login,flag) }
-                
-            }
-            print("I am Here")  }
-        
-        
-        
-        
-        
-        
-    } //end out
-    
-    
-    
+ 
     
     
     //for alert massge
@@ -164,11 +158,6 @@ class ProfileViewController: CenterViewController , UITextFieldDelegate{
         
         
     }//end fun display alert
-    
-    
-    
-    
-    
     
     // *** for keyboard
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {

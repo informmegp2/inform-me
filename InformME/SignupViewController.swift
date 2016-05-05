@@ -73,7 +73,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
             if (type == 0){
                 let current1: Attendee = Attendee();
                 
-                
+                if(Reachability.isConnectedToNetwork()){
                 current1.createAccount (username, email: email,  password: password){
                     (login:Bool) in
                     //we should perform all segues in the main thread
@@ -101,6 +101,10 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
                     
                     
                 }//end call
+                }
+                else {
+                    self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+                }
                 
                 
             }//end if type 0
@@ -109,7 +113,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
             {
                 let current2: EventOrganizer = EventOrganizer();
                 
-                
+                if(Reachability.isConnectedToNetwork()){
                 current2.createAccount (username, email: email,  password: password){
                     (login:Bool) in
                     //we should perform all segues in the main thread
@@ -137,7 +141,10 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
                
                 
             }//end call
-            
+                }
+                else {
+                    self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+                }
         
         } //end else type 1
         

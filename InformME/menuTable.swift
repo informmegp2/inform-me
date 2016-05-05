@@ -16,8 +16,27 @@ class menuTable: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedCell = tableView.cellForRowAtIndexPath(indexPath)
         if(selectedCell == logout){
-            out()}
+            if(Reachability.isConnectedToNetwork()){
+                out()
+            }
+            else{
+                self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+            }
+            }
     }
+    func displayAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        })))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }//end fun display alert
     
     @IBAction func out() {
         
