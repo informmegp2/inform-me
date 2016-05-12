@@ -15,7 +15,7 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
     @IBOutlet var EventDate: UITextField!
     @IBOutlet var EventWebsite: UITextField!
     @IBOutlet var EventName: UITextField!
-    
+    @IBOutlet var scrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
         EventDate.delegate = self
@@ -161,24 +161,29 @@ class AddEventViewController: UIViewController, UITextFieldDelegate, UIImagePick
          self.presentViewController(alert, animated: true, completion: nil)
         
     }//end fun display alert
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 150)), animated: true)
     }
-    */
+    
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 0)), animated: true)
+    }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
         self.view.endEditing(true)
         
+        
     }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
+        
+        textField.resignFirstResponder()
+        
+        return true
+        
     }
+
     var window:UIWindow!
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         window = UIWindow(frame: UIScreen.mainScreen().bounds)

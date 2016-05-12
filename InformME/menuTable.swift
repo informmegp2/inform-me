@@ -57,10 +57,8 @@ class menuTable: UITableViewController {
                 
                 flag = login
                 if(flag) {
-                    
+                    self.view.window!.rootViewController?.dismissViewControllerAnimated(false, completion: nil)
                 self.performSegueWithIdentifier("backtologin", sender: self)
-                    
-                    
                     print("I am happy",login,flag) }
                 
             }

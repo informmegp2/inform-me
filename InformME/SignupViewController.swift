@@ -217,9 +217,18 @@ class SignupViewController: UIViewController, UITextFieldDelegate, UINavigationC
     
     
     // *** for keyboard
+    @IBOutlet var scrollView: UIScrollView!
+    func textFieldDidBeginEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 150)), animated: true)
+    }
+    
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 0)), animated: true)
+    }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
         self.view.endEditing(true)
+        
         
     }
     

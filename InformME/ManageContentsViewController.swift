@@ -12,7 +12,6 @@ import UIKit
 class ManageContentsViewController: UIViewController,UITableViewDataSource, UITableViewDelegate ,ContentCellDelegate  {
     
     @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     var contentInfo: [Content] = []
     var content: Content = Content()
@@ -35,47 +34,12 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
         //setup tint color for tha back button.
     }
     
-    
-    @IBAction func add(sender: AnyObject) {
-                self.performSegueWithIdentifier("add", sender: self)
-    }
+
     @IBAction func addcontent(sender: AnyObject) {
         self.performSegueWithIdentifier("addContentbutton", sender: self)
         print("Button PRESSED, segue")
     }
-    
-    @IBAction func out(sender: AnyObject) {
-        
-        print(" iam in 1")
-        
-        var flag: Bool
-        flag = false
-        
-        
-        
-        let current: Authentication = Authentication();
-        
-        current.logout(){
-            (login:Bool) in
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                
-                flag = login
-                if(flag) {
-                    
-                    self.performSegueWithIdentifier("backtologin", sender: self)
-                    
-                    
-                    print("I am happy",login,flag) }
-                
-            }
-            print("I am Here")  }
-        
-        
-        
-        
-    }//end out addContent
-    
+      
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("contentCell", forIndexPath: indexPath) as! ContentTableCellViewController

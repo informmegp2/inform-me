@@ -61,8 +61,28 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         }
         
     }
+    @IBOutlet var scrollView: UIScrollView!
+    func textFieldDidBeginEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 250)), animated: true)
+    }
     
-    // the controller that has a reference to the collection view
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 0)), animated: true)
+    }
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+        
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+        
+    }    // the controller that has a reference to the collection view
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         var insets = self.collectionView.contentInset
@@ -307,10 +327,6 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
             Content().saveContent(uid, cid: self.cid)
         }
     }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+
        
 }//end class

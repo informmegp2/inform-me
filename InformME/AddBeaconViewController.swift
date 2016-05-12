@@ -103,14 +103,6 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
         self.beaconManager.stopRangingBeaconsInRegion(self.beaconRegion)
     }
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -179,7 +171,28 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
     func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
     
 
-
+    @IBOutlet var scrollView: UIScrollView!
+    func textFieldDidBeginEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 150)), animated: true)
+    }
+    
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 0)), animated: true)
+    }
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+        
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+        
+    }
     /*
      // MARK: - Navigation
      

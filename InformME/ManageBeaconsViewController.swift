@@ -103,39 +103,6 @@ class ManageBeaconsViewController: CenterViewController,UITableViewDataSource, U
         
         
     }
-    // Delete beacon
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == UITableViewCellEditingStyle.Delete {
-            
-            
-            let alertController = UIAlertController(title: "", message: "هل أنت متأكد من رغبتك بالحذف", preferredStyle: .Alert)
-            
-            // Create the actions
-            let okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
-                UIAlertAction in
-                NSLog("OK Pressed")
-                var b: Beacon = Beacon()
-                b = self.values[indexPath.row] as! Beacon
-                self.values.removeObjectAtIndex(indexPath.row)
-                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-                self.deleteBeacon(b.Label)
-            }
-            let cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
-                UIAlertAction in
-                NSLog("Cancel Pressed")
-            }
-            
-            // Add the actions
-            alertController.addAction(okAction)
-            alertController.addAction(cancelAction)
-            
-            // Present the controller
-            self.presentViewController(alertController, animated: true, completion: nil)
-            
-            
-            
-        }
-    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return values.count;

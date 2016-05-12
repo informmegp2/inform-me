@@ -26,7 +26,6 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
     @IBOutlet var AAbstract: UILabel!
     @IBOutlet var PDF: UILabel!
     @IBOutlet var VVideo: UILabel!
-    @IBOutlet weak var menuButton: UIBarButtonItem!
     
     
     // @IBOutlet var logo: UIImageView!

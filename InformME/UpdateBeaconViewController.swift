@@ -92,15 +92,32 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
         self.Major.text = mmajor
         self.Minor.text = mminor
         temp = llabel
+        self.Label.delegate = self
+        self.Major.delegate = self
+        self.Minor.delegate = self
     }
     
+    @IBOutlet var scrollView: UIScrollView!
+    func textFieldDidBeginEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 150)), animated: true)
+    }
+    
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 0)), animated: true)
+    }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
+        
+        
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
         textField.resignFirstResponder()
+        
         return true
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -127,15 +144,29 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
     
 
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
+    @IBAction func deletebeacon(sender: AnyObject) {
+        let alertController = UIAlertController(title: "", message: "هل أنت متأكد من رغبتك بالحذف", preferredStyle: .Alert)
+        
+        // Create the actions
+        let okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
+            UIAlertAction in
+            NSLog("OK Pressed")
+            var b: Beacon = Beacon()
+            
+            b.deleteBeacon(self.temp)
+            self.performSegueWithIdentifier("deleteok", sender:sender)
+        }
+        let cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
+            UIAlertAction in
+            NSLog("Cancel Pressed")
+        }
+        
+        // Add the actions
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
+        // Present the controller
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
 }
+

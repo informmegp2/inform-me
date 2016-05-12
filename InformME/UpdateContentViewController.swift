@@ -120,7 +120,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             UIAlertAction in
             NSLog("OK Pressed")
             let c : Content = Content()
-            c.updateContent (title, abstract: abstract,video: pdf , Pdf: video ,bLabel: blabel,image: self.images, TempV: self.tempV , TempP: self.tempP ,EID: self.EID!, cID: self.cid!){
+            c.updateContent (title, abstract: abstract,video: video  , Pdf: pdf ,bLabel: blabel,image: self.images, TempV: self.tempV , TempP: self.tempP ,EID: self.EID!, cID: self.cid!){
                 (flag:Bool) in
                 dispatch_async(dispatch_get_main_queue()) {
                     self.performSegueWithIdentifier("alertPressedOK", sender:sender)
@@ -219,16 +219,40 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
         self.pickerTextField.text = label
         tempV=vvideo
         tempP=ppdf
+        self.ETitle.delegate = self
+        self.EAbstract.delegate = self
+        self.EPDF.delegate = self
+        self.EVideo.delegate = self
+        self.pickerTextField.delegate = self
         
     }
     
+    @IBOutlet var scrollView: UIScrollView!
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if(textField == pickerTextField){
+            scrollView.setContentOffset((CGPointMake(0, 200)), animated: true)}
+        else {
+            scrollView.setContentOffset((CGPointMake(0, 150)), animated: true)}
+
+        
+    }
+    
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 0)), animated: true)
+    }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
+        
+        
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
         textField.resignFirstResponder()
+        
         return true
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

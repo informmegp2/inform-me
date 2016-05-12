@@ -38,6 +38,10 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         EventWebsite.text = evwebsite
         EventName.text = evname
         EventLogo.setBackgroundImage(evlogo, forState: .Normal)
+        EventDate.delegate = self
+        EventWebsite.delegate = self
+        EventName.delegate = self
+        
         // Do any additional setup after loading the view.
     }
     
@@ -132,9 +136,27 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         // Dispose of any resources that can be recreated.
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    @IBOutlet var scrollView: UIScrollView!
+    func textFieldDidBeginEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 150)), animated: true)
+    }
+    
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 0)), animated: true)
+    }
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
-        return false
+        
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+        
     }
     
     @IBAction func save(sender: AnyObject) {
@@ -261,9 +283,6 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
 
     func mainStoryboard() -> UIStoryboard { return UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()) }
 
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.view.endEditing(true)
-    }
 
     
 }

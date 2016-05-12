@@ -23,7 +23,6 @@
 		0E558FDC1CDACEF90014D31E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E558FDB1CDACEF90014D31E /* Reachability.swift */; };
 		0E5D5D961C73ACE200D60753 /* UpdateContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D5D951C73ACE200D60753 /* UpdateContentViewController.swift */; };
 		0E5D5D9C1C73B34E00D60753 /* ContentForOrganizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5D5D9B1C73B34E00D60753 /* ContentForOrganizerViewController.swift */; };
-		0E601FC31C772310003E9B50 /* ManagePlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E601FC21C772310003E9B50 /* ManagePlaceViewController.swift */; };
 		0E601FC91C77236D003E9B50 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E601FC81C77236D003E9B50 /* ReportViewController.swift */; };
 		0E601FCB1C786D29003E9B50 /* ContentReportTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E601FCA1C786D29003E9B50 /* ContentReportTableViewCellController.swift */; };
 		0E601FCD1C78CBAC003E9B50 /* CommentTableViewCellController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E601FCC1C78CBAC003E9B50 /* CommentTableViewCellController.swift */; };
@@ -36,6 +35,7 @@
 		0E8BDFC01C6A5C16003364A5 /* FavoritelistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8BDFBF1C6A5C16003364A5 /* FavoritelistViewController.swift */; };
 		0E8D31321C7B857F00B0D2B0 /* ContentForAttendeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8D31311C7B857F00B0D2B0 /* ContentForAttendeeViewController.swift */; };
 		0E91C6AD1C67BFA900BD736B /* JF_Flat_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0E91C6AC1C67BFA900BD736B /* JF_Flat_regular.ttf */; };
+		0EA8468F1CDCE98F00F63E29 /* ResponsiveTextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA8468E1CDCE98F00F63E29 /* ResponsiveTextFieldViewController.swift */; };
 		0EAE38D51C62A2B00082DAD2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAE38D41C62A2B00082DAD2 /* Event.swift */; };
 		0EC958811C8F87BA00DE56BE /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC958801C8F87BA00DE56BE /* ImageCollectionViewCell.swift */; };
 		0ECC03FE1C63ACFE00458C86 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECC03FD1C63ACFE00458C86 /* Authentication.swift */; };
@@ -124,7 +124,6 @@
 		0E558FDB1CDACEF90014D31E /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		0E5D5D951C73ACE200D60753 /* UpdateContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateContentViewController.swift; sourceTree = "<group>"; };
 		0E5D5D9B1C73B34E00D60753 /* ContentForOrganizerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentForOrganizerViewController.swift; sourceTree = "<group>"; };
-		0E601FC21C772310003E9B50 /* ManagePlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagePlaceViewController.swift; sourceTree = "<group>"; };
 		0E601FC81C77236D003E9B50 /* ReportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 		0E601FCA1C786D29003E9B50 /* ContentReportTableViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentReportTableViewCellController.swift; sourceTree = "<group>"; };
 		0E601FCC1C78CBAC003E9B50 /* CommentTableViewCellController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableViewCellController.swift; sourceTree = "<group>"; };
@@ -137,6 +136,7 @@
 		0E8BDFBF1C6A5C16003364A5 /* FavoritelistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritelistViewController.swift; sourceTree = "<group>"; };
 		0E8D31311C7B857F00B0D2B0 /* ContentForAttendeeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentForAttendeeViewController.swift; sourceTree = "<group>"; };
 		0E91C6AC1C67BFA900BD736B /* JF_Flat_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JF_Flat_regular.ttf; sourceTree = "<group>"; };
+		0EA8468E1CDCE98F00F63E29 /* ResponsiveTextFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponsiveTextFieldViewController.swift; sourceTree = "<group>"; };
 		0EAE38D41C62A2B00082DAD2 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0EC958801C8F87BA00DE56BE /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		0ECC03FD1C63ACFE00458C86 /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
@@ -274,6 +274,7 @@
 		0EAE38CC1C6279F30082DAD2 /* Interfaces */ = {
 			isa = PBXGroup;
 			children = (
+				0EA8468E1CDCE98F00F63E29 /* ResponsiveTextFieldViewController.swift */,
 				0E16D60E1CCB8491000224C5 /* Menu */,
 				0E3FCBAC1C59E1930044CE7A /* Assets.xcassets */,
 				9594124C1C677E28000D23E3 /* AddEventViewController.swift */,
@@ -297,7 +298,6 @@
 				0E8BDFBF1C6A5C16003364A5 /* FavoritelistViewController.swift */,
 				0E5D5D951C73ACE200D60753 /* UpdateContentViewController.swift */,
 				0E5D5D9B1C73B34E00D60753 /* ContentForOrganizerViewController.swift */,
-				0E601FC21C772310003E9B50 /* ManagePlaceViewController.swift */,
 				56B795981C75017C00A239F3 /* ManageContentsViewController.swift */,
 				56B7959A1C7501AC00A239F3 /* ContentTableCellViewController.swift */,
 				56B7959E1C75058A00A239F3 /* AddContentViewController.swift */,
@@ -503,9 +503,9 @@
 				0EC958811C8F87BA00DE56BE /* ImageCollectionViewCell.swift in Sources */,
 				0EF156BC1C64C276004BE735 /* ManageBeaconsViewController.swift in Sources */,
 				0E8BDFBA1C6A4D5A003364A5 /* RecoverPasswordViewController.swift in Sources */,
-				0E601FC31C772310003E9B50 /* ManagePlaceViewController.swift in Sources */,
 				0E3FCBA61C59E1930044CE7A /* AppDelegate.swift in Sources */,
 				0E1D8F121C66019A00D840D4 /* BeaconTableCellViewController.swift in Sources */,
+				0EA8468F1CDCE98F00F63E29 /* ResponsiveTextFieldViewController.swift in Sources */,
 				0E601FCD1C78CBAC003E9B50 /* CommentTableViewCellController.swift in Sources */,
 				0EF156B81C64C24C004BE735 /* OrganizerHomeViewController.swift in Sources */,
 				0E8BDFB81C6A4607003364A5 /* UpdateBeaconViewController.swift in Sources */,

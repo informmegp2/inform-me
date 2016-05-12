@@ -157,10 +157,18 @@ class ProfileOrganizerViewController : CenterViewController , UITextFieldDelegat
     
     
     
-    // *** for keyboard
+    @IBOutlet var scrollView: UIScrollView!
+    func textFieldDidBeginEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 150)), animated: true)
+    }
+    
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 0)), animated: true)
+    }
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
         self.view.endEditing(true)
+        
         
     }
     
@@ -171,8 +179,6 @@ class ProfileOrganizerViewController : CenterViewController , UITextFieldDelegat
         return true
         
     }
-    // *** for keyboard
-
     
     var window:UIWindow!
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -10,23 +10,21 @@ import UIKit
 import Foundation
 
 
-class LoginViewController: CenterViewController, UITextFieldDelegate, UINavigationControllerDelegate{
+class LoginViewController: UIViewController, UINavigationControllerDelegate, UITextFieldDelegate{
 /*Hello : ) */
 
     
     @IBOutlet var emailfiled: UITextField!
     @IBOutlet var passwordfiled: UITextField!
-    
+    @IBOutlet var scrollView: UIScrollView!
     
     @IBOutlet  var typefiled: UISegmentedControl!
     var window: UIWindow?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Do any additional setup after loading the view.
         emailfiled.delegate = self
         passwordfiled.delegate = self
-        // Do any additional setup after loading the view.
-        
     }// end fun viewDidLoad
     
     
@@ -138,9 +136,27 @@ class LoginViewController: CenterViewController, UITextFieldDelegate, UINavigati
     }
     
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 150)), animated: true)
+    }
+
     
+    func textFieldDidEndEditing(textField: UITextField) {
+        scrollView.setContentOffset((CGPointMake(0, 0)), animated: true)
+    }
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+        
+        
+    }
     
-    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        textField.resignFirstResponder()
+        
+        return true
+        
+    }
     //for alert massge
 
     func displayAlert(title: String, message: String) {
@@ -156,26 +172,5 @@ class LoginViewController: CenterViewController, UITextFieldDelegate, UINavigati
         
         
     }//end fun display alert
-    
-    
-    
-    
-    
-    
-// *** for keyboard
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-        self.view.endEditing(true)
-        
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
-        textField.resignFirstResponder()
-        
-        return true
-        
-}
-// *** for keyboard
-    
+
 }//end class
