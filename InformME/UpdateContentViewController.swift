@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 
-class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UICollectionViewDataSource,UICollectionViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UICollectionViewDataSource,UICollectionViewDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate{
     
     @IBOutlet weak var collectionView: UICollectionView!
     var images: [UIImage]=[]
     
     @IBOutlet var ETitle: UITextField!
-    @IBOutlet  var EAbstract: UITextField!
+    @IBOutlet  var EAbstract: UITextView!
     @IBOutlet  var EPDF: UITextField!
     @IBOutlet  var EVideo: UITextField!
     @IBOutlet var pickerTextField: UITextField!// for assign

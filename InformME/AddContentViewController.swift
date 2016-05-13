@@ -8,14 +8,14 @@
 
 import UIKit
 
-class AddContentViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UICollectionViewDataSource,UICollectionViewDelegate{
+class AddContentViewController: UIViewController, UITableViewDelegate, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UICollectionViewDataSource,UICollectionViewDelegate, UITextViewDelegate{
     
     @IBOutlet weak var collectionView: UICollectionView!
     var images: [UIImage]=[]
     
     
     @IBOutlet weak var TTitle: UITextField!
-    @IBOutlet weak var Abstract: UITextField!
+    @IBOutlet weak var Abstract: UITextView!
     @IBOutlet weak var Video: UITextField!
     @IBOutlet weak var PDF: UITextField!
     

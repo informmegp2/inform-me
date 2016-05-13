@@ -24,7 +24,7 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
     @IBOutlet var commentsTable: UITableView!
     @IBOutlet var TTitle: UINavigationItem!
     
-    @IBOutlet var AAbstract: UILabel!
+    @IBOutlet var AAbstract: UITextView!
     @IBOutlet var PDF: UILabel!
     @IBOutlet var VVideo: UILabel!
      var like: String!
@@ -44,7 +44,6 @@ class ContentForOrganizerViewController: UIViewController, UICollectionViewDataS
         self.commentsTable.dataSource = self
         self.TTitle.title = ttitle
         self.AAbstract.text = abstract
-        self.AAbstract.numberOfLines = 0
 
         self.PDF.text = pdf
         self.VVideo.text=video

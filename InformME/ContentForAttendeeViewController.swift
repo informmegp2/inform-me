@@ -14,7 +14,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
    
     @IBOutlet weak var menuButton: UIBarButtonItem!
     @IBOutlet var commentsTable: UITableView!
-    @IBOutlet var abstract: UILabel!
+    @IBOutlet var abstract: UITextView!
     @IBOutlet var pdf: UIButton!
     @IBOutlet var video: UIButton!
     @IBOutlet weak var navbar: UINavigationItem!
@@ -32,7 +32,6 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     
     override func viewDidLoad() {
         commentField.delegate=self
-        self.abstract.numberOfLines = 0
        commentsTable.delegate = self;
        commentsTable.dataSource = self;
         if(Reachability.isConnectedToNetwork()){
