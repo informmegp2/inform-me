@@ -180,6 +180,7 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
                 NSLog("OK Pressed")
                 
                 let e : Event = Event()
+                if(Reachability.isConnectedToNetwork()){
             e.updateEvent (self.evid,name: name, web: website, date: date, logo: self.EventLogo.backgroundImageForState(.Normal)!){
                 (flag:Bool) in
                 //we should perform all segues in the main thread
@@ -187,7 +188,10 @@ class UpdateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
                     print("Heeeeello")
                     self.performSegueWithIdentifier("alertPressedOK", sender:sender)
                 }}
-
+                }
+                else {
+                    self.displayMessage("", message: "الرجاء الاتصال بالانترنت")
+                }
                // e.updateEvent (self.evid,name: name, web: website, date: date, logo: self.EventLogo.backgroundImageForState(.Normal)!)
                
                   //  self.performSegueWithIdentifier("alertPressedOK", sender:sender)

@@ -56,7 +56,7 @@ class FavoritelistViewController: CenterViewController,UITableViewDelegate, UITa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if( Reachability.isConnectedToNetwork()){
         loadFavorite () {
             () in
             dispatch_async(dispatch_get_main_queue()) {
@@ -64,10 +64,27 @@ class FavoritelistViewController: CenterViewController,UITableViewDelegate, UITa
             }
         }
       // self.tableView.reloadData()
-       
+        }
+        else {
+            self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+        }
     }
     
  
+    
+    func displayAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        })))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }//end fun display alert
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contentList.count;
@@ -94,7 +111,7 @@ class FavoritelistViewController: CenterViewController,UITableViewDelegate, UITa
     
     
     @IBAction func save(sender: UIButton) {
-        
+        if(Reachability.isConnectedToNetwork()){
         let imageFull = UIImage(named: "starF.png") as UIImage!
         let imageEmpty = UIImage(named: "star.png") as UIImage!
         if (sender.currentImage == imageFull)
@@ -109,8 +126,12 @@ class FavoritelistViewController: CenterViewController,UITableViewDelegate, UITa
             sender.setImage(image, forState: .Normal)
             Content().saveContent(uid, cid: contentList[sender.tag].contentId!)
         }
+        }
+        else {
+            self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+        }
     }
-
+    
     
   override func prepareForSegue (segue: UIStoryboardSegue, sender: AnyObject?)
     {        print("in segue")
@@ -129,7 +150,7 @@ class FavoritelistViewController: CenterViewController,UITableViewDelegate, UITa
             upcoming.cid = cid!
             
         let content = Content()
-            
+            if(Reachability.isConnectedToNetwork()){
             content.ViewContent(cid!, UserID: uid){
                 (content:Content) in
                 dispatch_async(dispatch_get_main_queue()) {
@@ -161,14 +182,18 @@ class FavoritelistViewController: CenterViewController,UITableViewDelegate, UITa
                     
                         upcoming.save.setImage(imageFull, forState: .Normal)
 
-
-                
                 }
-            }
-            
-            
-        }}
+            } //end call
+    }
+    else {
+    self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+    }
     
+    
+    
+    
+        }}
+
     func loadFavorite (completion: () -> Void)
     {
         

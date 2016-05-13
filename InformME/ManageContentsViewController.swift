@@ -78,8 +78,11 @@ class ManageContentsViewController: UIViewController,UITableViewDataSource, UITa
             detailVC.images = c.Images
             detailVC.label=c.label
             detailVC.EID = self.EID
-            
-            
+            detailVC.like = String(c.like)
+            detailVC.dislike = String(c.dislike)
+            detailVC.share = String(c.shares)
+            detailVC.comment = String(c.comments.count)
+            detailVC.content = c
         }
         else if (segue.identifier == "addContentbutton") {
             let addVC = segue.destinationViewController as! AddContentViewController

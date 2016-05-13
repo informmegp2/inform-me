@@ -53,7 +53,7 @@ class RecoverPasswordViewController: UIViewController, UITextFieldDelegate, UINa
             flag = false
             
              let current: Authentication = Authentication();
-            
+            if(Reachability.isConnectedToNetwork()){
             current.recoverPassword(email , Type: type){
                 (login:Bool) in
                 //we should perform all segues in the main thread
@@ -77,7 +77,10 @@ class RecoverPasswordViewController: UIViewController, UITextFieldDelegate, UINa
          }// dispatch
         
             }//end call
-            
+            }//Network Check
+            else {
+                self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+            }
     
             
         } //end else
@@ -86,45 +89,6 @@ class RecoverPasswordViewController: UIViewController, UITextFieldDelegate, UINa
 
     }// end fun recover
     
-    
-    
-    
-    
-    @IBAction func out(sender: AnyObject) {
-        
-        
-        
-        print(" iam in 1")
-        
-        var flag: Bool
-        flag = false
-        
-        
-        
-        let current: Authentication = Authentication();
-        
-        current.logout(){
-            (login:Bool) in
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                
-                flag = login
-                if(flag) {
-                    
-                    self.performSegueWithIdentifier("backtologin", sender: self)
-                    
-                    
-                    print("I am happy",login,flag) }
-                
-            }
-            print("I am Here")  }
-        
-        
-        
-        
-        
-        
-    } //end out */
         
         
    

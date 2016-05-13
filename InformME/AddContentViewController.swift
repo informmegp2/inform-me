@@ -44,15 +44,20 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
             self.presentViewController(alert, animated: true, completion: nil)
         }
         else {
-        
+            if(Reachability.isConnectedToNetwork()){
         c.createContent(title,abstract: abstract,video: video,Pdf: pdf ,BLabel: label, EID: EID, image: images ){
             (flag:Bool) in
             //we should perform all segues in the main thread
             dispatch_async(dispatch_get_main_queue()) {
                 self.performSegueWithIdentifier("addContent", sender:sender)
             }
-            } }}
-    
+            } }
+            else {
+                self.displayAlert("", message:"الرجاء الاتصال بالانترنت")
+            }
+        //end network
+    }
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "addContent") {
             let detailVC = segue.destinationViewController as! ManageContentsViewController
@@ -102,6 +107,7 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if(Reachability.isConnectedToNetwork()){
         beacon.requestbeaconlist(UserID){// fo assign beacon
             (beaconsInfo:[Beacon]) in
             dispatch_async(dispatch_get_main_queue()) {
@@ -117,6 +123,9 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
             print ("=====")
             print (self.EID)
             
+            }}
+        else {
+            self.displayAlert("",message: "الرجاء الاتصال بالانترنت")
         }
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
@@ -126,6 +135,21 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
         PDF.delegate = self
        
     }
+    
+    func displayAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        })))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }//end fun display alert
+    
     @IBOutlet var scrollView: UIScrollView!
     func textFieldDidBeginEditing(textField: UITextField) {
         if(textField == pickerTextField){

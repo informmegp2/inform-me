@@ -264,6 +264,7 @@ class Content {
     func requestcontentlist(ID: Int,completionHandler: (contentInfo:[Content]) -> ()){
         var contentInfo: [Content] = []
         let Eid=ID
+        print("\(Eid)")
         let request = NSMutableURLRequest(URL: NSURL(string: "http://bemyeyes.co/API/content/SelectContent.php")!)
         
         request.HTTPMethod = "POST"
@@ -301,7 +302,7 @@ class Content {
                         else{
                             c.Video = item["Videos"] as! String
                         }
-                        if item["ShareCounter"]  is NSNull  {
+                        if item["ShareCounter"]  is NSNull || item["ShareCounter"] == nil {
                             c.shares = 0
                         }
                         else{
@@ -327,14 +328,14 @@ class Content {
                         }
                         c.Images = images;
                         
-                        if item["Like"] is NSNull  {
+                        if item["Like"] is NSNull || item["Like"] == nil  {
                             c.like = 0
                         }
                         else{
                             let lk = item["Like"] as! String
                             c.like = Int(lk)!}
                         
-                        if item["dislike"] is NSNull {
+                        if item["dislike"] is NSNull || item["dislike"] == nil {
                             c.dislike = 0
                         }
                         else {

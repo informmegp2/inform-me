@@ -35,7 +35,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         self.abstract.numberOfLines = 0
        commentsTable.delegate = self;
        commentsTable.dataSource = self;
-        
+        if(Reachability.isConnectedToNetwork()){
       content.ViewContent(cid, UserID: uid){
             (content:Content) in
             dispatch_async(dispatch_get_main_queue()) {
@@ -46,6 +46,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
                 self.vidURL = self.content.Video
                 self.navigationItem.title = self.content.Title
                 self.images = self.content.Images
+                
                 print(self.content.like)
                 print(self.content.dislike)
                 
@@ -59,8 +60,27 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
           self.collectionView.dataSource = self
             }
         }
-        
     }
+    else {
+    self.displayAlert("",message:"الرجاء الاتصال بالانترنت")
+    }
+    
+    }
+    func displayAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        })))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }//end fun display alert
+    
+    
     @IBOutlet var scrollView: UIScrollView!
     func textFieldDidBeginEditing(textField: UITextField) {
         scrollView.setContentOffset((CGPointMake(0, 250)), animated: true)
@@ -137,7 +157,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     
     @IBAction func shareContent(sender: AnyObject) {
         
-        
+        if(Reachability.isConnectedToNetwork()){
        let actionSheet = UIAlertController(title: "", message: "انشر المحتوى عبر", preferredStyle: UIAlertControllerStyle.ActionSheet)
        
        
@@ -183,6 +203,10 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
         
         
     }
+        else {
+            self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+        }
+    }
 
     //MARK: -- Comments Table ---
     
@@ -213,7 +237,8 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
     @IBOutlet var dislikeButton: UIButton!
     
     @IBAction func likeContent(sender: AnyObject) {
-          if (self.content.like==0 && self.content.dislike==0){
+        if(Reachability.isConnectedToNetwork()){
+        if (self.content.like==0 && self.content.dislike==0){
         self.content.likeContent(self.content.contentId!, uid: self.uid){
             (done:Bool) in
             dispatch_async(dispatch_get_main_queue()) {
@@ -237,10 +262,14 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
                 }}}
 
     }
-    
+        else {
+            self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+        }
+    }
     
     
     @IBAction func dislikeContent(sender: AnyObject) {
+        if(Reachability.isConnectedToNetwork()){
         if (self.content.like==0 && self.content.dislike==0){
         self.content.disLikeContent(self.content.contentId!, uid: self.uid){
             (done:Bool) in
@@ -265,10 +294,15 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
                     print(self.content.dislike)}}
         }
     }
-    
-    //MARK: --- New Comment --- 
+    else {
+    self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+    }
+}
+
+    //MARK: --- New Comment ---
     
     @IBAction func comment(){
+        if(Reachability.isConnectedToNetwork()){
         let comment: Comment = Comment()
         comment.user.userID = self.uid
         comment.comment = self.commentField.text!
@@ -281,8 +315,8 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
             print("I am cool")
             self.commentField.text! = ""
             self.content.comments.append(comment)
-            self.commentsTable.reloadData()
-        }
+            self.addComment.enabled = false
+            self.commentsTable.reloadData()        }
         }
         }
         else
@@ -296,10 +330,15 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
                 }))
                 self.presentViewController(alert, animated: true, completion: nil)
         }
+        }
+        else {
+            self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+        }
     }
     
+    
     @IBAction func deleteComment(){
-
+        if(Reachability.isConnectedToNetwork()){
         self.content.deleteComment(self.content.contentId!,uid: self.uid){
             (done:Bool) in
             dispatch_async(dispatch_get_main_queue()) {
@@ -308,7 +347,11 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
 
             }
         }
-    }//end delete comment fun
+        }
+        else {
+            self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+        }
+}//end delete comment fun
     
     @IBAction func save(sender: UIButton) {
         

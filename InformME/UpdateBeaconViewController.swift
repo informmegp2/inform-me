@@ -64,12 +64,18 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
                     NSLog("OK Pressed")
                     
                     let b : Beacon = Beacon()
+                    if(Reachability.isConnectedToNetwork()){
                     b.updateBeacon (llabel, major: major,minor:minor ,Temp: self.temp)
                     // (flag:Bool) in
                     //we should perform all segues in the main thread
                     // dispatch_async(dispatch_get_main_queue()) {
                     if (b.save){
-                        self.performSegueWithIdentifier("alertPressedOK", sender:sender)} }
+                        self.performSegueWithIdentifier("alertPressedOK", sender:sender)}}
+                    else {
+                        self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+                    }
+                    }
+                
                 
                 
                 
@@ -86,6 +92,21 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
                 self.presentViewController(alertController, animated: true, completion: nil)
             }
         }}
+    
+    func displayAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        })))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }//end fun display alert
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.Label.text = llabel

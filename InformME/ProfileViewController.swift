@@ -26,6 +26,7 @@ class ProfileViewController: CenterViewController , UITextFieldDelegate{
         emailFiled.delegate = self
         bioFiled.delegate = self
         passwordFiled.delegate = self
+        if(Reachability.isConnectedToNetwork()){
         e.requestInfo(){
             (AttendeeInfo:Attendee) in
             
@@ -37,8 +38,12 @@ class ProfileViewController: CenterViewController , UITextFieldDelegate{
         }
         
         
-    }//end fun didload
-    
+    }
+    else {
+    self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+    }
+}
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -97,7 +102,8 @@ class ProfileViewController: CenterViewController , UITextFieldDelegate{
                 NSLog("OK Pressed")
                 
                 let e : Attendee = Attendee()
-                
+                if(Reachability.isConnectedToNetwork()){
+
                 e.UpdateProfile ( username, email: email, password: password, bio: bio){
                     (flag:Bool) in
                     
@@ -107,10 +113,17 @@ class ProfileViewController: CenterViewController , UITextFieldDelegate{
                             print("Heeeeello")
                             self.performSegueWithIdentifier("backtohoempage", sender:sender)
                         }}
+                    else{
+                    self.displayAlert("", message: "البريد الإلكتروني مسجل لدينا سابقاً")
+                    }
                     
                 }
                 
-                
+                }
+                else {
+                    self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+                    
+                }
             }
             
             let cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel)

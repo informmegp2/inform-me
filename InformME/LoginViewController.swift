@@ -76,7 +76,6 @@ class LoginViewController: UIViewController, UINavigationControllerDelegate, UIT
             }
         }
     }// end fun login
-    
   
     func performSegue(flag: Bool, type: Int) {
         print("Is it")

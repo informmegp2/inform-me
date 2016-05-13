@@ -21,6 +21,7 @@ class ManageEventsViewController: CenterViewController , UITableViewDataSource, 
     var UserID: Int = NSUserDefaults.standardUserDefaults().integerForKey("id");
     override func viewDidLoad() {
         print(NSUserDefaults.standardUserDefaults().integerForKey("id"))
+        if (Reachability.isConnectedToNetwork()){
         event.requesteventlist(UserID){
             (eventsInfo:[Event]) in
             dispatch_async(dispatch_get_main_queue()) {
@@ -29,6 +30,11 @@ class ManageEventsViewController: CenterViewController , UITableViewDataSource, 
             }
             
         }
+    }
+    else {
+    self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+    
+    }
         print("I am Back")
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
@@ -40,42 +46,20 @@ class ManageEventsViewController: CenterViewController , UITableViewDataSource, 
    
   
     
-    @IBAction func out(sender: AnyObject) {
+    
+    func displayAlert(title: String, message: String) {
         
-        
-        
-        
-        print(" iam in 1")
-        
-        var flag: Bool
-        flag = false
-        
-        
-        
-        let current: Authentication = Authentication();
-        
-        current.logout(){
-            (login:Bool) in
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
             
-            dispatch_async(dispatch_get_main_queue()) {
-                
-                flag = login
-                if(flag) {
-                    
-                    self.performSegueWithIdentifier("backtologin", sender: self)
-                    
-                    
-                    print("I am happy",login,flag) }
-                
-            }
-            print("I am Here")  }
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        })))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
         
         
-        
-        
-    }//end out
-    
-    
+    }//end fun display alert
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -61,12 +61,16 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
                     NSLog("OK Pressed")
                     
                     let b : Beacon = Beacon()
+                    if(Reachability.isConnectedToNetwork()){
                     b.addBeacon (llabel, major: major,minor:minor){
                         (flag:Bool) in
                         //we should perform all segues in the main thread
                         dispatch_async(dispatch_get_main_queue()) {
                             self.performSegueWithIdentifier("addBeacon", sender:sender)
                         }}}
+                else {
+                    self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+                    }}
                 let cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
                     UIAlertAction in
                     NSLog("Cancel Pressed")
@@ -80,6 +84,20 @@ class AddBeaconViewController: UIViewController, UITableViewDelegate, UITextFiel
             }}
         
     }
+    func displayAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        })))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }//end fun display alert
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Minor.delegate = self

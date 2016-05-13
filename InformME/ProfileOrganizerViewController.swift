@@ -26,6 +26,7 @@ class ProfileOrganizerViewController : CenterViewController , UITextFieldDelegat
         emailField.delegate = self
         bioField.delegate = self
         passwordField.delegate = self
+        if(Reachability.isConnectedToNetwork()){
         e.requestInfo(){
             (OrganizerInfo:EventOrganizer) in
             
@@ -36,11 +37,11 @@ class ProfileOrganizerViewController : CenterViewController , UITextFieldDelegat
             }
             
         }
-        
-        
-        
-        
-    }// fun didload
+        }
+        else {
+            self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -86,7 +87,7 @@ class ProfileOrganizerViewController : CenterViewController , UITextFieldDelegat
                 NSLog("OK Pressed")
                 
                 let e : EventOrganizer = EventOrganizer()
-                
+                if(Reachability.isConnectedToNetwork()){
                 e.UpdateProfile ( username, email: email, password: password, bio: bio){
                     (flag:Bool) in
                     
@@ -95,12 +96,22 @@ class ProfileOrganizerViewController : CenterViewController , UITextFieldDelegat
                     dispatch_async(dispatch_get_main_queue()) {
                         print("Heeeeello")
                         self.performSegueWithIdentifier("backtohomepage", sender:sender)
-                    }}
+                        }}
+                        else{
+                            self.displayAlert("", message: "البريد الإلكتروني مسجل لدينا سابقاً")
+
+                        }
+                        
                 
                 }
                 
                 
+                }
+                else {
+                    self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+                }
             }
+            
             
             let cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel)
                 {

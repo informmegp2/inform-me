@@ -15,7 +15,24 @@ class ReportViewController: UIViewController, UITableViewDataSource, UITableView
     var event: Event = Event()
     
     @IBOutlet var tableView: UITableView!
+    
+    func displayAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        })))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }//end fun display alert
+    
+    
     override func viewDidLoad() {
+        if(Reachability.isConnectedToNetwork()){
         report.viewReport(event){
             (contents:[Content]) in
             dispatch_async(dispatch_get_main_queue()) {
@@ -23,6 +40,9 @@ class ReportViewController: UIViewController, UITableViewDataSource, UITableView
             self.tableView.reloadData()
         }
 
+            }}
+        else {
+            self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
         }
         print("I am Back22")
         self.tableView.delegate = self;
@@ -58,43 +78,7 @@ class ReportViewController: UIViewController, UITableViewDataSource, UITableView
         return contents.count;
     }
     
-    
-    
-    @IBAction func out(sender: AnyObject) {
-        
-        print(" iam in 1")
-        
-        var flag: Bool
-        flag = false
-        
-        
-        
-        let current: Authentication = Authentication();
-        
-        current.logout(){
-            (login:Bool) in
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                
-                flag = login
-                if(flag) {
-                    
-                    self.performSegueWithIdentifier("backtologin", sender: self)
-                    
-                    
-                    print("I am happy",login,flag) }
-                
-            }
-            print("I am Here")  }
-        
-        
-        
-        
-        
-        
-    } //end out */ backtologin
-    
-    
+ 
 
 
 }

@@ -25,12 +25,29 @@ class ManageBeaconsViewController: CenterViewController,UITableViewDataSource, U
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        get();
+        if(Reachability.isConnectedToNetwork()){
+            get();}
+        else {
+            self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+        }
         tableView.reloadData()
         self.navigationItem.title = "إدارة بيكون"
         //setup tint color for tha back button.
             }
     
+    func displayAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        })))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }//end fun display alert
     
     
     

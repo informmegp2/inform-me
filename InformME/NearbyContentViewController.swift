@@ -121,7 +121,7 @@ self.tableView.reloadData()*/
             upcoming.cid = cid!
             
             let content = Content()
-            
+            if(Reachability.isConnectedToNetwork()){
             content.ViewContent(cid!, UserID: uid){
                 (content:Content) in
                 dispatch_async(dispatch_get_main_queue()) {
@@ -163,8 +163,11 @@ self.tableView.reloadData()*/
                     
                     
                 }
+            } // end call
             }
-            
+            else {
+                self.displayAlert("", message: "الرجاء الاتصال بالانترنت")  
+            }
             
         
         
@@ -200,6 +203,21 @@ self.tableView.reloadData()*/
     upcoming.content = content*/
         }
     }
+    
+    
+    func displayAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        })))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }//end fun display alert
     
     func loadContent (major: NSNumber, minor: NSNumber)
     {
@@ -253,8 +271,12 @@ self.tableView.reloadData()*/
                 for beacon in beacons {
                     //Check if the content was requested
                     if (!Requested.contains("\(beacon.major):\(beacon.minor)") && ((beacon.proximity == .Immediate) || (beacon.proximity == .Near)))                    {//If not request content then add to requested array
+                        if(Reachability.isConnectedToNetwork()){
                         loadContent(beacon.major, minor: beacon.minor)
-                        Requested.append("\(beacon.major):\(beacon.minor)")
+                            Requested.append("\(beacon.major):\(beacon.minor)")}
+                        else {
+                            self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+                        }
                     }
 
                 }

@@ -120,13 +120,19 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             UIAlertAction in
             NSLog("OK Pressed")
             let c : Content = Content()
+            if(Reachability.isConnectedToNetwork()){
             c.updateContent (title, abstract: abstract,video: video  , Pdf: pdf ,bLabel: blabel,image: self.images, TempV: self.tempV , TempP: self.tempP ,EID: self.EID!, cID: self.cid!){
                 (flag:Bool) in
                 dispatch_async(dispatch_get_main_queue()) {
                     self.performSegueWithIdentifier("alertPressedOK", sender:sender)
                 }
                 
-            } }
+            }//end call
+            }
+            else{
+                self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+            }
+            }
         
         let cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
             UIAlertAction in
@@ -163,6 +169,19 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
         
     }
     
+    func displayAlert(title: String, message: String) {
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction((UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        })))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        
+    }//end fun display alert
     @IBAction func deleteContent(sender: AnyObject) {
         let alertController = UIAlertController(title: "", message: "هل أنت متأكد من رغبتك بالحذف", preferredStyle: .Alert)
         
@@ -171,8 +190,11 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             UIAlertAction in
             NSLog("OK Pressed")
             let c: Content = Content()
-            
-            c.DeleteContent(self.cid!)
+            if(Reachability.isConnectedToNetwork()){
+                c.DeleteContent(self.cid!)}
+            else {
+                self.displayAlert("",message: "الرجاء الاتصال بالانترنت")
+            }
             // (flag:Bool) in
             //we should perform all segues in the main thread
             // dispatch_async(dispatch_get_main_queue()) {
@@ -200,6 +222,7 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
         super.viewDidLoad()
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
+        if(Reachability.isConnectedToNetwork()){
         beacon.requestbeaconlist(UserID){// fo assign beacon
             (beaconsInfo:[Beacon]) in
             dispatch_async(dispatch_get_main_queue()) {
@@ -211,7 +234,10 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             }
             
         }
-        
+        }
+        else {
+            self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
+        }
         self.ETitle.text = ttitel
         self.EAbstract.text = aabstract
         self.EPDF.text = ppdf
