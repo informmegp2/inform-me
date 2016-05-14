@@ -43,6 +43,15 @@ class AddContentViewController: UIViewController, UITableViewDelegate, UITextFie
             
             self.presentViewController(alert, animated: true, completion: nil)
         }
+        else if (pickerTextField.text == "") {
+            let alert = UIAlertController(title: "", message: " يرجى اختيار بيكون", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+                
+            }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
         else {
             if(Reachability.isConnectedToNetwork()){
         c.createContent(title,abstract: abstract,video: video,Pdf: pdf ,BLabel: label, EID: EID, image: images ){

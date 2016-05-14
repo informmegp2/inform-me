@@ -112,6 +112,15 @@ class UpdateContentViewController: UIViewController  , UITextFieldDelegate, UIPi
             
             self.presentViewController(alert, animated: true, completion: nil)
         }
+        else if (pickerTextField.text == "") {
+            let alert = UIAlertController(title: "", message: " يرجى اختيار بيكون", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            alert.addAction(UIAlertAction(title: "موافق", style: .Default, handler: { (action) -> Void in
+                
+            }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
         else {
         let alertController = UIAlertController(title: "", message: " هل أنت متأكد من رغبتك بحفظ التغييرات؟", preferredStyle: .Alert)
         
