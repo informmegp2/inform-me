@@ -343,7 +343,7 @@ class ContentForAttendeeViewController: UIViewController,  UITableViewDelegate, 
             dispatch_async(dispatch_get_main_queue()) {
                 print("I am cool")
                 self.commentsTable.reloadData()
-
+                self.commentField.enabled = true 
             }
         }
         }

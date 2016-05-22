@@ -28,10 +28,8 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
     
     // Update beacon
     @IBAction func Submit(sender: AnyObject) {
-        
-        
         let minor = Minor.text!
-        let llabel = Label.text!
+        let lllabel = Label.text!
         let  major = Major.text!
         
         if (self.Label.text == "" || self.Major.text == "" || self.Minor.text == "") {
@@ -64,22 +62,16 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
                     NSLog("OK Pressed")
                     
                     let b : Beacon = Beacon()
-                    if(Reachability.isConnectedToNetwork()){
-                    b.updateBeacon (llabel, major: major,minor:minor ,Temp: self.temp)
+                    b.updateBeacon (lllabel, major: major,minor:minor ,Temp: self.temp)
                     // (flag:Bool) in
                     //we should perform all segues in the main thread
                     // dispatch_async(dispatch_get_main_queue()) {
                     if (b.save){
-                        self.performSegueWithIdentifier("alertPressedOK", sender:sender)}}
+                        self.performSegueWithIdentifier("alertPressedOK", sender:sender)}
                     else {
                         self.displayAlert("", message: "الرجاء الاتصال بالانترنت")
                     }
                     }
-                
-                
-                
-                
-                
                 let cancelAction = UIAlertAction(title: "إلغاء الأمر", style: UIAlertActionStyle.Cancel) {
                     UIAlertAction in
                     NSLog("Cancel Pressed")
@@ -172,7 +164,7 @@ class UpdateBeaconViewController: UIViewController , UITextFieldDelegate{
         let okAction = UIAlertAction(title: "موافق", style: UIAlertActionStyle.Default) {
             UIAlertAction in
             NSLog("OK Pressed")
-            var b: Beacon = Beacon()
+            let b: Beacon = Beacon()
             
             b.deleteBeacon(self.temp)
             self.performSegueWithIdentifier("deleteok", sender:sender)

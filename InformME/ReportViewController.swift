@@ -53,7 +53,7 @@ class ReportViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
+        //TODO: Comments Repeat every 5 contents!
         let cell = tableView.dequeueReusableCellWithIdentifier("contentReportCell", forIndexPath: indexPath) as! ContentReportTableViewCellController
         let name = self.contents[indexPath.row].Title
         cell.name.text = name as String
@@ -63,9 +63,14 @@ class ReportViewController: UIViewController, UITableViewDataSource, UITableView
         cell.dislikes.text = String(dislikes)
         let comments = self.contents[indexPath.row].comments
         cell.comments = comments
+        if(comments.count > 0) {
+            print("\(comments[0].comment) + \(contents[indexPath.row].contentId)")}
+        else {
+            print("\(contents[indexPath.row].contentId)")}
         cell.commentsNo.text = String(comments.count)
         cell.commentsTable.delegate = cell;
         cell.commentsTable.dataSource = cell;
+        cell.commentsTable.reloadData()
         cell.sharesNo.text = String(self.contents[indexPath.row].shares)
         return cell
         
@@ -73,8 +78,7 @@ class ReportViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // TODO: this number should be changed to the actual number of recieved events.
-        //return values.count;
+
         return contents.count;
     }
     
