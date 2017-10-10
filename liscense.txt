@@ -1,5 +1,5 @@
-Copyright (c) 2016, Mohammad Norouzi <mohammad.n@gmail.com> and Ali
-Punjani <alipunjani@cs.toronto.edu>
+Copyright (c) 2016, Amal Alabdulkarim <amal.alabdukarim@gmail.com> and Lamees Alsuhaibani
+ <lameessuhaibani@gmail.com>
 
 Permission to use, copy, modify, and/or distribute this software for
 any purpose with or without fee is hereby granted, provided that the
